@@ -7,3 +7,8 @@ module.exports = {
   //   enable: true,
   // }
 };
+
+exports.ejs = {
+  enable: true,
+  package: 'egg-view-ejs',
+};
