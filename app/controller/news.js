@@ -10,7 +10,7 @@ class NewsController extends Controller {
 
     //注意  await
 
-
+    console.log(this.config.api);
  
     let list = await this.service.news.getNewsList();
 
