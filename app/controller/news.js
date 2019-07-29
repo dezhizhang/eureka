@@ -7,10 +7,14 @@ class NewsController extends Controller {
 
 
     let list = await this.service.news.getNewsList();
+ 
+    let data = JSON.parse(list);
+    console.log(data);
+
 
     await this.ctx.render('news',{
       msg:'111',
-      list
+      data:data.result,
     });
   }
 

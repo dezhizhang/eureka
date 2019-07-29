@@ -17,7 +17,7 @@ module.exports = appInfo => {
     },
   };
 
-  config.api = 'http://www.baidu.com';
+  config.api = 'http://www.phonegap100.com';
 
   
 
