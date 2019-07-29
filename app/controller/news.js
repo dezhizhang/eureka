@@ -11,13 +11,11 @@ class NewsController extends Controller {
     //注意  await
 
 
-    var msg='ejs';
-
-    var list=['11111','2222','3333'];
+ 
+    let list = await this.service.news.getNewsList();
 
     await this.ctx.render('news',{
-
-      mag:msg,
+      msg:'111',
       list
     });
 
