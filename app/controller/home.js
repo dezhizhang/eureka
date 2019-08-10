@@ -9,7 +9,11 @@ class HomeController extends Controller {
 
   async add() {
     let result = this.ctx.request.body;
-
+    this.ctx.body = {
+      code:200,
+      msg:'success',
+      data:null
+    }
   }
 
 }
