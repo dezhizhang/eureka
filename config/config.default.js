@@ -7,7 +7,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1532511512428_3477';
 
   // add your config here
-  config.middleware = [];
+  config.middleware = ['anther'];
 
 
   //配置模板引擎
@@ -18,9 +18,6 @@ module.exports = appInfo => {
   };
 
   config.api = 'http://www.phonegap100.com';
-
-  
-
 
   return config;
 };

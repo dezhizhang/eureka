@@ -4,7 +4,12 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    this.ctx.body = '你好egg.js';
+   await this.ctx.render('home');
+  }
+
+  async add() {
+    let result = this.ctx.request.body;
+
   }
 
 }

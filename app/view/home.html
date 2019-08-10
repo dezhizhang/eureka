@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link  rel = 'stylesheet' type="text/css" href="/public/css/basic.css">
 </head>
 <body>
-    hello
-    <h2>哈哈</h2>
-    <img src="/public/image/6.jpeg"/>
+    <form actions="/add?_csrf=<%=csrf%>" method="POST">
+        用户名:<input type="text" name="username"/></br><br/>
+        密码:<input type="password" name="password"/></br></br>
+        <button type="submit">提交</button>
+    </form>
 </body>
 </html>
