@@ -4,6 +4,11 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
+   this.ctx.cookies.set('username','123456',{
+     maxAge:24*3600*1000,
+     httpOnly:true,
+     encrypt:true
+   })
    await this.ctx.render('home');
   }
 
