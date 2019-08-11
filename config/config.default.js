@@ -9,6 +9,13 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = ['anther','jsonp'];
 
+  config.anther = {
+    match(ctx) {
+      console.log(ctx.request.url);
+      return true;
+    }
+  }
+
   //配置session
   config.session={
     key:'SESSION_ID',
