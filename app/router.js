@@ -12,6 +12,13 @@ module.exports = app => {
 
   router.get('/news',controller.news.index);
 
+  router.get('/login',controller.home.login);
+  router.get('/register',controller.home.register);
+  router.post('/doLogin',controller.home.doLogin);
+  router.post('/doRegister',controller.home.doRegister);
+  
+
+
 
 
 };
