@@ -33,6 +33,16 @@ module.exports = appInfo => {
     },
   };
 
+  //配置数据库连接 
+  config.mongo = {
+    client:{
+      host:'127.0.0.1',
+      port:'27017',
+      name:'example',
+
+    }
+  }
+
   config.api = 'https://news.163.com';
 
   return config;

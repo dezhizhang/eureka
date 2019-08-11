@@ -6,6 +6,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "egg": "^2.2.1",
+    "egg-mongo-native": "^3.4.3",
     "egg-scripts": "^2.5.0",
     "egg-view-ejs": "^2.0.0",
     "koa-jsonp": "^2.0.2"

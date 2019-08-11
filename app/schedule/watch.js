@@ -6,12 +6,12 @@ module.exports = {
     type: 'all', 
   },
   async task(ctx) {
-     let path = '/domestic/';
-     let data = await ctx.service.spider.request(path);
-     let htmlData = data.toString();
-     const $ = cheerio.load(htmlData);
-    let title = $('h4').html();
-    console.log(title);
+    //  let path = '/domestic/';
+    //  let data = await ctx.service.spider.request(path);
+    //  let htmlData = data.toString();
+    //  const $ = cheerio.load(htmlData);
+    // let title = $('h4').html();
+    // console.log(title);
 
   },
 };
