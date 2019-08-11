@@ -33,7 +33,7 @@ module.exports = appInfo => {
     },
   };
 
-  config.api = 'http://www.phonegap100.com';
+  config.api = 'https://news.163.com';
 
   return config;
 };
