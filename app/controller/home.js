@@ -27,7 +27,9 @@ class HomeController extends BaseController {
     await this.ctx.render('register');
   }
   async doLogin() {
-    await this.success('/')
+    let result = this.ctx.request.body;
+    let data = await this.app.mongo.insertOne('admin',{doc:result});
+    await this.success('/login')
 
   }
   async doRegister() {

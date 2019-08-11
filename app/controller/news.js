@@ -11,7 +11,7 @@ class NewsController extends Controller {
         data:data
       }
   }
-
+  
   
 }
 
