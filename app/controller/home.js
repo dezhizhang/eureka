@@ -1,7 +1,7 @@
 'use strict';
 
-const Controller = require('egg').Controller;
-class HomeController extends Controller {
+const BaseController = require('../base/base');
+class HomeController extends BaseController {
   async index() {
   this.ctx.session.userName = '张三';
 
@@ -27,12 +27,11 @@ class HomeController extends Controller {
     await this.ctx.render('register');
   }
   async doLogin() {
-    await this.ctx.render('public/success');
+    await this.success('/')
 
   }
   async doRegister() {
-    await this.ctx.render('public/success');
-
+   await this.success('/');
   }
 
 }
