@@ -9,6 +9,15 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = ['anther'];
 
+  //配置session
+  config.session={
+    key:'SESSION_ID',
+    maxAge:86400,
+    renew:true,
+    httpOnly:true,
+    encrypt:true
+  }
+
 
   //配置模板引擎
   config.view = {
