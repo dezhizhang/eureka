@@ -1,18 +1,8 @@
-
-// module.exports = (opt,app) => {
-//     return async function auther(ctx,nect) {
-//         ctx.state.csrf = ctx.csrf;
-//         console.log(opt);
-
-//         await nect();
-//     }
-// }
+'use strict';
 
 module.exports = (opt,app) => {
-    return async function auther(ctx,next) {
+    return async function anther(ctx,next) {
         ctx.state.csrf = ctx.csrf;
-        console.log(opt);
-        
         await next();
 
     }

@@ -6,7 +6,8 @@
   "dependencies": {
     "egg": "^2.2.1",
     "egg-scripts": "^2.5.0",
-    "egg-view-ejs": "^2.0.0"
+    "egg-view-ejs": "^2.0.0",
+    "koa-jsonp": "^2.0.2"
   },
   "devDependencies": {
     "autod": "^3.0.1",
