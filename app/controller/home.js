@@ -36,6 +36,15 @@ class HomeController extends BaseController {
    await this.success('/');
   }
 
+  async test() {
+    let result = this.ctx.request.body;
+    this.ctx.body = {
+      code:200,
+      message:'SUCCESS',
+      data:null
+    }
+  }
+
 }
 
 module.exports = HomeController;
