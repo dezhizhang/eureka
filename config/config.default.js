@@ -33,15 +33,6 @@ module.exports = appInfo => {
     },
   };
 
-  //配置数据库连接 
-  // config.mongo = {
-  //   client:{
-  //     host:'127.0.0.1',
-  //     port:'27017',
-  //     name:'cms',
-
-  //   }
-  // }
  //配置数据库连接 
   config.mongoose = {
     client:{
