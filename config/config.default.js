@@ -34,14 +34,24 @@ module.exports = appInfo => {
   };
 
   //配置数据库连接 
-  config.mongo = {
-    client:{
-      host:'127.0.0.1',
-      port:'27017',
-      name:'cms',
+  // config.mongo = {
+  //   client:{
+  //     host:'127.0.0.1',
+  //     port:'27017',
+  //     name:'cms',
 
+  //   }
+  // }
+ //配置数据库连接 
+  config.mongoose = {
+    client:{
+      url:'mongodb://127.0.0.1/example',
+      options:{}
     }
+  
   }
+
+
 
   config.api = 'https://news.163.com';
 

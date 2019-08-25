@@ -13,3 +13,8 @@ exports.mongo = {
     enable:true,
     package:'egg-mongo-native'
 }
+//配置数据库
+exports.mongoose = {
+    enable:true,
+    package:'egg-mongoose'
+}

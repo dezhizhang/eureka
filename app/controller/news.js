@@ -11,6 +11,9 @@ class NewsController extends Controller {
         data:data
       }
   }
+  async user() {
+    
+  }
   
   
 }
