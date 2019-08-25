@@ -34,17 +34,30 @@ class HomeController extends BaseController {
 
   }
   async doRegister() {
-   await this.success('/');
+    await this.success('/');
   }
 
-  async test() {
-    let result = this.ctx.request.body;
-    this.ctx.body = {
-      code:200,
-      message:'SUCCESS',
-      data:null
-    }
+  async order() {
+     let result = await this.ctx.model.Order.aggregate([
+       {
+         $lookup:{
+           from:'user',
+           localField:'order_id',
+           foreignField:'order_id',
+           as:'item'
+         }
+       }
+     ]);
+     this.ctx.body = {
+       code:200,
+       msg:'SUCCESS',
+       data:result
+     }
   }
+
+
+
+
 
 }
 

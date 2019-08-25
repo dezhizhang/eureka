@@ -20,8 +20,7 @@ module.exports = app => {
 
   router.post('/doRegister',controller.home.doRegister);
 
-
-  router.post('/text',controller.home.test)
+  router.get('/order',controller.home.order);
   
 
 
