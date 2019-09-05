@@ -49,8 +49,6 @@ module.exports = appInfo => {
     }
 };
 
-
-
   config.api = 'https://news.163.com';
 
   return config;
