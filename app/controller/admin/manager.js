@@ -4,7 +4,10 @@ const Controller = require('egg').Controller;
 
 class ManagerController extends Controller {
     async index() {
-        this.ctx.body = '角色增加';
+        await this.ctx.render('admin/login')
+    }
+    async info() {
+        await this.ctx.render('admin/manager/index');
     }
 }
 
