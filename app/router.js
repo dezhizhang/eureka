@@ -8,7 +8,8 @@ module.exports = app => {
 
    router.get('/',controller.admin.manager.index);
 
-   router.get('/info',controller.admin.manager.info);
+
+ 
 
 
 
