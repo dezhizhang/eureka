@@ -24,8 +24,7 @@ module.exports = appInfo => {
     httpOnly:true,
     encrypt:true
   }
-
-
+  
   //配置模板引擎
   config.view = {
     mapping: {

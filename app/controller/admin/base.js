@@ -15,6 +15,13 @@ class BaseController extends Controller {
             redirectURL:redirectURL
         })
     }
+    //验证
+    async verify() {
+        let captcha = await this.service.tools.captcha();
+        this.ctx.response.type = 'image/svg+xml';
+        this.ctx.body = captcha.data;
+    
+    }
 }
 
 module.exports = BaseController;
