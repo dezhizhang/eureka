@@ -7,6 +7,8 @@ class LoginController extends BaseController {
         await this.ctx.render('admin/login');
     }
 
+
+
 }
 
 module.exports = LoginController;
