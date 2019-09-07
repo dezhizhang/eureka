@@ -7,13 +7,10 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1532511512428_3477';
 
   // add your config here
-  config.middleware = ['anther'];
+  config.middleware = ['auth'];
 
-  config.anther = {
-    match(ctx) {
-      console.log(ctx.request.url);
-      return true;
-    }
+  config.auth = {
+    match:'/admin'
   }
 
   //配置session
@@ -46,8 +43,6 @@ module.exports = appInfo => {
       hostname: 'localhost',
     }
 };
-
-  config.api = 'https://m3u8.251yu.com'
 
   return config;
 };
