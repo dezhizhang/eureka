@@ -11,6 +11,7 @@
     "egg-scripts": "^2.5.0",
     "egg-view-ejs": "^2.0.0",
     "koa-jsonp": "^2.0.2",
+    "md5": "^2.2.1",
     "svg-captcha": "^1.4.0"
   },
   "devDependencies": {

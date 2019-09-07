@@ -6,13 +6,15 @@ class BaseController extends Controller {
     //成功
     async success(redirectURL) {
         await this.ctx.render('admin/public/success',{
-            redirectURL:redirectURL
+            redirectURL:redirectURL,
+            message:message || '操作成功'
         })
     }
     //失败
     async error(redirectURL) {
         await this.ctx.render('admin/public/error',{
-            redirectURL:redirectURL
+            redirectURL:redirectURL,
+            message:message || '操作失败'
         })
     }
     //验证
@@ -20,7 +22,6 @@ class BaseController extends Controller {
         let captcha = await this.service.tools.captcha();
         this.ctx.response.type = 'image/svg+xml';
         this.ctx.body = captcha.data;
-    
     }
 }
 
