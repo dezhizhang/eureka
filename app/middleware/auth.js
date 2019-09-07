@@ -2,7 +2,9 @@
 const url = require('url');
 module.exports = (opt,app) => {
     return async function auth(ctx,next) {
+        //配置安全验证
         ctx.state.csrf = ctx.csrf;
+        //获取url
         const pathname =url.parse(ctx.request.url).pathname ;
         if(ctx.session.userInfo) {
             await next();

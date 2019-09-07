@@ -9,6 +9,7 @@ module.exports = app => {
    router.get('/',controller.admin.manager.index);
    router.get('/admin/login',controller.admin.login.index);
    router.get('/admin/verify',controller.admin.base.verify);
+   router.post('/admin/doLogin',controller.admin.login.doLogin);
 
 
    
