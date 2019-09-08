@@ -15,12 +15,21 @@
                         <th>管理员名称</th>
                         <th>管理员电话</th>
                         <th>管理员邮箱</th>
-                        <th>管理员角色</th>
-                                           
+                        <th>管理员角色</th>                
                         <th class="text-center">操作</th>
                     </tr>
                     </thead>
-                   
+                    <tbody>
+                        <%for(let i=0;i<list.length;i++){%>
+                            <tr>
+                                <td><%=list[i].username%></td>
+                                <td><%=list[i].mobile%></td>
+                                <td><%=list[i].email%></td>
+                                <td><%=list[i].item[0].title%></td>
+                                <td class="text-center"><a >修改</a>|<a>删除</a></td>
+                            </tr>
+                        <%}%>
+                    </tbody>
                 </table>
             </div>
 
