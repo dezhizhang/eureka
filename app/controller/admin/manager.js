@@ -39,7 +39,15 @@ class ManagerController extends BaseController {
             await manager.save();
             await this.success('/admin/manager','增加管理员成功');
         }
-    
+    }
+    //修改
+    async edit() {
+        let result = this.ctx.query;
+        await this.ctx.render('/admin/manager/edit')
+    }
+    //修改管理员
+    async doEdit() {
+        
     }
 
     

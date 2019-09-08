@@ -56,3 +56,14 @@ input[type=file]{
 .navbar{
 	border-radius: 0px;
 }
+.text-center a{
+    cursor: pointer;
+}
+.btn-primary{
+    background:#537afb;
+    color: #fff;
+}
+.btn-primary:hover{
+    background:#537afb;
+    color: #fff;
+}

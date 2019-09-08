@@ -26,7 +26,10 @@
                                 <td><%=list[i].mobile%></td>
                                 <td><%=list[i].email%></td>
                                 <td><%=list[i].item[0].title%></td>
-                                <td class="text-center"><a >修改</a>|<a>删除</a></td>
+                                <td class="text-center">
+                                    <a href="/admin/manager/edit?id=<%=list[i]._id%>">修改</a> 
+                                    <a>删除</a>
+                                </td>
                             </tr>
                         <%}%>
                     </tbody>
