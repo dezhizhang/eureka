@@ -14,7 +14,6 @@ ul{
     color: #fff;
     background-color: #428bca;
     border-color: #428bca;
-    border-bottom: 2px solid #3a82bf;
 }
 .aside .list-group-item:first-child{
 	border-top-left-radius: 0px;
@@ -30,15 +29,16 @@ ul{
 	text-indent: 10px;
 	color: #555
 }
+.navbar-inverse{
+    background:#537afb;
+    border: 0px!important;
+}
 .navbar-header{
     width: 180px;
     text-align: center;
 }
 .navbar-inverse .navbar-nav>li>a{
     color:#f9f9f9;
-}
-.navbar-inverse{
-    background:#46473F;
 }
 table .th{
 	background: #EEEEEE;

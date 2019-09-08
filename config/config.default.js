@@ -16,7 +16,7 @@ module.exports = appInfo => {
   //配置session
   config.session={
     key:'SESSION_ID',
-    maxAge:86400,
+    maxAge:864000,
     renew:true,
     httpOnly:true,
     encrypt:true

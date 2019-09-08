@@ -10,8 +10,8 @@ class LoginController extends BaseController {
     //热行用户登录
     async doLogin() {
         let data = this.ctx.request.body;
+        let username = data.username;
         let password = await this.service.tools.md5(data.password);
-
         let code = data.code;
         if(code.toUpperCase() == this.ctx.session.code.toUpperCase()) {
             let result = await this.ctx.model.Admin.find({'username':username,'password':password});
@@ -27,9 +27,6 @@ class LoginController extends BaseController {
         } else {
             await this.error('/admin/login','验证码不正确');
         }
-
-       
-
     }
 
 

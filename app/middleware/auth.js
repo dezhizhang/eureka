@@ -7,6 +7,7 @@ module.exports = (opt,app) => {
         //获取url
         const pathname =url.parse(ctx.request.url).pathname ;
         if(ctx.session.userInfo) {
+            ctx.state.userInfo = ctx.session.userInfo;
             await next();
         } else {
             if(pathname == '/admin/login' || pathname == '/admin/doLogin' || pathname == '/admin/verify') {
