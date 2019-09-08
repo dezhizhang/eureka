@@ -11,6 +11,12 @@ module.exports = app => {
    router.get('/admin/verify',controller.admin.base.verify);
    router.post('/admin/doLogin',controller.admin.login.doLogin);
 
+  //管理员
+  router.get('/admin/manager',controller.admin.manager.index);
+  router.get('/admin/manager/add',controller.admin.manager.add);
+  router.post('/admin/manager/doAdd',controller.admin.manager.doAdd);
+
+
 
 
    //角色
