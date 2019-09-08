@@ -4,6 +4,8 @@ module.exports = (opt,app) => {
     return async function auth(ctx,next) {
         //配置安全验证
         ctx.state.csrf = ctx.csrf;
+        //上一页地址
+        ctx.state.prevPage = ctx.request.headers['referer'];
         //获取url
         const pathname =url.parse(ctx.request.url).pathname ;
         if(ctx.session.userInfo) {
@@ -13,7 +15,7 @@ module.exports = (opt,app) => {
             if(pathname == '/admin/login' || pathname == '/admin/doLogin' || pathname == '/admin/verify') {
                 await next();
             } else {
-                ctx.redirect('/admin/login')
+                ctx.redirect('/admin/login');
             }
         }
     }

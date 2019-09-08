@@ -23,7 +23,7 @@
                             <td><%=list[i].add_time%></td>                         
                             <td class="text-center">
                                 <a href="/admin/role/edit?id=<%=list[i]._id%>">修改</a> 　
-                                <a href="#">删除</a>
+                                <a href="/admin/role/delete?model=Role&id=<%=list[i]._id%>">删除</a>
                             </td>
                         </tr>
                       <%}%>

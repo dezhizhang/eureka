@@ -23,6 +23,15 @@ class BaseController extends Controller {
         this.ctx.response.type = 'image/svg+xml';
         this.ctx.body = captcha.data;
     }
+     //公共的删除方法
+     async delete() {
+        let result = this.ctx.query;
+        let id = result.id;
+        let model = result.model;
+        await this.ctx.model[model].deleteOne({'_id':id});
+        //返回上一页
+        this.ctx.redirect(this.ctx.state.prevPage);
+      }
 }
 
 module.exports = BaseController;
