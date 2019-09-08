@@ -4,7 +4,10 @@ const BaseController = require('./base');
 
 class ManagerController extends BaseController {
     async index() {
-        // await this.ctx.render('admin/manager/index')
+        let result = await this.ctx.model.Admin.find();
+        await this.ctx.render('admin/manager/index',{
+            list:result
+        })
     }
     //管理员
     async add() {
@@ -18,9 +21,15 @@ class ManagerController extends BaseController {
     async doAdd() {
         let result = this.ctx.request.body;
         result.password = await this.service.tools.md5(result.password);
-        let manager = new this.ctx.model.Admin(result);
-        await manager.save();
-        this.success('/admin/manager','增加管理员成功');
+        let adminResult = await this.ctx.model.Admin.find({'username':result.username});
+        if(adminResult.length > 0) {
+            await this.error('/admin/manager','当前管理员以存在');
+        } else {
+            let manager = new this.ctx.model.Admin(result);
+            await manager.save();
+            await this.success('/admin/manager','增加管理员成功');
+        }
+    
     }
 
     
