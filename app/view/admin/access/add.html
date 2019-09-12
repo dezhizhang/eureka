@@ -29,6 +29,9 @@
                                 <li>  所属模块:
                                     <select name="module_id" class="select">
                                         <option value="0">顶级模块</option>
+                                        <%for(let i=0;i<list.length;i++){%>
+                                            <option value="<%=list[i].module_id%>"><%=list[i].module_name%></option>
+                                        <%}%>
                                     </select>
                                 </li>
                                 <li>  排　　序: <input type="text" name="sort" value="100"/></li>
