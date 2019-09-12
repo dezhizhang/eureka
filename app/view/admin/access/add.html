@@ -17,8 +17,8 @@
                                 <li> 模块名称: <input type="text" name="module_name"/></li>
                                 <li> 
                                     节点类型:
-                                        <!-- 1、表示模块   2、表示菜单     3、操作 -->
-                                    <select name="type" id="type" style="width: 180px;height:28px">
+                                    <!-- 1、表示模块   2、表示菜单     3、操作 -->
+                                    <select name="type" id="type" class="select">
                                         <option value="1">模块</option>
                                         <option value="2">菜单</option>
                                         <option value="3">操作</option>
@@ -26,7 +26,11 @@
                                 </li>
                                 <li>  操作名称: <input type="text" name="action_name"/></li>
                                 <li>  操作地址: <input type="text" name="url"/></li>
-                                <li>  所属模块:</li>
+                                <li>  所属模块:
+                                    <select name="module_name" class="select">
+                                        <option value="0">顶级模块</option>
+                                    </select>
+                                </li>
                                 <li>  排　　序: <input type="text" name="sort" value="100"/></li>
                                 <li>  描　　述:	
                                     <textarea name="description" id="description" style="resize: none" cols="60" rows="5"></textarea>

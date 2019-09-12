@@ -67,3 +67,8 @@ input[type=file]{
     background:#537afb;
     color: #fff;
 }
+.select{
+    width: 180px;
+    height: 28px;
+    
+}

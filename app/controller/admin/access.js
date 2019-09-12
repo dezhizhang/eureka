@@ -13,8 +13,10 @@ class AccessController extends BaseController {
     //增加权限
     async doAdd() {
         let data = this.ctx.request.body;
-        console.log(data);
-        
+        let access = new  this.ctx.model.Access(data);
+        await access.save();
+        await this.success('/admin/access','增加权限成功');
+
 
     }
 }
