@@ -30,7 +30,7 @@
                                     <select name="module_id" class="select">
                                         <option value="0">顶级模块</option>
                                         <%for(let i=0;i<list.length;i++){%>
-                                            <option value="<%=list[i].module_id%>"><%=list[i].module_name%></option>
+                                            <option value="<%=list[i]._id%>"><%=list[i].module_name%></option>
                                         <%}%>
                                     </select>
                                 </li>
