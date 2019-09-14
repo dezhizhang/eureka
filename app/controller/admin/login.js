@@ -28,6 +28,11 @@ class LoginController extends BaseController {
             await this.error('/admin/login','验证码不正确');
         }
     }
+    //退出登录
+    async loginOut() {
+        this.ctx.session.userInfo = null;
+        this.ctx.redirect('/admin/login');
+    }
 
 
 

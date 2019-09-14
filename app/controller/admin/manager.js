@@ -42,12 +42,22 @@ class ManagerController extends BaseController {
     }
     //修改
     async edit() {
-        let result = this.ctx.query;
-        await this.ctx.render('/admin/manager/edit')
+        let id = this.ctx.query.id;
+        let roleData = await this.ctx.model.Role.find();
+        let result = await this.ctx.model.Admin.find({'_id':id});
+        await this.ctx.render('/admin/manager/edit',{
+            list:result[0],
+            roleList:roleData
+        })
     }
     //修改管理员
     async doEdit() {
-        
+        let data = this.ctx.request.body;
+        let id = data.id;
+        let result = await this.ctx.model.Admin.updateOne({'_id':id},data);
+        await this.success('/admin/manager','修改管理员成功');
+
+
     }
 
     
