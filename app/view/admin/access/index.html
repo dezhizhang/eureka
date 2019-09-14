@@ -35,7 +35,10 @@
                                 <td><%=list[i].url%></td>
                                 <td><%=list[i].sort%></td>
                                 <td><%=list[i].description%></td>
-                                <td class="text-center">修改  删除</td>
+                                <td class="text-center">
+                                    <a href="/admin/access/edit?id='<%=list[i]._id%>'">修改</a>  
+                                    <a href="javascript:;">删除</a>
+                                </td>
                             </tr>
                             <%for(var j=0;j<list[i].items.length;j++){%>
                             <tr>
@@ -53,7 +56,10 @@
                                 <td><%=list[i].items[j].url%></td>
                                 <td><%=list[i].items[j].sort%></td>
                                 <td><%=list[i].items[j].description%></td>    
-                                <td class="text-center">修改  删除</td>
+                                <td class="text-center">
+                                    <a href="/admin/access/edit?id='<%=list[i].items[j]._id%>'">修改</a>
+                                    <a href="javascript:;">删除</a>
+                                </td>
                             </tr>
                             <%}%>
                         <%}%>
