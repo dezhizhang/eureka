@@ -54,10 +54,18 @@ class ManagerController extends BaseController {
     async doEdit() {
         let data = this.ctx.request.body;
         let id = data.id;
-        let result = await this.ctx.model.Admin.updateOne({'_id':id},data);
+        let password = data.password;
+        data.password = await this.service.tools.md5(password);
+        if(password) { //修改密码
+            await this.ctx.model.Admin.updateOne({'_id':id},data);
+        } else {
+            await this.ctx.model.Admin.updateOne({'_id':id},{
+                email:data.email,
+                role_id:data.role_id,
+                mobile:data.mobile
+            })
+        }
         await this.success('/admin/manager','修改管理员成功');
-
-
     }
 
     

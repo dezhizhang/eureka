@@ -18,6 +18,7 @@ module.exports = app => {
   router.post('/admin/manager/doAdd',controller.admin.manager.doAdd);
   router.get('/admin/manager/edit',controller.admin.manager.edit);
   router.post('/admin/manager/doEdit',controller.admin.manager.doEdit);
+  router.get('/admin/manager/delete',controller.admin.base.delete);
 
 
 

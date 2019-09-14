@@ -22,7 +22,7 @@
                                 <li>  管理员角色: 
                                     <select style="width: 180px;height: 28px;" name="role_id" id="role_id">
                                         <%for(let i=0;i<roleList.length;i++){%>
-                                            <option value="<%=roleList[i]._id%>" <%if(roleList._id == list.role_id){%>selected<%}%>><%=roleList[i].title%></option>
+                                            <option value="<%=roleList[i]._id%>" <%if(roleList[i]._id.toString() == list.role_id.toString()){%>selected<%}%>><%=roleList[i].title%></option>
                                         <%}%>
                                     </select>
                                 </li>
