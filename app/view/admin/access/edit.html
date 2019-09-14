@@ -11,8 +11,9 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
-                        <form action="/admin/access/doAdd" method="post">
+                        <form action="/admin/access/doEdit" method="post">
                             <input type="hidden" name="_csrf" value="<%=csrf%>">
+                            <input type="hidden" name="id" value="<%=list._id%>">
                             <ul>
                                 <li> 模块名称: <input type="text" name="module_name" value="<%=list.module_name%>"/></li>
                                 <li> 
