@@ -36,7 +36,7 @@ class AccessController extends BaseController {
         let data=this.ctx.request.body;
         let module_id=data.module_id;
         //菜单或者操作
-        if(module_id){
+        if(module_id!='0'){
             data.module_id=this.app.mongoose.Types.ObjectId(module_id); 
 
         }
@@ -59,6 +59,11 @@ class AccessController extends BaseController {
     async doEdit() {
         let data = this.ctx.request.body;
         let id = data.id;
+        let module_id = data.module_id;
+        if(module_id!='0') {
+            data.module_id = this.app.mongoose.Types.ObjectId(module_id);
+
+        }
         let result = await this.ctx.model.Access.updateOne({'_id':id},data);
         await this.success('/admin/access','修改权限成功');
 

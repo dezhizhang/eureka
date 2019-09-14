@@ -37,7 +37,6 @@
                                 <td><%=list[i].description%></td>
                                 <td class="text-center">
                                     <a href="/admin/access/edit?id=<%=list[i]._id%>">修改</a>  
-                                    <a href="javascript:;">删除</a>
                                 </td>
                             </tr>
                             <%for(var j=0;j<list[i].items.length;j++){%>
@@ -58,7 +57,7 @@
                                 <td><%=list[i].items[j].description%></td>    
                                 <td class="text-center">
                                     <a href="/admin/access/edit?id=<%=list[i].items[j]._id%>">修改</a>
-                                    <a href="javascript:;">删除</a>
+                                    <a href="/admin/access/delete?id=<%=list[i].items[j]._id%>&model=Access">删除</a>
                                 </td>
                             </tr>
                             <%}%>

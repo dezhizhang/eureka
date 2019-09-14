@@ -35,6 +35,7 @@ module.exports = app => {
    router.post('/admin/access/doAdd',controller.admin.access.doAdd);
    router.get('/admin/access/edit',controller.admin.access.edit);
    router.post('/admin/access/doEdit',controller.admin.access.doEdit);
+   router.get('/admin/access/delete',controller.admin.base.delete);
 
 
 
