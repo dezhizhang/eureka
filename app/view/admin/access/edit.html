@@ -14,24 +14,30 @@
                         <form action="/admin/access/doAdd" method="post">
                             <input type="hidden" name="_csrf" value="<%=csrf%>">
                             <ul>
-                                <li> 模块名称: <input type="text" name="module_name"/></li>
+                                <li> 模块名称: <input type="text" name="module_name" value="<%=list.module_name%>"/></li>
                                 <li> 
                                     节点类型:
                                     <!-- 1、表示模块   2、表示菜单     3、操作 -->
                                     <select name="type" id="type" class="select">s
-                                        <option value="1">模块</option>
-                                        <option value="2">菜单</option>
-                                        <option value="3">操作</option>
+                                        <option value="1" <%if(list.type == 1){%>selected<%}%>>模块</option>
+                                        <option value="2" <%if(list.type == 2){%>selected<%}%>>菜单</option>
+                                        <option value="3" <%if(list.type == 3){%>selected<%}%>>操作</option>
                                     </select>
                                 </li>
-                                <li>  操作名称: <input type="text" name="action_name"/></li>
-                                <li>  操作地址: <input type="text" name="url"/></li>
-                                <li>  所属模块:
-                                   
+                                <li>  操作名称: <input type="text" name="action_name" value="<%=list.action_name%>"/></li>
+                                <li>  操作地址: <input type="text" name="url" value="<%=list.url%>"/></li>
+                                <li>  所属模块:     
+                                    <select name="module_id" class="select">
+                                        <option value="0" <%if(list.module_id == 0){%>selected<%}%>>顶级模块</option>
+                                        <%for(let i=0;i<moduleList.length;i++){%>
+
+                                            <option value="<%=moduleList[i]._id%>"  <%if(list.module_id.toString() == moduleList[i]._id.toString()){%>selected<%}%>><%=moduleList[i].module_name%></option>
+                                        <%}%>
+                                    </select>
                                 </li>
-                                <li>  排　　序: <input type="text" name="sort" value="100"/></li>
+                                <li>  排　　序: <input type="text" name="sort" value="100" value="<%=list.sort%>"/></li>
                                 <li>  描　　述:	
-                                    <textarea name="description" id="description" style="resize: none" cols="60" rows="5"></textarea>
+                                    <textarea name="description" id="description" style="resize: none" cols="60" rows="5"><%=list.description%></textarea>
                                 </li>
                                 <li>
                                     <br/>
