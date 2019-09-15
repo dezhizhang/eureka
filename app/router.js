@@ -11,6 +11,7 @@ module.exports = app => {
    router.get('/admin/loginOut',controller.admin.login.loginOut);
    router.get('/admin/verify',controller.admin.base.verify);
    router.post('/admin/doLogin',controller.admin.login.doLogin);
+   router.get('/admin/changeStatus',controller.admin.base.changeStatus);
 
   //管理员
   router.get('/admin/manager',controller.admin.manager.index);

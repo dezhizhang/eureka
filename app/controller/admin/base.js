@@ -24,14 +24,57 @@ class BaseController extends Controller {
         this.ctx.body = captcha.data;
     }
      //公共的删除方法
-     async delete() {
+    async delete() {
         let result = this.ctx.query;
         let id = result.id;
         let model = result.model;
         await this.ctx.model[model].deleteOne({'_id':id});
         //返回上一页
         this.ctx.redirect(this.ctx.state.prevPage);
-      }
+    }
+    //改变状态的方法
+    async changeStatus() {
+        let json = {};
+        let data = this.ctx.request.query;
+        let id = data.id;
+        let attr = data.attr;
+        let model = data.model;
+        let result = await this.ctx.model[model].find({'_id':id});
+        if(result.length > 0) {
+            if(result[0][attr] == 1) {
+                json = {
+                    [attr]:0
+                }
+            } else {
+                json = {
+                    [attr]:1
+                }
+            }
+
+            let updateResult = await this.ctx.model[model].updateOne({'_id':id},json);
+            if(updateResult) {
+                 this.ctx.body = {
+                    code:200,
+                    msg:'更改状态成功',
+                    success:true
+
+                 }
+            }else {
+                this.ctx.body = {
+                    code:404,
+                    msg:'更新状态失败',
+                    success:false
+                }
+            }
+
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:'参数有误',
+                success:false
+            }
+        }
+    }
 }
 
 module.exports = BaseController;
