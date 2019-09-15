@@ -10,7 +10,12 @@ module.exports = (opt,app) => {
         const pathname =url.parse(ctx.request.url).pathname ;
         if(ctx.session.userInfo) {
             ctx.state.userInfo = ctx.session.userInfo;
-            await next();
+            let hasAuth = await ctx.service.admin.checkAuth();
+            if(hasAuth) {
+                await next();
+            } else {
+                ctx.body = '您没有权限访问当前地址';
+            }
         } else {
             if(pathname == '/admin/login' || pathname == '/admin/doLogin' || pathname == '/admin/verify') {
                 await next();

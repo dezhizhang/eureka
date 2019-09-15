@@ -17,7 +17,7 @@ module.exports = app => {
            type:Number,
            default:d.getTime()
         },
-        is_super:{ type:Number,default:1 }
+        is_super:{ type:Number,default:0 }
     });
     return mongoose.model('Admin',AdminSchema,'admin');
 }
