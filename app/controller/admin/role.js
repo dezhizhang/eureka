@@ -58,6 +58,26 @@ class LoginController extends BaseController {
                 }
             }
         ]);
+        //查询当前角色有那些权限
+        let accessResult = await this.ctx.model.RoleAccess.find({'role_id':role_id});
+        let roleAccessArr = [];
+        accessResult.map(item => {
+            roleAccessArr.push(item.access_id.toString());
+        });
+        for(let i=0;i<result.length;i++) {
+            //一维
+            let id = result[i]._id.toString();
+            if(roleAccessArr.indexOf(id)!=-1) {
+                result[i].checked = true;
+            }
+            for(let j=0;j<result[i].items.length;j++) {
+                //二维
+                let id = result[i].items[j]._id.toString();
+                if(roleAccessArr.indexOf(id)) {
+                    result[i].items[j].checked = true;
+                }
+            }
+        }
         await this.ctx.render('/admin/role/auth',{
             list:result,
             role_id

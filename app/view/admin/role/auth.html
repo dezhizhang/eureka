@@ -20,7 +20,7 @@
                                         <tr>
                                             <td align="right" style="background: #D8E2FA; padding-right: 10px; width: 150px;">
                                                 <label>
-                                                    <input type="checkbox" class="module_cbo" value="<%=list[i]._id %>" name="access_node[]">&nbsp;&nbsp;
+                                                    <input type="checkbox" <%if(list[i].checked){%>checked<%}%> class="module_cbo" value="<%=list[i]._id %>" name="access_node[]">&nbsp;&nbsp;
                                                         <%=list[i].module_name %>                       
                                                 </label>
                                             </td>
@@ -28,7 +28,7 @@
                                                 <%for(var j=0;j<list[i].items.length;j++){%> 
                                                     &nbsp;&nbsp;
                                                     <label>
-                                                        <input type="checkbox" class="action_cbo" value="<%=list[i].items[j]._id%>" name="access_node[]">
+                                                        <input type="checkbox" <%if(list[i].items[j].checked){%>checked<%}%> class="action_cbo" value="<%=list[i].items[j]._id%>" name="access_node[]">
                                                         &nbsp;&nbsp;<%=list[i].items[j].action_name%>
                                                     </label>&nbsp;&nbsp;
                                                 <%}%>      
