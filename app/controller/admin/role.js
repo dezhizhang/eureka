@@ -42,8 +42,41 @@ class LoginController extends BaseController {
     }
     //授权
     async auth() {
-        await this.ctx.render('/admin/role/auth');
+        let role_id = this.ctx.query.id;
+        let result = await this.ctx.model.Access.aggregate([
+            {
+                $lookup:{
+                    from:'access',
+                    localField:'_id',
+                    foreignField:'module_id',
+                    as:'items'
+                }
+            },
+            {
+                $match:{
+                    'module_id':'0'
+                }
+            }
+        ]);
+        await this.ctx.render('/admin/role/auth',{
+            list:result,
+            role_id
+        });
     } 
+    //授权提交数据
+    async doAuth() {
+        let data = this.ctx.request.body;
+        let role_id = data.role_id;
+        let access_node = data.access_node;
+        for(let i=0;i<access_node.length;i++) {
+            let roleAccess = new this.ctx.model.RoleAccess({
+                role_id,
+                access_id:access_node[i]
+            });
+            await roleAccess.save();
+        };
+        await this.success('/admin/role','授权成功');
+    }
     
 }
 
