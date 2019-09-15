@@ -43,41 +43,7 @@ class LoginController extends BaseController {
     //授权
     async auth() {
         let role_id = this.ctx.query.id;
-        let result = await this.ctx.model.Access.aggregate([
-            {
-                $lookup:{
-                    from:'access',
-                    localField:'_id',
-                    foreignField:'module_id',
-                    as:'items'
-                }
-            },
-            {
-                $match:{
-                    'module_id':'0'
-                }
-            }
-        ]);
-        //查询当前角色有那些权限
-        let accessResult = await this.ctx.model.RoleAccess.find({'role_id':role_id});
-        let roleAccessArr = [];
-        accessResult.map(item => {
-            roleAccessArr.push(item.access_id.toString());
-        });
-        for(let i=0;i<result.length;i++) {
-            //一维
-            let id = result[i]._id.toString();
-            if(roleAccessArr.indexOf(id)!=-1) {
-                result[i].checked = true;
-            }
-            for(let j=0;j<result[i].items.length;j++) {
-                //二维
-                let id = result[i].items[j]._id.toString();
-                if(roleAccessArr.indexOf(id)) {
-                    result[i].items[j].checked = true;
-                }
-            }
-        }
+        let result = await this.service.admin.getAuthList(role_id)
         await this.ctx.render('/admin/role/auth',{
             list:result,
             role_id
