@@ -7,12 +7,12 @@ class ManagerController extends BaseController {
         //关联查询
         let result = await this.ctx.model.Admin.aggregate([
            {
-               $lookup:{
-                   from:'role',
-                   localField:'role_id',
-                   foreignField:'_id',
-                   as:'item'
-               }
+                $lookup:{
+                    from:'role',
+                    localField:'role_id',
+                    foreignField:'_id',
+                    as:'item'
+                }
            }
         ]);
         await this.ctx.render('admin/manager/index',{
