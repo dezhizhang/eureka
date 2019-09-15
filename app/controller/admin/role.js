@@ -68,6 +68,8 @@ class LoginController extends BaseController {
         let data = this.ctx.request.body;
         let role_id = data.role_id;
         let access_node = data.access_node;
+        //删除当前角色下的所有权限
+        await this.ctx.model.RoleAccess.deleteMany({'role_id':role_id});
         for(let i=0;i<access_node.length;i++) {
             let roleAccess = new this.ctx.model.RoleAccess({
                 role_id,
@@ -75,7 +77,7 @@ class LoginController extends BaseController {
             });
             await roleAccess.save();
         };
-        await this.success('/admin/role','授权成功');
+        await this.success(`/admin/role?role_id=${role_id}`,'授权成功');
     }
     
 }
