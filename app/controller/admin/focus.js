@@ -2,18 +2,20 @@
 const path=require('path');
 const fs=require('fs');
 const pump = require('mz-modules/pump');
-
 const BaseController = require('./base');
 
 class FocusController extends BaseController {
     async index() {
-        await this.ctx.render('/admin/focus/index')
-        await this.service.tools.getUploadFile('/public')
+        let result = await this.ctx.model.Focus.find();
+        await this.ctx.render('/admin/focus/index',{
+            list:result
+        });
     }
     async add() {
         await this.ctx.render('/admin/focus/add');
         
     }
+    //轮播图交数据
     async doAdd() {
         let parts = this.ctx.multipart({ autoFields: true });
         let files = {};               
@@ -36,7 +38,14 @@ class FocusController extends BaseController {
         let focus =new this.ctx.model.Focus(Object.assign(files,parts.field));
         let result=await focus.save();
         await this.success('/admin/focus','增加轮播图成功');
-
+    }
+    //修改
+    async edit() {
+        await this.ctx.render('/admin/focus/edit');
+    }
+    //修改提交数据
+    async doEdit() {
+        
     }
 }
 
