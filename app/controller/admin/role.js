@@ -40,6 +40,10 @@ class LoginController extends BaseController {
         let role = await this.ctx.model.Role.updateOne({'_id':_id},{title,description});
         await this.success('/admin/role','编辑角色成功');
     }
+    //授权
+    async auth() {
+        await this.ctx.render('/admin/role/auth');
+    } 
     
 }
 

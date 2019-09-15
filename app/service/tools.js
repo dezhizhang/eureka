@@ -6,7 +6,7 @@ class ToolsService extends Service {
     //生成验证码
     async captcha() {
         let captcha = svgCaptcha.create({
-            size:6,
+            size:3,
             fontSize:50,
             width:120,
             height:30,
@@ -19,8 +19,6 @@ class ToolsService extends Service {
     async md5(str) {
         return md5(str);
     }
-   
-
 }
 
 module.exports = ToolsService;
