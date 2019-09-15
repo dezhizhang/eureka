@@ -29,10 +29,9 @@
                                     <%if(list[i].status == 1){%>
                                         <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')"/>
                                     <%} else{%>
-                                        <img src="public/admin/images/no.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')"/>
+                                        <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')"/>
                                     <%}%>
                                 </td>
-
                                 <td class="text-center">
                                     <a href="/admin/manager/edit?id=<%=list[i]._id%>">修改</a> 
                                     <a href="/admin/manager/delete?id=<%=list[i]._id%>&model=Admin">删除</a>
