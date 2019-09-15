@@ -5,6 +5,7 @@ $(function(){
 let app = {
 	init:function() {
 		this.toggleAside();
+		this.deleteConfirm();
 	},
 	toggleAside:function() {
 		$('.aside h4').click(function() {
@@ -20,6 +21,12 @@ let app = {
 					el.src = '/public/admin/images/yes.gif';
 				}
 			}
+		})
+	},
+	deleteConfirm:function() {
+		$('.delete').click(function(){
+			let flag = confirm('你确定要册吗');
+			return flag;
 		})
 	}
 }
