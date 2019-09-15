@@ -12,6 +12,9 @@
     "egg-view-ejs": "^2.0.0",
     "koa-jsonp": "^2.0.2",
     "md5": "^2.2.1",
+    "mz-modules": "^2.1.0",
+    "pump": "^3.0.0",
+    "silly-datetime": "^0.1.2",
     "svg-captcha": "^1.4.0"
   },
   "devDependencies": {
