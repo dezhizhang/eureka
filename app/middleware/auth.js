@@ -12,6 +12,9 @@ module.exports = (opt,app) => {
             ctx.state.userInfo = ctx.session.userInfo;
             let hasAuth = await ctx.service.admin.checkAuth();
             if(hasAuth) {
+                //获取权限列表
+                let result = await ctx.service.admin.getAuthList(ctx.session.userInfo.role_id);
+                ctx.state.asideList = result;
                 await next();
             } else {
                 ctx.body = '您没有权限访问当前地址';
