@@ -58,7 +58,10 @@ module.exports = app => {
 
   
   //小程序接口
+  //轮播图
   router.get('/api/focus/info',controller.api.focus.index);
+  //广告图
+  router.get('/api/advert/info',controller.api.advert.index);
 
 
 
