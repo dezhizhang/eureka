@@ -40,13 +40,22 @@ module.exports = app => {
   router.post('/admin/access/doEdit',controller.admin.access.doEdit);
   router.get('/admin/access/delete',controller.admin.base.delete);
 
-   //轮播图
-   router.get('/admin/focus',controller.admin.focus.index);
-   router.get('/admin/focus/add',controller.admin.focus.add);
-   router.post('/admin/focus/doAdd',controller.admin.focus.doAdd);
-   router.get('/admin/focus/edit',controller.admin.focus.edit);
-   router.get('/admin/focus/delete',controller.admin.base.delete);
-   router.post('/admin/focus/doEdit',controller.admin.focus.doEdit);
+  //轮播图
+  router.get('/admin/focus',controller.admin.focus.index);
+  router.get('/admin/focus/add',controller.admin.focus.add);
+  router.post('/admin/focus/doAdd',controller.admin.focus.doAdd);
+  router.get('/admin/focus/edit',controller.admin.focus.edit);
+  router.get('/admin/focus/delete',controller.admin.base.delete);
+  router.post('/admin/focus/doEdit',controller.admin.focus.doEdit);
+
+  //广告
+  router.get('/admin/advert',controller.admin.advert.index);
+  router.get('/admin/advert/add',controller.admin.advert.add);
+  router.post('/admin/advert/doAdd',controller.admin.advert.doAdd);
+  router.get('/admin/advert/edit',controller.admin.advert.edit);
+  router.get('/admin/advert/delete',controller.admin.base.delete);
+  router.post('/admin/advert/doEdit',controller.admin.advert.doEdit);
+
   
   //小程序接口
   router.get('/api/focus/info',controller.api.focus.index);
