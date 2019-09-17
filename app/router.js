@@ -47,6 +47,9 @@ module.exports = app => {
    router.get('/admin/focus/edit',controller.admin.focus.edit);
    router.get('/admin/focus/delete',controller.admin.base.delete);
    router.post('/admin/focus/doEdit',controller.admin.focus.doEdit);
+  
+  //小程序接口
+  router.get('/api/focus/info',controller.api.focus.index);
 
 
 
