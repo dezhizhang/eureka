@@ -28,5 +28,20 @@ let app = {
 			let flag = confirm('你确定要删除吗');
 			return flag;
 		})
+	},
+	editNum:function(el,model,attr,id) {
+		let value = $(el).html()
+		let input = $('<input value=""/>');
+		$(el).html(input);
+		$(input).click(function() {
+			return false;
+		});
+		//让input自动获取焦点
+		$(input).trigger('focus').val(value);
+		$(input).blur(function(){
+			$(el).html($(this).val());
+			
+		});
+
 	}
 }
