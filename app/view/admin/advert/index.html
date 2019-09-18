@@ -32,14 +32,14 @@
                                        <td><%=list[i].link%></td>
                                        <td class="text-center">
                                             <%if(list[i].status == 1){%>
-                                                <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')"/>
+                                                <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Advert','status','<%=list[i]._id%>')"/>
                                             <%} else{%>
-                                                <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')"/>
+                                                <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Advert','status','<%=list[i]._id%>')"/>
                                             <%}%>
                                         </td>            
                                        <td class="text-center">
-                                           <a href="/admin/focus/edit?id=<%=list[i]._id%>">修改</a>
-                                           <a class="delete" href="/admin/focus/delete?model=Focus&id=<%=list[i]._id%>">删除</a>
+                                           <a href="/admin/advert/edit?id=<%=list[i]._id%>">修改</a>
+                                           <a class="delete" href="/admin/advert/delete?model=Advert&id=<%=list[i]._id%>">删除</a>
                                        </td>
                                    </tr>
                                 <%}%>

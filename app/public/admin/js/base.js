@@ -25,7 +25,7 @@ let app = {
 	},
 	deleteConfirm:function() {
 		$('.delete').click(function(){
-			let flag = confirm('你确定要册吗');
+			let flag = confirm('你确定要删除吗');
 			return flag;
 		})
 	}

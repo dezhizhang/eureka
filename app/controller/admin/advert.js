@@ -42,8 +42,8 @@ class AdvertController extends BaseController {
     //修改
     async edit() {
         let id = this.ctx.query.id;
-        let result = await this.ctx.model.Focus.find({'_id':id});
-        await this.ctx.render('/admin/focus/edit',{
+        let result = await this.ctx.model.Advert.find({'_id':id});
+        await this.ctx.render('/admin/advert/edit',{
             list:result[0]
         });
     }
@@ -70,8 +70,8 @@ class AdvertController extends BaseController {
         //修改操作
         let id=parts.field.id;
         let updateResult=Object.assign(files,parts.field);
-        let result =await this.ctx.model.Focus.updateOne({"_id":id},updateResult);
-        await this.success('/admin/focus','修改轮播图成功');
+        let result =await this.ctx.model.Advert.updateOne({"_id":id},updateResult);
+        await this.success('/admin/advert','修改广告成功');
     }
 }
 
