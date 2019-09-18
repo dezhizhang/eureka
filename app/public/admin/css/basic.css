@@ -76,3 +76,12 @@ input[type=file]{
     width: 120px;
     height: 60px;
 }
+.table .text-center span{
+    padding: 5px 40px;
+    display: inline-block;
+    text-align: center;
+}
+.table .text-center span input{
+    width: 60px;
+    text-align: center;
+}

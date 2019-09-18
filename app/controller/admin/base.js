@@ -75,6 +75,43 @@ class BaseController extends Controller {
             }
         }
     }
+    //改变数量
+    async editNumber() {
+        let json = {};
+        let result = this.ctx.query;
+        let id = result.id;
+        let attr = result.attr;
+        let model = result.model;
+        let num = result.num;
+        let data = await this.ctx.model[model].find({'_id':id});
+        if(data.length > 0) {
+            json = {
+                [attr]:num
+            }
+            let updateResult = await this.ctx.model[model].updateOne({'_id':id},json);
+            if(updateResult) {
+                this.ctx.body = {
+                    code:200,
+                    msg:'更新成功',
+                    success:true
+                }
+            } else {
+                this.ctx.body = {
+                    code:500,
+                    msg:'更新失败',
+                    success:false
+                }
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:'参数错误',
+                success:false
+            }
+        }
+
+
+    }
 }
 
 module.exports = BaseController;

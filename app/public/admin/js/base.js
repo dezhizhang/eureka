@@ -40,7 +40,14 @@ let app = {
 		$(input).trigger('focus').val(value);
 		$(input).blur(function(){
 			$(el).html($(this).val());
-			
+			$.get('/admin/editNumber',{model,attr,id,num:value},function(res){
+				if(res.code == 200) {
+					$(input).val(val)
+				} else {
+
+				}
+			})
+
 		});
 
 	}
