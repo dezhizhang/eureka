@@ -6,6 +6,8 @@ let app = {
 	init:function() {
 		this.toggleAside();
 		this.deleteConfirm();
+		this.resizeIframe();
+
 	},
 	toggleAside:function() {
 		$('.aside h4').click(function() {
@@ -56,5 +58,14 @@ let app = {
 
 		});
 
+	},
+	resizeIframe:function() {
+		let height = document.documentElement.clientHeight - 100;
+		document.getElementById('rightMain').height = height;
+
 	}
 }
+
+$(window).resize(function() {
+	app.resizeIframe();
+}) 
