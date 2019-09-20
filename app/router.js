@@ -58,6 +58,15 @@ module.exports = app => {
   router.get('/admin/advert/delete',controller.admin.base.delete);
   router.post('/admin/advert/doEdit',controller.admin.advert.doEdit);
 
+  //商品管理
+  router.get('/admin/goodsType',controller.admin.goodsType.index);
+  router.get('/admin/goodsType/add',controller.admin.goodsType.add);
+  router.post('/admin/goodsType/doAdd',controller.admin.goodsType.doAdd);
+  router.post('/admin/goodsType/edit',controller.admin.goodsType.edit);
+  router.get('/admin/goodsType/doEdit',controller.admin.goodsType.doEdit);
+
+
+
   
   //小程序接口
   //轮播图
