@@ -9,8 +9,14 @@ let app = {
 	},
 	toggleAside:function() {
 		$('.aside h4').click(function() {
+			if($(this).find('span').hasClass('.nav_close')){
+				$(this).find('span').removeClass('nav_close').addClass('nav_open');
+			} else {
+				$(this).find('span').removeClass('nav_open').addClass('nav_close');
+			}
 			$(this).siblings('ul').slideToggle();
-		})
+		});
+
 	},
 	changeStatus:function(el,model,attr,id) {
 		$.get('/admin/changeStatus',{model,attr,id},function(res) {
