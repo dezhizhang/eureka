@@ -1,7 +1,5 @@
 'use strict';
 const fs=require('fs');
-const path = require('path');
-const Jimp = require('jimp');
 const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class GoodsCateController extends BaseController {
@@ -59,9 +57,17 @@ class GoodsCateController extends BaseController {
         await this.success('/admin/goodsCate','增加分类成功');
     }
     async edit() {
-
+        let id = this.ctx.query.id;
+        let cateList = await this.ctx.model.GoodsCate.find({'pid':'0'});
+        let result = await this.ctx.model.GoodsCate.find({'_id':id});
+        await this.ctx.render('/admin/goodsCate/edit',{
+            list:result[0],
+            cateList
+        });
     }
     async doEdit() {
+        let result = this.ctx.request.body;
+        console.log(result);
 
     }
 
