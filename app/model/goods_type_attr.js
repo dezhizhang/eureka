@@ -6,7 +6,7 @@ module.exports = app => {
     const GoodsTypeAttrSchema = Schema({
         cate_id:{ type:Schema.Types.ObjectId },
         title:{ type:String },
-        attr_type:{ type:String },  //1 input 2textarea 3select
+        attr_type:{ type:String },  //1,input 2,textarea 3,select
         attr_value:{ type:String },
         status:{
             type:Number,

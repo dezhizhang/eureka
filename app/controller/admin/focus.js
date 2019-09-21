@@ -1,5 +1,4 @@
 'use strict';
-const path=require('path');
 const fs=require('fs');
 const pump = require('mz-modules/pump');
 const BaseController = require('./base');
