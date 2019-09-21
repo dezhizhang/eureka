@@ -34,20 +34,27 @@ class MainController extends BaseController {
         })
     }
    async doAdd() {
-      let result = this.ctx.request.body;
-      console.log(result);
-      
-      let cate_id = result.cate_id;
-      let goodsTypeAttr = new this.ctx.model.GoodsTypeAttr(result);
-      await goodsTypeAttr.save();
-      await this.success(`/admin/goodsTypeAttr?id=${cate_id}`,'增加商品属性成功');
+        let result = this.ctx.request.body;
+        let cate_id = result.cate_id;
+        let goodsTypeAttr = new this.ctx.model.GoodsTypeAttr(result);
+        await goodsTypeAttr.save();
+        await this.success(`/admin/goodsTypeAttr?id=${cate_id}`,'增加商品属性成功');
    }
    async edit() {
-      console.log(this.ctx.query);
-
+        let id = this.ctx.query.id;
+        let result = await this.ctx.model.GoodsTypeAttr.find({'_id':id});
+        let goodsType = await this.ctx.model.GoodsType.find();
+        await this.ctx.render('/admin/goodsTypeAttr/edit',{
+            list:result[0],
+            goodsType:goodsType
+        })
    }
    async doEdit() {
-
+        let result = this.ctx.request.body;
+        let id = result.id;
+        let cate_id = result.cate_id;
+        let goodsTypeAttr = await this.ctx.model.GoodsTypeAttr.updateOne({'_id':id},result);
+        await this.success(`/admin/goodsTypeAttr?id=${cate_id}`,'修改商品属性成功');
    }
 }
 
