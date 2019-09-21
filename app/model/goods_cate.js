@@ -9,7 +9,7 @@ module.exports = app => {
         filter_attr:{ type:String },
         link:{ type:String },
         template:{ type:String },
-        pid:{ type:Schema.Types.ObjectId },
+        pid:{ type:Schema.Types.Mixed },
         sub_title:{ type:String },
         keywords:{ type:String },
 

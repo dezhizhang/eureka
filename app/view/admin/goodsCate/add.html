@@ -14,7 +14,14 @@
                         <form action="/admin/goodsCate/doAdd?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
                             <ul class="form_input">    
                                 <li><span>分类名称：</span> <input type="text" name="title" class="input"/></li>  
-                                <li><span>上级分类：</span> </li>  
+                                <li><span>上级分类：</span> 
+                                    <select name="pid" id="pid" style="width: 180px;height:28px">
+                                        <option value="0">顶级分类</option>
+                                        <%for(let i=0;i<cateList.length;i++){%>
+                                            <option value="<%=cateList[i]._id%>"><%=cateList[i].title%></option>
+                                        <%}%>
+                                    </select>
+                                </li>  
                                 <li><span>分类图片：</span>  <input type="file" name="cate_img"/></li>  
                                 <li><span>筛选属性：</span> <input type="text" name="filter_attr" class="input"/></li> 
                                 <li><span>跳转地址：</span>  <input type="text" name="link" class="input"/></li> 

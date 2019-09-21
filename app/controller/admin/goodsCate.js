@@ -4,15 +4,16 @@ const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class GoodsCateController extends BaseController {
     async index() {
-         let result = await this.ctx.model.GoodsCate.find();
-         console.log(result);
-         
-     
-
-      
+        let result = await this.ctx.model.GoodsCate.find();
+        await this.ctx.render('/admin/goodsCate/index',{
+            list:result
+        })
     }
     async add() {
-       await this.ctx.render('/admin/goodsCate/add');
+        let result = await this.ctx.model.GoodsCate.find({'pid':'0'});
+        await this.ctx.render('/admin/goodsCate/add',{
+            cateList:result
+        });
     }
     async doAdd() {
         let files = {};       
@@ -33,6 +34,9 @@ class GoodsCateController extends BaseController {
             })
             
         }      
+        if(parts.field.pid!='0') {
+            parts.field.pid =await this.app.mongoose.Types.ObjectId(parts.field.pid)
+        }
         let goodsCate =new this.ctx.model.GoodsCate(Object.assign(files,parts.field));
         await goodsCate.save();
         await this.success('/admin/goodsCate','增加分类成功');
