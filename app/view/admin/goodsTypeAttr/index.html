@@ -5,7 +5,7 @@
             <%- include ../public/aside.html %>
         </div>
             <div class="panel-heading">
-                <a href="/admin/goodsTypeAttr/add" class="btn btn-primary">增加商品类型属性</a>
+                <a href="/admin/goodsTypeAttr/add?id=<%=cate_id%>" class="btn btn-primary">增加商品类型属性</a>
             </div>
         <div class="col-sm-10">
             <div class="table-responsive">
@@ -44,7 +44,10 @@
                                         <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'GoodsTypeAttribute','status','<%=list[i]._id%>')" />
                                     <%}%>
                                 </td>                                    
-                                <td class="text-center"><a href="/admin/goodsTypeAttribute/edit?id=<%=list[i]._id%>">修改</a>　<a  class="delete" href="/admin/delete?model=GoodsTypeAttribute&id=<%=list[i]._id%>">删除</a></td>
+                                <td class="text-center">
+                                    <a href="/admin/goodsTypeAttr/edit?id=<%=list[i]._id%>">修改</a>　
+                                    <a class="delete" href="/admin/delete?model=GoodsTypeAttribute&id=<%=list[i]._id%>">删除</a>
+                                </td>
                             </tr>
                             <%}%>
                     </tbody>
