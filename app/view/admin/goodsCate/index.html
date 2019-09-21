@@ -20,7 +20,45 @@
                                     <th class="text-center">状态</th>                                           
                                     <th class="text-center">操作</th>
                                 </tr>
-                                </thead>            
+                                </thead>
+                            <tbody>
+                            <%for(var i=0;i<list.length;i++){%>
+                                <tr>
+                                    <td><%=list[i].title%></td>          
+                                    <td><img class="pic" src="<%=list[i].cate_img%>" /></td>           
+                                    <td class="text-center"><span onclick="app.editNum(this,'GoodsCate','sort','<%=list[i]._id%>')"><%=list[i].sort%></span></td>
+                                    <td class="text-center">
+                                        <%if(list[i].status==1){%>
+                                            <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i]._id%>')" />
+                                        <%}else{%>
+                                            <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i]._id%>')" />
+                                        <%}%>
+            
+                                    </td>                                                                    
+                                    <td class="text-center">　
+                                        <a href="/admin/goodsCate/edit?id=<%=list[i]._id%>">修改</a>
+                                        <a class="delete" href="/admin/delete?model=GoodsCate&id=<%=list[i]._id%>">删除</a>
+                                    </td>
+                                </tr>
+                                <%for(var j=0;j<list[i].items.length;j++){%>
+                                <tr>
+                                    <td>-----<%=list[i].items[j].title%></td>                          
+                                    <td><img class="pic" src="<%=list[i].items[j].cate_img%>" /></td>                         
+                                    <td class="text-center"><span onclick="app.editNum(this,'GoodsCate','sort','<%=list[i].items[j]._id%>')"><%=list[i].items[j].sort%></span></td>
+                                    <td class="text-center">
+                                        <%if(list[i].status==1){%>
+                                            <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i].items[j]._id%>')" />
+                        
+                                        <%}else{%>
+                                            <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i].items[j]._id%>')" />
+                                        <%}%>
+                                    </td>                                                                    
+                                    <td class="text-center">
+                                        <a href="/admin/goodsCate/edit?id=<%=list[i].items[j]._id%>">修改</a>　
+                                        <a class="delete" href="/admin/delete?model=GoodsCate&id=<%=list[i].items[j]._id%>">删除</a></td>
+                                </tr>              
+                                <%}%>    
+                            <%}%>
                             </tbody>
                         </table>
                     </div>

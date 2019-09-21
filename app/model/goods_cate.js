@@ -12,8 +12,8 @@ module.exports = app => {
         pid:{ type:Schema.Types.Mixed },
         sub_title:{ type:String },
         keywords:{ type:String },
-
         description:{ type:String },
+        sort:{ type:Number,default:100 },
         status:{
             type:Number,
             default:1

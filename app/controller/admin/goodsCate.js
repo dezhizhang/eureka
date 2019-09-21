@@ -4,7 +4,21 @@ const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class GoodsCateController extends BaseController {
     async index() {
-        let result = await this.ctx.model.GoodsCate.find();
+        let result = await this.ctx.model.GoodsCate.aggregate([
+            {
+                $lookup:{
+                    from:'goods_cate',
+                    localField:'_id',
+                    foreignField:'pid',
+                    as:'items'
+                }
+            },
+            {
+                $match:{
+                    'pid':'0'
+                }
+            }
+        ]);
         await this.ctx.render('/admin/goodsCate/index',{
             list:result
         })
