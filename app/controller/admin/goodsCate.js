@@ -1,5 +1,7 @@
 'use strict';
 const fs=require('fs');
+const path = require('path');
+const Jimp = require('jimp');
 const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class GoodsCateController extends BaseController {
@@ -45,8 +47,9 @@ class GoodsCateController extends BaseController {
             await pump(stream, writeStream);  
             files=Object.assign(files,{
                 [fieldname]:dir.saveDir    
-            })
-            
+            });
+            await this.service.tools.jimpImg(target,200,100)
+           
         }      
         if(parts.field.pid!='0') {
             parts.field.pid =await this.app.mongoose.Types.ObjectId(parts.field.pid)

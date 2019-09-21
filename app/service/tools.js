@@ -1,6 +1,7 @@
 'use strict';
 const md5 = require('md5');
 const path = require('path');
+const Jimp = require('jimp');
 const Service = require('egg').Service;
 const svgCaptcha = require('svg-captcha');
 const sd = require('silly-datetime');
@@ -40,6 +41,19 @@ class ToolsService extends Service {
             saveDir:uploadDir.slice(3).replace(/\\/g,'/')
         }
     }
+    //生成缩略图
+    async jimpImg(target,width,height){
+        //上传图片成功以后生成缩略图
+        Jimp.read(target, (err, lenna) => {
+            if (err) throw err;  		
+            lenna.resize(width, height) // resize
+                .quality(90) // set JPEG quality                  
+                .write(target+'_200x200'+path.extname(target)); // save
+         });
+   
+   
+     }
+    
 }
 
 module.exports = ToolsService;
