@@ -99,6 +99,7 @@ module.exports = app => {
   router.get('/admin/goods/delete',controller.admin.base.delete);
   router.get('/admin/goods/goodsTypeAttr',controller.admin.goods.goodsTypeAttr);
   router.post('/admin/goods/goodsUploadImage',controller.admin.goods.goodsUploadImage); //上传商品图片
+  router.post('/admin/goods/goodsUploadPhoto',controller.admin.goods.goodsUploadPhoto);
 
   
 
