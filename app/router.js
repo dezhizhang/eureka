@@ -81,6 +81,15 @@ module.exports = app => {
   router.get('/admin/goodsCate/edit',controller.admin.goodsCate.edit);
   router.post('/admin/goodsCate/doEdit',controller.admin.goodsCate.doEdit);
   router.get('/admin/goodsCate/delete',controller.admin.base.delete);
+
+  //商品
+  router.get('/admin/goods',controller.admin.goods.index);
+  router.get('/admin/goods/add',controller.admin.goods.add);
+  router.post('/admin/goods/doAdd',controller.admin.goods.doAdd);
+  router.get('/admin/goods/edit',controller.admin.goods.edit);
+  router.post('/admin/goods/doEdit',controller.admin.goods.doEdit);
+  router.get('/admin/goods/delete',controller.admin.base.delete);
+  
   
 
 
