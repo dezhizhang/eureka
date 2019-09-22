@@ -74,7 +74,17 @@
                                     </ul>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="attribute">
-                                    规格与包装
+                                    <ul>
+                                        <li><span>商品类型</span>
+                                            <select name="goods_type_id" id="goods_type_id" style="width: 180px;height:28px;">
+                                                <option value="0">请选择商品类型</option>
+                                                <%for(let i=0;i<goodsType.length;i++){%>
+                                                    <option value="<%=goodsType[i]._id%>"><%=goodsType[i].title%></option>
+                                                <%}%>
+                                            </select>
+                                        </li>
+                                    </ul>
+                                    <ul id="goods_type_attr"></ul>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="photo">
                                     商品相册
@@ -88,6 +98,38 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function(){
+            $('#goods_type_id').change(function(){
+                let cate_id = $(this).val();
+                $.get(`/admin/goods/goodsTypeAttr?cate_id=${cate_id}`,function(res){
+                   if(res.code == 200) {
+                        let str = '';
+                        let goodsTypeAttr = res.data;
+                        for(let i=0;i<goodsTypeAttr.length;i++) {
+                            if(goodsTypeAttr[i].attr_type == '1'){
+                                str+=`<li><span>${goodsTypeAttr[i].title}<span>：<input type="hidden"  name="attr_id_list[]" value="${goodsTypeAttr[i]._id}"/><input  type='text'/></li>`
+                            } else if(goodsTypeAttr[i].attr_type == '2') {
+                                str+=`<li><span>${goodsTypeAttr[i].title}<span>：<input type="hidden"  name="attr_id_list[]" value="${goodsTypeAttr[i]._id}"/><textarea cols="60" rows="8" style="resize: none"></textarea></li>`
+                            } else if(goodsTypeAttr[i].attr_type == '3') {
+                                let arr = goodsTypeAttr[i].attr_value.split('\n');
+                                str+='<li><span>'+goodsTypeAttr[i].title+'<span>：<input type="hidden"  name="attr_id_list[]" value="+goodsTypeAttr[i]._id+"/>';
+                                str+= '<select style="width:180px;height:28px" value="attr_value_list[]">';
+                                    for(let j=0;j<arr.length;j++) {
+                                        str+=`<option value="${arr[i]}">${arr[i]}</option>`
+                                    }
+                                str+="</select>"
+                                str+='</li>'
+                            }
+                        }
+                        $('#goods_type_attr').html(str)
+                    } else {
+                        $('#goods_type_attr').html('')
+                    }
+                }); 
+            })
+        })
+    </script>
 </div>
 </body>
 </html>

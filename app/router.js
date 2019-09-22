@@ -90,7 +90,6 @@ module.exports = app => {
   router.post('/admin/goodsColor/doEdit',controller.admin.goodsColor.doEdit);
   router.get('/admin/goodsColor/delete',controller.admin.base.delete);
 
-
   //商品
   router.get('/admin/goods',controller.admin.goods.index);
   router.get('/admin/goods/add',controller.admin.goods.add);
@@ -98,6 +97,7 @@ module.exports = app => {
   router.get('/admin/goods/edit',controller.admin.goods.edit);
   router.post('/admin/goods/doEdit',controller.admin.goods.doEdit);
   router.get('/admin/goods/delete',controller.admin.base.delete);
+  router.get('/admin/goods/goodsTypeAttr',controller.admin.goods.goodsTypeAttr)
 
   
 
