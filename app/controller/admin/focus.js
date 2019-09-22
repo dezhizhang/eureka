@@ -2,7 +2,6 @@
 const fs=require('fs');
 const pump = require('mz-modules/pump');
 const BaseController = require('./base');
-
 class FocusController extends BaseController {
     async index() {
         let result = await this.ctx.model.Focus.find();

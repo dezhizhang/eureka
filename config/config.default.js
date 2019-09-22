@@ -15,6 +15,17 @@ module.exports = appInfo => {
   config.auth = {
     match:'/admin'
   }
+  //配置csrf
+  config.security = {
+    csrf:{
+      ignore:ctx => {
+        if(ctx.request.url == '/admin/goods/goodsUploadImage') {
+          return true;
+        }
+        return false;
+      }
+    }
+  }
 
   //配置session
   config.session={

@@ -97,7 +97,8 @@ module.exports = app => {
   router.get('/admin/goods/edit',controller.admin.goods.edit);
   router.post('/admin/goods/doEdit',controller.admin.goods.doEdit);
   router.get('/admin/goods/delete',controller.admin.base.delete);
-  router.get('/admin/goods/goodsTypeAttr',controller.admin.goods.goodsTypeAttr)
+  router.get('/admin/goods/goodsTypeAttr',controller.admin.goods.goodsTypeAttr);
+  router.post('/admin/goods/goodsUploadImage',controller.admin.goods.goodsUploadImage); //上传商品图片
 
   
 
