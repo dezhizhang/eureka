@@ -53,7 +53,12 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="mix">
                                     <ul class="form_input">
-                                        <li> <span>商品颜色:</span></li>
+                                        <li> <span>商品颜色:</span>
+                                            <%for(let i=0;i<goodsColor.length;i++){%>
+                                                <input type="checkbox" name="colors[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
+                                                <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
+                                            <%}%>
+                                        </li>
                                         <li> <span>关联商品:</span>
                                             <input type="text" name="relation_goods" class="relation_goods"/>  <i>填写关联商品的id 多个以逗号隔开 格式：23,24,39</i>     
                                         </li>      

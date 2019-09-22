@@ -88,6 +88,7 @@ module.exports = app => {
   router.post('/admin/goodsColor/doAdd',controller.admin.goodsColor.doAdd);
   router.get('/admin/goodsColor/edit',controller.admin.goodsColor.edit);
   router.post('/admin/goodsColor/doEdit',controller.admin.goodsColor.doEdit);
+  router.get('/admin/goodsColor/delete',controller.admin.base.delete);
 
 
   //商品
