@@ -1,7 +1,7 @@
 'use strict';
 
 const BaseController = require('./base');
-class MainController extends BaseController {
+class CoodsTypeAttrController extends BaseController {
     async index() {
         let cate_id =this.app.mongoose.Types.ObjectId(this.ctx.query.id);
         let result = await this.ctx.model.GoodsTypeAttr.aggregate([
@@ -58,4 +58,4 @@ class MainController extends BaseController {
    }
 }
 
-module.exports = MainController
+module.exports = CoodsTypeAttrController
