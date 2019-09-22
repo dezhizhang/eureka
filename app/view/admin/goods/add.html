@@ -128,7 +128,20 @@
                     }
                 }); 
             })
+            
+          
         })
+    </script>
+    
+    <script>
+        
+        $(function() {
+            new  FroalaEditor('#content',{
+                height: 300,    //给编辑器设置默认的高度
+                language: 'zh_cn',   
+                imageUploadURL: '/admin/goods/goodsUploadImage',
+            });
+        });
     </script>
 </div>
 </body>

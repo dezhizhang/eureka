@@ -109,3 +109,17 @@ input[type=file]{
     width: 60px;
     text-align: center;
 }
+.nav-tabs{
+    border-bottom: none;
+    background: #eee;
+    margin-bottom: 20px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background: #537afb;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    border-bottom-color: none;
+    
+}
