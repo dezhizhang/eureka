@@ -121,5 +121,8 @@ input[type=file]{
     border-radius: 4px;
     border: none;
     border-bottom-color: none;
-    
+
+}
+.tab-content > .active{
+    margin-bottom: 10px;
 }
