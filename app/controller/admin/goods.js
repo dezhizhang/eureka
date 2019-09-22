@@ -7,7 +7,10 @@ class MainController extends BaseController {
         await this.ctx.render('/admin/goods/index')
     }
     async add() {
-        await this.ctx.render('/admin/goods/add')
+        let result = await this.ctx.model.GoodsCate.find();
+        await this.ctx.render('/admin/goods/add',{
+            list:result
+        });
     }
     async doAdd() {
 
