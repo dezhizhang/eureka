@@ -8,7 +8,21 @@ class MainController extends BaseController {
         await this.ctx.render('/admin/goods/index')
     }
     async add() {
-        let goodsCate = await this.ctx.model.GoodsCate.find({});
+        let goodsCate = await this.ctx.model.GoodsCate.aggregate([
+            {
+                $lookup:{
+                    from:'goods_cate',
+                    localField:'_id',
+                    foreignField:'pid',
+                    as:'items'
+                }
+            },
+            {
+                $match:{
+                    'pid':'0'
+                }
+            }
+        ]);
         let goodsColor = await this.ctx.model.GoodsColor.find({});
         let goodsType = await this.ctx.model.GoodsType.find({});
         await this.ctx.render('/admin/goods/add',{
