@@ -101,6 +101,13 @@ module.exports = app => {
   router.post('/admin/goods/goodsUploadImage',controller.admin.goods.goodsUploadImage); //上传商品图片
   router.post('/admin/goods/goodsUploadPhoto',controller.admin.goods.goodsUploadPhoto);
 
+
+
+
+
+  //前台页面
+  router.get('/',controller.default.index.index);
+
   
 
 
@@ -110,6 +117,9 @@ module.exports = app => {
   router.get('/api/focus/info',controller.api.focus.index);
   //广告图
   router.get('/api/advert/info',controller.api.advert.index);
+  //维修接口
+  router.post('/api/maintain/upload',controller.api.maintain.upload);
+
 
 
 
