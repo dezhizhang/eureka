@@ -19,7 +19,7 @@ module.exports = appInfo => {
   config.security = {
     csrf:{
       ignore:ctx => {
-        if(ctx.request.url == '/admin/goods/goodsUploadImage' || ctx.request.url == '/admin/goods/goodsUploadPhoto') {
+        if(ctx.request.url == '/admin/goods/goodsUploadImage' || ctx.request.url == '/admin/goods/goodsUploadPhoto' || ctx.request.url=='/api/maintain/upload') {
           return true;
         }
         return false;

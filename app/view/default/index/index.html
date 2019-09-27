@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>eureka科技</title>
-</head>
-<body>
-    前台面面建设中
-</body>
-</html>
+
+<html>
+    <head>
+      <title>eureka科技</title>
+       </head>
+    <body>
+    <div class="container">
+        <div id="login">
+            <form action="/api/maintain/upload" method="post"  enctype="multipart/form-data">
+                <input type="hidden" name="_csrf">
+                姓　　名:<input type="text" name="username"/><br/>
+                联系电话:<input type="text" name="mobile"/><br/>
+                联系地址:<input type="text" name="address"/><br/>
+                问题描述:<input type ="text" name="description"/><br/>
+               上传文件:<input type="file"/>
+                <input type="submit" value="提交"/>
+            </form>
+        </div>
+    </div>
+    </body>
+    </html>
