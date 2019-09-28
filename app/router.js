@@ -102,6 +102,11 @@ module.exports = app => {
   router.post('/admin/goods/goodsUploadPhoto',controller.admin.goods.goodsUploadPhoto);
 
 
+  //维修改
+  router.get('/admin/maintain',controller.admin.maintain.index);
+  router.get('/admin/maintain/delete',controller.admin.base.delete);
+
+
 
 
 

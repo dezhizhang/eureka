@@ -7,6 +7,7 @@ module.exports = app => {
         username:{ type:String },
         mobile:{ type:String },
         address:{ type:String },
+        description:{ type:String },
         status:{ type:Number,default:1 },
         image_url:{ type:String },
         add_time:{
