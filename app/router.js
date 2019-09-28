@@ -101,6 +101,9 @@ module.exports = app => {
   router.post('/admin/goods/goodsUploadImage',controller.admin.goods.goodsUploadImage); //上传商品图片
   router.post('/admin/goods/goodsUploadPhoto',controller.admin.goods.goodsUploadPhoto);
 
+  //产品
+  
+
 
   //维修改
   router.get('/admin/maintain',controller.admin.maintain.index);
