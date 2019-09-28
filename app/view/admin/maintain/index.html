@@ -21,6 +21,7 @@
                     </thead>
                     <tbody>
                         <%for(let i=0;i<list.length;i++){%>
+                        <tr>
                             <td><%=list[i].username%></td>
                             <td><%=list[i].mobile%></td>
                             <td><%=list[i].address%></td>
@@ -37,8 +38,10 @@
                             <td class="text-center">
                                 <a href="/admin/role/edit?id=<%=list[i]._id%>">修改</a> 　
                                 <a class="delete" href="/admin/maintain/delete?model=Maintain&id=<%=list[i]._id%>">删除</a>
-                            </td>       
+                            </td>     
+                        </tr>  
                         <%}%>
+                        
                     </tbody>
                 </table>
             </div>
