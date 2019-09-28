@@ -8,6 +8,7 @@ module.exports = app => {
         mobile:{ type:String },
         address:{ type:String },
         status:{ type:Number,default:1 },
+        image_url:{ type:String },
         add_time:{
            type:Number,
            default:d.getTime()

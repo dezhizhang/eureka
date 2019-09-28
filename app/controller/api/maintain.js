@@ -1,4 +1,6 @@
 'use strict';
+const fs=require('fs');
+const pump = require('mz-modules/pump');
 const Controller = require('egg').Controller;
 class MaintainController extends Controller {
     async index() {
@@ -32,7 +34,7 @@ class MaintainController extends Controller {
         let result=await maintain.save();
         this.ctx.body = {
             code:200,
-            msg:'增加数据成功',
+            msg:'上传成功',
             success:true,
             data:null
         }
