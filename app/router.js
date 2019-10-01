@@ -137,6 +137,8 @@ module.exports = app => {
   router.post('/api/maintain/upload',controller.api.maintain.upload);
   //热门产品
   router.get('/api/product/hot',controller.api.product.hot);
+  //主打产品
+  router.get('/api/product/list',controller.api.product.list)
 
 
 
