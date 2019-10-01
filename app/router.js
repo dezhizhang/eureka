@@ -107,6 +107,7 @@ module.exports = app => {
   router.post('/admin/product/doAdd',controller.admin.product.doAdd);
   router.get('/admin/product/edit',controller.admin.product.edit);
   router.post('/admin/product/doEdit',controller.admin.product.doEdit);
+  router.get('/admin/product/delete',controller.admin.base.delete);
   
 
 
