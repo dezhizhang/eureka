@@ -67,8 +67,6 @@ class ProductController extends BaseController {
             await this.service.tools.jimpImg(target,200,200)
         }      
         let id=parts.field.id;
-        console.log(id);
-        
         let updateResult=Object.assign(files,parts.field);
         let product =await this.ctx.model.Product.updateOne({'_id':id},updateResult);
         await this.success('/admin/product','修改产品成功');
