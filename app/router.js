@@ -102,6 +102,11 @@ module.exports = app => {
   router.post('/admin/goods/goodsUploadPhoto',controller.admin.goods.goodsUploadPhoto);
 
   //产品
+  router.get('/admin/product',controller.admin.product.index);
+  router.get('/admin/product/add',controller.admin.product.add);
+  router.post('/admin/product/doAdd',controller.admin.product.doAdd);
+  router.get('/admin/product/edit',controller.admin.product.edit);
+  router.post('/admin/product/doEdit',controller.admin.product.doEdit);
   
 
 

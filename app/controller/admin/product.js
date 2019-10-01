@@ -2,21 +2,19 @@
 const fs=require('fs');
 const pump = require('mz-modules/pump');
 const BaseController = require('./base');
-class MaintainController extends BaseController {
+class ProductController extends BaseController {
     async index() {
-        let result = await this.ctx.model.Maintain.find();
-        await this.ctx.render('/admin/maintain/index',{
+        let result = await this.ctx.model.Product.find();
+        await this.ctx.render('/admin/product/index',{
             list:result
         });
     }
-    async edit() {
-        let id = this.ctx.query.id;
-        let result = await this.ctx.model.Maintain.find({'_id':id});
-        await this.ctx.render('/admin/maintain/edit',{
-            list:result[0]
-        })
+    
+    async add() {
+        await this.ctx.render('/admin/product/add');
     }
-    async doEdit() {
+
+    async doAdd() {
         let parts = this.ctx.multipart({ autoFields: true });
         let files = {};               
         let stream;
@@ -33,14 +31,22 @@ class MaintainController extends BaseController {
             files=Object.assign(files,{
                 [fieldname]:dir.saveDir    
             })
+            await this.service.tools.jimpImg(target,200,200)
             
-        }  
-        let id=parts.field.id;
-        let updateResult=Object.assign(files,parts.field);
-        let maintain =await this.ctx.model.Maintain.updateOne({'_id':id},updateResult)
-        await this.success('/admin/maintain','修改维修成功');
+        }      
+        let product =new this.ctx.model.Product(Object.assign(files,parts.field));
+        let result=await product.save();
+        await this.success('/admin/product','增加产品成功');
     }
-  
+
+    async edit() {
+
+    }
+
+    async doEdit() {
+
+    }
+   
 }
 
-module.exports = MaintainController
+module.exports = ProductController
