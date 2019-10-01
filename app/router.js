@@ -135,6 +135,8 @@ module.exports = app => {
   router.get('/api/advert/info',controller.api.advert.index);
   //维修接口
   router.post('/api/maintain/upload',controller.api.maintain.upload);
+  //热门产品
+  router.get('/api/product/hot',controller.api.product.hot);
 
 
 
