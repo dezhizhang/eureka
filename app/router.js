@@ -107,7 +107,9 @@ module.exports = app => {
 
   //维修改
   router.get('/admin/maintain',controller.admin.maintain.index);
+  router.get('/admin/maintain/edit',controller.admin.maintain.edit);
   router.get('/admin/maintain/delete',controller.admin.base.delete);
+  router.post('/admin/mantain/doEdit',controller.admin.maintain.doEdit);
 
 
 

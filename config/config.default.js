@@ -18,12 +18,13 @@ module.exports = appInfo => {
   //配置csrf
   config.security = {
     csrf:{
-      ignore:ctx => {
-        if(ctx.request.url == '/admin/goods/goodsUploadImage' || ctx.request.url == '/admin/goods/goodsUploadPhoto' || ctx.request.url=='/api/maintain/upload') {
-          return true;
-        }
-        return false;
-      }
+      // ignore:ctx => {
+      //   if(ctx.request.url == '/admin/goods/goodsUploadImage' || ctx.request.url == '/admin/goods/goodsUploadPhoto' || ctx.request.url=='/api/maintain/upload') {
+      //     return true;
+      //   }
+      //   return false;
+      // }
+      enable:false
     }
   }
 
@@ -52,8 +53,8 @@ module.exports = appInfo => {
   config.cluster = {
     listen: {
       path: '',
-      port: 8082,
-      hostname: '0.0.0.0',
+      port: 7001,
+      hostname: 'localhost',
     }
 };
 
