@@ -4,9 +4,15 @@ const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class ProductController extends BaseController {
     async index() {
-        let result = await this.ctx.model.Product.find();
+        let page = this.ctx.query.page;
+        let pageSize = 10;
+        let totalNum = await this.ctx.model.Product.find().count();
+        let totalPages = Math.ceil(totalNum/pageSize);
+        let result = await this.ctx.model.Product.find().skip((page-1)*pageSize).limit(pageSize);
         await this.ctx.render('/admin/product/index',{
-            list:result
+            list:result,
+            totalPages:totalPages,
+            page:page
         });
     }
     
