@@ -47,11 +47,32 @@
                                <%}%>
                             </tbody>
                         </table>
+                        <div id="page" class="pagination" style="float: right;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $('#page').jqPaginator({
+        totalPages: 100,
+        visiblePages: 8,
+        currentPage:  10,
+        first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+        prev: '<li class="prev"><a href="javascript:void(0);">下一页</a></li>',
+        next: '<li class="next"><a href="javascript:void(0);">上一页</a></li>',
+        last: '<li class="last"><a href="javascript:void(0);">未页</a></li>',
+        page: `<li class="page"><a href="javascript:void(0);">${10}</a></li>`,
+
+        onPageChange: function (num, type) {
+            console.log('当前第' + num + '页',type);
+            if(type=='change'){
+                location.href="/admin/product?page="+num;
+            }
+        }
+    });     
+</script>
+</script>
 </body>
 </html>
