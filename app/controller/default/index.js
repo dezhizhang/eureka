@@ -4,8 +4,10 @@ const Controller = require('egg').Controller;
 
 class IndexController extends Controller {
     async index() {
-        //后台主页
-        await this.ctx.render('/default/index/index');
+        let result = await this.ctx.model.Focus.find({'type':'1'});
+        await this.ctx.render('/default/index/index',{
+            list:result
+        });
     }
    
 }
