@@ -19,9 +19,9 @@ class ContactController extends BaseController {
     //提交数据
     async doEdit() {
         let result = this.ctx.request.body;
-        console.log(result);
-        
-
+        let id = result.id;
+        let concatResult = await this.ctx.model.Contact.updateOne({'_id':id},result);
+        await this.success('/admin/contact','修改联系人成功');
 
     }
     
