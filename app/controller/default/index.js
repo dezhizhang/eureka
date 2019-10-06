@@ -1,5 +1,4 @@
 'use strict';
-
 const Controller = require('egg').Controller;
 
 class IndexController extends Controller {
@@ -9,6 +8,7 @@ class IndexController extends Controller {
             list:result
         });
     }
+    
    
 }
 

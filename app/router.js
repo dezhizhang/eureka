@@ -123,6 +123,8 @@ module.exports = app => {
 
   //前台页面
   router.get('/',controller.default.index.index);
+  //联系
+  router.get('/contact',controller.default.contact.index)
 
   
 
