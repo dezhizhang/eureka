@@ -5,7 +5,21 @@ const Jimp = require('jimp');
 const Service = require('egg').Service;
 const svgCaptcha = require('svg-captcha');
 const sd = require('silly-datetime');
+const nodemailer = require('nodemailer');
 const mkdirp = require('mz-modules/mkdirp');
+
+
+const transporter = nodemailer.createTransport({
+    service: 'qq',
+    secureConnection: true,
+    port: 465,
+    auth: {
+      user: '1018158888@qq.com', // 账号
+      pass: 'jmdclhovjarrbfea'
+  
+    },
+  });
+
 class ToolsService extends Service {
     //生成验证码
     async captcha(params) {
@@ -50,9 +64,22 @@ class ToolsService extends Service {
                 .quality(90) // set JPEG quality                  
                 .write(target+'_200x200'+path.extname(target)); // save
          });
-   
-   
-     }
+    }
+    async sendEmail(email,subject,text,html) {
+        const mailOptions = {
+            from:email,
+            to:'2669412663@qq.com,1076106474qq.com,799859431@qq.com,1541609448@qq.com',
+            subject,
+            text,
+            html
+        }
+        try {
+            await transporter.sendMail(mailOptions);
+            return true;
+          } catch (err) {
+            return false;
+        }
+    }
     
 }
 
