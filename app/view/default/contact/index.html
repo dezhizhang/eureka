@@ -48,15 +48,21 @@
                 budget,
                 code
             }
+            let reg = /^1(3|4|5|7|8)[0-9]{9}$/g;
+
             if(username && mobile && code) {//提交数据
-                $.post('/api/contact/doInfo',params,(res) => {
-                    if(res.code == 200) {
-                        alert(res.msg);
-                        window.location.href = '/'
-                    } else {
-                        alert(res.msg);
-                    }
-                })
+                if(reg.test(mobile)) {
+                    $.post('/api/contact/doInfo',params,(res) => {
+                        if(res.code == 200) {
+                            alert(res.msg);
+                            window.location.href = '/'
+                        } else {
+                            alert(res.msg);
+                        }
+                    })
+                } else{
+                    alert('手机号不合法')
+                }
             } else if(!username){
                 alert('用户名不能为空!');
             } else if(!mobile) {
