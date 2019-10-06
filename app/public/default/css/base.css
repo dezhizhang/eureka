@@ -58,7 +58,7 @@ body{
     padding-right: 10px;
 }
 .header_active{
-    color: #fff;
+    color: #fff!important;
     background: #537AFB; 
 }
 .header_li a:hover{

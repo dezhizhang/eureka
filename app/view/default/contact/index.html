@@ -51,7 +51,7 @@
             let reg = /^1(3|4|5|7|8)[0-9]{9}$/g;
             if(username && mobile && code) {//提交数据
                 if(reg.test(mobile)) {
-                    $.post('/api/contact/doInfo',params,(res) => {
+                    $.post('/contact/doInfo',params,(res) => {
                         if(res.code == 200) {
                             alert(res.msg);
                             window.location.href = '/'

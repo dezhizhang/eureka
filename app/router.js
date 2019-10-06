@@ -109,13 +109,15 @@ module.exports = app => {
   router.post('/admin/product/doEdit',controller.admin.product.doEdit);
   router.get('/admin/product/delete',controller.admin.base.delete);
   
-
-
   //维修改
   router.get('/admin/maintain',controller.admin.maintain.index);
   router.get('/admin/maintain/edit',controller.admin.maintain.edit);
   router.get('/admin/maintain/delete',controller.admin.base.delete);
   router.post('/admin/mantain/doEdit',controller.admin.maintain.doEdit);
+
+  //联系我们
+  router.get('/admin/contact',controller.admin.contact.index);
+
 
 
 
@@ -127,7 +129,7 @@ module.exports = app => {
   router.get('/api/default/verify',controller.default.base.verify);
   //联系
   router.get('/contact',controller.default.contact.index);
-  router.post('/api/contact/doInfo',controller.default.contact.doInfo)
+  router.post('/contact/doInfo',controller.default.contact.doInfo)
 
   
 
