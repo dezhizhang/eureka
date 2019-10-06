@@ -8,13 +8,13 @@ const sd = require('silly-datetime');
 const mkdirp = require('mz-modules/mkdirp');
 class ToolsService extends Service {
     //生成验证码
-    async captcha() {
+    async captcha(params) {
         let captcha = svgCaptcha.create({
-            size:4,
-            fontSize:50,
-            width:120,
-            height:30,
-            background:'#f60'
+            size:params&&params.size || 4,
+            fontSize:params&&params.fontSize || 50,
+            width:params&&params.width || 120,
+            height:params&&params.height || 30,
+            background:params&&params.background || '#f60'
         });
         this.ctx.session.code = captcha.text;
         return captcha;
