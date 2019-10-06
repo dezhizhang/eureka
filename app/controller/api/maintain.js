@@ -28,8 +28,8 @@ class MaintainController extends Controller {
             files=Object.assign(files,{
                 [fieldname]:dir.saveDir    
             })
-            
-        }      
+        }     
+        
         let maintain =new this.ctx.model.Maintain(Object.assign(files,parts.field));
         let result=await maintain.save();
         this.ctx.body = {
