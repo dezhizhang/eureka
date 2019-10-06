@@ -117,6 +117,8 @@ module.exports = app => {
 
   //联系我们
   router.get('/admin/contact',controller.admin.contact.index);
+  router.get('/admin/contact/edit',controller.admin.contact.edit);
+  router.post('/admin/contact/doEdit',controller.admin.contact.doEdit);
 
 
 
@@ -129,7 +131,8 @@ module.exports = app => {
   router.get('/api/default/verify',controller.default.base.verify);
   //联系
   router.get('/contact',controller.default.contact.index);
-  router.post('/contact/doInfo',controller.default.contact.doInfo)
+  router.post('/contact/doInfo',controller.default.contact.doInfo);
+
 
   
 
