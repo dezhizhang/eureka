@@ -36,3 +36,14 @@
 .btn-primary{
     width: 140%;
 }
+.code_input{
+    height: 32px;
+    line-height: 32px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    text-indent: 10px;
+    outline:medium;
+}
+.code_input::-webkit-input-placeholder{
+    color: #ccc;
+}

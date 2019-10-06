@@ -22,7 +22,7 @@
                 <input type="text" class="form-control" id="budget" placeholder="预算:(选填)">
             </div><br/>
             <div class="form-group from_input margin_bottom">
-                <input type="text" id="code"   style="width: 60%" placeholder="验证码:">
+                <input type="text" id="code" class="code_input"   style="width: 70%" placeholder="验证码:">
                 <img id="verify_img" src="/admin/verify" title="看不清？点击刷新" onclick="javascript:this.src='/admin/verify?mt='+Math.random()">
             </div><br/>
             <button type="submit" id="btn" class="btn btn-primary">提交</button>
@@ -49,7 +49,6 @@
                 code
             }
             let reg = /^1(3|4|5|7|8)[0-9]{9}$/g;
-
             if(username && mobile && code) {//提交数据
                 if(reg.test(mobile)) {
                     $.post('/api/contact/doInfo',params,(res) => {
