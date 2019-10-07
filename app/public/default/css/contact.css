@@ -1,17 +1,16 @@
 .contact_wrapper{
     width: 100%;
-    height: 100%;
-    /* background: red; */
-}
-.contact_content{
     height: 600px;
-    padding: 50px 400px;
-    background: #1158E8;
+    background: red;
+    background-image: url('/public/default/image/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
 .contact_box{
     width: 100%;
     height: 100%;
-    background: yellow;
 }
 .navbar-title{
     width: 140%;

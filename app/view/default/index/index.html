@@ -3,7 +3,7 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <%for(let i=0;i<list.length;i++){%>
-                    <div class="swiper-slide"><a class="swiper-link" href="<%=list[i].link%>"><img class="swiper-image" src="<%=list[i].focus_img%>"/></a></div>
+                    <div class="swiper-slide"><a class="swiper-link"><img class="swiper-image" src="<%=list[i].focus_img%>"/></a></div>
                 <%}%>
             </div>
             <!-- Add Pagination -->
@@ -14,98 +14,36 @@
         </div>
     </div>
     <div class="index_server">解决方案</div>
-    <div class="index_content">
-        <div class="content_wrapper">
-           <div class="content_box">
-               <div class="box_item">
-                   <div class="item_top">
-                       <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">微信小程序定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">网站定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">移动APP定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">H5定制</div>
-               </div>
-           </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="/public/default/image/wx.png" alt="小程序定制">
+                <div class="caption">
+                  <h3>小程序定制</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="/public/default/image/wx.png" alt="网站定制">
+                  <div class="caption">
+                    <h3>网站定制</h3>
+                  </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="/public/default/image/wx.png" alt="APP定制">
+                  <div class="caption">
+                    <h3>APP定制</h3>
+                  </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="index_server">我们的优势</div>
-    <div class="index_content">
-        <div class="content_wrapper">
-           <div class="content_box">
-               <div class="box_item">
-                   <div class="item_top">
-                       <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">微信小程序定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">网站定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">移动APP定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">H5定制</div>
-               </div>
-           </div>
-        </div>
-    </div>
-    <div class="index_server">团队力量</div>
-    <div class="index_content">
-        <div class="content_wrapper">
-           <div class="content_box">
-               <div class="box_item">
-                   <div class="item_top">
-                       <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">微信小程序定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">网站定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">移动APP定制</div>
-               </div>
-               <div class="box_item">
-                   <div class="item_top">
-                        <img class="item_top_image" src="/public/default/image/wx.png" alt="微信小程序定制"/>
-                   </div>
-                   <div class="item_bottom">H5定制</div>
-               </div>
-           </div>
-        </div>
-    </div>
+    
+    
 <%- include ../public/footer.html %>
 <script type="text/javascript">
         let swiper = new Swiper('.swiper-container', {
