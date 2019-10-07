@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-8">
             <ul class="header_ul">
-                <li class="header_li"><a class="" href="/">官网首页</a></li>
+                <li class="header_li header_active"><a class="" href="/">官网首页</a></li>
                 <li class="header_li"><a href="/server">服务介绍</a></li>
                 <li class="header_li"><a href="/news">新闻动态</a></li>
                 <li class="header_li"><a href="/contact">联系我们</a></li>
@@ -34,7 +34,14 @@
 <script type="text/javascript" src="/public/admin/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/public/default/js/swiper.min.js"></script>
 <script type="text/javascript">
-    
+    $(function() {
+        let aLi = $('.header_li');
+        for(let i=0;i<aLi.length;i++) {
+            aLi[i].onclick = function() {
+                $(this).addClass('header_active')
+            }
+        }
+    })
 </script>
 
 

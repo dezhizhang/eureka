@@ -68,7 +68,8 @@ a:hover,a:active{text-decoration:underline;color:#f60;}
     list-style: none;
 }
 .header_active{
-    background:#1158E8;
+    background:#f60;
+    color: #fff;
 }
 .header_li:hover{
     background: #1158E8;
@@ -76,9 +77,8 @@ a:hover,a:active{text-decoration:underline;color:#f60;}
 }
 .header_li a:hover{
     color: #fff;
-   text-decoration: none;
+    text-decoration: none;
 }
-
 .footer{
     width: 100%;
     height: auto;
