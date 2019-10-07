@@ -68,7 +68,7 @@ a:hover,a:active{text-decoration:underline;color:#f60;}
     list-style: none;
 }
 .header_active{
-    background:#f60;
+   
     color: #fff;
 }
 .header_li:hover{
