@@ -1,35 +1,50 @@
+*{padding:0;margin:0;}
+div,dl,dt,dd,form,h1,h2,h3,h4,h5,h6,img,ol,ul,li,table,th,td,p,span,a{border:0;}
+img,input{
+    border:none;
+    vertical-align:middle;
+}
 body{
-    margin: 0;
-    padding: 0; 
+    font-family:Tahoma,Arial,Helvetica,"宋体";
+    font-size:12px;
+    text-align:center;
+    background:#FFF;
+    color:#000;
     overflow: hidden;
-    overflow-y: scroll;
 }
+html{
+    overflow-y:scroll;
+}
+ul,ol{list-style-type:none;}
+th,td,input{font-size:12px;}
+input{outline:none;border:none;box-shadow:none;}
+h3{font-size:14px;}
+button{border:none;cursor:pointer;font-size:12px;background-color:transparent;}
+select{border-width:1px;_zoom:1;border-style:solid;padding-top:2px;font-size:12px;}
+.clear{clear:both;font-size:1px;height:0;visibility:hidden;line-height:0;}
+.clearfix:after{content:"";display:block;clear:both;}
+.clearfix{zoom:1;}
+a:link,a:visited{text-decoration:none;color:#333;}
+a:hover,a:active{text-decoration:underline;color:#f60;}
 .header{
-    width: 100%;
     height: 60px;
-    background: #fff;
-    display: flex;
     line-height: 60px;
-    background: #735ff7;
-}
-.header_left{
-    width: 400px;
-    padding-left: 72px;
+    background: #fff;
     overflow: hidden;
 }
+
 .left-image{
-    width: 132px;
+    text-align: center;
     height: 36px;
+    width: 120px;
+    margin-left: 120px;
     line-height: 60px;
-    margin-top: 16px;
+    margin-top: 12px;
 }
 .image{
     width: 100%;
     height: 100%;
     display: block;
-}
-.header_right{
-    flex: 1;
 }
 .header_ul{
     list-style: none;
@@ -43,28 +58,27 @@ body{
     margin-left: 30px;
     display: inline-block;
     height: 60;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.header_li a{
-    text-decoration: none;
-    color: #333333
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .header_li a{
     display: inline-block;
     width: 100%;
     height: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    list-style: none;
 }
 .header_active{
-    color: #fff!important;
-    background: #537AFB; 
+    background:#1158E8;
+}
+.header_li:hover{
+    background: #1158E8;
+    color: #fff;
 }
 .header_li a:hover{
     color: #fff;
-    background: #537AFB;
+   text-decoration: none;
 }
+
 .footer{
     width: 100%;
     height: auto;
