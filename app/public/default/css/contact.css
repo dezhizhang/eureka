@@ -6,16 +6,43 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-
 .contact_box{
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    width: 400px;
+    height: 500px;
+    background: #6c64f8;
+    overflow: hidden;
+    border-radius: 5px;
 }
 .navbar-title{
-    width: 140%;
+    width: 100%;
     text-align: center;
     font-size: 20px;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
+.from_input{
+    height: 32px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.from_input input{
+    width: 90%;
+    height: 32px;
+    text-indent: 10px;
+    border-radius: 4px;
+}
+#code{
+    width: 60%!important;
 
+}
+.btn-primary{
+    width: 90%;
+    background: #131ded;
+}

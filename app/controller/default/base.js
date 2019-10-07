@@ -10,7 +10,7 @@ class BaseController extends Controller {
             fontSize:50,
             width:120,
             height:30,
-            background:'#735ff7',
+            background:'',
             color:'#fff'
         }
         let captcha = await this.service.tools.captcha(params);
