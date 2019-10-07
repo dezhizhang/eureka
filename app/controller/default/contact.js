@@ -23,6 +23,13 @@ class ContactController extends Controller {
                 } else {
                     let contactData = new this.ctx.model.Contact(result);
                     await contactData.save();
+
+                    let email = '1018158888@qq.com';
+                    let subject = 'eureka科技';
+                    let text = `您网站客户,姓名:${username},电话：${mobile},提交了外包需求请尽快处理！管理后台:https://www.eureka.net.cn/admin/login`;
+                    let html = '';
+                    let has_sned = await this.service.tools.sendEmail(email,subject,text,html);
+                    con
                     this.ctx.body = {
                         code:200,
                         msg:'提交信息成功',
