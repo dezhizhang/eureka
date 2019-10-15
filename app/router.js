@@ -5,8 +5,8 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/admin',controller.admin.main.index);
-  router.get('/admin/welcome',controller.admin.main.welcome);
+  // router.get('/admin',controller.admin.main.index);
+  // router.get('/admin/welcome',controller.admin.main.welcome);
   router.get('/admin/login',controller.admin.login.index);
   router.get('/admin/loginOut',controller.admin.login.loginOut);
   router.get('/admin/verify',controller.admin.base.verify);
@@ -118,7 +118,16 @@ module.exports = app => {
   //联系我们
   router.get('/admin/contact',controller.admin.contact.index);
   router.get('/admin/contact/edit',controller.admin.contact.edit);
-  router.post('/admin/contact/doEdit',controller.admin.contact.doEdit);
+  router.post('/admin/contact/doEdit',controller.admin.contact.doEdit)
+
+  //主打管理 
+  router.get('/admin/main',controller.admin.main.index);
+  router.get('/admin/main/add',controller.admin.main.add);
+  router.post('/admin/main/doAdd',controller.admin.main.doAdd);
+  router.get('/admin/main/edit',controller.admin.main.edit);
+  router.post('/admin/main/doEdit',controller.admin.main.doEdit);
+
+  
 
 
 
