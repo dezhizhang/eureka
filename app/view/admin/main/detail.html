@@ -7,7 +7,7 @@
         <div class="col-sm-10">
             <div class="panel panel-default">              
 			    <div class="panel-heading">
-                    产品列表
+                    <a class="btn btn-primary">增加详情</a>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
@@ -24,31 +24,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <%for(let i=0;i<list.length;i++){%>
-                                    <tr>
-                                        <td>
-                                            <%if(list[i].main_id == 1){%>
-                                                办公
-                                            <%} else if(list[i].main_id == 2){%>
-                                                设备
-                                            <%} else if(list[i].main_id == 3){%>
-                                                文具
-                                            <%} else{%>
-                                                更多
-                                            <%}%>
-                                        </td>
-                                        <td><%=list[i].title%></td>
-                                        <td><%=list[i].price%></td>
-                                        <td><img src="<%=list[i].main_url%>" style="width: 120px;height:60px"/></td>
-                                        <td><%=list[i].sort%></td>
-                                        <td><%=list[i].add_time%></td>
-                                        <td class="text-center">
-                                            <a href="/admin/main/edit?id=<%=list[i]._id%>"> 修改</a>|
-                                            <a class="delete" href="/admin/main/delete?model=Main&id=<%=list[i]._id%>">删除</a>|
-                                            <a href="/admin/main/detail?id=<%=list[i]._id%>">增加详情</a>
-                                        </td>
-                                    </tr>
-                                <%}%>
+                              
                             </tbody>
                           
                         </table>

@@ -24,6 +24,7 @@ module.exports = app => {
   router.get('/admin/manager/delete',controller.admin.base.delete);
 
 
+
    //角色
   router.get('/admin/role',controller.admin.role.index);
   router.get('/admin/role/add',controller.admin.role.add);
@@ -127,6 +128,7 @@ module.exports = app => {
   router.get('/admin/main/edit',controller.admin.main.edit);
   router.post('/admin/main/doEdit',controller.admin.main.doEdit);
   router.get('/admin/main/delete',controller.admin.base.delete);
+  router.get('/admin/main/detail',controller.admin.main.detail);
 
   
 

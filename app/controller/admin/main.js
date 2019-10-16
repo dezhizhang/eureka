@@ -67,6 +67,10 @@ class MainController extends BaseController {
         let main =await this.ctx.model.Main.updateOne({'_id':id},updateResult);
         await this.success('/admin/main','修改主打产品成功');
     }
+    //详情
+    async detail() {
+        await this.ctx.render('/admin/main/detail')
+    }
 }
 
 module.exports = MainController
