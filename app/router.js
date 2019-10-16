@@ -126,6 +126,7 @@ module.exports = app => {
   router.post('/admin/main/doAdd',controller.admin.main.doAdd);
   router.get('/admin/main/edit',controller.admin.main.edit);
   router.post('/admin/main/doEdit',controller.admin.main.doEdit);
+  router.get('/admin/main/delete',controller.admin.base.delete);
 
   
 
