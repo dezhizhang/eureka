@@ -11,10 +11,10 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
-                        <form action="/admin/main/doAdd?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
+                        <form action="/admin/detail/doAdd?_csrf=<%=csrf%>" method="post">
                             <ul>
                                 <input type="hidden" name="detail_id" value="<%=id%>"/>
-                                <li>  标　　题：<input type="text" name="title"> </li>
+                                <li>  标　　题：<input type="text" name="title" value="<%=title%>" readonly> </li>
                                 <li>  价　　格：<input type="text" name="price"/></li>
                                 <li>  运　　费：<input type="text" name="freight"/></li>
                                 <li>  销　　量：<input type="text" name="sales" /></li>
@@ -29,7 +29,7 @@
                                 <li>详情列表：
                                     <div role="tabpanel" class="tab-pane" id="photo">
                                         <div id="detailLib" class="photoLib"></div>
-                                        <div id="photoList"></div>
+                                        <div id="detailList"></div>
                                     </div>
                                 </li>
 
@@ -47,9 +47,9 @@
     <script type="text/javascript">
          $(function() {
             $('#focusLib').diyUpload({
-                url:'/admin/goods/goodsUploadPhoto',                    
+                url:'/admin/detail/detailUploadImage',                    
                 success:function( response ) {
-                    photoStr='<input type="hidden" name="goods_image_list[]" value='+response.link+' />';
+                    photoStr='<input type="hidden" name="focus_img[]" value='+response.link+' />';
                     $('#photoList').append(photoStr);
                 },
                 error:function( err ) {
@@ -57,10 +57,10 @@
                 }
             });
             $('#detailLib').diyUpload({
-                url:'/admin/goods/goodsUploadPhoto',                    
+                url:'/admin/detail/detailUploadImage',                    
                 success:function( response ) {
-                    photoStr='<input type="hidden" name="goods_image_list[]" value='+response.link+' />';
-                    $('#photoList').append(photoStr);
+                    photoStr='<input type="hidden" name="detail_img" value='+response.link+' />';
+                    $('#detailList').append(photoStr);
                 },
                 error:function( err ) {
                     console.info( err );	

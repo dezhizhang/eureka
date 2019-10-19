@@ -6,14 +6,18 @@ module.exports = app => {
     const d = new Date();
     const DetailSchema = new Schema({
         detail_id:{  type:Schema.Types.ObjectId },
-        detail_img:{ type:String },
+        focus_img:{ type:Array },
         title:{ type:String },
         price:{ type:String },
         freight:{ type:String },
         sales:{ type:String },
         inventory:{type:String },
-        sort:{ type:Number },
-        detail_list:{ type:String },
+        sort:{ 
+            type:Number,
+            default:100
+         },
+        discount:{ type:String },
+        detail_img:{ type:Array },
         add_time:{
             type:Number,
             default:d.getTime()

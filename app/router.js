@@ -128,11 +128,15 @@ module.exports = app => {
   router.get('/admin/main/edit',controller.admin.main.edit);
   router.post('/admin/main/doEdit',controller.admin.main.doEdit);
   router.get('/admin/main/delete',controller.admin.base.delete);
-  // router.get('/admin/main/detail',controller.admin.main.detail);
+ 
 
   //主打详情
   router.get('/admin/detail',controller.admin.detail.index);
   router.get('/admin/detail/add',controller.admin.detail.add);
+  router.post('/admin/detail/doAdd',controller.admin.detail.doAdd);
+  router.get('/admin/detail/delete',controller.admin.base.delete);
+  router.get('/admin/detail/edit',controller.admin.detail.edit);
+  router.post('/admin/detail/detailUploadImage',controller.admin.detail.detailUploadImage);
 
 
 
