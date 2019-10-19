@@ -145,11 +145,15 @@ module.exports = app => {
   router.post('/admin/classify/doAdd',controller.admin.classify.doAdd);
   router.get('/admin/classify/edit',controller.admin.classify.edit);
   router.post('/admin/classify/doEdit',controller.admin.classify.doEdit);
-  router.get('/admin/classify/delete',controller.admin.base.delete)
+  router.get('/admin/classify/delete',controller.admin.base.delete);
 
-
-
-
+  //分类详情
+  router.get('/admin/classifyDetail',controller.admin.classifyDetail.index);
+  router.get('/admin/classifyDetail/add',controller.admin.classifyDetail.add);
+  router.post('/admin/classifyDetail/doAdd',controller.admin.classifyDetail.doAdd);
+  router.get('/admin/classifyDetail/edit',controller.admin.classifyDetail.edit);
+  router.post('/admin/classifyDetail/doEdit',controller.admin.classifyDetail.doEdit);
+  router.get('/admin/classifyDetail/delete',controller.admin.base.delete);
 
 
 

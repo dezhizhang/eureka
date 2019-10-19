@@ -28,7 +28,7 @@
                                         <td><%=list[i].add_time%></td>
                                         <td class="text-center">
                                             <a href="/admin/classify/edit?id=<%=list[i]._id%>">修改</a>|
-                                            <a href="/admin/classifyDetail">增加详情</a>|
+                                            <a href="/admin/classifyDetail?classify_id=<%=list[i]._id%>">增加详情</a>|
                                             <a class="delete" href="/admin/classify/delete?id=<%=list[i]._id%>&model=Classify">删除</a>
                                         </td>
                                     </tr>

@@ -33,6 +33,7 @@ class ClassifyController extends BaseController {
         await this.success('/admin/classify','修改分类');
 
     }
+
 }
 
 module.exports = ClassifyController;
