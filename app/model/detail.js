@@ -4,20 +4,20 @@ module.exports = app => {
     const Schema = mongoose.Schema;
 
     const d = new Date();
-    const MainSchema = new Schema({
+    const DetailSchema = new Schema({
+        detail_id:{  type:Schema.Types.ObjectId },
+        detail_img:{ type:String },
         title:{ type:String },
         price:{ type:String },
-        main_id:{ type:String },
-        main_url:{ type:String },
-        type:{
-            type:Number,
-            default:1       //1主打产品，2分类产品
-        },
+        freight:{ type:String },
+        sales:{ type:String },
+        inventory:{type:String },
         sort:{ type:Number },
+        detail_list:{ type:String },
         add_time:{
             type:Number,
             default:d.getTime()
         }
     });
-    return mongoose.model('Main',MainSchema,'main');
+    return mongoose.model('Detail',DetailSchema,'detail');
 }
