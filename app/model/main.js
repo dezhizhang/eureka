@@ -8,7 +8,7 @@ module.exports = app => {
         title:{ type:String },
         price:{ type:String },
         main_id:{ type:String },
-        main_url:{ type:String },
+        main_img:{ type:String },
         type:{
             type:Number,
             default:1       //1主打产品，2分类产品

@@ -169,7 +169,11 @@ module.exports = app => {
   //热门产品
   router.get('/api/product/hot',controller.api.product.hot);
   //主打产品
-  router.get('/api/product/list',controller.api.product.list)
+  router.get('/api/product/list',controller.api.product.list);
+  //主打产品分类
+  router.get('/api/product/main',controller.api.main.index);
+  //详情列表
+  router.get('/api/detail/info',controller.api.detail.index);
 
 
 
