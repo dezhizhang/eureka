@@ -13,7 +13,8 @@
                     <div class="table-responsive input-form">
                         <form action="/admin/detail/doAdd?_csrf=<%=csrf%>" method="post">
                             <ul>
-                                <input type="hidden" name="detail_id" value="<%=id%>"/>
+                                <input type="hidden" name="detail_id" value="<%=detail_id%>"/>
+                                <input type="hidden" name="type" value="<%=type%>"/>
                                 <li>  标　　题：<input type="text" name="title" value="<%=title%>" readonly> </li>
                                 <li>  价　　格：<input type="text" name="price"/></li>
                                 <li>  运　　费：<input type="text" name="freight"/></li>

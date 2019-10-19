@@ -11,18 +11,22 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
-                        <form action="/admin/detail/doAdd?_csrf=<%=csrf%>" method="post">
+                        <form action="/admin/detail/doEdit?_csrf=<%=csrf%>" method="post">
                             <ul>
-                                <input type="hidden" name="detail_id" value="<%=id%>"/>
+                                <input type="hidden" name="detail_id" value="<%=detail_id%>"/>
+                                <input type="hidden" name="type" value="<%=type%>"/>
+                                <input type="hidden" name="id" value="<%=list.id%>"/>
                                 <li>  标　　题：<input type="text" name="title" value="<%=title%>" readonly> </li>
-                                <li>  价　　格：<input type="text" name="price"/></li>
-                                <li>  运　　费：<input type="text" name="freight"/></li>
-                                <li>  销　　量：<input type="text" name="sales" /></li>
-                                <li>  库　　存：<input type="text" name="inventory"/></li>
-                                <li>  排　　序：<input type="text" name="sort"/></li>
+                                <li>  价　　格：<input type="text" name="price" value="<%=list.price%>"/></li>
+                                <li>  运　　费：<input type="text" name="freight" value="<%=list.freight%>"/></li>
+                                <li>  销　　量：<input type="text" name="sales" value="<%=list.sales%>"/></li>
+                                <li>  库　　存：<input type="text" name="inventory" value="<%=list.inventory%>"/></li>
+                                <li>  排　　序：<input type="text" name="sort" value="<%=list.sort%>"/></li>
                                 <li>  轮播图列表：
                                     <div role="tabpanel" class="tab-pane" id="photo">
-                                        <div id="focusLib" class="photoLib"></div>
+                                        <div id="focusLib" class="photoLib">
+                                           
+                                        </div>
                                         <div id="photoList"></div>
                                     </div>
                                 </li>
@@ -32,7 +36,6 @@
                                         <div id="detailList"></div>
                                     </div>
                                 </li>
-
                                 <li>
                                     <br/>
                                     <button type="submit" class="btn btn-primary">提交</button>

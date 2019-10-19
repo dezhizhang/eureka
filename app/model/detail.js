@@ -12,6 +12,7 @@ module.exports = app => {
         freight:{ type:String },
         sales:{ type:String },
         inventory:{type:String },
+        type:{type:String },
         sort:{ 
             type:Number,
             default:100

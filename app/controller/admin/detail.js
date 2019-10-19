@@ -4,46 +4,49 @@ const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class MainController extends BaseController {
     async index() {
-        let { id,type } = this.ctx.query;
-        let result = await this.ctx.model.Detail.find({'detail_id':id});
+        let { detail_id,type } = this.ctx.query;
+        let result = await this.ctx.model.Detail.find({'detail_id':detail_id});
         await this.ctx.render('/admin/detail/index',{
-            id,
-            type,
-            list:result
+            list:result,
+            detail_id,
+            type
         })
 
     }
     async add() {
-        let { id,type } = this.ctx.query;
+        let {detail_id, type} = this.ctx.query;
         let title = '';
         if(type == 1) {
-            let result = await this.ctx.model.Main.find({'_id':id});
+            let result = await this.ctx.model.Main.find({'_id':detail_id});
             title = result[0].title
         } else {
-            let result = await this.ctx.model.Product.find({'_id':id});
+            let result = await this.ctx.model.Product.find({'_id':detail_id});
             title = result[0].title
         }
+        let detailResult = await this.ctx.model.Detail.find({'detail_id':detail_id});
         await this.ctx.render('/admin/detail/add',{
             title,
-            id
+            detail_id,
+            type
         });
+      
     }
     async doAdd() {
         let result = this.ctx.request.body;
+        let { detail_id } = result;
         let detail = new this.ctx.model.Detail(result);
         detail.save();
-        await this.success('/admin/detail','增加商品详情成功');
-
+        await this.success(`/admin/detail?detail_id=${detail_id}`,'增加商品详情成功');
     }
     async edit() {
         
-        let { id,type,product_id } = this.ctx.query;
+        let { id,type,detail_id } = this.ctx.query;
         let title = '';
         if(type == 1) {
-            let result = await this.ctx.model.Main.find({'_id':product_id});
+            let result = await this.ctx.model.Main.find({'_id':detail_id});
             title = result[0].title
         } else {
-            let result = await this.ctx.model.Product.find({'_id':product_id});
+            let result = await this.ctx.model.Product.find({'_id':detail_id});
             title = result[0].title
         }
         
@@ -51,11 +54,17 @@ class MainController extends BaseController {
         await this.ctx.render('/admin/detail/edit',{
             list:result[0],
             title,
-            id
+            detail_id,
+            id,
+            type
         })
     }
     async doEdit() {
-       
+       let result = this.ctx.request.body;
+       let {id,type,detail_id } = result;
+       let updateDetail = await this.ctx.model.Detail.updateOne({'_id':id},result);
+       await this.success(`/admin/detail?detail_id=${detail_id}&type=${type}`,'修改商品详情成功');
+
     }
     async detailUploadImage() {
         let parts = this.ctx.multipart({ autoFields: true });

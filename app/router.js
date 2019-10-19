@@ -130,12 +130,13 @@ module.exports = app => {
   router.get('/admin/main/delete',controller.admin.base.delete);
  
 
-  //主打详情
+  //详情
   router.get('/admin/detail',controller.admin.detail.index);
   router.get('/admin/detail/add',controller.admin.detail.add);
   router.post('/admin/detail/doAdd',controller.admin.detail.doAdd);
   router.get('/admin/detail/delete',controller.admin.base.delete);
   router.get('/admin/detail/edit',controller.admin.detail.edit);
+  router.post('/admin/detail/doEdit',controller.admin.detail.doEdit);
   router.post('/admin/detail/detailUploadImage',controller.admin.detail.detailUploadImage);
 
 
