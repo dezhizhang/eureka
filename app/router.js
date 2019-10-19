@@ -139,6 +139,14 @@ module.exports = app => {
   router.post('/admin/detail/doEdit',controller.admin.detail.doEdit);
   router.post('/admin/detail/detailUploadImage',controller.admin.detail.detailUploadImage);
 
+  //分类
+  router.get('/admin/classify',controller.admin.classify.index);
+  router.get('/admin/classify/add',controller.admin.classify.add);
+  router.post('/admin/classify/doAdd',controller.admin.classify.doAdd);
+  router.get('/admin/classify/edit',controller.admin.classify.edit);
+  router.post('/admin/classify/doEdit',controller.admin.classify.doEdit);
+  router.get('/admin/classify/delete',controller.admin.base.delete)
+
 
 
 
