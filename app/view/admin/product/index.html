@@ -39,7 +39,8 @@
                                         <td><%=list[i].description%></td>
                                         <td><%=helper.formatTime(list[i].add_time)%></td>
                                         <td  class="text-center">
-                                            <a href="/admin/product/edit?id=<%=list[i]._id%>">修改</a>
+                                            <a href="/admin/product/edit?id=<%=list[i]._id%>">修改</a>|
+                                            <a href="/admin/detail?detail_id=<%=list[i]._id%>&type=2">增加详情</a>|
                                             <a class="delete" href="/admin/product/delete?id=<%=list[i]._id%>&model=Product">删除</a>
                                         </td>
                                     </tr>

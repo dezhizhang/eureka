@@ -21,7 +21,7 @@ class MainController extends BaseController {
             title = result[0].title
         } else {
             let result = await this.ctx.model.Product.find({'_id':detail_id});
-            title = result[0].title
+            title = result[0].description
         }
         let detailResult = await this.ctx.model.Detail.find({'detail_id':detail_id});
         await this.ctx.render('/admin/detail/add',{
