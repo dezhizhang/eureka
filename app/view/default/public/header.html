@@ -1,48 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>eureka科技</title>
-    <link rel="stylesheet" href="/public/admin/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/default/css/base.css">
-    <link rel="stylesheet" href="/public/default/css/index.css">
-    <link rel="stylesheet" href="/public/default/css/swiper.min.css">
-</head>
-<body>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="author" content="order by dede58.com"/>
+		<title>小米商城</title>
+		<link rel="stylesheet" type="text/css" href="/public/default/css/style.css">
+		<link rel="stylesheet" href="/public/default/css/swiper.min.css">
 
-    <div class="row header">
-        <div class="col-md-4">
-            <div class="left-image">
-                <img class="image" src="/public/default/image/logo.png" alt="eureka科技"/>
-            </div>
-        </div>
-        <div class="col-md-8">
-            <ul class="header_ul">
-                <li class="header_li header_active"><a class="" href="/">官网首页</a></li>
-                <li class="header_li"><a href="/server">服务介绍</a></li>
-                <li class="header_li"><a href="/news">新闻动态</a></li>
-                <li class="header_li"><a href="/contact">联系我们</a></li>
-                <li class="header_li"><a href="/about">关于我们</a></li>
-            </ul>
-        </div>
-    </div>
-     
-</body>
-<script type="text/javascript" src="/public/admin/bootstrap/js/jquery-1.10.1.js"></script>
-<script type="text/javascript" src="/public/admin/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/public/default/js/swiper.min.js"></script>
-<script type="text/javascript">
-    $(function() {
-        let aLi = $('.header_li');
-        for(let i=0;i<aLi.length;i++) {
-            aLi[i].onclick = function() {
-                $(this).addClass('header_active')
-            }
-        }
-    })
-</script>
+		<script src="/public/default/js/jquery-1.10.1.js"></script>		
+		<script src="/public/default/js/swiper.min.js"></script>
+		<script src="/public/default/js/base.js"> </script>
 
 
-</html>
+	</head>
+	<body>
+	<!-- start header -->
+		<header>
+			<div class="top center">
+				<div class="left fl">
+					<ul class="clearfix">
+
+
+						<%for(var i=0;i<topNav.length;i++){ %>
+
+							<li><a href="<%=topNav[i].link%>"  <% if(topNav[i].is_opennew==2){%>target="_blank" <%}%> ><%=topNav[i].title%></a></li>
+						<%}%>
+											
+					</ul>
+				</div>
+				<div class="right fr">
+					<div class="gouwuche fr"><a href="">购物车</a></div>
+					<div class="fr">
+						<ul>
+							<li><a href="./login.html" target="_blank">登录</a></li>
+							<li>|</li>
+							<li><a href="./register.html" target="_blank" >注册</a></li>
+							<li>|</li>
+							<li><a href="">消息通知</a></li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</header>
