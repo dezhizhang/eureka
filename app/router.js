@@ -189,7 +189,9 @@ module.exports = app => {
   //获取分类
   router.get('/api/category/list',controller.api.classify.index);
   //获取分类详情
-  router.get('/api/categoryDetail/list',controller.api.classifyDetail.index)
+  router.get('/api/categoryDetail/list',controller.api.classifyDetail.index);
+  //用户登录
+  router.get('/api/userInfo/login',controller.api.login.index);
 
 
 
