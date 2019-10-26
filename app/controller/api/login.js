@@ -12,6 +12,27 @@ class LoginController extends Controller {
             data:json
         }
     }
+    async save() {
+        let { openid } = this.ctx.query;
+        let data = await this.ctx.model.UserInfo.find({'openid':openid});
+        if(data.length > 0) {
+            this.ctx.body = {
+                code:200,
+                msg:'当前用户以存在',
+                data:data
+            }
+        } else {
+            let userInfo = new this.ctx.model.UserInfo({openid:openid});
+            userInfo.save();
+            this.ctx.body = {
+                code:200,
+                msg:'保存用户成功',
+                data:null
+            }
+        }
+
+       
+    }
 
 }
 
