@@ -8,7 +8,7 @@ module.exports = app => {
         number:{ type:Number },
         price:{ type:String },
         goods_img:{ type:String },
-        openid:{ type:Schema.Types.Mixed },
+        openid:{ type:String },
         add_time:{
             type:Number,
             default:d.getTime()

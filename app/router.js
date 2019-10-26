@@ -196,6 +196,8 @@ module.exports = app => {
   router.get('/api/userInfo/save',controller.api.login.save);
   //上传购物车
   router.post('/api/cart/save',controller.api.cart.save);
+  //获取购物车信息
+  router.get('/api/userInfo/cartList',controller.api.cart.list)
 
 
 

@@ -29,6 +29,23 @@ class MaintainController extends Controller {
             }
         }
     }
+    async list() {
+        let { openid } = this.ctx.query;
+        if(openid) {
+            let list = await this.ctx.model.Cart.find({'openid':openid});
+            this.ctx.body = {
+                code:200,
+                msg:'获取数据成功',
+                data:list
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:'传入的参数有误',
+                data:null
+            }
+        }
+    }
 
 }
 
