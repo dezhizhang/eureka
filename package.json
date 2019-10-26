@@ -17,7 +17,8 @@
     "nodemailer": "^6.3.0",
     "pump": "^3.0.0",
     "silly-datetime": "^0.1.2",
-    "svg-captcha": "^1.4.0"
+    "svg-captcha": "^1.4.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "autod": "^3.0.1",

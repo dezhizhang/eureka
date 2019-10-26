@@ -1,6 +1,4 @@
 'use strict';
-const fs=require('fs');
-const pump = require('mz-modules/pump');
 const Controller = require('egg').Controller;
 class MaintainController extends Controller {
     async index() {
@@ -44,6 +42,15 @@ class MaintainController extends Controller {
                 msg:'传入的参数有误',
                 data:null
             }
+        }
+    }
+    async update() {
+        let { id,number } = this.ctx.query;
+        let result = await this.ctx.model.Cart.updateOne({'_id':id},{number:number});
+        this.ctx.body = {
+            code:200,
+            msg:'更新商品数量成功',
+            success:true
         }
     }
 
