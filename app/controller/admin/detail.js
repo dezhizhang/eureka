@@ -19,9 +19,12 @@ class MainController extends BaseController {
         if(type == 1) {
             let result = await this.ctx.model.Main.find({'_id':detail_id});
             title = result[0].title
-        } else {
+        } else if(type == 2) {
             let result = await this.ctx.model.Product.find({'_id':detail_id});
             title = result[0].description
+        } else if(type == 3) {
+            let result = await this.ctx.model.ClassifyDetail.find({'_id':detail_id});
+            title = result[0].title
         }
         let detailResult = await this.ctx.model.Detail.find({'detail_id':detail_id});
         await this.ctx.render('/admin/detail/add',{

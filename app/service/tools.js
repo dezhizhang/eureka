@@ -93,7 +93,7 @@ class ToolsService extends Service {
     //生成签名算法
     async createSign(obj) {
         let stringA = 'appid='+obj.appid+'&body='+obj.body+'&mch_id='+obj.mch_id+'&nonce_str='+obj.nonce_str+'&notify_url='+obj.notify_url+'&openid='+obj.openid+'&out_trade_no='+obj.out_trade_no+'&spbill_create_ip='+obj.spbill_create_ip+'&total_fee='+obj.total_fee+'&trade_type='+obj.trade_type;
-	    let stringSignTemp = stringA+'&key=自己的商户号秘钥';
+	    let stringSignTemp = stringA+'&key=KY2EPZ5C3Q9J2CH8O05WJHKFHL51ARDL';
         stringSignTemp = md5(stringSignTemp);
         let signValue = stringSignTemp.toUpperCase();
 	    return signValue
