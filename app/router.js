@@ -200,6 +200,8 @@ module.exports = app => {
   router.get('/api/userInfo/cartList',controller.api.cart.list);
   //更新商品数量
   router.get('/api/cart/update',controller.api.cart.update);
+  //调起微信支付
+  router.post('/api/userInfo/pay',controller.api.login.pay);
 
 
 

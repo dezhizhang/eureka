@@ -18,7 +18,8 @@
     "pump": "^3.0.0",
     "silly-datetime": "^0.1.2",
     "svg-captcha": "^1.4.0",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "xml2js": "^0.4.22"
   },
   "devDependencies": {
     "autod": "^3.0.1",
