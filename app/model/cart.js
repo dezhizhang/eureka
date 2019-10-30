@@ -9,6 +9,7 @@ module.exports = app => {
         price:{ type:String },
         goods_img:{ type:String },
         openid:{ type:String },
+        checked:{ type:Boolean,default:true },
         add_time:{
             type:Number,
             default:d.getTime()

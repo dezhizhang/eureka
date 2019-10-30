@@ -42,33 +42,34 @@ class LoginController extends Controller {
         let mch_id = '1558043371';
         let params = {
             appid: appid,
-			body: '微信支付，商品详细描述',
+			body: 'JSAPI支付测试',
 			mch_id: mch_id,
 			nonce_str: nonce_str,
-			notify_url: 'https://www.eureka.net.cn',
-			openid: openid,
-			out_trade_no: time,
-			spbill_create_ip: '192.168.0.140',
+			notify_url: 'https://www.eureka.net.cn/admin/login',
+            openid: openid,
+            detail:'测试',
+			out_trade_no: '20150806125346',
+			spbill_create_ip: '127.0.0.1',
 			total_fee: total_fee,
 			trade_type: 'JSAPI'
         }
         let sign = await this.service.tools.createSign(params);
         let reqUrl = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
         let formData = `<xml>
-            <appid>${appid}</appid>
-            <attach>支付测试</attach>
-            <body>JSAPI支付测试</body>
-            <mch_id>${mch_id}</mch_id>
-            <detail><![CDATA[{ "goods_detail":[ { "goods_id":"iphone6s_16G", "wxpay_goods_id":"1001", "goods_name":"iPhone6s 16G", "quantity":1, "price":528800, "goods_category":"123456", "body":"苹果手机" }, { "goods_id":"iphone6s_32G", "wxpay_goods_id":"1002", "goods_name":"iPhone6s 32G", "quantity":1, "price":608800, "goods_category":"123789", "body":"苹果手机" } ] }]]></detail>
-            <nonce_str>${nonce_str}</nonce_str>
-            <notify_url>https://www.eureka.net.cn</notify_url>
-            <openid>${openid}</openid>
-            <out_trade_no>1415659990</out_trade_no>
-            <spbill_create_ip>127.0.0.1</spbill_create_ip>
-            <total_fee>1</total_fee>
-            <trade_type>JSAPI</trade_type>
-            <sign>${sign}</sign>
-         </xml>`
+        <appid>${appid}</appid>
+        <body>JSAPI支付测试</body>
+        <mch_id>${mch_id}</mch_id>
+        <detail>测试</detail>
+        <nonce_str>${nonce_str}</nonce_str>
+        <notify_url>https://www.eureka.net.cn/admin/login</notify_url>
+        <openid>${openid}</openid>
+        <out_trade_no>20150806125346</out_trade_no>
+        <spbill_create_ip>127.0.0.1</spbill_create_ip>
+        <total_fee>1</total_fee>
+        <trade_type>JSAPI</trade_type>
+        <sign>${sign}</sign>
+     </xml>
+        `
 
         let data = await this.ctx.curl(reqUrl,{
             method:'POST',

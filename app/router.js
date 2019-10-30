@@ -200,8 +200,13 @@ module.exports = app => {
   router.get('/api/userInfo/cartList',controller.api.cart.list);
   //更新商品数量
   router.get('/api/cart/update',controller.api.cart.update);
+  //删除购物车 
+  router.get('/api/cart/delete',controller.api.cart.delete);
+  //改变购物车状态的方法
+  router.get('/api/cart/status',controller.api.cart.status);
   //调起微信支付
   router.post('/api/userInfo/pay',controller.api.login.pay);
+
 
 
 

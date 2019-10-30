@@ -53,6 +53,40 @@ class MaintainController extends Controller {
             success:true
         }
     }
+    async delete() {
+        let { id } = this.ctx.query;
+        if(id) {
+            let result = await this.ctx.model.Cart.deleteOne({'_id':id});
+            this.ctx.body = {
+                code:200,
+                msg:'删除购物车成功',
+                success:true
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:'传入的参数有误',
+                success:false
+            }
+        }
+    }
+    async status() {
+        let { id,checked } = this.ctx.query;
+        if(id && checked) {
+            let result = await this.ctx.model.Cart.updateOne({'_id':id},{checked:checked});
+            this.ctx.body = {
+                code:200,
+                msg:'更新数据成功',
+                success:true
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:'传入的参数有误',
+                success:false
+            }
+        }
+    }
 
 }
 
