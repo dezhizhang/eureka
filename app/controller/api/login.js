@@ -37,6 +37,9 @@ class LoginController extends Controller {
         let time = new Date().getTime();
         let nonce_str = await this.service.tools.randomStr();
         let openid = result.openid;
+       
+
+
         let total_fee = Number(1000)*100;
         let appid = 'wx070d1456a4a9c0fb';
         let mch_id = '1558043371';
@@ -54,6 +57,8 @@ class LoginController extends Controller {
 			trade_type: 'JSAPI'
         }
         let sign = await this.service.tools.createSign(params);
+        console.log(sign);
+
         let reqUrl = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
         let formData = `<xml>
         <appid>${appid}</appid>
@@ -73,11 +78,22 @@ class LoginController extends Controller {
 
         let data = await this.ctx.curl(reqUrl,{
             method:'POST',
-            dataType:'json',
             data:formData
         });
+        let json = data.data.toString();
 
-        console.log(data);
+        console.log(json);
+
+
+
+
+
+        
+
+        this.ctx.body = {
+            code:200,
+            msg:'success'
+        }
 
         
 
