@@ -37,8 +37,8 @@ class LoginController extends Controller {
         let time = new Date().getTime();
         let nonce_str = await this.service.tools.randomStr();
         let openid = result.openid;
-       
-
+        
+      
 
         let total_fee = Number(1000)*100;
         let appid = 'wx070d1456a4a9c0fb';
@@ -48,25 +48,26 @@ class LoginController extends Controller {
 			body: 'JSAPI支付测试',
 			mch_id: mch_id,
 			nonce_str: nonce_str,
-			notify_url: 'https://www.eureka.net.cn/admin/login',
+			notify_url: 'http://2477ii0715.qicp.vip:51075/weChatPaymentApi/orderNotify',
             openid: openid,
             detail:'测试',
 			out_trade_no: '20150806125346',
 			spbill_create_ip: '127.0.0.1',
 			total_fee: total_fee,
-			trade_type: 'JSAPI'
+            trade_type: 'JSAPI',
+            sign_type:'MD5'
         }
         let sign = await this.service.tools.createSign(params);
         console.log(sign);
 
-        let reqUrl = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
+        let url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
         let formData = `<xml>
         <appid>${appid}</appid>
         <body>JSAPI支付测试</body>
         <mch_id>${mch_id}</mch_id>
         <detail>测试</detail>
         <nonce_str>${nonce_str}</nonce_str>
-        <notify_url>https://www.eureka.net.cn/admin/login</notify_url>
+        <notify_url>http://2477ii0715.qicp.vip:51075/weChatPaymentApi/orderNotify</notify_url>
         <openid>${openid}</openid>
         <out_trade_no>20150806125346</out_trade_no>
         <spbill_create_ip>127.0.0.1</spbill_create_ip>
@@ -76,7 +77,7 @@ class LoginController extends Controller {
      </xml>
         `
 
-        let data = await this.ctx.curl(reqUrl,{
+        let data = await this.ctx.curl(url,{
             method:'POST',
             data:formData
         });
@@ -96,17 +97,6 @@ class LoginController extends Controller {
         }
 
         
-
-
-        
-
-     
-
-        
-
-
-
-
 
     }
 

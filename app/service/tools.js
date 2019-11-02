@@ -8,7 +8,6 @@ const sd = require('silly-datetime');
 const nodemailer = require('nodemailer');
 const mkdirp = require('mz-modules/mkdirp');
 
-
 const transporter = nodemailer.createTransport({
     service: 'qq',
     secureConnection: true,
@@ -88,15 +87,14 @@ class ToolsService extends Service {
             let random = Math.floor(Math.random()*arr.length);
             str += arr[random];
         }
-        
+    
         return str;
     }
     //生成签名算法
     async createSign(obj) {
-        console.log(obj);
-        
-        let stringA = 'appid='+obj.appid+'&body='+obj.body+'&mch_id='+obj.mch_id+'&nonce_str='+obj.nonce_str+'&notify_url='+obj.notify_url+'&openid='+obj.openid+'&out_trade_no='+obj.out_trade_no+'&spbill_create_ip='+obj.spbill_create_ip+'&total_fee='+obj.total_fee+'&trade_type='+obj.trade_type;
-	    let stringSignTemp = stringA+'&key=KY2EPZ5C3Q9J2CH8O05WJHKFHL51ARDL';
+        let stringA = 'appid='+obj.appid+'&body='+obj.body+'&mch_id='+obj.mch_id+'&nonce_str='+obj.nonce_str+'&notify_url='+obj.notify_url+'&openid='+obj.openid+'&out_trade_no='+obj.out_trade_no+'&spbill_create_ip='+obj.spbill_create_ip+'&total_fee='+obj.total_fee+'&trade_type='+obj.trade_type+'sign_type='+obj.sign_type;
+        console.log(stringA);
+	    let stringSignTemp = stringA+'&key=208DBD224FCB5ECCC87D64DD837EA823';
         stringSignTemp = md5(stringSignTemp);
         let signValue = stringSignTemp.toUpperCase();
 	    return signValue
