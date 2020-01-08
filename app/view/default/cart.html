@@ -1,10 +1,12 @@
 <% include  ./public/header.html%>
 <!--end header -->
+<link rel="stylesheet" href="/public/default/css/cart.css" />
 
+<script src="/public/default/js/cart.js"> </script>
 
 <!-- start banner_x -->
 		<div class="banner_x center">
-			<a href="./index.html" target="_blank"><div class="logo fl"></div></a>
+			<a href="/"><div class="logo fl"></div></a>
 			
 			<div class="wdgwc fl ml40">我的购物车</div>
 			<div class="wxts fl ml20">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</div>
@@ -19,47 +21,80 @@
 			<div class="clear"></div>
 		</div>
 		<div class="xiantiao"></div>
+
+		<%if(cartList && cartList.length>0){%>
+
 		<div class="gwcxqbj">
 			<div class="gwcxd center">
-				<div class="top2 center">
-					<div class="sub_top fl">
-						<input type="checkbox" value="quanxuan" class="quanxuan" />全选
-					</div>
-					<div class="sub_top fl">商品名称</div>
-					<div class="sub_top fl">单价</div>
-					<div class="sub_top fl">数量</div>
-					<div class="sub_top fl">小计</div>
-					<div class="sub_top fr">操作</div>
-					<div class="clear"></div>
-				</div>
-				<div class="content2 center">
-					<div class="sub_content fl ">
-						<input type="checkbox" value="quanxuan" class="quanxuan" />
-					</div>
-					<div class="sub_content fl"><img src="/public/default/image/gwc_xiaomi6.jpg"></div>
-					<div class="sub_content fl ft20">小米6全网通6GB内存+64GB 亮黑色</div>
-					<div class="sub_content fl ">2499元</div>
-					<div class="sub_content fl">
-						<input class="shuliang" type="number" value="1" step="1" min="1" >
-					</div>
-					<div class="sub_content fl">2499元</div>
-					<div class="sub_content fl"><a href="">×</a></div>
-					<div class="clear"></div>
-				</div>
-				<div class="content2 center">
-					<div class="sub_content fl ">
-						<input type="checkbox" value="quanxuan" class="quanxuan" />
-					</div>
-					<div class="sub_content fl"><img src="/public/default/image/gwc_xiaomi6.jpg"></div>
-					<div class="sub_content fl ft20">小米6全网通6GB内存+64GB 亮黑色</div>
-					<div class="sub_content fl ">2499元</div>
-					<div class="sub_content fl">
-						<input class="shuliang" type="number" value="1" step="1" min="1" >
-					</div>
-					<div class="sub_content fl">2499元</div>
-					<div class="sub_content fl"><a href="">×</a></div>
-					<div class="clear"></div>
-				</div>
+
+
+				
+					<table class="table">
+
+						<tr class="th">
+
+							<th>
+									<input type="checkbox" id="checkAll" />
+									全选
+							</th>
+							<th>
+							商品名称
+							</th>
+							<th>单价</th>
+							<th>数量</th>
+							<th>小计</th>
+							<th>操作</th>
+						</tr>
+					
+				
+						<%for(var i=0;i<cartList.length;i++){%>
+
+						<tr class="cart_list">
+
+								<td>
+										<input type="checkbox" goods_id="<%=cartList[i]._id%>" color="<%=cartList[i].color%>"  <%if(cartList[i].checked){%>checked <%}%> />
+								</td>
+		
+								<td>
+										<div class="col_pic">
+												<img src="<%=cartList[i].goods_img%>" />
+										</div>
+										<div  class="col_title">
+											<%=cartList[i].title%>
+										</div>
+								</td>
+		
+								<td class="price">
+										<%=cartList[i].price%>元
+								</td>
+		
+								<td>
+		
+									<div class="cart_number">
+											<div class="input_left decCart" goods_id="<%=cartList[i]._id%>" color="<%=cartList[i].color%>">-</div>
+		
+											<div class="input_center">
+													<input id="num" name="num" readonly="readonly" type="text" value="<%=cartList[i].num%>" />
+											</div>
+											<div class="input_right incCart" goods_id="<%=cartList[i]._id%>"  color="<%=cartList[i].color%>">+</div>
+									</div>
+									
+								</td>
+		
+								<td class="totalPrice">
+										<%=parseFloat(cartList[i].price)*cartList[i].num%>元
+		
+								</td>
+								<td>
+									<span><a class="delete" href="/removeCart?goods_id=<%=cartList[i]._id%>&color=<%=cartList[i].color%>"> 删除</a></span>
+								</td>
+							</tr>
+					
+						<%}%>
+					</table>
+
+
+
 			</div>
 			<div class="jiesuandan mt20 center">
 				<div class="tishi fl ml20">
@@ -71,18 +106,39 @@
 					</ul>
 				</div>
 				<div class="jiesuan fr">
-					<div class="jiesuanjiage fl">合计（不含运费）：<span>2499.00元</span></div>
-					<div class="jsanniu fr"><input class="jsan" type="submit" name="jiesuan"  value="去结算"/></div>
+					<div class="jiesuanjiage fl">合计（不含运费）：<span id="allPrice"><%=allPrice%>元</span></div>
+					<div class="jsanniu fr"><input class="jsan" type="submit" name="checkout" id="checkout"  value="去结算"/></div>
 					<div class="clear"></div>
 				</div>
 				<div class="clear"></div>
 			</div>
 			
 		</div>
+		<%}else{%>
 
+			<p style="color:red;text-align:center; padding:100px;">购物车空空的</p>
   
-
+		<%}%>
 	
+
+		<script>
+		
+		$(function(){
+
+			$("#checkout").click(function(){
+
+				var allPrice=parseFloat($("#allPrice").html());
+
+				if(allPrice==0){
+					alert('购物车没有选中去结算的商品')
+				}else{
+					location.href="/buy/checkout";
+				}
+
+			})
+		})
+		
+		</script>
 	<!-- footer -->
 	<footer class="center">
 			

@@ -159,12 +159,15 @@ module.exports = app => {
 
 
   //前台页面
-  router.get('/',controller.default.index.index);
+  // router.get('/',controller.default.index.index);
   //前台验证码
-  router.get('/api/default/verify',controller.default.base.verify);
-  //联系
-  router.get('/contact',controller.default.contact.index);
-  router.post('/contact/doInfo',controller.default.contact.doInfo);
+  // router.get('/api/default/verify',controller.default.base.verify);
+  // //联系
+  // router.get('/contact',controller.default.contact.index);
+  // router.post('/contact/doInfo',controller.default.contact.doInfo);
+
+  //前台页面
+  router.get("/",controller.default.index.index);
 
 
   
