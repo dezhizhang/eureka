@@ -1,9 +1,9 @@
 'use strict';
 const Controller = require('egg').Controller;
 
-class IndexController extends Controller {
+class LoginController extends Controller {
     async index() {
-        await this.ctx.render("/default/index",{
+        await this.ctx.render("/default/pass/login",{
             result:[],
         })
       
@@ -12,4 +12,4 @@ class IndexController extends Controller {
    
 }
 
-module.exports = IndexController
+module.exports = LoginController

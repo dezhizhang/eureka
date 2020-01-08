@@ -168,6 +168,11 @@ module.exports = app => {
 
   //前台页面
   router.get("/",controller.default.index.index);
+  //前台登录页
+  router.get("/login",controller.default.login.index);
+  //前台验证码
+  router.get("/api/default/verify",controller.default.base.verify);
+
 
 
   

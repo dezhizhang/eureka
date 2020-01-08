@@ -8,8 +8,8 @@ class BaseController extends Controller {
         let params = {
             size:4,
             fontSize:50,
-            width:120,
-            height:30,
+            width:100,
+            height:40,
             background:'',
             color:'#fff'
         }
