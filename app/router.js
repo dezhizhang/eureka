@@ -170,10 +170,14 @@ module.exports = app => {
   router.get("/",controller.default.index.index);
   //前台登录页
   router.get("/login",controller.default.login.index);
-  //前台验证码
-  router.get("/api/default/verify",controller.default.base.verify);
+  //注册验证验证码
+  router.get("/pass/sendCode",controller.default.login.sendCode);
   //注册第一步
   router.get("/register/registerStep1",controller.default.login.registerStep1);
+   //注册第二步
+  router.get("/register/registerStep2",controller.default.login.registerStep2);
+  //前台验证码
+  router.get("/api/default/verify",controller.default.base.verify);
   //订单页面
   router.get("/order",controller.default.order.index);
 

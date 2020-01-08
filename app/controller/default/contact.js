@@ -29,7 +29,6 @@ class ContactController extends Controller {
                     let text = `您网站客户,姓名:${username},电话：${mobile},提交了外包需求请尽快处理！管理后台:https://www.eureka.net.cn/admin/login`;
                     let html = '';
                     let has_sned = await this.service.tools.sendEmail(email,subject,text,html);
-                    con
                     this.ctx.body = {
                         code:200,
                         msg:'提交信息成功',

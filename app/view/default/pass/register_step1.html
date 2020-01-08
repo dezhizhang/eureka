@@ -55,10 +55,9 @@
 							alert('验证码长度不合法');
 							return false;
 						}
-						$.get('/pass/sendCode',{phone:phone,identify_code:identify_code},function(response){
-							console.log(response);							
-							if(response.success==true){
-								location.href="/register/registerStep2?sign="+response.sign+'&identify_code='+identify_code;
+						$.get('/pass/sendCode',{phone:phone,identify_code:identify_code},function(response){					
+							if(response.code == 200){
+								location.href="/register/registerStep2?identify_code=" + identify_code + "&phone=" + phone;s
 							}else{
 								alert(response.msg);
 							}
