@@ -174,6 +174,8 @@ module.exports = app => {
   router.get("/api/default/verify",controller.default.base.verify);
   //注册第一步
   router.get("/register/registerStep1",controller.default.login.registerStep1);
+  //订单页面
+  router.get("/order",controller.default.order.index);
 
 
 
