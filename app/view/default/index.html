@@ -9,7 +9,7 @@
 	<div class="nav fl">
 		<ul class="clearfix" id="nav_list">
 
-
+				222222222222
 		</ul>
 		</div>
 		<div class="search fr">
@@ -26,27 +26,28 @@
 	</div>
 </div>
 <!-- end banner_x -->
-
-	<!-- start banner_y -->
-		<div class="banner_y center">
-			<div class="nav">				
-				<ul>
-
-				</ul>
-			</div>
-
-
-			  <div class="swiper-container">
-				<div class="swiper-wrapper">
-					
-
+<!-- start banner_y -->
+<div class="banner_y center">
+	<div class="nav">				
+		<ul>
+		            2222222222222222		
+		</ul>
+	</div>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<%for(var i=0;i<focus.length;i++){ %>
+				<div class="swiper-slide">
+					<a style="width: 100%;" href="<%=focus[i].link%>" target="_blank">
+						<img src="<%=focus[i].focus_img%>" alt="<%=focus[i].title%>" />
+					</a>
 				</div>
-				<!-- Add Arrows -->
-				<div class="swiper-button-next"></div>
-				<div class="swiper-button-prev"></div>
-			  </div>
-		
-		</div>	
+			<%}%>
+		</div>
+		<!-- Add Arrows -->
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>	
+</div>	
 
 		<div class="sub_banner center">
 			<div class="sidebar fl">
