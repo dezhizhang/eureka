@@ -106,125 +106,43 @@
 </div>
 <!-- end danpin -->
 
+<!-- 手机 -->
+<div class="category_item w">
+	<div class="title center">最新产品</div>
+		<div class="main center">
+			<div class="category_item_left">
 
-
-		<!-- 手机 -->
-
-		<div class="category_item w">
-			<div class="title center">最新产品</div>
-			<div class="main center">
-
-
-				<div class="category_item_left">
-
-					<img src="/public/default/image/shouji.jpg" alt="手机">
-				</div>
-
-
-				<div class="category_item_right">
-						
-						
-							
-				</div>
-			
-			
+				<img src="/public/default/image/shouji.jpg" alt="手机">
 			</div>
+		<div class="category_item_right"></div>			
+	</div>
+</div>
+<!-- 产品列表 -->
+<div class="category_item w">
+	<div class="title center">主打产品</div>
+	<div class="main center">
+		<div class="content">
+			<!-- -->
+			<%for(let i=0;i < product.length;i++) {%>
+				<div class="hot fl">
+					<div class="xinpin"><span>新品</span></div>
+					<div class="tu"><a style="width: 100%;" href=""><img style="width: 100%;" src="<%=product[i]. product_url%>"></a></div>
+					<div class="miaoshu"><a href="">eureka6 硅胶保护套</a></div>
+					<div class="jiage"><%=product[i].price%></div>
+					<div class="pingjia">372人评价</div>
+					<div class="piao">
+						<a style="width: 100%;" href="">
+							<span>发货速度很快！很配eureka6！</span> 
+							<span>来至于mi狼牙的评价</span>
+						</a>
+					</div>
+				</div>
+			<%}%>
+					
+				<div class="clear"></div>
+			</div>
+						
 		</div>
-
-
-
-		<!-- 配件 -->
-		<div class="category_item w">
-			<div class="title center">产品列表</div>
-			<div class="main center">
-				<div class="content">
-					<div class="hot fl"><a href=""><img src="/public/default/image/peijian1.jpg"></a>
-					</div>
-					<div class="hot fl">
-						<div class="xinpin"><span>新品</span></div>
-						<div class="tu"><a href=""><img src="/public/default/image/peijian2.jpg"></a></div>
-						<div class="miaoshu"><a href="">eureka6 硅胶保护套</a></div>
-						<div class="jiage">49元</div>
-						<div class="pingjia">372人评价</div>
-						<div class="piao">
-							<a href="">
-								<span>发货速度很快！很配eureka6！</span>
-								<span>来至于mi狼牙的评价</span>
-							</a>
-						</div>
-					</div>
-					<div class="hot fl">
-						<div class="xinpin"><span style="background:#fff"></span></div>
-						<div class="tu"><a href=""><img src="/public/default/image/peijian3.jpg"></a></div>
-						<div class="miaoshu"><a href="">eureka手机4c eureka4c 智能</a></div>
-						<div class="jiage">29元</div>
-						<div class="pingjia">372人评价</div>
-					</div>
-					<div class="hot fl">
-						<div class="xinpin"><span style="background:red">享6折</span></div>
-						<div class="tu"><a href=""><img src="/public/default/image/peijian4.jpg"></a></div>
-						<div class="miaoshu"><a href="">红米NOTE 4X 红米note4X</a></div>
-						<div class="jiage">19元</div>
-						<div class="pingjia">372人评价</div>
-						<div class="piao">
-							<a href="">
-								<span>发货速度很快！很配eureka6！</span>
-								<span>来至于mi狼牙的评价</span>
-							</a>
-						</div>
-					</div>
-					<div class="hot fl">
-						<div class="xinpin"><span style="background:#fff"></span></div>
-						<div class="tu"><a href=""><img src="/public/default/image/peijian5.jpg"></a></div>
-						<div class="miaoshu"><a href="">eureka支架式自拍杆</a></div>
-						<div class="jiage">89元</div>
-						<div class="pingjia">372人评价</div>
-						<div class="piao">
-							<a href="">
-								<span>发货速度很快！很配eureka6！</span>
-								<span>来至于mi狼牙的评价</span>
-							</a>
-						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="content">
-					<div class="hot fl"><a href=""><img src="/public/default/image/peijian6.png"></a>
-					</div>
-					<div class="hot fl">
-						<div class="xinpin"><span style="background:#fff"></span></div>
-						<div class="tu"><a href=""><img src="/public/default/image/peijian7.jpg"></a></div>
-						<div class="miaoshu"><a href="">eureka指环支架</a></div>
-						<div class="jiage">19元</div>
-						<div class="pingjia">372人评价</div>
-						<div class="piao">
-							<a href="">
-								<span>发货速度很快！很配eureka6！</span>
-								<span>来至于mi狼牙的评价</span>
-							</a>
-						</div>
-					</div>
-					<div class="hot fl">
-						<div class="xinpin"><span style="background:#fff"></span></div>
-						<div class="tu"><a href=""><img src="/public/default/image/peijian8.jpg"></a></div>
-						<div class="miaoshu"><a href="">米家随身风扇</a></div>
-						<div class="jiage">19.9元</div>
-						<div class="pingjia">372人评价</div>
-					</div>
-					<div class="hot fl">
-						<div class="xinpin"><span style="background:#fff"></span></div>
-						<div class="tu"><a href=""><img src="/public/default/image/peijian9.jpg"></a></div>
-						<div class="miaoshu"><a href="">红米4X 高透软胶保护套</a></div>
-						<div class="jiage">59元</div>
-						<div class="pingjia">775人评价</div>
-					</div>
-					<div class="hotlast fr">
-						<div class="hongmi"><a href=""><img src="/public/default/image/hongmin4.png" alt=""></a></div>
-						<div class="liulangengduo"><a href=""><img src="/public/default/image/liulangengduo.png" alt=""></a></div>					
-					</div>
-					<div class="clear"></div>
-				</div>				
-			</div>
 		</div>
 
 		<script>
