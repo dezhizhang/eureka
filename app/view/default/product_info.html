@@ -5,35 +5,21 @@
 <% include  ./public/banner.html%>
 <!-- end banner_x -->
 
-	
 	<!-- xiangqing -->
-
-
-	
 	<div class="jieshao mt20 w">
 		<div class="left fl">
-			
-
 			<div class="swiper-container">
 				<div class="swiper-wrapper" id="swiper-wrapper">
 					<%for(var i=0;i<goodsImageResult.length;i++){%>
-
-							
 						<div class="swiper-slide">
-
-								<img src="<%=goodsImageResult[i].img_url%>">
+							<img src="<%=goodsImageResult[i].img_url%>">
 						</div>
-
 					<%}%>
-							
 				</div>
-
 				<div class="swiper-pagination"></div>
-
 				<!-- Add Arrows -->
 				<div class="swiper-button-next"></div>
 				<div class="swiper-button-prev"></div>
-		
 			</div>
 		
 		
