@@ -183,45 +183,46 @@ module.exports = app => {
 
 
 
-  
 
 
-  
-  //小程序接口
-  //轮播图
-  router.get('/api/focus/info',controller.api.focus.index);
-  //广告图
-  router.get('/api/advert/info',controller.api.advert.index);
-  //维修接口
-  router.post('/api/maintain/upload',controller.api.maintain.upload);
-  //热门产品
-  router.get('/api/product/hot',controller.api.product.hot);
-  //主打产品
-  router.get('/api/product/list',controller.api.product.list);
-  //主打产品分类
-  router.get('/api/product/main',controller.api.main.index);
-  //详情列表
-  router.get('/api/detail/info',controller.api.detail.index);
-  //获取分类
-  router.get('/api/category/list',controller.api.classify.index);
-  //获取分类详情
-  router.get('/api/categoryDetail/list',controller.api.classifyDetail.index);
-  //用户登录
-  router.get('/api/userInfo/login',controller.api.login.index);
-  //保存用户信息
-  router.get('/api/userInfo/save',controller.api.login.save);
-  //上传购物车
-  router.post('/api/cart/save',controller.api.cart.save);
-  //获取购物车信息
-  router.get('/api/userInfo/cartList',controller.api.cart.list);
-  //更新商品数量
-  router.get('/api/cart/update',controller.api.cart.update);
-  //删除购物车 
-  router.get('/api/cart/delete',controller.api.cart.delete);
-  //改变购物车状态的方法
-  router.get('/api/cart/status',controller.api.cart.status);
-  //调起微信支付
-  router.post('/api/userInfo/pay',controller.api.login.pay);
+
+
+
+//小程序接口
+//轮播图
+router.get('/api/focus/info',controller.api.focus.index);
+//广告图
+router.get('/api/advert/info',controller.api.advert.index);
+//维修接口
+router.post('/api/maintain/upload',controller.api.maintain.upload);
+//热门产品
+router.get('/api/product/hot',controller.api.product.hot);
+//主打产品
+router.get('/api/product/list',controller.api.product.list);
+//主打产品分类
+router.get('/api/product/main',controller.api.main.index);
+//详情列表
+router.get('/api/detail/info',controller.api.detail.index);
+//获取分类
+router.get('/api/category/list',controller.api.classify.index);
+//获取分类详情
+router.get('/api/categoryDetail/list',controller.api.classifyDetail.index);
+//用户登录
+router.get('/api/userInfo/login',controller.api.login.index);
+//保存用户信息
+router.get('/api/userInfo/save',controller.api.login.save);
+//上传购物车
+router.post('/api/cart/save',controller.api.cart.save);
+//获取购物车信息
+router.get('/api/userInfo/cartList',controller.api.cart.list);
+//更新商品数量
+router.get('/api/cart/update',controller.api.cart.update);
+//删除购物车 
+router.get('/api/cart/delete',controller.api.cart.delete);
+//改变购物车状态的方法
+router.get('/api/cart/status',controller.api.cart.status);
+//调起微信支付
+router.post('/api/userInfo/pay',controller.api.login.pay);
 
 
 
