@@ -23,9 +23,7 @@ module.exports = app => {
   router.post('/admin/manager/doEdit',controller.admin.manager.doEdit);
   router.get('/admin/manager/delete',controller.admin.base.delete);
 
-
-
-   //角色
+  //角色
   router.get('/admin/role',controller.admin.role.index);
   router.get('/admin/role/add',controller.admin.role.add);
   router.post('/admin/role/doAdd',controller.admin.role.doAdd);
@@ -35,7 +33,7 @@ module.exports = app => {
   router.get('/admin/role/auth',controller.admin.role.auth);
   router.post('/admin/role/doAuth',controller.admin.role.doAuth);
 
-   //权限
+  //权限
   router.get('/admin/access',controller.admin.access.index);
   router.get('/admin/access/add',controller.admin.access.add);
   router.post('/admin/access/doAdd',controller.admin.access.doAdd);
@@ -180,10 +178,6 @@ module.exports = app => {
   router.get("/api/default/verify",controller.default.base.verify);
   //订单页面
   router.get("/order",controller.default.order.index);
-
-
-
-
 
 
 
