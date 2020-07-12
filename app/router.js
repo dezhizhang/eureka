@@ -176,6 +176,10 @@ module.exports = app => {
   router.get("/user",controller.default.user.index);
   //收藏
   router.get("/collect",controller.default.collect.index);
+  //我的留言
+  router.get("/message",controller.default.message.index);
+  //购物车
+  router.get("/buycar",controller.default.buycar.index);
  
 
 
