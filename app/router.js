@@ -168,6 +168,8 @@ module.exports = app => {
   router.get("/",controller.default.index.index);
   //前台登录页
   router.get("/login",controller.default.login.index);
+  //注册
+  router.get("/regist",controller.default.regist.index);
   //注册验证验证码
   router.get("/pass/sendCode",controller.default.login.sendCode);
   //注册第一步
