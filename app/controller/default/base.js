@@ -18,6 +18,20 @@ class BaseController extends Controller {
         this.ctx.response.type = 'image/svg+xml';
         this.ctx.body = captcha.data;
     }
+    //失败
+    async error(redirectURL,message) {
+        await this.ctx.render('/default/public/error',{
+            redirectURL:redirectURL,
+            message:message || '操作失败'
+        })
+    }
+    //成功
+    async success(redirectURL,message) {
+        await this.ctx.render('/default/public/success',{
+            redirectURL:redirectURL,
+            message:message || '操作成功'
+        })
+    }
     
 }
 
