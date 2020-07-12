@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="/public/default/css/style.css" />
-  
 <title>贵采</title>
 </head>
 <body>  
@@ -45,12 +44,8 @@
                 <td><input name="password" required type="password" class="l_pwd" /></td>
               </tr>
               <tr height="50">
-                <td align="right"><font color="#ff4e00">*</font>&nbsp;确认密码 &nbsp;</td>
-                <td><input name="cPassword" required type="password"  class="l_pwd" /></td>
-              </tr>
-              <tr height="50">
                 <td align="right"><font color="#ff4e00">*</font>&nbsp;邮箱 &nbsp;</td>
-                <td><input name="email" required type="text" class="l_email" /></td>
+                <td><input name="email" required type="email" class="l_email" /></td>
               </tr>
               <tr height="50">
                 <td align="right"><font color="#ff4e00">*</font>&nbsp;手机 &nbsp;</td>
@@ -59,8 +54,8 @@
               <tr height="50">
                 <td align="right"> <font color="#ff4e00">*</font>&nbsp;验证码 &nbsp;</td>
                 <td style="display: flex;">
-                    <input type="text" required  class="l_ipt" style="width: 160px;"/>
-                    <img style="height: 40px; margin-left: 10px;" src="/api/default/verify" title="看不清？点击刷新" onclick="javascript:this.src='/admin/verify?mt='+Math.random()">
+                    <input type="text" name="code" required  class="l_ipt" style="width: 160px;"/>
+                    <img style="height: 40px; margin-left: 10px;" src="/api/default/verify?width=120&height=40" title="看不清？点击刷新" onclick="javascript:this.src='/api/default/verify?width=120&height=40&mt='+Math.random()">
                 </td>
               </tr>
               <tr>
@@ -74,7 +69,7 @@
               </tr>
               <tr height="60">
               	<td>&nbsp;</td>
-                <td><input type="submit"  value="立即注册" class="log_btn" /></td>
+                <td><input type="submit"   value="立即注册" class="log_btn" /></td>
               </tr>
             </table>
             </form>
@@ -102,14 +97,7 @@
 <script type="text/javascript" src="/public/default/js/hban.js"></script>
 <script type="text/javascript" src="/public/default/js/tban.js"></script>  
 <script type="text/javascript" src="/public/default/js/lrscroll_1.js"></script>
-<script type="text/javascript">
 
- 
-
-
-  
-   
-</script>
 <!--[if IE 6]>
 <script src="js/iepng.js" type="text/javascript"></script>
 <script type="text/javascript">

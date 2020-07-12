@@ -161,6 +161,8 @@ module.exports = app => {
   router.get("/login",controller.default.login.index);
   //注册
   router.get("/regist",controller.default.regist.index);
+  //注册提交数据
+  router.post("/regist/doAdd",controller.default.regist.doAdd);
 
  
   //前台验证码
