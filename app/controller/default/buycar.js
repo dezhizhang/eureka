@@ -15,6 +15,10 @@ class BuycarController extends Controller {
     async buyCarTwo() {
         await this.ctx.render("/default/buyCarTwo")
     }
+    //购物车第二步步
+    async buyCarThree() {
+        await this.ctx.render("/default/buyCarThree")
+    }
     
    
 }
