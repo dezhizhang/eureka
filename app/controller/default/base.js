@@ -9,8 +9,8 @@ class BaseController extends Controller {
         let params = {
             size:4,
             fontSize:50,
-            width,
-            height,
+            width:120,
+            height:40,
             background:'',
             color:'#fff'
         }
