@@ -184,6 +184,8 @@ module.exports = app => {
   router.get("/buyCarTwo",controller.default.buycar.buyCarTwo);
   //购物转第三步
   router.get("/buyCarThree",controller.default.buycar.buyCarThree);
+  //商品分类
+  router.get("/category",controller.default.category.index);
  
 
 
