@@ -180,6 +180,8 @@ module.exports = app => {
   router.get("/message",controller.default.message.index);
   //购物车
   router.get("/buycar",controller.default.buycar.index);
+  //购物转第二步
+  router.get("/buyCarTwo",controller.default.buycar.buyCarTwo);
  
 
 
