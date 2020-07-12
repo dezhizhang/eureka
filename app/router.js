@@ -157,20 +157,27 @@ module.exports = app => {
 
   //前台页面
   router.get("/",controller.default.index.index);
+  router.get("/index",controller.default.index.index);
   //前台登录页
   router.get("/login",controller.default.login.index);
   //登录提交数据
   router.post("/login/doAdd",controller.default.login.doAdd);
   //注册
   router.get("/regist",controller.default.regist.index);
-  //注册提交数据
-  router.post("/regist/doAdd",controller.default.regist.doAdd);
-
- 
   //前台验证码
   router.get("/api/default/verify",controller.default.base.verify);
-  //订单页面
+  //注册提交数据
+  router.post("/regist/doAdd",controller.default.regist.doAdd);
+  //我的订单
   router.get("/order",controller.default.order.index);
+  //收贷地址
+  router.get("/address",controller.default.address.index);
+  //用户信息
+  router.get("/user",controller.default.user.index);
+  //收藏
+  router.get("/collect",controller.default.collect.index);
+ 
+
 
 
 
