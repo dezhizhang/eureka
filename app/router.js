@@ -159,6 +159,8 @@ module.exports = app => {
   router.get("/",controller.default.index.index);
   //前台登录页
   router.get("/login",controller.default.login.index);
+  //登录提交数据
+  router.post("/login/doAdd",controller.default.login.doAdd);
   //注册
   router.get("/regist",controller.default.regist.index);
   //注册提交数据

@@ -3,26 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="/public/default/css/style.css" />
-    <!--[if IE 6]>
-    <script src="js/iepng.js" type="text/javascript"></script>
-        <script type="text/javascript">
-           EvPNG.fix('div, ul, img, li, input, a'); 
-        </script>
-    <![endif]-->    
-    <script type="text/javascript" src="/public/default/js/jquery-1.11.1.min_044d0927.js"></script>
-	<script type="text/javascript" src="/public/default/js/jquery.bxslider_e88acd1b.js"></script>
-    <script type="text/javascript" src="/public/default/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/public/default/js/menu.js"></script>    
-	<script type="text/javascript" src="/public/default/js/select.js"></script>
-	<script type="text/javascript" src="/public/default/js/lrscroll.js"></script>
-    <script type="text/javascript" src="/public/default/js/iban.js"></script>
-    <script type="text/javascript" src="/public/default/js/fban.js"></script>
-    <script type="text/javascript" src="/public/default/js/f_ban.js"></script>
-    <script type="text/javascript" src="/public/default/js/mban.js"></script>
-    <script type="text/javascript" src="/public/default/js/bban.js"></script>
-    <script type="text/javascript" src="/public/default/js/hban.js"></script>
-    <script type="text/javascript" src="/public/default/js/tban.js"></script>
-	<script type="text/javascript" src="/public/default/js/lrscroll_1.js"></script>
+
+   
 <title>贵采</title>
 </head>
 <body>  
@@ -48,7 +30,7 @@
 	<div class="login">
     	<div class="log_img"><img src="/public/default/images/l_img.png" width="611" height="425" /></div>
 		<div class="log_c">
-        	<form>
+        	<form action="/login/doAdd" method="POST">
             <table border="0" style="width:370px; font-size:14px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr height="50" valign="top">
               	<td width="55">&nbsp;</td>
@@ -58,18 +40,18 @@
                 </td>
               </tr>
               <tr height="70">
-                <td>用户名</td>
-                <td><input type="text" value="" class="l_user" /></td>
+                <td align="right"><font color="#ff4e00">*</font>&nbsp;邮箱 &nbsp;</td>
+                <td><input name="email" required type="text" class="l_user" /></td>
               </tr>
               <tr height="70">
-                <td>密&nbsp; &nbsp; 码</td>
-                <td><input type="password" value="" class="l_pwd" /></td>
+                <td align="right"><font color="#ff4e00">*</font>&nbsp;密码 &nbsp;</td>
+                <td><input name="password" required type="password" class="l_pwd" /></td>
               </tr>
               <tr>
               	<td>&nbsp;</td>
                 <td style="font-size:12px; padding-top:20px;">
                 	<span style="font-family:'宋体';" class="fl">
-                    	<label class="r_rad"><input type="checkbox" /></label><label class="r_txt">请保存我这次的登录信息</label>
+                    	<label class="r_rad"><input type="checkbox" style="margin-top:-4px"/></label><label class="r_txt">请保存我这次的登录信息</label>
                     </span>
                     <span class="fr"><a href="#" style="color:#ff4e00;">忘记密码</a></span>
                 </td>
@@ -89,6 +71,26 @@
 <!--End Footer End -->    
 
 </body>
+<!--[if IE 6]>
+<script src="js/iepng.js" type="text/javascript"></script>
+    <script type="text/javascript">
+           EvPNG.fix('div, ul, img, li, input, a'); 
+    </script>
+<![endif]-->    
+<script type="text/javascript" src="/public/default/js/jquery-1.11.1.min_044d0927.js"></script>
+<script type="text/javascript" src="/public/default/js/jquery.bxslider_e88acd1b.js"></script>
+<script type="text/javascript" src="/public/default/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/public/default/js/menu.js"></script>    
+<script type="text/javascript" src="/public/default/js/select.js"></script>
+<script type="text/javascript" src="/public/default/js/lrscroll.js"></script>
+<script type="text/javascript" src="/public/default/js/iban.js"></script>
+<script type="text/javascript" src="/public/default/js/fban.js"></script>
+<script type="text/javascript" src="/public/default/js/f_ban.js"></script>
+<script type="text/javascript" src="/public/default/js/mban.js"></script>
+<script type="text/javascript" src="/public/default/js/bban.js"></script>
+<script type="text/javascript" src="/public/default/js/hban.js"></script>
+<script type="text/javascript" src="/public/default/js/tban.js"></script>
+<script type="text/javascript" src="/public/default/js/lrscroll_1.js"></script>
 
 
 <!--[if IE 6]>
