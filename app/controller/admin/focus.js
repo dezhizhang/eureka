@@ -16,8 +16,6 @@ class FocusController extends BaseController {
     //轮播图交数据
     async doAdd() {
         let result = await this.service.upload.uploadImg(); 
-        console.log("result",result);
-        
         let focus =new this.ctx.model.Focus(result);
         await focus.save();
         await this.success('/admin/focus','增加轮播图成功');

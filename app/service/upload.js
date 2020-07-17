@@ -27,8 +27,11 @@ class UploadService extends Service {
         try{
             const result = await client.put(fileName,target); //阿里云图片上传
             let fields = {};
-            fields = stream.fields
-            fields.url= result.url
+            fields = stream.fields;
+            fields.url= result.url;
+            fs.unlink(target,(err) => {
+                console.log('err',err);
+            })
             return fields;
         } catch(error) {
             await sendToWormhole(stream);
