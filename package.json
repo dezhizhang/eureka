@@ -12,6 +12,7 @@
     "egg-mongoose": "^3.2.0",
     "egg-scripts": "^2.5.0",
     "egg-view-ejs": "^2.0.0",
+    "fs-extra": "^9.0.1",
     "jimp": "^0.8.4",
     "koa-jsonp": "^2.0.2",
     "md5": "^2.2.1",
@@ -19,6 +20,7 @@
     "nodemailer": "^6.3.0",
     "pump": "^3.0.0",
     "silly-datetime": "^0.1.2",
+    "stream-wormhole": "^1.1.0",
     "svg-captcha": "^1.4.0",
     "uuid": "^3.4.0",
     "xml2js": "^0.4.22"
