@@ -10,7 +10,7 @@ const sendToWormhole = require('stream-wormhole');
 
 class UploadService extends Service {
 
-    //生成签名算法
+    //图片上传
     async uploadImg() {
         const client = new oss({
             accessKeyId: 'LTAI4GJa5QYZrxA2PPUg6u7G',
@@ -18,35 +18,24 @@ class UploadService extends Service {
             bucket: 'imgguicai',
             region: 'oss-cn-hangzhou',//所在地区
         });
-        const dirName = dayjs(Date.now()).format("YYYYMMDD");//生成日期数据
         await fsToll.ensureDir(path.join(this.config.uploadDir,'app/public/admin/upload/')); //生成文件夹 ，如果存在则不生成
         const stream = await this.ctx.getFileStream();
         const extname = path.extname(stream.filename).toLowerCase();//文件扩展名称
         const fileName = Date.now() + '' + Number.parseInt(Math.random() * 10000) + extname;//文件名
-
         const target = path.join(this.config.baseDir,'app/public/admin/upload/',fileName); //文件存放目录位置
-
         const writeStream = fs.createWriteStream(target); //存储文件 创造可写流
-
         const streamPipe = stream.pipe(writeStream); //文件存储等待机制 将可读性流写入可写流
         try{
-            const r1 = await client.put(fileName,target); //阿里云图片上传
-            console.log(r1);
-           
-            const url = r1.url; //返回阿里云图片url
-            this.ctx.body = url;
+            const result = await client.put(fileName,target); //阿里云图片上传
+            let fields = {};
+            fields = stream.fields
+            fields.url= result.url
+            return fields;
         } catch(error) {
             await sendToWormhole(stream);
             throw error;
         }
-    
-    
-
-      
     }
-
-   
-    
 }
 
 module.exports = UploadService;
