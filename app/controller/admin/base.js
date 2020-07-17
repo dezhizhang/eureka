@@ -1,6 +1,10 @@
 'use strict';
 
+const path = require('path');
+const oss = require('ali-oss');
 const Controller = require('egg').Controller;
+
+
 
 class BaseController extends Controller {
     //成功
@@ -109,8 +113,35 @@ class BaseController extends Controller {
                 success:false
             }
         }
-
-
+    }
+    //上传
+    async uploadFile() {
+        const { ctx } = this;
+        let parts = ctx.multipart({ autoFields: true });
+        let stream;
+        //可以配置在config
+        const client = new oss({
+            accessKeyId: 'LTAI4Fxy18DxEaTBP4ro4MaX',
+            accessKeySecret: 'b5zNrJdk22kF6qNXR42i66SzwGot3a',
+            bucket: 'guicaioa',
+            region: 'oss-cn-shenzhen',//替换成自己的地区，我这是深圳
+        });
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {
+                break;
+            }
+            let name = `test${path.extname(stream.filename)}`;
+            client.putStream(name, stream).then(function (r1) {
+                console.log('put success: %j',r1);
+                return client.get('object');
+            }).then(function (r2) {
+                console.log('get success: %j');
+            }).catch(function (err) {
+                console.error('error: %j');
+            });
+            
+        }
+        ctx.body = "ok"
     }
 }
 
