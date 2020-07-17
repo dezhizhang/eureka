@@ -124,7 +124,7 @@ class BaseController extends Controller {
             accessKeyId: 'LTAI4Fxy18DxEaTBP4ro4MaX',
             accessKeySecret: 'b5zNrJdk22kF6qNXR42i66SzwGot3a',
             bucket: 'guicaioa',
-            region: 'oss-cn-shenzhen',//替换成自己的地区，我这是深圳
+            region: 'cn-hangzhou',//替换成自己的地区，我这是深圳
         });
         while ((stream = await parts()) != null) {
             if (!stream.filename) {
