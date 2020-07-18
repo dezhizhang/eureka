@@ -1,17 +1,16 @@
 <!--Begin Header Begin-->
 <%include ./public/header.html%>
 <!--End Header End--> 
-
 <div class="i_bg bg_color">
 	<div class="i_ban_bg">
 		<!--Begin Banner Begin-->
     	<div class="banner">    	
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
-                    <li><img src="/public/default/images/ban1.jpg" width="740" height="401" /></li>
-                    <li><img src="/public/default/images/ban1.jpg" width="740" height="401" /></li> 
-                    <li><img src="/public/default/images/ban1.jpg" width="740" height="401" /></li> 
-                </ul>	
+                <%for(let i=0;i < focus.length;i++) {%>
+                    <li><a href="<%=focus[i].link%>"><img src="<%=focus[i].url%>" width="740" height="401" /></a></li>
+                <%}%>
+                </ul>
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>
                     <a href="#" class="op_btn op_next"><span></span></a>
