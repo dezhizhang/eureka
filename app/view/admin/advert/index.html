@@ -17,7 +17,7 @@
                             <thead>
                             <tr class="th">
                                 <th>名称</th>
-                
+                                <th>分类</th>
                                 <th>图片</th>
                                 <th>跳转地址</th>                                             
                                 <th class="text-center">状态</th>                                             
@@ -28,7 +28,8 @@
                                 <%for(let i=0;i<list.length;i++){%>
                                    <tr>
                                        <td><%=list[i].name%></td>
-                                       <td><img class="image" style="width: 120px;height:60px" src="<%=list[i].advert_img%>"></td>
+                                       <td><%=helper.formatType(list[i].type)%></td>
+                                       <td><img class="image" style="width: 120px;height:60px" src="<%=list[i].url%>"></td>
                                        <td><%=list[i].link%></td>
                                        <td class="text-center">
                                             <%if(list[i].status == 1){%>

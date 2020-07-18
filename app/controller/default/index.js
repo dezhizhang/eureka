@@ -8,8 +8,6 @@ class IndexController extends Controller {
             focus,
         })
     }
-    
-   
 }
 
 module.exports = IndexController

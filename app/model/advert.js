@@ -4,9 +4,10 @@ module.exports = app => {
     const d=new Date();
     const AdvertSchema = new Schema({
       name: { type: String  },
-      advert_img: { type: String  },   
+      url: { type: String  }, //上传的链接
       link: { type: String  },   
       sort: { type: Number  },   
+      type:{ type:Number }, //1网站,2App,3小程序
       status: { type: Number,default:1  },    
       add_time: {           
         type:Number,        
