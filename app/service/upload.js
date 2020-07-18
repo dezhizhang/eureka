@@ -52,9 +52,10 @@ class UploadService extends Service {
     }
     //更新图片
     async updateImg(stream) {
+        const dirName = dayjs(Date.now()).format("YYYYMMDD");//生成日期数据
         const extname = path.extname(stream.filename).toLowerCase();//文件扩展名称
         const fileName = Date.now() + '' + Number.parseInt(Math.random() * 10000) + extname;//文件名
-        const target = path.join(this.config.uploadDir,'app/public/admin/upload/',fileName); //文件存放目录位置
+        const target = path.join('app/public/admin/upload/',dirName,fileName); //文件存放目录位置
         const writeStream = fs.createWriteStream(target); //存储文件 创造可写流
         const streamPipe = stream.pipe(writeStream); //文件存储等待机制 将可读性流写入可写流
         try{
