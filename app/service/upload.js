@@ -40,12 +40,38 @@ class UploadService extends Service {
         }
        
     }
+    //删除图片
     async deleteImg(fileName) {
         if(!fileName) return; //fileName不存直接退出
         try {
             await client.delete(fileName);
             return true;
         } catch (error) {
+            throw error;
+        }
+    }
+    //更新图片
+    async updateImg(stream) {
+        const extname = path.extname(stream.filename).toLowerCase();//文件扩展名称
+        const fileName = Date.now() + '' + Number.parseInt(Math.random() * 10000) + extname;//文件名
+        const target = path.join(this.config.uploadDir,'app/public/admin/upload/',fileName); //文件存放目录位置
+        const writeStream = fs.createWriteStream(target); //存储文件 创造可写流
+        const streamPipe = stream.pipe(writeStream); //文件存储等待机制 将可读性流写入可写流
+        try{
+            const result = await client.put(fileName,target); //阿里云图片上传
+            if(result.res.statusCode == 200) { //上传成功
+                let fields = {};
+                fields.url= result.url;
+                fields.file_name = fileName;
+                fs.unlink(target,(err) => {
+                    console.log("删除文件城功");
+                })
+                return fields;
+            } else { //上传失败
+                return false;
+            }
+        } catch(error) {
+            await sendToWormhole(stream);
             throw error;
         }
     }

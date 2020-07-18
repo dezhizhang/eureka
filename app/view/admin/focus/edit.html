@@ -14,7 +14,7 @@
                         <form action="/admin/focus/doEdit?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
                             <ul>
                                 <input type="hidden" name="id" value="<%=list._id%>">
-                               
+                                <input type="hidden" name="file_name" value="<%=list.file_name%>"/>
                                 <li>  分　　类: 
                                     <select name="type" id="type" class="select">
                                         <option <%if(list.type == 1){%>selected<%}%>  value="1">网站</option>
