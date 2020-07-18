@@ -6,17 +6,17 @@ const fsToll = require('fs-extra');
 const Service = require('egg').Service;
 const sendToWormhole = require('stream-wormhole');
 
+//初始化阿里云
+const client = new oss({
+    accessKeyId: 'LTAI4GJa5QYZrxA2PPUg6u7G',
+    accessKeySecret: 'Xtg4vmu9eAXhyVdzKQzElFgnp9Icj8',
+    bucket: 'imgguicai',
+    region: 'oss-cn-hangzhou',//所在地区
+});
 
 class UploadService extends Service {
-
     //图片上传
     async uploadImg() {
-        const client = new oss({
-            accessKeyId: 'LTAI4GJa5QYZrxA2PPUg6u7G',
-            accessKeySecret: 'Xtg4vmu9eAXhyVdzKQzElFgnp9Icj8',
-            bucket: 'imgguicai',
-            region: 'oss-cn-hangzhou',//所在地区
-        });
         await fsToll.ensureDir(path.join(this.config.uploadDir,'app/public/admin/upload/')); //生成文件夹 ，如果存在则不生成
         const stream = await this.ctx.getFileStream();
         const extname = path.extname(stream.filename).toLowerCase();//文件扩展名称
@@ -29,6 +29,7 @@ class UploadService extends Service {
             let fields = {};
             fields = stream.fields;
             fields.url= result.url;
+            fields.file_name = fileName;
             fs.unlink(target,(err) => {
                console.log("删除文件城功");
             })
@@ -38,6 +39,15 @@ class UploadService extends Service {
             throw error;
         }
        
+    }
+    async deleteImg(fileName) {
+        if(!fileName) return; //fileName不存直接退出
+        try {
+            await client.delete(fileName);
+            return true;
+        } catch (error) {
+            throw error;
+        }
     }
 }
 

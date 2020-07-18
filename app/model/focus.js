@@ -6,7 +6,8 @@ module.exports = app => {
     const d=new Date();
     const FocusSchema = new Schema({
       title: { type: String  },
-      type: { type: Number  },   
+      type: { type: Number  },  
+      file_name:{ type:String }, //文件名用于删除文件 
       url: { type: String  },   
       link: { type: String  },   
       sort: { type: Number  },   

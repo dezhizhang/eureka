@@ -46,7 +46,7 @@ module.exports = app => {
   router.get('/admin/focus/add',controller.admin.focus.add);
   router.post('/admin/focus/doAdd',controller.admin.focus.doAdd);
   router.get('/admin/focus/edit',controller.admin.focus.edit);
-  router.get('/admin/focus/delete',controller.admin.base.delete);
+  router.get('/admin/focus/delete',controller.admin.focus.delete);
   router.post('/admin/focus/doEdit',controller.admin.focus.doEdit);
 
   //广告
