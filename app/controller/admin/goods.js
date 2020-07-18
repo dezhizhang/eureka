@@ -1,11 +1,16 @@
+/**
+ * @author:zhangdezhi
+ * @date:2020-07-18
+ * @desc:商品类别
+*/
 'use strict';
-const fs=require('fs');
-const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class MainController extends BaseController {
     async index() {
-        let result = await this.ctx.model.Goods.find();
-        await this.ctx.render('/admin/goods/index')
+        let list = await this.ctx.model.Goods.find();
+        await this.ctx.render('/admin/goods/index',{
+            list
+        })
     }
     async add() {
         let goodsCate = await this.ctx.model.GoodsCate.aggregate([

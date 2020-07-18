@@ -15,22 +15,49 @@
                             <thead>                                   
                             <tr class="th">
                                 <th>商品名称</th>
-                                <th>货号</th>
+                                <th>副标题</th>
+                                <th>图片</th>
+                                <th>原价</th>
                                 <th>价格</th>  
-                                <th>点击量</th>
                                 <th>上架</th>
-
                                 <th>精品</th>
                                 <th>新品</th>
                                 <th>热销</th>
-                                <th>推荐排序</th>
-                                <th>库存</th>                             
+                                <th>排序</th>
                                 <th class="text-center">操作</th>
                             </tr>
                             </thead>
-                            <!-- <tbody>
-                                商品列表
-                            </tbody> -->
+                            <tbody>
+                                <%for(let i=0;i < list.length;i++) {%>
+                                    <tr>
+                                        <td><%=list[i].title%></td>
+                                        <td><%=list[i].sub_title%></td>
+                                        <td><img style="width: 120px; height: 40px;" src="<%=list[i].url%>"/></td>
+                                        <td>￥<%=list[i].old_price%></td>
+                                        <td>￥<%=list[i].price%></td>
+                                        <td class="text-center">
+                                            <%if(list[i].is_delete){%>
+                                                <img src="/public/admin/images/yes.gif" />
+                                            <%}else{%>
+                                                <img src="/public/admin/images/no.gif" />
+                                            <%}%>
+                                        </td>   
+                                        <td><%=helper.formatStatus('is_best',list[i].is_best)%></td>
+                                        <td>
+                                            <td><%=helper.formatStatus('is_new',list[i].is_new)%></td>
+                                        </td>
+                                        <td>
+                                            <td><%=helper.formatStatus('is_hot',list[i].is_hot)%></td>
+                                        </td>
+                                        <td><%=list[i].sort%></td>
+                                        <td>
+                                            <a>添加基本信息</a> | 
+                                            <a class="btn btn-sm">添加相册</a> |
+                                            <a>添加详情</a>
+                                        </td>
+                                    </tr>
+                                <%}%>
+                            </tbody>
                         </table>
                     </div>
                 </div>
