@@ -230,9 +230,14 @@
         </div>
     </div>
     <!--End 限时特卖 End-->
-    <div class="content mar_20">
-    	<img src="/public/default/images/mban_1.jpg" width="1200" height="110" />
-    </div>
+    <!--广告图-->
+    <%for(let i=0;i < advert.length;i++) {%>
+        <div class="content mar_20">
+            <a href="<%=advert[i].link%>">
+                <img src="<%=advert[i].url%>" width="1200" height="110" />
+            </a>
+        </div> 
+    <%}%>
 	<!--Begin 进口 生鲜 Begin-->
     <div class="i_t mar_10">
     	<span class="floor_num">1F</span>
