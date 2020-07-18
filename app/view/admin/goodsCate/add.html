@@ -15,7 +15,7 @@
                             <ul class="form_input">    
                                 <li><span>分类名称：</span> <input required type="text" name="title" class="input"/></li>  
                                 <li><span>上级分类：</span> 
-                                    <select name="pid" id="pid" style="width: 180px;height:28px">
+                                    <select name="pid" id="pid" style="width: 13.4%;height: 28px;">
                                         <option value="0">顶级分类</option>
                                         <%for(let i=0;i<cateList.length;i++){%>
                                             <option value="<%=cateList[i]._id%>"><%=cateList[i].title%></option>
@@ -27,7 +27,7 @@
                                 <li><span>跳转地址：</span>  <input type="text" name="link" class="input"/></li> 
                                 <li><span>Seo 标题：</span> <input type="text" name="sub_title" class="input"/>（搜索下的关键词)</li>
                                 <li><span>排　　序：</span> <input type="text" name="sort"/></li>     
-                                <li><span>排　　序：</span> <textarea maxlength="30" required name="description" id="description" cols="60" placeholder="输入的文字最多30个字" rows="6" style="resize: none"></textarea></li>                     
+                                <li><span>排　　序：</span> <textarea maxlength="30" required name="description" id="description" cols="60" placeholder="输入的文字最多40个字" rows="6" style="resize: none"></textarea></li>                     
                                 <li><span>状　　态：</span> <input  type="radio" name="status" checked value="1" id="a"/> 
                                     <label for="a">显示</label>    <input type="radio" name="status" value="0" id="b"/><label for="b">隐藏</label> 　
                                 </li>

@@ -6,6 +6,7 @@ module.exports = app => {
     const GoodsSchema = new Schema({
         title:{ type:String },
         sub_title:{ type:String },
+        url:{ type:String },
         goods_sn:{ type:String },
         cate_id:{ type:Schema.Types.ObjectId },
         click_count:{
@@ -16,8 +17,8 @@ module.exports = app => {
             type:Number,
             default:100
         },
-        shop_price:{ type:String },
-        market_price:{ type:String },
+        price:{ type:String },
+        old_price:{ type:String },
         relation_goods:{ type:String },
         goods_attrs:{ type:String },
         goods_version:{ type:String },
