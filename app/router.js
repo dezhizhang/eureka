@@ -54,7 +54,7 @@ module.exports = app => {
   router.get('/admin/advert/add',controller.admin.advert.add);
   router.post('/admin/advert/doAdd',controller.admin.advert.doAdd);
   router.get('/admin/advert/edit',controller.admin.advert.edit);
-  router.get('/admin/advert/delete',controller.admin.base.delete);
+  router.get('/admin/advert/delete',controller.admin.advert.delete);
   router.post('/admin/advert/doEdit',controller.admin.advert.doEdit);
 
   //商品管理

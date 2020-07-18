@@ -8,6 +8,7 @@ module.exports = app => {
       link: { type: String  },   
       sort: { type: Number  },   
       type:{ type:Number }, //1网站,2App,3小程序
+      file_name:{ type:String },//用于存储图片名
       status: { type: Number,default:1  },    
       add_time: {           
         type:Number,        
