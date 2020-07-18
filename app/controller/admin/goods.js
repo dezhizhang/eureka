@@ -4,7 +4,6 @@ const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class MainController extends BaseController {
     async index() {
-        
         await this.ctx.render('/admin/goods/index')
     }
     async add() {
@@ -51,73 +50,25 @@ class MainController extends BaseController {
             }
         }
     }
-    //上传商品图片
+    //上传商品详情图片
     async goodsUploadImage() {
-        let parts = this.ctx.multipart({ autoFields: true });
-        let files = {};               
-        let stream;
-        while ((stream = await parts()) != null) {
-            if (!stream.filename) {          
-                break;
-            }       
-            let fieldname = stream.fieldname;  //file表单的名字
-            //上传图片的目录
-            let dir=await this.service.tools.getUploadFile(stream.filename);
-            let target = dir.uploadDir;
-            let writeStream = fs.createWriteStream(target);
-            await pump(stream, writeStream);  
-            files=Object.assign(files,{
-                [fieldname]:dir.saveDir    
-            })   
-        }   
+        let result = await this.service.upload.uploadImg();
         this.ctx.body={
-            link:files.file
+            link:result.url
         }
     }
-    //上传商品图片
+    //上传相册图片
     async goodsUploadPhoto() {
-        let parts = this.ctx.multipart({ autoFields: true });
-        let files = {};               
-        let stream;
-        while ((stream = await parts()) != null) {
-            if (!stream.filename) {          
-                break;
-            }       
-            let fieldname = stream.fieldname;  //file表单的名字
-            //上传图片的目录
-            let dir=await this.service.tools.getUploadFile(stream.filename);
-            let target = dir.uploadDir;
-            let writeStream = fs.createWriteStream(target);
-            await pump(stream, writeStream);  
-            files=Object.assign(files,{
-                [fieldname]:dir.saveDir    
-            })
-            await this.service.tools.jimpImg(target,200,200)
-        }
-       
+        let result = await this.service.upload.uploadImg();
         this.ctx.body={
-            link:files.file
+            link:result.url
         }
     }
     async doAdd() {
-        let parts = this.ctx.multipart({ autoFields: true });
-        let files = {};               
-        let stream;
-        while ((stream = await parts()) != null) {
-            if (!stream.filename) {          
-                break;
-            }       
-            let fieldname = stream.fieldname;  //file表单的名字
-            //上传图片的目录
-            let dir=await this.service.tools.getUploadFile(stream.filename);
-            let target = dir.uploadDir;
-            let writeStream = fs.createWriteStream(target);
-            await pump(stream, writeStream);  
-            files=Object.assign(files,{
-                [fieldname]:dir.saveDir    
-            })
-        }
-        console.log()
+        let result = await this.service.upload.uploadImg();
+        let goods =new this.ctx.model.Goods(result);
+        await goods.save();
+        await this.success('/admin/goods','增加商品成功'); 
     }
     async edit() {
 
