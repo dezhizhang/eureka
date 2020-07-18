@@ -17,7 +17,7 @@
                                     <th>分类名称</th>
                                     <th>分类图片</th>                                
                                     <th class="text-center">排序</th> 
-                                    <th class="text-center">价钱</th>
+                                    <th class="text-center">描述</th>
                                     <th class="text-center">状态</th>                                           
                                     <th class="text-center">操作</th>
                                 </tr>
@@ -28,7 +28,7 @@
                                     <td><%=list[i].title%></td>          
                                     <td><img class="img" style="width: 120px;height:40px" src="<%=list[i].url%>" /></td>           
                                     <td class="text-center"><span onclick="app.editNum(this,'GoodsCate','sort','<%=list[i]._id%>')"><%=list[i].sort%></span></td>
-                                    <td><%=list[i].price%></td>        
+                                    <td><%=list[i].description%></td>        
                                     <td class="text-center">
                                         <%if(list[i].status==1){%>
                                             <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i]._id%>')" />
@@ -46,11 +46,10 @@
                                     <td>--<%=list[i].items[j].title%></td>                          
                                     <td><img class="pic" style="width: 120px;height:40px" src="<%=list[i].items[j].url%>" /></td>                         
                                     <td class="text-center"><span onclick="app.editNum(this,'GoodsCate','sort','<%=list[i].items[j]._id%>')"><%=list[i].items[j].sort%></span></td>
-                                    <td><%=list[i].items[j].price%></td>
+                                    <td><%=list[i].items[j].description%></td>
                                     <td class="text-center">
                                         <%if(list[i].status==1){%>
                                             <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i].items[j]._id%>')" />
-                        
                                         <%}else{%>
                                             <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i].items[j]._id%>')" />
                                         <%}%>
