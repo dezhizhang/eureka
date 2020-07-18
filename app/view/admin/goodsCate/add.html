@@ -13,7 +13,7 @@
                     <div class="table-responsive input-form">
                         <form action="/admin/goodsCate/doAdd?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
                             <ul class="form_input">    
-                                <li><span>分类名称：</span> <input type="text" name="title" class="input"/></li>  
+                                <li><span>分类名称：</span> <input required type="text" name="title" class="input"/></li>  
                                 <li><span>上级分类：</span> 
                                     <select name="pid" id="pid" style="width: 180px;height:28px">
                                         <option value="0">顶级分类</option>
@@ -25,9 +25,8 @@
                                 <li><span>分类图片：</span>  <input required type="file" name="img"/></li>  
                                 <li><span>筛选属性：</span> <input type="text" name="filter_attr" class="input"/></li> 
                                 <li><span>跳转地址：</span>  <input type="text" name="link" class="input"/></li> 
-                                <li><span>分类模板：</span> <input type="text" name="template" class="input"/></li>
-                                <li><span>Seo 标题：</span> <input type="text" name="sub_title" class="input"/></li>
-                                <li><span>Seo关键词: </span><input type="text" name="keywords" class="input"/></li>
+                                <li><span>价　　钱：</span> <input type="text" name="price" class="input"/>（顶级分类不用填)</li>
+                                <li><span>Seo 标题：</span> <input type="text" name="sub_title" class="input"/>（搜索下的关键词)</li>
                                 <li><span>排　　序：</span> <input type="text" name="sort"/></li>     
                                 <li><span>Seo描述：</span> <textarea name="description" id="description" cols="60" rows="6" style="resize: none"></textarea></li>                     
                                 <li><span>状　　态：</span> <input type="radio" name="status" checked value="1" id="a"/> 

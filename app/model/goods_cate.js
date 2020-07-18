@@ -8,7 +8,7 @@ module.exports = app => {
         url:{ type:String },
         filter_attr:{ type:String },
         link:{ type:String },
-        template:{ type:String },
+        price:{ type:String },
         pid:{ type:Schema.Types.Mixed },
         sub_title:{ type:String },
         keywords:{ type:String },
