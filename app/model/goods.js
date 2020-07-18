@@ -52,8 +52,6 @@ module.exports = app => {
             type:Number,
             default:d.getTime()
         }
-
-
     });
     return mongoose.model('Goods',GoodsSchema,'goods');
 }

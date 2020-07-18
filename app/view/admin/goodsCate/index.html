@@ -25,7 +25,7 @@
                             <%for(var i=0;i<list.length;i++){%>
                                 <tr>
                                     <td><%=list[i].title%></td>          
-                                    <td><img class="pic" style="width: 120px;height:40px" src="<%=list[i].cate_img%>" /></td>           
+                                    <td><img class="img" style="width: 120px;height:40px" src="<%=list[i].url%>" /></td>           
                                     <td class="text-center"><span onclick="app.editNum(this,'GoodsCate','sort','<%=list[i]._id%>')"><%=list[i].sort%></span></td>
                                     <td class="text-center">
                                         <%if(list[i].status==1){%>
@@ -42,8 +42,8 @@
                                 </tr>
                                 <%for(var j=0;j<list[i].items.length;j++){%>
                                 <tr>
-                                    <td>-----<%=list[i].items[j].title%></td>                          
-                                    <td><img class="pic" style="width: 120px;height:40px" src="<%=list[i].items[j].cate_img%>" /></td>                         
+                                    <td>--<%=list[i].items[j].title%></td>                          
+                                    <td><img class="pic" style="width: 120px;height:40px" src="<%=list[i].items[j].url%>" /></td>                         
                                     <td class="text-center"><span onclick="app.editNum(this,'GoodsCate','sort','<%=list[i].items[j]._id%>')"><%=list[i].items[j].sort%></span></td>
                                     <td class="text-center">
                                         <%if(list[i].status==1){%>

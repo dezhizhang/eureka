@@ -5,7 +5,7 @@ module.exports = app => {
     const d = new Date();
     const GoodsCateSchema = Schema({
         title:{ type:String },
-        cate_img:{ type:String },
+        url:{ type:String },
         filter_attr:{ type:String },
         link:{ type:String },
         template:{ type:String },

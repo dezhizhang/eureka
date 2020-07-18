@@ -29,30 +29,13 @@ class GoodsCateController extends BaseController {
             cateList:result
         });
     }
+    //增加分类
     async doAdd() {
-        let files = {};       
-        let parts = this.ctx.multipart({ autoFields: true });        
-        let stream;
-        while ((stream = await parts()) != null) {
-            if (!stream.filename) {          
-                break;
-            }       
-            let fieldname = stream.fieldname;  //file表单的名字
-            //上传图片的目录
-            let dir=await this.service.tools.getUploadFile(stream.filename);
-            let target = dir.uploadDir;
-            let writeStream = fs.createWriteStream(target);
-            await pump(stream, writeStream);  
-            files=Object.assign(files,{
-                [fieldname]:dir.saveDir    
-            });
-            await this.service.tools.jimpImg(target,200,100)
-           
-        }      
-        if(parts.field.pid!='0') {
-            parts.field.pid =await this.app.mongoose.Types.ObjectId(parts.field.pid)
+        let result = await this.service.upload.uploadImg();
+        if(result.pid != '0') {
+            result.pid = await this.app.mongoose.Types.ObjectId(result.pid);
         }
-        let goodsCate =new this.ctx.model.GoodsCate(Object.assign(files,parts.field));
+        let goodsCate =new this.ctx.model.GoodsCate(result);
         await goodsCate.save();
         await this.success('/admin/goodsCate','增加分类成功');
     }
