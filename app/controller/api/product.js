@@ -17,17 +17,16 @@ class ProductController extends Controller {
         let pageSize = 10;
         let totalNum=await this.ctx.model.Goods.find({}).count();
         let totalPage = Math.ceil(totalNum/pageSize)
-        let productResult = await this.ctx.model.Product.find({'product_type':'2'}).skip((page -1) * pageSize).limit(pageSize);
+        let productResult = await this.ctx.model.Goods.find().skip((page -1) * pageSize).limit(pageSize);
         this.ctx.body = {
             code:200,
-            msg:'获取产品列表成功',
+            msg:'SUCCESS',
             success:true,
             data:productResult,
             page,
             totalPage
         }
     }
-
 }
 
 module.exports = ProductController;
