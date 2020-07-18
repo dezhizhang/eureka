@@ -55,6 +55,9 @@ class GoodsCateController extends BaseController {
         let { id,file_name } =  parts.field;
         if(fields.filename) {//当前有图片上传先删除再上传
             let result = await this.service.upload.updateImg(fields);
+            if(result.pid != '0') {
+                result.pid = await this.app.mongoose.Types.ObjectId(result.pid);
+            }
             let params = {
                 ...parts.field,
                 ...result
