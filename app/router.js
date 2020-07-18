@@ -79,7 +79,7 @@ module.exports = app => {
   router.post('/admin/goodsCate/doAdd',controller.admin.goodsCate.doAdd);
   router.get('/admin/goodsCate/edit',controller.admin.goodsCate.edit);
   router.post('/admin/goodsCate/doEdit',controller.admin.goodsCate.doEdit);
-  router.get('/admin/goodsCate/delete',controller.admin.base.delete);
+  router.get('/admin/goodsCate/delete',controller.admin.goodsCate.delete);
 
   //商品颜色
   router.get('/admin/goodsColor',controller.admin.goodsColor.index);

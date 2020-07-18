@@ -77,6 +77,15 @@ class GoodsCateController extends BaseController {
         await this.success('/admin/goodsCate','修改分类成功');
 
     }
+    //删除
+    async delete() {
+        let { id } = this.ctx.query;
+        let goodsCate = await this.ctx.model.GoodsCate.find({"_id":id});
+        let file_name = goodsCate[0].file_name;
+        await this.service.upload.deleteImg(file_name); //删除线上图片
+        await this.ctx.model.GoodsCate.deleteOne({"_id":id});
+        await this.success("/admin/goodsCate","删除成功"); 
+    }
 
 }
 

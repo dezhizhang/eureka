@@ -12,6 +12,7 @@ module.exports = app => {
         pid:{ type:Schema.Types.Mixed },
         sub_title:{ type:String },
         keywords:{ type:String },
+        file_name:{ type:String },
         description:{ type:String },
         sort:{ type:Number,default:100 },
         status:{

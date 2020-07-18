@@ -37,7 +37,7 @@
                                     </td>                                                                    
                                     <td class="text-center">　
                                         <a href="/admin/goodsCate/edit?id=<%=list[i]._id%>">修改</a>
-                                        <a class="delete" href="/admin/goodsCate/delete?model=GoodsCate&id=<%=list[i]._id%>">删除</a>
+                                        <a class="delete" href="/admin/goodsCate/delete?id=<%=list[i]._id%>">删除</a>
                                     </td>
                                 </tr>
                                 <%for(var j=0;j<list[i].items.length;j++){%>
@@ -55,7 +55,7 @@
                                     </td>                                                                    
                                     <td class="text-center">
                                         <a href="/admin/goodsCate/edit?id=<%=list[i].items[j]._id%>">修改</a>　
-                                        <a class="delete" href="/admin/goodsCate/delete?model=GoodsCate&id=<%=list[i].items[j]._id%>">删除</a>
+                                        <a class="delete" href="/admin/goodsCate/delete?id=<%=list[i].items[j]._id%>">删除</a>
                                     </td>
                                 </tr>              
                                 <%}%>    
