@@ -5,19 +5,11 @@ module.exports = app => {
 
     const d = new Date();
     const DetailSchema = new Schema({
-        detail_id:{  type:Schema.Types.ObjectId },
-        focus_img:{ type:Array },
-        title:{ type:String },
-        price:{ type:String },
-        freight:{ type:String },
-        sales:{ type:String },
-        inventory:{type:String },
-        type:{type:String },
+        goods_id:{  type:Schema.Types.ObjectId }, //与商品关联的id
         sort:{ 
             type:Number,
             default:100
          },
-        discount:{ type:String },
         detail_img:{ type:Array },
         add_time:{
             type:Number,

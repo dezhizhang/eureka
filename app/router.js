@@ -96,10 +96,7 @@ module.exports = app => {
   router.get('/admin/goods/edit',controller.admin.goods.edit);
   router.post('/admin/goods/doEdit',controller.admin.goods.doEdit);
   router.get('/admin/goods/delete',controller.admin.base.delete);
-  // router.get('/admin/goods/photo',controller.admin.goods.photo);
-  // router.get('/admin/goods/goodsTypeAttr',controller.admin.goods.goodsTypeAttr);
-  // router.post('/admin/goods/goodsUploadImage',controller.admin.goods.goodsUploadImage); //上传商品图片
-  // router.post('/admin/goods/goodsUploadPhoto',controller.admin.goods.goodsUploadPhoto);
+  
 
   //商品相册
   router.get('/admin/goods/photo',controller.admin.photo.index);
@@ -121,13 +118,12 @@ module.exports = app => {
 
 
   //详情
-  router.get('/admin/detail',controller.admin.detail.index);
-  router.get('/admin/detail/add',controller.admin.detail.add);
-  router.post('/admin/detail/doAdd',controller.admin.detail.doAdd);
+  router.get('/admin/goods/detail',controller.admin.detail.index);
+  router.get('/admin/goods/detail/add',controller.admin.detail.add);
+  router.post('/admin/goods/detail/doAdd',controller.admin.detail.doAdd);
   router.get('/admin/detail/delete',controller.admin.base.delete);
   router.get('/admin/detail/edit',controller.admin.detail.edit);
   router.post('/admin/detail/doEdit',controller.admin.detail.doEdit);
-  router.post('/admin/detail/detailUploadImage',controller.admin.detail.detailUploadImage);
 
   //分类
   router.get('/admin/classify',controller.admin.classify.index);
@@ -196,6 +192,8 @@ module.exports = app => {
   router.get('/api/product/main',controller.api.main.index);
   //详情列表
   router.get('/api/detail/info',controller.api.detail.index);
+  //商品相册图
+  router.get('/api/detail/photo',controller.api.detail.photo);
   //获取分类
   router.get('/api/category/list',controller.api.classify.index);
   //获取分类详情
@@ -216,6 +214,7 @@ module.exports = app => {
   router.get('/api/cart/status',controller.api.cart.status);
   //调起微信支付
   router.post('/api/userInfo/pay',controller.api.login.pay);
+  
 
 
 };
