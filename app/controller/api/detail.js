@@ -37,6 +37,24 @@ class DetailController extends Controller {
             data:result[0].goods_image
         }
     } 
+    async detail() {
+        let { id } = this.ctx.query;
+        if(!id) {
+            this.ctx.body = {
+                code:404,
+                msg:'传入的参数有误',
+                success:false
+            }
+            return
+        }
+        let result = await this.ctx.model.Detail.find({"goods_id":id});
+        this.ctx.body = {
+            code:200,
+            msg:'请求成功',
+            success:true,
+            data:result[0].detail_img
+        }
+    }
 
 }
 

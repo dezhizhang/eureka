@@ -190,10 +190,13 @@ module.exports = app => {
   router.get('/api/product/list',controller.api.product.list);
   //主打产品分类
   router.get('/api/product/main',controller.api.main.index);
+
   //详情列表
   router.get('/api/detail/info',controller.api.detail.index);
   //商品相册图
   router.get('/api/detail/photo',controller.api.detail.photo);
+  //商品详情
+  router.get('/api/product/detail',controller.api.detail.detail);
   //获取分类
   router.get('/api/category/list',controller.api.classify.index);
   //获取分类详情
