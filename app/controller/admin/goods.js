@@ -82,6 +82,13 @@ class MainController extends BaseController {
     async doEdit() {
 
     }
+    //相册
+    async photo() {
+        let { id } = this.ctx.query;
+        await this.ctx.render("/admin/goods/photo",{
+            goods_id:id
+        });
+    }
 }
 
 module.exports = MainController

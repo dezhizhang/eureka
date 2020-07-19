@@ -96,9 +96,10 @@ module.exports = app => {
   router.get('/admin/goods/edit',controller.admin.goods.edit);
   router.post('/admin/goods/doEdit',controller.admin.goods.doEdit);
   router.get('/admin/goods/delete',controller.admin.base.delete);
-  router.get('/admin/goods/goodsTypeAttr',controller.admin.goods.goodsTypeAttr);
-  router.post('/admin/goods/goodsUploadImage',controller.admin.goods.goodsUploadImage); //上传商品图片
-  router.post('/admin/goods/goodsUploadPhoto',controller.admin.goods.goodsUploadPhoto);
+  router.get('/admin/goods/photo',controller.admin.goods.photo);
+  // router.get('/admin/goods/goodsTypeAttr',controller.admin.goods.goodsTypeAttr);
+  // router.post('/admin/goods/goodsUploadImage',controller.admin.goods.goodsUploadImage); //上传商品图片
+  // router.post('/admin/goods/goodsUploadPhoto',controller.admin.goods.goodsUploadPhoto);
 
   
   //维修改
