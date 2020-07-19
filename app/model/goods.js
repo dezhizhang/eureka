@@ -19,6 +19,9 @@ module.exports = app => {
         },
         price:{ type:String },
         old_price:{ type:String },
+        freight:{ type:String }, //运费
+        inventory:{ type:String },//库存
+        sales:{ type:String }, //销量
         relation_goods:{ type:String },
         goods_attrs:{ type:String },
         goods_version:{ type:String },

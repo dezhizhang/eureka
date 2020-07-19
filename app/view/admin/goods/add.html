@@ -40,8 +40,11 @@
                                             <input type="hidden" name="cname" id="cname" /> 
                                         </li>
                                         <li> <span> 商品图片:</span> <input required type="file" name="img"/></li>
-                                        <li>  <span>商品价格:</span> <input type="text" name="price"/></li>
-                                        <li>  <span>商品原价:</span>  <input type="text" name="old_price"/></li>
+                                        <li>  <span>商品价格:</span> <input required type="text" name="price"/></li>
+                                        <li>  <span>商品原价:</span>  <input required type="text" name="old_price"/></li>
+                                        <li>  <span>商品运费:</span> <input required type="text" name="freight"/></li>
+                                        <li>  <span>商品库存:</span> <input required type="text" name="inventory"/></li>
+                                        <li>  <span>商品销量:</span> <input required type="text" name="sales"/></li>
                                         <li> <span>商品颜色:</span>
                                             <%for(let i=0;i<goodsColor.length;i++){%>
                                                 <input type="checkbox" name="colors[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
