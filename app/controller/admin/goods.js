@@ -72,6 +72,8 @@ class MainController extends BaseController {
     }
     async doAdd() {
         let result = await this.service.upload.uploadImg();
+        console.log('result',result);
+        
         let goods =new this.ctx.model.Goods(result);
         await goods.save();
         await this.success('/admin/goods','增加商品成功'); 
