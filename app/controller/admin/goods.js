@@ -8,6 +8,8 @@ const BaseController = require('./base');
 class MainController extends BaseController {
     async index() {
         let list = await this.ctx.model.Goods.find();
+        console.log(list);
+        
         await this.ctx.render('/admin/goods/index',{
             list
         })
