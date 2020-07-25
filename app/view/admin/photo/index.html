@@ -10,7 +10,6 @@
                     <%if(list.length <= 0) {%>
                         <a href="/admin/goods/photo/add?goods_id=<%=goods_id%>" class="btn btn-primary">增加商品</a>
                     <%}%>
-                   
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
@@ -34,7 +33,7 @@
                                     <td><%=list[i].add_time%></td>
                                     <th>
                                         <a>修改</a>
-                                        <a>删除</a>
+                                        <a href="/admin/goods/photo/delete?id=<%=list[i]._id%>&good">删除</a>
                                     </th>
                                  </tr>
                                <%}%>

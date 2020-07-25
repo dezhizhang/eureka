@@ -42,16 +42,17 @@
                                                 <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
                                             <%}%>
                                         </li>
+                                        <li> 
+                                            <span>加入推荐:</span>　
+                                            <input type="radio" value="0" name="is_hot" checked/> 新品
+                                            <input type="radio" value="1" name="is_hot"/> 精品
+                                            <input type="radio" value="2" name="is_hot"/> 热销
+                                        </li>
                                         <li> <span>商品状态:</span>　
                                             <input type="radio" value="1" name="status" checked/> 显示                                    　
                                             <input type="radio" value="0" name="status"/>  隐藏
                                         </li>
-                                        <li> 
-                                            <span>加入推荐:</span>　
-                                            <input type="checkbox" value="1" name="is_best"/> 精品
-                                            <input type="checkbox" value="1" name="is_hot"/> 热销
-                                            <input type="checkbox" value="1" name="is_new"/> 新品
-                                        </li>
+                                       
                                     </ul>
                                 </div>
                             </div>

@@ -11,21 +11,12 @@ module.exports = {
         }
         return params[type];
     },
-    formatStatus(type,value) { //转换品类状态
+    formatStatus(type) { //转换品类状态
         let params = {
-            'is_best':{
-                0:'否',
-                1:'是'
-            },
-            'is_hot':{
-                0:'否',
-                1:'是'
-            },
-            'is_new':{
-                0:'否',
-                1:'是'
-            }
+            '0':'新品',
+            '1':'精品',
+            '2':'执销'
         }
-        return params[type][value];
+        return params[type];
     }
 }

@@ -55,6 +55,12 @@ class MainController extends BaseController {
             goods_id:id
         });
     }
+    //删除
+    async delete() {
+        let { id } = this.ctx.query;
+        await this.ctx.model.Photo.deleteOne({"_id":id});
+        await this.ctx.render()
+    }
 }
 
 module.exports = MainController

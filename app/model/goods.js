@@ -36,22 +36,14 @@ module.exports = app => {
             type:Number,
             default:100
         },
+        is_hot:{ //
+            type:String, //0新品1精品2执销
+        },
         is_delete:{
             type:Boolean,
             default:true
         },
-        is_best:{ //是否是精品
-            type:Number,
-            default:0
-        },
-        is_hot:{ //
-            type:Number,
-            default:0,
-        },
-        is_new:{
-            type:Number,
-            default:0
-        },
+       
         goods_type_id:{
             type:Schema.Types.ObjectId
         },

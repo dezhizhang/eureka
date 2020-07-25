@@ -23,9 +23,7 @@
                                 <th>运费</th>
                                 <th>库存</th>
                                 <th>销量</th>
-                                <th>精品</th>
-                                <th>新品</th>
-                                <th>热销</th>
+                                <th>推荐</th>
                                 <th>排序</th>
                                 <th class="text-center">操作</th>
                             </tr>
@@ -48,10 +46,7 @@
                                         <td><%=list[i].freight%></td>
                                         <td><%=list[i].inventory%></td>
                                         <td><%=list[i].sales%></td>
-                                        <td><%=helper.formatStatus('is_best',list[i].is_best)%></td>
-                                        <td><%=helper.formatStatus('is_new',list[i].is_new)%></td>
-                                        <td><%=helper.formatStatus('is_hot',list[i].is_hot)%></td>
-                                       
+                                        <td><%=helper.formatStatus(list[i].is_hot)%></td>
                                         <td><%=list[i].sort%></td>
                                         <td>
                                             <a class="btn btn-sm" href="/admin/goods/photo?id=<%=list[i]._id%>">添加相册</a> |

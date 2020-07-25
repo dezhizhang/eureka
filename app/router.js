@@ -101,6 +101,7 @@ module.exports = app => {
   router.get('/admin/goods/photo',controller.admin.photo.index);
   router.get('/admin/goods/photo/add',controller.admin.photo.add);
   router.post('/admin/goods/photo/doAdd',controller.admin.photo.doAdd);
+  router.get('/admin/goods/photo/delete',controller.admin.photo.delete);
   router.post('/admin/goods/goodsUploadPhoto',controller.admin.photo.goodsUploadPhoto);
 
   
