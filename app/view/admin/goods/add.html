@@ -13,14 +13,6 @@
                 <div class="panel-body">
                     <div class="table-responsive input-form">
                         <form action="/admin/goods/doAdd?_csrf=<%=csrf%>" method="post" class="goods_content" enctype="multipart/form-data">                 
-                            <!-- Nav tabs -->
-                            <!-- <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#general"  role="tab" data-toggle="tab">通用信息</a></li>
-                                <li role="presentation"><a href="#detail" role="tab" data-toggle="tab">详细描述</a></li>
-                                <li role="presentation"><a href="#mix"  role="tab" data-toggle="tab">商品属性</a></li>
-                                <li role="presentation"><a href="#attribute"  role="tab" data-toggle="tab">规格与包装</a></li>
-                                <li role="presentation"><a href="#photo"  role="tab" data-toggle="tab">商品相册</a></li>                  
-                            </ul> -->
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="general">
@@ -55,35 +47,15 @@
                                             <input type="radio" value="1" name="status" checked/> 显示                                    　
                                             <input type="radio" value="0" name="status"/>  隐藏
                                         </li>
-                                        <li> <span>加入推荐:</span>　<input type="checkbox" value="1" name="is_best"/> 精品
+                                        <li> 
+                                            <span>加入推荐:</span>　
+                                            <input type="checkbox" value="1" name="is_best"/> 精品
                                             <input type="checkbox" value="1" name="is_hot"/> 热销
                                             <input type="checkbox" value="1" name="is_new"/> 新品
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- <div role="tabpanel" class="tab-pane" id="detail">
-                                    <textarea name="content" id="content" cols="100" rows="8"></textarea>
-                                </div> -->
-                             
-                                <!-- <div role="tabpanel" class="tab-pane" id="attribute">
-                                    <ul>
-                                        <li><span>商品类型</span>
-                                            <select name="goods_type_id" id="goods_type_id" style="width: 180px;height:28px;">
-                                                <option value="0">请选择商品类型</option>
-                                                <%for(let i=0;i<goodsType.length;i++){%>
-                                                    <option value="<%=goodsType[i]._id%>"><%=goodsType[i].title%></option>
-                                                <%}%>
-                                            </select>
-                                        </li>
-                                    </ul>
-                                    <ul id="goods_type_attr"></ul>
-                                </div> -->
-                                <!-- <div role="tabpanel" class="tab-pane" id="photo">
-                                    <div id="photoLib" class="photoLib"></div>
-                                    <div id="photoList"></div>
-                                </div> -->
                             </div>
-                            <input type="hidden" name="_csrf" value="<%=csrf%>">  
                             <button type="submit" class="btn btn-primary goods_content_btn">提交</button>
                         </form>
                     </div>
