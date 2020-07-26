@@ -8,7 +8,7 @@
             <div class="panel panel-default">              
 			    <div class="panel-heading" >
                     <%if(list.length <= 0) {%>
-                        <a href="/admin/goods/photo/add?goods_id=<%=goods_id%>" class="btn btn-primary">增加商品</a>
+                        <a href="/admin/goods/photo/add?goods_id=<%=goods_id%>" class="btn btn-primary">添加相册</a>
                     <%}%>
                 </div>
                 <div class="panel-body">
@@ -31,10 +31,10 @@
                                         <%}%>
                                     </td>
                                     <td><%=list[i].add_time%></td>
-                                    <th>
+                                    <td>
                                         <a>修改</a>
-                                        <a href="/admin/goods/photo/delete?id=<%=list[i]._id%>&good">删除</a>
-                                    </th>
+                                        <a href="/admin/goods/photo/delete?id=<%=list[i]._id%>&goods_id=<%=goods_id%>">删除</a>
+                                    </td>
                                  </tr>
                                <%}%>
                             </tbody>

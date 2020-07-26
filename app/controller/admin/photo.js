@@ -57,9 +57,9 @@ class MainController extends BaseController {
     }
     //删除
     async delete() {
-        let { id } = this.ctx.query;
+        let { id,goods_id } = this.ctx.query;
         await this.ctx.model.Photo.deleteOne({"_id":id});
-        await this.ctx.render()
+        await this.success(`/admin/goods/photo/delete?id=${goods_id}`,'删除相册成功');
     }
 }
 
