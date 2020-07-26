@@ -23,3 +23,7 @@
 	margin-left: 10px;
 	cursor: pointer;
 }
+.page .box ul li a{
+	display: block;
+	cursor: pointer;
+}
