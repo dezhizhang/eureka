@@ -9,7 +9,7 @@ class MainController extends BaseController {
     async index() {
         let page = this.ctx.query.page || 1;
         let pageSize = 10;
-        let list = await this.ctx.model.Goods.find().limit(pageSize).skip((page - 1) * pageSize);  
+        let list = await this.ctx.model.Goods.find().limit(pageSize).skip((page - 1) * pageSize);
         await this.ctx.render('/admin/goods/index',{
             list
         })

@@ -25,6 +25,7 @@ module.exports = app => {
         relation_goods:{ type:String },
         goods_attrs:{ type:String },
         goods_version:{ type:String },
+        goods_color:{ type:String },
         // goods_img:{ type:String },
         // goods_gift:{ type:String },
         // goods_fitting:{ type:String },

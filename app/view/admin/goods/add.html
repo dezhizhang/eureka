@@ -38,7 +38,7 @@
                                         <li>  <span>商品销量:</span> <input required type="text" name="sales"/></li>
                                         <li> <span>商品颜色:</span>
                                             <%for(let i=0;i<goodsColor.length;i++){%>
-                                                <input type="checkbox" name="colors[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
+                                                <input type="checkbox" name="goods_color[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
                                                 <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
                                             <%}%>
                                         </li>
