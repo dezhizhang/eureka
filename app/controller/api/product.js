@@ -3,7 +3,7 @@ const Controller = require('egg').Controller;
 class ProductController extends Controller {
     //热门产品
     async hot() {
-        let result = await this.ctx.model.Goods.find({'is_hot':'1'});
+        let result = await this.ctx.model.Goods.find({'is_hot':'2'});
         this.ctx.body = {
             code:200,
             msg:'SUCCESS',
