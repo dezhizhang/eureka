@@ -56,10 +56,13 @@ class MainController extends BaseController {
        let {id,type,detail_id } = result;
        let updateDetail = await this.ctx.model.Detail.updateOne({'_id':id},result);
        await this.success(`/admin/detail?detail_id=${detail_id}&type=${type}`,'修改商品详情成功');
-
     }
-    
-   
+    //删除
+    async delete() {
+        let { id, goods_id } = this.ctx.query;
+        await this.ctx.model.Detail.deleteOne({"_id":id});
+        await this.success(`/admin/goods/detail?id=${goods_id}`,'删除详情成功');
+    }
 }
 
 module.exports = MainController

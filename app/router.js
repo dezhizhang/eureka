@@ -121,7 +121,8 @@ module.exports = app => {
   router.get('/admin/goods/detail',controller.admin.detail.index);
   router.get('/admin/goods/detail/add',controller.admin.detail.add);
   router.post('/admin/goods/detail/doAdd',controller.admin.detail.doAdd);
-  router.get('/admin/detail/delete',controller.admin.base.delete);
+  router.get('/admin/goods/detail/delete',controller.admin.detail.delete);
+  // router.get('/admin/detail/delete',controller.admin.base.delete);
   router.get('/admin/detail/edit',controller.admin.detail.edit);
   router.post('/admin/detail/doEdit',controller.admin.detail.doEdit);
 
