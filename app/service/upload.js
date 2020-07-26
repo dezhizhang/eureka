@@ -10,8 +10,8 @@ const sendToWormhole = require('stream-wormhole');
 const client = new oss({
     accessKeyId: 'LTAI4GJa5QYZrxA2PPUg6u7G',
     accessKeySecret: 'Xtg4vmu9eAXhyVdzKQzElFgnp9Icj8',
-    // bucket: 'imgguicai',
-    bucket:'guicaitest',
+    bucket: 'imgguicai',
+    // bucket:'guicaitest',
     region: 'oss-cn-hangzhou',//所在地区
 });
 class UploadService extends Service {
