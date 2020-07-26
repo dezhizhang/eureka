@@ -9,7 +9,7 @@ class MainController extends BaseController {
     async index() {
         let list = await this.ctx.model.Goods.find();
         console.log(list);
-        
+
         await this.ctx.render('/admin/goods/index',{
             list
         })
@@ -73,9 +73,7 @@ class MainController extends BaseController {
         }
     }
     async doAdd() {
-        let result = await this.service.upload.uploadImg();
-        console.log('result',result);
-        
+        let result = await this.service.upload.uploadImg(); 
         let goods =new this.ctx.model.Goods(result);
         await goods.save();
         await this.success('/admin/goods','增加商品成功'); 

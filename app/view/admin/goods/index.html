@@ -59,10 +59,27 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="box">
+                        <div id="pagination1" class="page fl"></div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </body>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="/public/admin/js/page.js"></script>
+<script type="text/javascript">
+    $(function() {
+	    $("#pagination1").pagination({
+		    currentPage: 1,
+			totalPage: 12,
+			callback: function(current) {
+			$("#current1").text(current)
+			}
+		});
+	});
+</script>
 </html>
