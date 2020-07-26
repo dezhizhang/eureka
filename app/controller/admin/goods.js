@@ -7,9 +7,11 @@
 const BaseController = require('./base');
 class MainController extends BaseController {
     async index() {
-        let list = await this.ctx.model.Goods.find();
-        console.log(list);
-
+        let page = this.ctx.query.page || 1;
+        let pageSize = 10;
+        let list = await this.ctx.model.Goods.find().limit(pageSize).skip((page - 1) * pageSize); 
+        console.log('list',list);
+        
         await this.ctx.render('/admin/goods/index',{
             list
         })
