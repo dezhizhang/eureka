@@ -13,23 +13,25 @@ class LoginController extends Controller {
         }
     }
     async save() {
-        let { openid } = this.ctx.query;
-        let data = await this.ctx.model.User.find({'openid':openid});
-        if(data.length > 0) {
+        //小程序端保存
+        let result = this.ctx.request.body;
+        const { openid } = result;
+        let data = await this.ctx.model.User.find({"openid":openid});
+        if(data.length <=0) {
+            let userInfo = new this.ctx.model.User(result);
+            await userInfo.save();
             this.ctx.body = {
                 code:200,
-                msg:'当前用户以存在',
-                data:data
-            }
-        } else {
-            let userInfo = new this.ctx.model.User({openid:openid});
-            userInfo.save();
-            this.ctx.body = {
-                code:200,
-                msg:'保存用户成功',
+                msg:'新增用户成功',
                 data:null
             }
-        } 
+            return;
+        }
+        this.ctx.body = {
+            code:200,
+            msg:'登录成功',
+            data:null
+        }
     }
     async pay() {
         let that = this;

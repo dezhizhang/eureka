@@ -208,7 +208,7 @@ module.exports = app => {
   //用户登录
   router.get('/api/userInfo/login',controller.api.login.index);
   //保存用户信息
-  router.get('/api/userInfo/save',controller.api.login.save);
+  router.post('/api/userInfo/save',controller.api.login.save);
   //上传购物车
   router.post('/api/cart/save',controller.api.cart.save);
   //获取购物车信息
