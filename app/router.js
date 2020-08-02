@@ -142,6 +142,9 @@ module.exports = app => {
   router.post('/admin/classifyDetail/doEdit',controller.admin.classifyDetail.doEdit);
   router.get('/admin/classifyDetail/delete',controller.admin.base.delete);
 
+  //用户管理
+  router.get('/admin/user',controller.admin.user.index);
+
 
 
   //前台页面
