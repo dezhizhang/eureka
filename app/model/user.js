@@ -13,6 +13,7 @@ module.exports = app => {
         url:{ type:String }, //用户头像
         email:{ type:String },
         mobile:{ type:String },
+        openid:{ type:String }, //用于小程序端登录
         nickName:{ type:String },
         address:{ type:String },
         status:{

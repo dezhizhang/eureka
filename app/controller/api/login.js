@@ -14,7 +14,7 @@ class LoginController extends Controller {
     }
     async save() {
         let { openid } = this.ctx.query;
-        let data = await this.ctx.model.UserInfo.find({'openid':openid});
+        let data = await this.ctx.model.User.find({'openid':openid});
         if(data.length > 0) {
             this.ctx.body = {
                 code:200,
@@ -22,7 +22,7 @@ class LoginController extends Controller {
                 data:data
             }
         } else {
-            let userInfo = new this.ctx.model.UserInfo({openid:openid});
+            let userInfo = new this.ctx.model.User({openid:openid});
             userInfo.save();
             this.ctx.body = {
                 code:200,
