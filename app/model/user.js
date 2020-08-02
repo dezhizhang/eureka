@@ -16,6 +16,7 @@ module.exports = app => {
         openid:{ type:String }, //用于小程序端登录
         nickName:{ type:String },
         address:{ type:String },
+        userType:{ type:String },//用户会员类型
         status:{
             type:Number,
             default:1 //用户当前状态
