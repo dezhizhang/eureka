@@ -10,10 +10,15 @@ module.exports = app => {
     const Schema = mongoose.Schema;
     const d = new Date();
     const UserSchema = new Schema({
-        username:String,
-        password:String,
-        email:String,
-        mobile:String,
+        url:{ type:String }, //用户头像
+        email:{ type:String },
+        mobile:{ type:String },
+        nickName:{ type:String },
+        address:{ type:String },
+        status:{
+            type:Number,
+            default:1 //用户当前状态
+        },
         token:{ //用于验证用户是否登录
             type:String,
             default:uuid.v4(),
