@@ -14,6 +14,7 @@
                                 <th>名称</th>
                                 <th>图片</th>
                                 <th>信用代码</th>
+                                <th>会员类型</th>
                                 <th>地址</th>
                                 <th>电话</th>  
                                 <th>邮箱</th>
@@ -23,7 +24,29 @@
                             </tr>
                             </thead>
                             <tbody>
-                               
+                               <%for(let i=0;i < list.length;i++) {%>
+                                <tr>
+                                    <td><%=list[i].nickName%></td>
+                                    <td><img style="width: 120px; height: 60px;" src="<%=list[i].url%>"/></td>
+                                    <td><%=list[i].creditCode%></td>
+                                    <td><%=list[i].userType%></td>
+                                    <td><%=list[i].address%></td>
+                                    <td><%=list[i].mobile%></td>
+                                    <td><%=list[i].email%></td>
+                                    <td class="text-center">
+                                        <%if(list[i].status == 1){%>
+                                            <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Role','status','<%=list[i]._id%>')"/>
+                                        <%} else{%>
+                                            <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Role','status','<%=list[i]._id%>')"/>
+                                        <%}%>
+                                    </td>  
+                                    <td><%=list[i].add_time%></td>      
+                                    <td >
+                                        <a href="/admin/role/edit?id=<%=list[i]._id%>">修改</a> |
+                                        <a class="delete" href="/admin/role/delete?model=Role&id=<%=list[i]._id%>">删除</a>
+                                    </td>
+                                </tr>
+                               <%}%>
                             </tbody>
                         </table>
                     </div>
@@ -31,18 +54,18 @@
                         <div class="auto"></div>
                         <div class="box">
                             <ul>
-                                <li><a href="/admin/goods?page=1">首页</a></li>
-                                <li><a href="/admin/goods?page=1">1</a></li>
-                                <li><a href="/admin/goods?page=2">2</a></li>
-                                <li><a href="/admin/goods?page=3">3</a></li>
-                                <li><a href="/admin/goods?page=4">4</a></li>
-                                <li><a href="/admin/goods?page=5">5</a></li>
-                                <li><a href="/admin/goods?page=6">6</a></li>
-                                <li><a href="/admin/goods?page=7">7</a></li>
-                                <li><a href="/admin/goods?page=8">8</a></li>
-                                <li><a href="/admin/goods?page=9">9</a></li>
-                                <li><a href="/admin/goods?page=10">10</a></li>
-                                <li><a href="/admin/goods?page=11">尾页</a></li>
+                                <li><a href="/admin/user?page=1">首页</a></li>
+                                <li><a href="/admin/user?page=1">1</a></li>
+                                <li><a href="/admin/user?page=2">2</a></li>
+                                <li><a href="/admin/user?page=3">3</a></li>
+                                <li><a href="/admin/user?page=4">4</a></li>
+                                <li><a href="/admin/user?page=5">5</a></li>
+                                <li><a href="/admin/user?page=6">6</a></li>
+                                <li><a href="/admin/user?page=7">7</a></li>
+                                <li><a href="/admin/user?page=8">8</a></li>
+                                <li><a href="/admin/user?page=9">9</a></li>
+                                <li><a href="/admin/user?page=10">10</a></li>
+                                <li><a href="/admin/user?page=11">尾页</a></li>
                             </ul>  
                         </div>
                     </div>

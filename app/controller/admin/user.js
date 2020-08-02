@@ -2,9 +2,10 @@
 const BaseController = require('./base');
 class UserController extends BaseController {
     async index() {
-        let result = await this.ctx.model.User.find();
+        let list = await this.ctx.model.User.find();
+        console.log('list',list)
         await this.ctx.render('/admin/user/index',{
-            list:result
+            list
         });
     }
     async add() {
