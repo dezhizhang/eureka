@@ -91,8 +91,8 @@ class LoginController extends Controller {
             msg:'success'
         }
     }
-    //企业登录
-    async company() {
+    //企业注册
+    async register() {
         let result = await this.service.upload.uploadImg(); 
         let data = await this.ctx.model.User.find({"creditCode":result.creditCode});
         if(data.length > 0) {
@@ -109,6 +109,26 @@ class LoginController extends Controller {
             code:200,
             msg:'注册成功',
             data:null
+        }
+    }
+    //企业登录
+    async login() {
+        let result = this.ctx.request.body;
+        let data = await this.ctx.model.User.find({"creditCode":result.creditCode});
+        if(data.length <=0) {
+            this.ctx.body = {
+                code:200,
+                msg:'你还没有注册',
+                success:false,
+                data:null
+            }
+            return;
+        }
+        this.ctx.body = {
+            code:200,
+            msg:'登录成功',
+            success:true,
+            data:data
         }
     }
 
