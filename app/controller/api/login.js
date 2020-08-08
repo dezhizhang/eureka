@@ -131,6 +131,17 @@ class LoginController extends Controller {
             data:data
         }
     }
+    //企业信息
+    async info() {
+        let { creditCode } = this.ctx.query;
+        let data = await this.ctx.model.User.find({'creditCode':creditCode});
+        this.ctx.body = {
+            code:200,
+            msg:'success',
+            success:true,
+            data:data[0]
+        }
+    }
 
 }
 

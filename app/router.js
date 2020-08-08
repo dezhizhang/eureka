@@ -227,6 +227,8 @@ module.exports = app => {
   router.post('/api/company/register',controller.api.login.register);
   //企业登录
   router.post('/api/company/login',controller.api.login.login);
+  //企业信息
+  router.get('/api/company/info',controller.api.login.info);
   
 
 
