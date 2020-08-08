@@ -86,20 +86,30 @@ class LoginController extends Controller {
         let json = data.data.toString();
 
         console.log(json);
-
-
-
-
-
-        
-
         this.ctx.body = {
             code:200,
             msg:'success'
         }
-
-        
-
+    }
+    //企业登录
+    async company() {
+        let result = await this.service.upload.uploadImg(); 
+        let data = await this.ctx.model.User.find({"creditCode":result.creditCode});
+        if(data.length > 0) {
+            this.ctx.body = {
+                code:200,
+                msg:'当前帐户以注册',
+                data:null
+            }
+            return
+        }
+        let userInfo = new this.ctx.model.User(result);
+        await userInfo.save();
+        this.ctx.body = {
+            code:200,
+            msg:'注册成功',
+            data:null
+        }
     }
 
 }

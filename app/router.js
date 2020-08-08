@@ -223,6 +223,8 @@ module.exports = app => {
   router.post('/api/userInfo/pay',controller.api.login.pay);
   //城市接口
   router.get('/api/city/info',controller.api.city.index);
+  //企业登录
+  router.post('/api/company/login',controller.api.login.company)
   
 
 
