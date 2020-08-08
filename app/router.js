@@ -221,6 +221,8 @@ module.exports = app => {
   router.get('/api/cart/status',controller.api.cart.status);
   //调起微信支付
   router.post('/api/userInfo/pay',controller.api.login.pay);
+  //城市接口
+  router.get('/api/city/info',controller.api.city.index);
   
 
 
