@@ -114,6 +114,8 @@ class LoginController extends Controller {
     //企业登录
     async login() {
         let result = this.ctx.request.body;
+        console.log("result",result);
+        
         let data = await this.ctx.model.User.find({"email":result.email});
         if(data.length <=0) {
             this.ctx.body = {
@@ -128,7 +130,7 @@ class LoginController extends Controller {
             code:200,
             msg:'登录成功',
             success:true,
-            data:data
+            data:data[0]
         }
     }
     //企业信息
