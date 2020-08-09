@@ -94,7 +94,7 @@ class LoginController extends Controller {
     //企业注册
     async register() {
         let result = await this.service.upload.uploadImg(); 
-        let data = await this.ctx.model.User.find({"creditCode":result.creditCode});
+        let data = await this.ctx.model.User.find({"email":result.email});
         if(data.length > 0) {
             this.ctx.body = {
                 code:200,
@@ -114,7 +114,7 @@ class LoginController extends Controller {
     //企业登录
     async login() {
         let result = this.ctx.request.body;
-        let data = await this.ctx.model.User.find({"creditCode":result.creditCode});
+        let data = await this.ctx.model.User.find({"email":result.email});
         if(data.length <=0) {
             this.ctx.body = {
                 code:200,
@@ -133,8 +133,8 @@ class LoginController extends Controller {
     }
     //企业信息
     async info() {
-        let { creditCode } = this.ctx.query;
-        let data = await this.ctx.model.User.find({'creditCode':creditCode});
+        let { email } = this.ctx.query;
+        let data = await this.ctx.model.User.find({'email':email});
         this.ctx.body = {
             code:200,
             msg:'success',

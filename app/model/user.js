@@ -11,7 +11,7 @@ module.exports = app => {
     const d = new Date();
     const UserSchema = new Schema({
         url:{ type:String }, //用户头像
-        email:{ type:String },
+        email:{ type:String }, //企业邮箱
         mobile:{ type:String },
         openid:{ type:String }, //用于小程序端登录
         creditCode:{type:String}, //社会信用代码
