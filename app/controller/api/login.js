@@ -114,9 +114,9 @@ class LoginController extends Controller {
     //企业登录
     async login() {
         let result = this.ctx.request.body;
-        console.log("result",result);
-        
-        let data = await this.ctx.model.User.find({"email":result.email});
+        result.password = this.service.tools.md5(result.password)
+        let { password,mobile } = result;
+        let data = await this.ctx.model.User.find({"mobile":mobile,"password":password});
         if(data.length <=0) {
             this.ctx.body = {
                 code:200,
