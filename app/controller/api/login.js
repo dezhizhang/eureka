@@ -63,8 +63,6 @@ class LoginController extends Controller {
             data:formData
         });
         let json = data.data.toString();
-
-        console.log(json);
         this.ctx.body = {
             code:200,
             msg:'success'
@@ -73,11 +71,11 @@ class LoginController extends Controller {
     //企业注册
     async register() {
         let result = await this.service.upload.uploadImg(); 
-        let data = await this.ctx.model.User.find({"email":result.email});
+        let data = await this.ctx.model.User.find({"creditCode":result.creditCode});
         if(data.length > 0) {
             this.ctx.body = {
                 code:200,
-                msg:'当前帐户以注册',
+                msg:'当前企业以认证',
                 data:null
             }
             return
@@ -86,7 +84,7 @@ class LoginController extends Controller {
         await userInfo.save();
         this.ctx.body = {
             code:200,
-            msg:'注册成功',
+            msg:'认证成功',
             data:null
         }
     }
