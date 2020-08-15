@@ -69,6 +69,8 @@ class PrepaidController extends Controller {
     //预支付
     async prepaid() {
         let result = this.ctx.request.body;
+        console.log("result",result);
+
         let userInfo = new this.ctx.model.UserInfo(result);
         await userInfo.save();
         this.ctx.body = {
@@ -81,7 +83,7 @@ class PrepaidController extends Controller {
     //获取支付列表
     async paylist() {
         let { openid } = this.ctx.query;
-        let list = await this.ctx.model.UserInfo({'openid':openid,'status':1});
+        let list = await this.ctx.model.UserInfo.find({'openid':openid,"status":1});
         this.ctx.body = {
             code:200,
             msg:'成功',
