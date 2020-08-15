@@ -229,6 +229,8 @@ module.exports = app => {
   router.get('/api/company/info',controller.api.login.info);
   //用户发起预支付
   router.post('/api/userInfo/prepaid',controller.api.user.prepaid);
+  //获取待支付列表
+  router.get("/api/userInfo/pay/list",controller.api.user.paylist);
   
 
 

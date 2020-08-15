@@ -78,6 +78,16 @@ class PrepaidController extends Controller {
             success:true
         }
     }
+    //获取支付列表
+    async paylist() {
+        let { openid } = this.ctx.query;
+        let list = await this.ctx.model.UserInfo({'openid':openid,'status':1});
+        this.ctx.body = {
+            code:200,
+            msg:'成功',
+            data:list
+        }
+    }
 
 }
 
