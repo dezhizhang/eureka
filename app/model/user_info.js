@@ -6,6 +6,14 @@ module.exports = app => {
     const d = new Date();
     const UserInfoSchema = new Schema({
         openid:{ type:String },
+        nickName:{ type:String },
+        status:{ type:Number,default:1 }, //1表示待付款，2表示待发货，3表示待收货，4表示待评价
+        number:{ type:String },
+        title:{ type:String },
+        price:{ type:String },
+        url:{ type:String },
+        color:{ type:String },
+        size:{ type:String },
         add_time:{
             type:Number,
             default:d.getTime()
