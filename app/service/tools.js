@@ -2,6 +2,7 @@
 const md5 = require('md5');
 const path = require('path');
 const Jimp = require('jimp');
+const crypto = require("crypto");
 const Service = require('egg').Service;
 const svgCaptcha = require('svg-captcha');
 const sd = require('silly-datetime');
@@ -79,25 +80,28 @@ class ToolsService extends Service {
             return false;
         }
     }
-    //生成随机字符串
-    async randomStr() {
-        let str = '';
-        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-        for(let i=1;i<=32;i++){
-            let random = Math.floor(Math.random()*arr.length);
-            str += arr[random];
-        }
-    
-        return str;
-    }
     //生成签名算法
     async createSign(obj) {
-        let stringA = 'appid='+obj.appid+'&body='+obj.body+'&mch_id='+obj.mch_id+'&nonce_str='+obj.nonce_str+'&notify_url='+obj.notify_url+'&openid='+obj.openid+'&out_trade_no='+obj.out_trade_no+'&spbill_create_ip='+obj.spbill_create_ip+'&total_fee='+obj.total_fee+'&trade_type='+obj.trade_type+'sign_type='+obj.sign_type;
-        console.log(stringA);
+        let stringA = this.raw(obj);
 	    let stringSignTemp = stringA+'&key=208DBD224FCB5ECCC87D64DD837EA823';
-        stringSignTemp = md5(stringSignTemp);
-        let signValue = stringSignTemp.toUpperCase();
+        let signValue =  crypto.createHash('md5').update(stringSignTemp, 'utf8').digest('hex').toUpperCase();
+        console.log("signValue",signValue);
 	    return signValue
+    }
+    //转换字符串
+    async raw(args) {
+        let keys = Object.keys(args);
+        keys = keys.sort()
+        let newArgs = {};
+        keys.forEach(function (key) {
+            newArgs[key] = args[key];
+        });
+        let string = '';
+        for (let k in newArgs) {
+            string += '&' + k + '=' + newArgs[k];
+        }
+        string = string.substr(1);
+        return string;
     }
     
 }

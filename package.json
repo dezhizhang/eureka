@@ -6,6 +6,7 @@
   "dependencies": {
     "ali-oss": "^6.10.0",
     "cheerio": "^1.0.0-rc.3",
+    "crypto": "^1.0.1",
     "dayjs": "^1.8.29",
     "egg": "^2.2.1",
     "egg-mongo-native": "^3.4.3",

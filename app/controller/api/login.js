@@ -28,22 +28,29 @@ class LoginController extends Controller {
         //生成随机字符串
         const nonce_str = Math.random().toString(36).substr(2, 15);
         //生成时间戳
-        const timestamp = parseInt(new Date().getTime() / 1000) + ''
+        const timestamp = parseInt(new Date().getTime() / 1000) + '';
+        //用户订单号
+        const out_trade_no = '20200322407657788420200322111948';
+        //微信预支付url
+        const notify_url = 'http://2477ii0715.qicp.vip:51075/weChatPaymentApi/orderNotify';
+        const body = 'JSAPI支付测试';
+        const detail = '测试';
+        const trade_type = 'JSAPI'
         //ip白名单
         const spbill_create_ip = '192.168.43.241';
         let params = {
             appid: appid,
-			body: 'JSAPI支付测试',
+			body: body,
 			mch_id: mch_id,
 			nonce_str: nonce_str,
-			notify_url: 'http://2477ii0715.qicp.vip:51075/weChatPaymentApi/orderNotify',
+			notify_url: notify_url,
             openid: openid,
-            detail:'测试',
-			out_trade_no: '20150806125346',
+            detail:detail,
+			out_trade_no: out_trade_no,
 			spbill_create_ip: spbill_create_ip,
             total_fee: total_fee,
             timestamp:timestamp,
-            trade_type: 'JSAPI',
+            trade_type: trade_type,
             sign_type:'MD5'
         }
         //生成签名算法
@@ -51,16 +58,16 @@ class LoginController extends Controller {
         const url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
         const formData = `<xml>
             <appid>${appid}</appid>
-            <body>JSAPI支付测试</body>
+            <body>${body}</body>
             <mch_id>${mch_id}</mch_id>
-            <detail>测试</detail>
+            <detail>${detail}</detail>
             <nonce_str>${nonce_str}</nonce_str>
-            <notify_url>http://2477ii0715.qicp.vip:51075/weChatPaymentApi/orderNotify</notify_url>
+            <notify_url>${notify_url}</notify_url>
             <openid>${openid}</openid>
-            <out_trade_no>20150806125346</out_trade_no>
+            <out_trade_no>${out_trade_no}</out_trade_no>
             <spbill_create_ip>${spbill_create_ip}</spbill_create_ip>
             <total_fee>${total_fee}</total_fee>
-            <trade_type>JSAPI</trade_type>
+            <trade_type>${trade_type}</trade_type>
             <sign>${sign}</sign>
             </xml>
         `
