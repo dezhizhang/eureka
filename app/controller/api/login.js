@@ -27,6 +27,8 @@ class LoginController extends Controller {
         const mch_id = '1558043371';
         //生成随机字符串
         const nonce_str = Math.random().toString(36).substr(2, 15);
+        console.log(nonce_str);
+
         //生成时间戳
         const timestamp = parseInt(new Date().getTime() / 1000) + '';
         //用户订单号
@@ -68,7 +70,7 @@ class LoginController extends Controller {
             <spbill_create_ip>${spbill_create_ip}</spbill_create_ip>
             <total_fee>${total_fee}</total_fee>
             <trade_type>${trade_type}</trade_type>
-            <sign>${sign}</sign>
+            <sign>D26CDFD1FA808C88A3D768A6574B3E08</sign>
             </xml>
         `
         const payInfo = await this.ctx.curl(url,{
