@@ -28,7 +28,7 @@ class LoginController extends Controller {
         //生成随机字符串
         const nonce_str = Math.random().toString(36).substr(2, 26);
         //生成时间戳
-        const timestamp = parseInt(new Date().getTime() / 1000) + '';
+        const timestamp = parseInt(new Date().getTime() / 1000);
         //用户订单号
         const out_trade_no = '20150806125311';
         //微信预支付url
@@ -49,7 +49,7 @@ class LoginController extends Controller {
             out_trade_no: out_trade_no,
             spbill_create_ip: spbill_create_ip,
             total_fee: total_fee,
-            timestamp:timestamp,
+            // timestamp:timestamp,
             trade_type: trade_type,
         }
         //生成签名算法
@@ -74,8 +74,9 @@ class LoginController extends Controller {
             method:'POST',
             data:formData
         });
-        console.log(payInfo.res.data.toString());
-        
+
+        console.log((payInfo.res.data.toString()));
+
         this.ctx.body = {
             code:200,
             msg:'success'

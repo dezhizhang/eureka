@@ -82,8 +82,10 @@ class ToolsService extends Service {
     }
     //生成签名算法
     async createSign(obj) {
-        let stringA = this.raw(obj);
-	    let stringSignTemp = stringA+'&key=208DBD224FCB5ECCC87D64DD837EA823';
+        let stringA = await this.raw(obj);
+        let stringSignTemp = stringA+'&key=208DBD224FCB5ECCC87D64DD837EA823';
+        console.log("stringSignTemp",stringSignTemp);
+
         let signValue = md5(stringSignTemp).toUpperCase();
 
         console.log("signValue",signValue);
