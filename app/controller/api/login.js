@@ -28,7 +28,7 @@ class LoginController extends Controller {
         //生成随机字符串
         const nonce_str = Math.random().toString(36).substr(2, 26);
         //生成时间戳
-        const timeStamp = parseInt(new Date().getTime() / 1000);
+        const timeStamp = parseInt(new Date().getTime() / 1000) + '';
         //用户订单号
         const out_trade_no = '20150806125311';
         //微信预支付url
@@ -82,7 +82,7 @@ class LoginController extends Controller {
                 data:{
                     timeStamp:timeStamp,
                     nonceStr:res.xml.nonce_str[0],
-                    prepay_id:res.xml.prepay_id[0],
+                    package:`prepay_id=${res.xml.prepay_id[0]}`,
                     paySign:res.xml.sign[0],
                 }
             }
