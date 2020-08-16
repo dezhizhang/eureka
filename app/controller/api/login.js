@@ -28,7 +28,7 @@ class LoginController extends Controller {
         //生成随机字符串
         const nonce_str = Math.random().toString(36).substr(2, 26);
         //生成时间戳
-        const timestamp = parseInt(new Date().getTime() / 1000);
+        const timeStamp = parseInt(new Date().getTime() / 1000);
         //用户订单号
         const out_trade_no = '20150806125311';
         //微信预支付url
@@ -69,34 +69,24 @@ class LoginController extends Controller {
             <trade_type>${trade_type}</trade_type>
             <sign>${sign}</sign>
             </xml>`;
-
+        //预支付订单
         const payInfo = await this.ctx.curl(url,{
             method:'POST',
             data:formData
         });
-
-        console.log((payInfo.res.data.toString()));
-
-        this.ctx.body = {
-            code:200,
-            msg:'success'
-        }
-
-
-        // <xml>
-        //     <appid><![CDATA[wx2198b51c8406aed0]]></appid>
-        //     <body><![CDATA[111]]></body>
-        //     <mch_id><![CDATA[1558043371]]></mch_id>
-        //     <detail><![CDATA[111]]></detail>
-        //     <nonce_str><![CDATA[yjexq77v9h9]]></nonce_str>
-        //     <notify_url><![CDATA[https://www.guicaioa.com]]></notify_url>
-        //     <openid><![CDATA[ootrY5cDYIqWVO2fU-S9AGxh0yVk]]></openid>
-        //     <out_trade_no><![CDATA[20150806125356]]></out_trade_no>
-        //     <spbill_create_ip><![CDATA[192.168.43.241]]></spbill_create_ip>
-        //     <total_fee><![CDATA[100000]]></total_fee>
-        //     <trade_type><![CDATA[JSAPI]]></trade_type>
-        //     <sign><![CDATA[D26CDFD1FA808C88A3D768A6574B3E08]]></sign>
-        // </xml>
+        //xml字符串转json
+        xml2js.parseString(payInfo.res.data.toString(),(err,res) => {
+            this.ctx.body = {
+                code:200,
+                msg:'success',
+                data:{
+                    timeStamp:timeStamp,
+                    nonceStr:res.xml.nonce_str[0],
+                    prepay_id:res.xml.prepay_id[0],
+                    paySign:res.xml.sign[0],
+                }
+            }
+        });
     }
     //企业注册
     async register() {
