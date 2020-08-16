@@ -84,8 +84,11 @@ class ToolsService extends Service {
     async createSign(obj) {
  
         let stringA = this.raw(obj);
+        console.log("stringA",stringA);
+
 	    let stringSignTemp = stringA+'&key=208DBD224FCB5ECCC87D64DD837EA823';
-        let signValue =  crypto.createHash('md5').update(stringSignTemp, 'utf8').digest('hex').toUpperCase();
+        let signValue = md5(stringSignTemp).toUpperCase();
+
         console.log("signValue",signValue);
 	    return signValue
     }

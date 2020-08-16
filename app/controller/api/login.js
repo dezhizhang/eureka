@@ -27,14 +27,12 @@ class LoginController extends Controller {
         const mch_id = '1558043371';
         //生成随机字符串
         const nonce_str = Math.random().toString(36).substr(2, 15);
-        console.log(nonce_str);
-
         //生成时间戳
         const timestamp = parseInt(new Date().getTime() / 1000) + '';
         //用户订单号
-        const out_trade_no = '20200322407657788420200322111948';
+        const out_trade_no = '20150806125356';
         //微信预支付url
-        const notify_url = 'http://2477ii0715.qicp.vip:51075/weChatPaymentApi/orderNotify';
+        const notify_url = 'https://www.guicaioa.com';
         const body = 'JSAPI支付测试';
         const detail = '测试';
         const trade_type = 'JSAPI'
@@ -42,18 +40,17 @@ class LoginController extends Controller {
         const spbill_create_ip = '192.168.43.241';
         let params = {
             appid: appid,
-			body: body,
-			mch_id: mch_id,
-			nonce_str: nonce_str,
-			notify_url: notify_url,
-            openid: openid,
+            body: body,
             detail:detail,
-			out_trade_no: out_trade_no,
-			spbill_create_ip: spbill_create_ip,
+			mch_id: mch_id,
+            nonce_str: nonce_str,
+            notify_url:notify_url,
+            openid: openid,
+            out_trade_no: out_trade_no,
+            spbill_create_ip: spbill_create_ip,
             total_fee: total_fee,
             timestamp:timestamp,
             trade_type: trade_type,
-            sign_type:'MD5'
         }
         //生成签名算法
         const sign = await this.service.tools.createSign(params);
@@ -70,14 +67,18 @@ class LoginController extends Controller {
             <spbill_create_ip>${spbill_create_ip}</spbill_create_ip>
             <total_fee>${total_fee}</total_fee>
             <trade_type>${trade_type}</trade_type>
-            <sign>D26CDFD1FA808C88A3D768A6574B3E08</sign>
-            </xml>
-        `
+            <sign>${sign}</sign>
+            </xml>`
+
+        
+
+
+
         const payInfo = await this.ctx.curl(url,{
             method:'POST',
             data:formData
         });
-        console.log(payInfo.data.toString());
+        console.log(payInfo.res.data.toString());
         
         this.ctx.body = {
             code:200,
