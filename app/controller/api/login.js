@@ -26,15 +26,15 @@ class LoginController extends Controller {
         //商户号
         const mch_id = '1558043371';
         //生成随机字符串
-        const nonce_str = Math.random().toString(36).substr(2, 15);
+        const nonce_str = Math.random().toString(36).substr(2, 26);
         //生成时间戳
         const timestamp = parseInt(new Date().getTime() / 1000) + '';
         //用户订单号
-        const out_trade_no = '20150806125356';
+        const out_trade_no = '20150806125311';
         //微信预支付url
         const notify_url = 'https://www.guicaioa.com';
-        const body = 'JSAPI支付测试';
-        const detail = '测试';
+        const body = 'JSAPI';
+        const detail = 'test';
         const trade_type = 'JSAPI'
         //ip白名单
         const spbill_create_ip = '192.168.43.241';
@@ -68,11 +68,7 @@ class LoginController extends Controller {
             <total_fee>${total_fee}</total_fee>
             <trade_type>${trade_type}</trade_type>
             <sign>${sign}</sign>
-            </xml>`
-
-        
-
-
+            </xml>`;
 
         const payInfo = await this.ctx.curl(url,{
             method:'POST',
@@ -84,6 +80,22 @@ class LoginController extends Controller {
             code:200,
             msg:'success'
         }
+
+
+        // <xml>
+        //     <appid><![CDATA[wx2198b51c8406aed0]]></appid>
+        //     <body><![CDATA[111]]></body>
+        //     <mch_id><![CDATA[1558043371]]></mch_id>
+        //     <detail><![CDATA[111]]></detail>
+        //     <nonce_str><![CDATA[yjexq77v9h9]]></nonce_str>
+        //     <notify_url><![CDATA[https://www.guicaioa.com]]></notify_url>
+        //     <openid><![CDATA[ootrY5cDYIqWVO2fU-S9AGxh0yVk]]></openid>
+        //     <out_trade_no><![CDATA[20150806125356]]></out_trade_no>
+        //     <spbill_create_ip><![CDATA[192.168.43.241]]></spbill_create_ip>
+        //     <total_fee><![CDATA[100000]]></total_fee>
+        //     <trade_type><![CDATA[JSAPI]]></trade_type>
+        //     <sign><![CDATA[D26CDFD1FA808C88A3D768A6574B3E08]]></sign>
+        // </xml>
     }
     //企业注册
     async register() {
