@@ -15,6 +15,8 @@ class LoginController extends Controller {
     async pay() {
         const result = this.ctx.request.body;
         const { appid,code } = result;
+        let { title,total,number,color,size,out_trade_no} = result;
+        let detail = `你购买的商品总价量${total},数量${number}颜色${color}尺码${size}`
         //获取openid
         const data = await this.ctx.curl(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=27d67b7aa84d8c3c768b4a53fcfb8732&js_code=${code}&grant_type=authorization_code`);
         //将微信返回的参数转换成json
@@ -22,7 +24,7 @@ class LoginController extends Controller {
         //获取opid
         const {session_key,openid } = json;
         //支付的金额转成分  
-        const total_fee = parseFloat(1000) * 100
+        const total_fee = parseFloat(total) * 100
         //商户号
         const mch_id = '1558043371';
         //生成随机字符串
@@ -30,17 +32,15 @@ class LoginController extends Controller {
         //生成时间戳
         const timeStamp = parseInt(new Date().getTime() / 1000) + '';
         //用户订单号
-        const out_trade_no = '20150806125311';
+        // const out_trade_no = '20150806125311';
         //微信预支付url
         const notify_url = 'https://www.guicaioa.com';
-        const body = 'JSAPI';
-        const detail = 'test';
         const trade_type = 'JSAPI'
         //ip白名单
         const spbill_create_ip = '192.168.43.241';
         let params = {
             appid: appid,
-            body: body,
+            body: title,
             detail:detail,
 			mch_id: mch_id,
             nonce_str: nonce_str,
@@ -57,7 +57,7 @@ class LoginController extends Controller {
         const url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
         const formData = `<xml>
             <appid>${appid}</appid>
-            <body>${body}</body>
+            <body>${title}</body>
             <mch_id>${mch_id}</mch_id>
             <detail>${detail}</detail>
             <nonce_str>${nonce_str}</nonce_str>
