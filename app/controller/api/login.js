@@ -37,7 +37,7 @@ class LoginController extends Controller {
         const notify_url = 'https://www.guicaioa.com';
         const trade_type = 'JSAPI'
         //ip白名单
-        const spbill_create_ip = '192.168.43.241';
+        const spbill_create_ip = '39.105.56.216';
         let params = {
             appid: appid,
             body: title,
