@@ -122,6 +122,31 @@ class ToolsService extends Service {
         }
         return res;
     }
+    //微信支付二次签名
+    async paySignTwo(obj) {
+        let stringA = await this.raw(obj);
+        let stringSignTemp = stringA+'&key=208DBD224FCB5ECCC87D64DD837EA823';
+        let signValue = md5(stringSignTemp).toUpperCase();
+        return signValue;
+    }
+
+    // //微信支付二次签名
+    // async paySignTwo: function (appId, nonceStr, package, signType, timestamp, mchkey) {
+    //     var ret = {
+    //         appId: appId,
+    //         nonceStr: nonceStr,
+    //         package: package,
+    //         signType: signType,
+    //         timeStamp: timestamp,
+    //     };
+    //     console.log('Miniret==', ret);
+    //     var string = raw(ret);
+    //     var key = mchkey;
+    //     string = string + '&key=' + &key=208DBD224FCB5ECCC87D64DD837EA823;
+    //     console.log('Ministring>>>>>>', string);
+    //     var crypto = require('crypto');
+    //     return crypto.createHash('md5').update(string, 'utf8').digest('hex').toUpperCase();
+    // },
     
 }
 
