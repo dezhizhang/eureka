@@ -24,7 +24,7 @@ class LoginController extends Controller {
         //获取opid
         const {session_key,openid } = json;
         //支付的金额转成分  
-        const total_fee = parseFloat(0.01) * 100;
+        const total_fee = parseFloat(total) * 100;
         //商户号
         const mch_id = '1558043371';
         //生成随机字符串
