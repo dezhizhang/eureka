@@ -72,10 +72,11 @@ class MainController extends BaseController {
             link:result.url
         }
     }
+    //增加商品
     async doAdd() {
         let result = await this.service.upload.uploadImg(); 
-        console.log("goods_num",await this.service.tools.number());
-
+        let goods_id = await this.service.tools.number();
+        result.goods_id = goods_id;
         let goods =new this.ctx.model.Goods(result);
         await goods.save();
         await this.success('/admin/goods','增加商品成功'); 

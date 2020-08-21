@@ -16,7 +16,7 @@ module.exports = app => {
         goods_number:{
             type:Number,
             default:100
-        },
+        }, // 商品数量
         price:{ type:String },
         old_price:{ type:String },
         freight:{ type:String }, //运费
@@ -26,7 +26,8 @@ module.exports = app => {
         goods_attrs:{ type:String },
         goods_version:{ type:String },
         goods_color:{ type:String },
-        // goods_img:{ type:String },
+        goods_id:{type:String}, //商品编号
+        
         // goods_gift:{ type:String },
         // goods_fitting:{ type:String },
         // goods_color:{ type:String },
