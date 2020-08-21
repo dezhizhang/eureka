@@ -70,10 +70,7 @@ class PrepaidController extends Controller {
     async prepaid() {
         let result = this.ctx.request.body;
         let { goods_id } = result;
-        console.log("goods_id",goods_id)
         let data = await this.ctx.model.UserInfo.find({'goods_id':goods_id});
-        console.log("data",data);
-
         //当存在时不加入预支付订单
         if(data.length > 0) {
             this.ctx.body = {
