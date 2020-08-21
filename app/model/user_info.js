@@ -13,6 +13,7 @@ module.exports = app => {
         url:{ type:String },
         color:{ type:String },
         size:{ type:String },
+        goods_id:{type:String }, //商品编号
         add_time:{
             type:Number,
             default:d.getTime()
