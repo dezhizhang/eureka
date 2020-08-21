@@ -106,6 +106,22 @@ class ToolsService extends Service {
         string = string.substr(1);
         return string;
     }
+    //生成商品编号的方法
+    async number() {
+        let d = new Date();
+        let str = 'GC'+ d.getFullYear() + (d.getMonth()+1)+ d.getDate() + d.getHours() + d.getMinutes() + await this.random(6);
+        return str;
+    }
+    //生成随机数
+    async random(n) {
+        let chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+        let res = "";
+        for(var i = 0; i < n ; i ++) {
+            var id = Math.ceil(Math.random()*35);
+            res += chars[id];
+        }
+        return res;
+    }
     
 }
 
