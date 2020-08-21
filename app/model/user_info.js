@@ -10,6 +10,7 @@ module.exports = app => {
         number:{ type:String },
         title:{ type:String },
         price:{ type:String },
+        freight:{type:String },
         url:{ type:String },
         color:{ type:String },
         size:{ type:String },
