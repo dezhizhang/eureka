@@ -231,6 +231,9 @@ module.exports = app => {
   router.post('/api/userInfo/prepaid',controller.api.user.prepaid);
   //获取待支付列表
   router.get("/api/userInfo/pay/list",controller.api.user.paylist);
+  //支付完成后更新订单
+  router.get('/api/userInfo/update/order',controller.api.user.order);
+  
   
 
 

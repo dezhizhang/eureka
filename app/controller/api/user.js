@@ -43,8 +43,21 @@ class PrepaidController extends Controller {
         this.ctx.body = {
             code:200,
             msg:'成功',
-            data:list
+            data:list,
+            success:true,
         }
+    }
+    //更新订单状态
+    async order() {
+        let { openid,status } = this.ctx.query;
+        let list = await this.ctx.model.UserInfo.update({'openid':openid},{'status':status});
+        this.ctx.body = {
+            code:200,
+            msg:'更新订单成功',
+            data:null,
+            success:true
+        }
+
     }
 
 }
