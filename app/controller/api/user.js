@@ -57,9 +57,19 @@ class PrepaidController extends Controller {
             data:null,
             success:true
         }
-
     }
-
+    //获取订单列表
+    async list() {
+        let { status,openid } = this.ctx.query;
+        let list = await this.ctx.model.UserInfo.find({'status':status,'openid':openid});
+        this.ctx.body = {
+            code:200,
+            msg:'成功',
+            data:list,
+            success:true
+        }
+    }
+ 
 }
 
 module.exports = PrepaidController;

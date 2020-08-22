@@ -233,6 +233,8 @@ module.exports = app => {
   router.get("/api/userInfo/pay/list",controller.api.user.paylist);
   //支付完成后更新订单
   router.get('/api/userInfo/update/order',controller.api.user.order);
+  //订单列表
+  router.get('/api/userInfo/order/list',controller.api.user.list)
   
   
 
