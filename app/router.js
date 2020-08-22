@@ -194,7 +194,6 @@ module.exports = app => {
   router.get('/api/product/list',controller.api.product.list);
   //主打产品分类
   router.get('/api/product/main',controller.api.main.index);
-
   //详情列表
   router.get('/api/detail/info',controller.api.detail.index);
   //商品相册图
@@ -234,7 +233,11 @@ module.exports = app => {
   //支付完成后更新订单
   router.get('/api/userInfo/update/order',controller.api.user.order);
   //订单列表
-  router.get('/api/userInfo/order/list',controller.api.user.list)
+  router.get('/api/userInfo/order/list',controller.api.user.list);
+  //统计订单数量
+  router.get('/api/userInfo/order/count',controller.api.user.count);
+
+
   
   
 
