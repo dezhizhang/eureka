@@ -101,11 +101,10 @@ class PrepaidController extends Controller {
             data:{
                 stayPayment,
                 stayDelivery,
-                stayDistribution,
                 stayEvaluation,
+                stayDistribution,
             }
         }
-
     }
  
 }
