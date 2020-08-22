@@ -72,28 +72,10 @@ class PrepaidController extends Controller {
     //统计数量
     async count() {
         let { openid } = this.ctx.query;
-        let stayPayment = 0; //待付款
-        let stayDelivery = 0; //待发货
-        let stayDistribution = 0 //待配送
-        let stayEvaluation = 0; //待评价
-
-        let list = await this.ctx.model.UserInfo.find({'openid':openid});
-        for(let i=0;i < list.length;i++) {
-            switch(list[i].status) {
-                case '1':
-                    stayPayment++;
-                    break;
-                case '2':
-                    stayDelivery++;
-                    break;
-                case '3':
-                    stayDistribution++;
-                    break;
-                case '4':
-                    stayEvaluation++;
-                    break
-            }
-        }
+        let stayPayment = await this.ctx.model.UserInfo.find({'openid':openid,'status':'1'}).count();//待付款
+        let stayDelivery = await this.ctx.model.UserInfo.find({'openid':openid,'status':'2'}).count();//待发货
+        let stayDistribution = await this.ctx.model.UserInfo.find({'openid':openid,'status':'3'}).count();//待配送
+        let stayEvaluation = await this.ctx.model.UserInfo.find({'openid':openid,'status':'4'}).count();//待评价
         this.ctx.body = {
             code:200,
             msg:'成功',
@@ -106,7 +88,6 @@ class PrepaidController extends Controller {
             }
         }
     }
- 
 }
 
 module.exports = PrepaidController;
