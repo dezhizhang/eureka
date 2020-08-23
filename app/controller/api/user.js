@@ -93,6 +93,17 @@ class PrepaidController extends Controller {
             }
         }
     }
+    //删除订单
+    async delete() {
+        let { openid,id } = this.ctx.query;
+        let list = await this.ctx.model.UserInfo.deleteOne({'openid':openid,'_id':id});
+        this.ctx.body = {
+            code:200,
+            msg:'删除成功',
+            success:true,
+            data:null
+        }
+    }
 }
 
 module.exports = PrepaidController;

@@ -236,6 +236,8 @@ module.exports = app => {
   router.get('/api/userInfo/order/list',controller.api.user.list);
   //统计订单数量
   router.get('/api/userInfo/order/count',controller.api.user.count);
+  //删除订单
+  router.get('/api/userInfo/order/delete',controller.api.user.delete);
 
 
   
