@@ -61,7 +61,12 @@ class PrepaidController extends Controller {
     //获取订单列表
     async list() {
         let { status,openid } = this.ctx.query;
-        let list = await this.ctx.model.UserInfo.find({'status':status,'openid':openid});
+        let list = [];
+        if(status === '0') { //当状态为0时表示查询全部
+            list = await this.ctx.model.UserInfo.find({'openid':openid});
+        }else {
+            list = await this.ctx.model.UserInfo.find({'status':status,'openid':openid});
+        }
         this.ctx.body = {
             code:200,
             msg:'成功',
