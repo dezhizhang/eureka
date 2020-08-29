@@ -214,6 +214,8 @@ module.exports = app => {
   router.get('/api/cart/update',controller.api.cart.update);
   //删除购物车 
   router.get('/api/cart/delete',controller.api.cart.delete);
+  //购物车加入预支付订单
+  router.post('/api/cart/prepaid',controller.api.cart.prepaid);
   //改变购物车状态的方法
   router.get('/api/cart/status',controller.api.cart.status);
   //调起微信支付
@@ -238,6 +240,7 @@ module.exports = app => {
   router.get('/api/userInfo/order/count',controller.api.user.count);
   //删除订单
   router.get('/api/userInfo/order/delete',controller.api.user.delete);
+ 
 
 
   

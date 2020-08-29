@@ -79,6 +79,25 @@ class MaintainController extends Controller {
             }
         }
     }
+    //预支付订单
+    async prepaid() {
+        let { openid,list } = this.ctx.request.body;
+        let userInfoArr = [];
+        //批量加入购物车
+        for(let i=0;i < list.length;i++) {
+            list[i].openid = openid;
+            userInfoArr.push(new this.ctx.model.UserInfo(list[i]));
+        }
+        for(let j=0;j < userInfoArr.length;j++) {
+            await userInfoArr[j].save();
+        }
+        this.ctx.body = {
+            code:200,
+            msg:'加入购物车成功',
+            success:true,
+            data:null
+        }
+    }
 
 }
 
