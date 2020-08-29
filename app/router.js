@@ -242,6 +242,8 @@ module.exports = app => {
   router.get('/api/userInfo/order/delete',controller.api.user.delete);
   //保存用户信息
   router.post('/api/userInfo/save',controller.api.user.save);
+  //获取用户信息
+  router.get('/api/user/info',controller.api.user.info);
  
 
 

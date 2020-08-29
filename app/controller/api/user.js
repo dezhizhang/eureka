@@ -114,12 +114,24 @@ class PrepaidController extends Controller {
             this.ctx.body = {
                 code:200,
                 msg:'更新数据成功',
+                success:true,
                 data:null
             }
             return
         }
         let user = new this.ctx.model.User(result);
         await user.save();
+    }
+    //获取用户信息
+    async info() {
+        const { openid } = this.ctx.query;
+        const data = await this.ctx.model.User.find({'openid':openid});
+        this.ctx.body = {
+            code:200,
+            msg:"获取用户成功",
+            data:data,
+            success:true
+        }
     }
 }
 
