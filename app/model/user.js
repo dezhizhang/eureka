@@ -20,7 +20,7 @@ module.exports = app => {
         userName:{ type:String },
         compamyName:{type:String},
         address:{ type:String },
-        userType:{ type:String },//用户会员类型
+        userType:{ type:String,default:'普通会员' },//用户会员类型
         status:{
             type:Number,
             default:1 //用户当前状态

@@ -100,20 +100,22 @@ class LoginController extends Controller {
     //企业注册
     async register() {
         let result = await this.service.upload.uploadImg(); 
-        let data = await this.ctx.model.User.find({"creditCode":result.creditCode});
+        let data = await this.ctx.model.User.find({"creditCode":result.creditCode,'openid':result.openid});
         if(data.length > 0) {
             this.ctx.body = {
                 code:200,
                 msg:'当前企业以认证',
-                data:null
+                success:true,
+                data:null,
+
             }
             return
         }
-        let userInfo = new this.ctx.model.User(result);
-        await userInfo.save();
+        await this.ctx.model.User.update({'openid':result.openid},result)
         this.ctx.body = {
             code:200,
             msg:'认证成功',
+            success:true,
             data:null
         }
     }
