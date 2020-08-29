@@ -129,7 +129,7 @@ class PrepaidController extends Controller {
         this.ctx.body = {
             code:200,
             msg:"获取用户成功",
-            data:data,
+            data:data[0],
             success:true
         }
     }

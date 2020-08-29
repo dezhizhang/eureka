@@ -1,6 +1,11 @@
 
+/**
+ * @author:zhangdezhi
+ * @date:2020-08-29
+ * @desc:保存用户订单
+*/
 'use strict';
-module.exports = app => {
+module.exports = app => { 
     const mongoose = app.mongoose;
     const Schema = mongoose.Schema;
     const d = new Date();
