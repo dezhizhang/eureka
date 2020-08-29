@@ -7,7 +7,11 @@ module.exports = app => {
         title:{ type:String },
         number:{ type:Number },
         price:{ type:String },
-        goods_img:{ type:String },
+        color:{ type:String },
+        size:{ type:String },
+        url:{ type:String },
+        goods_id:{ type:String },
+        status:{ type:Number },
         openid:{ type:String },
         checked:{ type:Boolean,default:true },
         add_time:{
