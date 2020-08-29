@@ -4,7 +4,7 @@ module.exports = app => {
     const Schema = mongoose.Schema;
     const d = new Date();
     const MaintainSchema = Schema({
-        username:{ type:String },
+        userName:{ type:String },
         mobile:{ type:String },
         address:{ type:String },
         description:{ type:String },
