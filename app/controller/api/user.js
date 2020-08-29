@@ -15,13 +15,13 @@ class PrepaidController extends Controller {
     //预支付
     async prepaid() {
         let result = this.ctx.request.body;
-        let { goods_id } = result;
-        let data = await this.ctx.model.UserInfo.find({'goods_id':goods_id});
+        let { goods_id,openid } = result;
+        let data = await this.ctx.model.UserInfo.find({'goods_id':goods_id,'openid':openid});
         //当存在时不加入预支付订单
         if(data.length > 0) {
             this.ctx.body = {
                 code:200,
-                msg:'成功',
+                msg:'商品以加入预支付订单了',
                 data:null,
                 success:true
             }
@@ -31,7 +31,7 @@ class PrepaidController extends Controller {
         await userInfo.save();
         this.ctx.body = {
             code:200,
-            msg:'成功',
+            msg:'添加预支付商品成功',
             data:null,
             success:true
         }
