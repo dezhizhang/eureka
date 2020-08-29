@@ -16,6 +16,7 @@ module.exports = app => {
         openid:{ type:String }, //用于小程序端登录
         creditCode:{type:String}, //社会信用代码
         nickName:{ type:String },
+        userName:{ type:String },
         compamyName:{type:String},
         address:{ type:String },
         userType:{ type:String },//用户会员类型

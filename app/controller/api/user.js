@@ -104,6 +104,23 @@ class PrepaidController extends Controller {
             data:null
         }
     }
+    //用户保存信息
+    async save() {
+        const result = this.ctx.request.body;
+        const { openid, } = result;
+        const data = await this.ctx.model.User.find({'openid':openid});
+        if(data.length > 0) { //如果当前存在更新
+            await this.ctx.model.User.update({'openid':openid},result);
+            this.ctx.body = {
+                code:200,
+                msg:'更新数据成功',
+                data:null
+            }
+            return
+        }
+        let user = new this.ctx.model.User(result);
+        await user.save();
+    }
 }
 
 module.exports = PrepaidController;
