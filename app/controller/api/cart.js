@@ -82,6 +82,8 @@ class MaintainController extends Controller {
     //预支付订单
     async prepaid() {
         let { openid,list } = this.ctx.request.body;
+        //先删除用户预支付订单
+        await this.ctx.model.UserInfo.deleteMany({'openid':openid}); 
         let userInfoArr = [];
         //批量加入购物车
         for(let i=0;i < list.length;i++) {

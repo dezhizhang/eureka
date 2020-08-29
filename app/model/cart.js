@@ -13,6 +13,7 @@ module.exports = app => {
         goods_id:{ type:String },
         status:{ type:Number },
         openid:{ type:String },
+        freight:{type:Number },
         checked:{ type:Boolean,default:true },
         add_time:{
             type:Number,
