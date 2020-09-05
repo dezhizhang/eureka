@@ -38,8 +38,15 @@ class PrepaidController extends Controller {
     }
     //获取支付列表
     async paylist() {
-        let { openid } = this.ctx.query;
-        let list = await this.ctx.model.UserInfo.find({'openid':openid,"status":1});
+        let { openid,goods_id } = this.ctx.query;
+        let list = [];
+        console.log("goods_id",goods_id);
+        
+        if(goods_id) {
+            list = await this.ctx.model.UserInfo.find({'openid':openid,"status":1,'goods_id':goods_id});
+        } else {
+            list = await this.ctx.model.UserInfo.find({'openid':openid,"status":1});
+        }
         this.ctx.body = {
             code:200,
             msg:'成功',
