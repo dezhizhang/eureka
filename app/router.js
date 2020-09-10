@@ -190,6 +190,8 @@ module.exports = app => {
   router.post('/api/maintain/upload',controller.api.maintain.upload);
   //获取预约数据
   router.get('/api/maintain/list',controller.api.maintain.list);
+  //删除预约数据
+  router.get('/api/maintain/delete',controller.api.maintain.delete);
   //热门产品
   router.get('/api/product/hot',controller.api.product.hot);
   //主打产品
@@ -246,7 +248,7 @@ module.exports = app => {
   router.post('/api/userInfo/save',controller.api.user.save);
   //获取用户信息
   router.get('/api/user/info',controller.api.user.info);
-  
+
  
 
 

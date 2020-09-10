@@ -46,6 +46,24 @@ class MaintainController extends Controller {
             data:list
         }
     }
+    //删除预约
+    async delete() {
+        let { openid,id } = this.ctx.query;
+        if(!openid && !id) {
+            this.ctx.body = {
+                code:200,
+                msg:'传入的参数有误',
+                data:null
+            }
+            return;
+        }
+        await this.ctx.model.Maintain.deleteOne({'_id':id,'openid':openid});
+        this.ctx.body = {
+            code:200,
+            msg:'删除成功',
+            data:null
+        }
+    }
 
 }
 
