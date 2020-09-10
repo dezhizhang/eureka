@@ -246,6 +246,7 @@ module.exports = app => {
   router.post('/api/userInfo/save',controller.api.user.save);
   //获取用户信息
   router.get('/api/user/info',controller.api.user.info);
+  
  
 
 
