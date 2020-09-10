@@ -22,11 +22,11 @@
                     <tbody>
                         <%for(let i=0;i<list.length;i++){%>
                         <tr>
-                            <td><%=list[i].username%></td>
+                            <td><%=list[i].userName%></td>
                             <td><%=list[i].mobile%></td>
                             <td><%=list[i].address%></td>
                             <td><%=list[i].description%></td>
-                            <td><img style="width: 140px;height:60px" src="<%=list[i].image_url%>"/></td>
+                            <td><img style="width: 140px;height:60px" src="<%=list[i].url%>"/></td>
                             <td><%=helper.formatTime(list[i].add_time)%></td>
                             <td class="text-center">
                                 <%if(list[i].status == 1){%>
