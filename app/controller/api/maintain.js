@@ -28,6 +28,24 @@ class MaintainController extends Controller {
             data:null
         }
     }
+    //获取预约列表
+    async list() {
+        let { openid } = this.ctx.query;
+        if(!openid) {
+            this.ctx.body = {
+                code:404,
+                msg:'传入的参数有误',
+                data:null,
+            }
+            return;
+        }
+        let list = await this.ctx.model.Maintain.find({'openid':openid,status:2});
+        this.ctx.body = {
+            code:200,
+            msg:'获取预约成功',
+            data:list
+        }
+    }
 
 }
 
