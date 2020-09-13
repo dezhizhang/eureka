@@ -126,6 +126,11 @@ class PrepaidController extends Controller {
         }
         let user = new this.ctx.model.User(result);
         await user.save();
+        this.ctx.body = {
+            code:200,
+            msg:'添加成功',
+            data:null
+        }
     }
     //获取用户信息
     async info() {
