@@ -19,6 +19,7 @@ module.exports = app => {
         url:{ type:String },
         sub_title:{type:String }, //商品副标题
         color:{ type:String },
+        color_title:{type:String },
         size:{ type:String },
         goods_id:{type:String }, //商品编号
         add_time:{
