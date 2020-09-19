@@ -17,6 +17,7 @@ module.exports = app => {
         price:{ type:String },
         freight:{type:String },
         url:{ type:String },
+        sub_title:{type:String }, //商品副标题
         color:{ type:String },
         size:{ type:String },
         goods_id:{type:String }, //商品编号

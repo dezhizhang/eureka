@@ -19,6 +19,7 @@ class PrepaidController extends Controller {
         let data = await this.ctx.model.UserInfo.find({'goods_id':goods_id,'openid':openid});
         //当存在时不加入预支付订单
         if(data.length > 0) {
+            await this.ctx.model.UserInfo.update(result);
             this.ctx.body = {
                 code:200,
                 msg:'商品以加入预支付订单了',
