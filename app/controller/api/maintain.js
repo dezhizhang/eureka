@@ -42,6 +42,8 @@ class MaintainController extends Controller {
                 },
             }
         }
+        console.log(params);
+        
         const sned = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/message/wxopen/template/uniform_send`,{
             method:'POST',
             data:params
