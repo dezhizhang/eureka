@@ -14,7 +14,7 @@ class MaintainController extends Controller {
     async upload() {
         const appid = 'wx2198b51c8406aed0';
         const secret = '27d67b7aa84d8c3c768b4a53fcfb8732';
-        const template_id = 'sBWMBpor9c5weupAUBJUALvNeUNqk';
+        const template_id = '5A9eRJvFUnAuEqNGZ8i5aoezYOA-5JK0OVH6dfsDrzc';
 
         let result = await this.service.upload.uploadImg(); 
         const user = await this.ctx.curl(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${secret}&js_code=${result.code}&grant_type=authorization_code`);
@@ -27,7 +27,7 @@ class MaintainController extends Controller {
             'access_token':json.access_token,
             'touser':userJson.openid,
             'mp_template_msg':{
-                appid:appid,
+                appid:'wx0de1327b5e6aefee',
                 url:'https://www.guicaioa.com/index',
                 template_id:template_id,
                 data:{
@@ -44,7 +44,7 @@ class MaintainController extends Controller {
         }
         console.log(params);
         
-        const sned = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/message/wxopen/template/uniform_send`,{
+        const sned = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/message/wxopen/template/uniform_send?access_token=${json.access_token}`,{
             method:'POST',
             data:params
         });
