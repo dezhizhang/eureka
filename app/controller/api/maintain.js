@@ -14,23 +14,32 @@ class MaintainController extends Controller {
     async upload() {
         const appid = 'wx2198b51c8406aed0';
         const secret = '27d67b7aa84d8c3c768b4a53fcfb8732';
-        const template_id = '5A9eRJvFUnAuEqNGZ8i5aoezYOA-5JK0OVH6dfsDrzc';
+        const template_id = '';
 
         let result = await this.service.upload.uploadImg(); 
-        const user = await this.ctx.curl(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${secret}&js_code=${result.code}&grant_type=authorization_code`);
-        const userJson =JSON.parse(user.data.toString());
-       
+        
         let data = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`);
-        console.log("userJson",userJson.openid)
+       
         const json =JSON.parse(data.data.toString());
         const params = {
             'access_token':json.access_token,
-            'touser':userJson.openid,
+            'touser':result.openid,
+            'weapp_template_msg':{
+                'template_id':'sBWMBpor9c5weupAUBJUALvNeUNqk',
+                'page':'pages/index/index',
+                'form_id':result.formId,
+                'data':{
+                    "keyword1":{
+                        "value":"339208499"
+                    },
+                },
+                'emphasis_keyword':'keyword1.DATA'
+            },
             'mp_template_msg':{
-                appid:'wx0de1327b5e6aefee',
-                url:'https://www.guicaioa.com/index',
-                template_id:template_id,
-                data:{
+                'appid':appid,
+                'url':'https://www.guicaioa.com',
+                'template_id':'5A9eRJvFUnAuEqNGZ8i5aoezYOA-5JK0OVH6dfsDrzc',
+                'data':{
                     "first":{
                         "value":"恭喜你购买成功！",
                         "color":"#173177"
@@ -58,15 +67,15 @@ class MaintainController extends Controller {
         // let text = `您小程序客户,姓名:${result.userName},电话：${result.mobile},联系地址:${result.address},问题描述:${result.description}，请尽快处理！管理后台:https://www.eureka.net.cn/admin/login`;
         // let html = '';
         // let has_sned = await this.service.tools.sendEmail(email,subject,text,html);
-        // let maintain =new this.ctx.model.Maintain(result);
-        // await maintain.save();
-        // this.ctx.body = {
-        //     code:200,
-        //     msg:'上传成功',
-        //     success:true,
-        //     data:null
-        // }
-        // {"session_key":"Lv7rtdw6mzMrpjek5uXCEQ==","openid":"ootrY5cDYIqWVO2fU-S9AGxh0yVk"}
+        let maintain =new this.ctx.model.Maintain(result);
+        await maintain.save();
+        this.ctx.body = {
+            code:200,
+            msg:'上传成功',
+            success:true,
+            data:null
+        }
+       
     }
     //获取预约列表
     async list() {
