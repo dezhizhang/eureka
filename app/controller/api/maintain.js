@@ -57,16 +57,8 @@ class MaintainController extends Controller {
             method:'POST',
             data:params
         });
-        console.log("sned",JSON.parse(sned.data.toString()));
+        console.log(sned.data.toString())
 
-        // console.log("result",result);
-
-        // result.status = 2;
-        // let email = '1018158888@qq.com';
-        // let subject = 'eureka科技预约';
-        // let text = `您小程序客户,姓名:${result.userName},电话：${result.mobile},联系地址:${result.address},问题描述:${result.description}，请尽快处理！管理后台:https://www.eureka.net.cn/admin/login`;
-        // let html = '';
-        // let has_sned = await this.service.tools.sendEmail(email,subject,text,html);
         let maintain =new this.ctx.model.Maintain(result);
         await maintain.save();
         this.ctx.body = {
