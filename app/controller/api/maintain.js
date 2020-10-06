@@ -14,27 +14,13 @@ class MaintainController extends Controller {
     async upload() {
         const appid = 'wx2198b51c8406aed0';
         const secret = '27d67b7aa84d8c3c768b4a53fcfb8732';
-        const template_id = '';
-
-        let result = await this.service.upload.uploadImg(); 
-        
-        let data = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`);
+        const result = await this.service.upload.uploadImg(); 
+        const data = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`);
        
         const json =JSON.parse(data.data.toString());
         const params = {
             'access_token':json.access_token,
             'touser':result.openid,
-            'weapp_template_msg':{
-                'template_id':'sBWMBpor9c5weupAUBJUALvNeUNqk',
-                'page':'pages/index/index',
-                'form_id':result.formId,
-                'data':{
-                    "keyword1":{
-                        "value":"339208499"
-                    },
-                },
-                'emphasis_keyword':'keyword1.DATA'
-            },
             'mp_template_msg':{
                 'appid':appid,
                 'url':'https://www.guicaioa.com',
