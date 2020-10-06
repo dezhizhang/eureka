@@ -14,34 +14,32 @@ class MaintainController extends Controller {
     async upload() {
         const appid = 'wx2198b51c8406aed0';
         const secret = '27d67b7aa84d8c3c768b4a53fcfb8732';
-        const result = await this.service.upload.uploadImg(); 
+        const result = await this.service.upload.uploadImg();
         const data = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`);
-       
+
         const json =JSON.parse(data.data.toString());
+
         const params = {
             'access_token':json.access_token,
             'touser':result.openid,
-            'mp_template_msg':{
-                'appid':appid,
-                'url':'https://www.guicaioa.com',
-                'template_id':'5A9eRJvFUnAuEqNGZ8i5aoezYOA-5JK0OVH6dfsDrzc',
-                'data':{
-                    "first":{
-                        "value":"恭喜你购买成功！",
-                        "color":"#173177"
-                    },
+            'template_id':'0XK1EO7jvqJtHbt_wVfRF9f050sAe4LAo021WqG0_Ds',
+            "lang":"zh_CN",
+            'data':{
+                "thing4": {
+                    "value": result.description,
                 },
-                "miniprogram":{
-                    "appid":appid,
-                    "pagepath":"index?foo=bar"
-                },
+                
+                "thing1": {
+                    "value": result.address,
+                } ,
+                "date2": {
+                    "value": Date.now()
+                }
             }
-        }
-        console.log(params);
-        
-        const sned = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/message/wxopen/template/uniform_send?access_token=${json.access_token}`,{
+        } 
+        const sned = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=${json.access_token}`,{
             method:'POST',
-            data:params
+            data:JSON.stringify(params)
         });
         console.log(sned.data.toString())
 
