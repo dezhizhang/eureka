@@ -1,0 +1,96 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+<!--main contents start-->
+<main class="content_wrapper">
+<!--page title start-->
+<div class="page-heading">
+	<div class="container-fluid">
+		<div class="row d-flex align-items-center">
+			<div class="col-md-6">
+				<div class="page-breadcrumb">
+					<h1>轮播图管理</h1>
+				</div>
+			</div>
+			<div class="col-md-6 justify-content-md-end d-md-flex">
+				<div class="breadcrumb_nav">
+					<ol class="breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a class="parent-item" href="/admin/manager">轮播图管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li class="active">
+							增加轮播图
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>				
+<!--page title end-->
+<div class="container-fluid">
+<!-- state start-->
+	<div class="row">
+		<div class=" col-xl-12">
+			<div class="card card-shadow mb-4">
+				<div class="card-header">
+					<div class="card-title">
+						增加轮播图
+					</div>
+				</div>
+				<div class="card-body">
+                    <form action="/admin/focus/doEdit%>" method="POST" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="exampleFormControlSelect1">分类</label>
+							<select name="type" class="form-control" id="exampleFormControlSelect1">
+                                <option <%if(list.type == 1){%>selected<%}%>  value="1">网站</option>
+                                <option <%if(list.type == 2){%>selected<%}%>  value="2">APP</option>
+                                <option <%if(list.type == 3){%>selected<%}%>  value="3">小程序</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">名称</label>
+							<input name="title" type="text" class="form-control" value="<%=list.title%>"  placeholder="请输入名称">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">链接</label>
+							<input name="link" type="text" class="form-control" value="<%=list.link%>"  placeholder="请输入链接">
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlFile1">图片</label>
+                            <input name="img" type="file" class="form-control-file" >
+
+                            <img class="table-image"  src="<%=list.url%>"/>
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlTextarea1">描述</label>
+							<textarea name="description" class="form-control" value="<%=list.description%>"  rows="3"><%=list.description%></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">
+							确 定
+						</button>
+					</form>
+            </div>
+		</div>
+	</div>
+	<!-- state end-->
+</div>
+
+</main>
+<!--main contents end-->
+</div>
+<!-- Content_right_End -->
+<!-- Footer -->
+<%include ../public/footer.html%>
+<!-- Footer_End -->
+</div>
+		
+</body>
+<script type="text/javascript" src="/public/admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/admin/js/popper.min.js"></script>
+<script type="text/javascript" src="/public/admin/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/public/admin/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/public/admin/js/custom.js" type="text/javascript"></script>
+</html>

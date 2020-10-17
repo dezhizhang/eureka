@@ -22,7 +22,7 @@ class FocusController extends BaseController {
     async edit() {
         let id = this.ctx.query.id;
         let result = await this.ctx.model.Focus.find({'_id':id});
-        await this.ctx.render('/admin/focus/edit',{
+        await this.ctx.render('/back/focus/edit',{
             list:result[0]
         });
     }
