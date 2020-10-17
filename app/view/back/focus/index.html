@@ -51,7 +51,7 @@
 													<td class="col">排序</td> 
 													<th scope="col">状态</th>
 													<th scope="col">增加时间</th>       
-													<th scope="col" style="min-width: 60px;">描述</th>
+													<th scope="col" style="min-width: 160px;">描述</th>
 													<th scope="col" style="min-width: 160px;">操作</th>
 												</tr>
 											</thead>
@@ -63,16 +63,17 @@
 														<td><%=helper.formatType(list[i].type)%></td>
 														<td><img class="table-image" src="<%=list[i].url%>"></td>
 														<td><%=list[i].link%></td>
-														<td><%=list[i].sort%></td>
+														<td  class="text-center">
+															<%if(list[i].status == 1){%>
+																<img src="/public/back/images/yes.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')"/>
+															<%} else{%>
+																<img src="/public/back/images/no.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')"/>
+															<%}%>
+														</td>    
 														<td ><span style="cursor: pointer" onclick="app.editNum(this,'Focus','sort','<%=list[i]._id%>')"><%=list[i].sort%></span></td>
 														<td><%=list[i].add_time%></td>
-														<td  class="text-center">
-															 <%if(list[i].status == 1){%>
-																 <img src="/public/back/images/yes.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')"/>
-															 <%} else{%>
-																 <img src="/public/back/images/no.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')"/>
-															 <%}%>
-														 </td>            
+														 
+														<td><%=list[i].description%></td>       
 														<td class="text-center">
 															<a class="btn btn-info btn-color" href="/admin/focus/edit?id=<%=list[i]._id%>">修改</a>
 															<a href="/admin/focus/delete?id=<%=list[i]._id%>" class="btn btn-danger btn-color">删除</a>
