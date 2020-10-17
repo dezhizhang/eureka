@@ -46,7 +46,7 @@ class ManagerController extends BaseController {
         let id = this.ctx.query.id;
         let roleData = await this.ctx.model.Role.find();
         let result = await this.ctx.model.Admin.find({'_id':id});
-        await this.ctx.render('/admin/manager/edit',{
+        await this.ctx.render('/back/manager/edit',{
             list:result[0],
             roleList:roleData
         })
