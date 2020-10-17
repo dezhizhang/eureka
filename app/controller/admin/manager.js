@@ -29,13 +29,14 @@ class ManagerController extends BaseController {
     }
     //增加管理员
     async doAdd() {
-        let result = this.ctx.request.body;
-        result.password = await this.service.tools.md5(result.password);
-        let adminResult = await this.ctx.model.Admin.find({'username':result.username});
-        if(adminResult.length > 0) {
+        let data = this.ctx.request.body;
+        const { email,password } = data;
+        data.password = await this.service.tools.md5(password);
+        let result = await this.ctx.model.Admin.find({'email':email});
+        if(result.length > 0) {
             await this.error('/admin/manager','当前管理员以存在');
         } else {
-            let manager = new this.ctx.model.Admin(result);
+            let manager = new this.ctx.model.Admin(data);
             await manager.save();
             await this.success('/admin/manager','增加管理员成功');
         }

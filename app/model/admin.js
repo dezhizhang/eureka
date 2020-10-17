@@ -8,6 +8,7 @@ module.exports = app => {
         password:{ type:String },
         mobile:{ type:String },
         email:{ type:String },
+        description:{ type:String },
         status:{
             type:Number,
             default:1
