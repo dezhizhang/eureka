@@ -18,10 +18,10 @@ class LoginController extends BaseController {
         }
         let result = await this.ctx.model.Admin.find({'email':email,'password':admin.password});
         if(result.length <= 0) {
-            await this.error('/admin/login','用户名或密码不正确');
+            await this.error('/admin/login','邮箱或密码不正确');
             return;
         }
-        this.ctx.session.userInfo = result[0];
+        this.ctx.session.userInfo = result[0]
         this.ctx.redirect('/admin/manager');   
     }
     //退出登录
