@@ -5,16 +5,15 @@ const BaseController = require('./base');
 class LoginController extends BaseController {
     //显示用户登录
     async index() {
-        await this.ctx.render('admin/login');
+        await this.ctx.render('back/login');
     }
-    //热行用户登录
+    //用户登录
     async doLogin() {
-        let data = this.ctx.request.body;
-        let username = data.username;
-        let password = await this.service.tools.md5(data.password);
-        let code = data.code;
+        const admin = this.ctx.request.body;
+        const {email,password,code} = admin;
+        admin.password = await this.service.tools.md5(password);
         if(code.toUpperCase() == this.ctx.session.code.toUpperCase()) {
-            let result = await this.ctx.model.Admin.find({'username':username,'password':password});
+            let result = await this.ctx.model.Admin.find({'email':email,'password':password});
             if(result.length > 0) {
                 //保存用户信息
                 this.ctx.session.userInfo = result[0];

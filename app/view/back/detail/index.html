@@ -1,0 +1,117 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+				<!--main contents start-->
+				<main class="content_wrapper">
+					<!--page title start-->
+					<div class="page-heading">
+						<div class="container-fluid">
+							<div class="row d-flex align-items-center">
+								<div class="col-md-6">
+									<div class="page-breadcrumb">
+										<h1>文章管理</h1>
+									</div>
+								</div>
+								<div class="col-md-6 justify-content-md-end d-flex">
+									<div class="breadcrumb_nav">
+										<ol class="breadcrumb">
+											<li>
+												<i class="fa fa-home"></i>
+												<a class="parent-item" href="/admin/manager">文章管理</a>
+												<i class="fa fa-angle-right"></i>
+											</li>
+											<li class="active">
+												文章详情
+											</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--page title end-->
+					<div class="container-fluid">
+						<!-- state start-->
+						<div class="row">
+							<div class=" col-xl-12">
+								<div class="card card-shadow mb-4">
+									<div class="card-header">
+										<div class="card-title">
+                                            <a href="/admin/detail/add?article_id=<%=article_id%>&name=<%=name%>" class="btn btn-info">增加详情</a>
+											
+										</div>
+									</div>
+									<div class="card-body">
+										<table id="bs4-table" class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th>标题</th>
+													<th>内容</th>
+													<th>增加时间</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+												<%if(list.length > 0){%>
+													<%for(let i=0;i < list.length;i++) {%>
+														<tr>
+															<td><%=list[i].name%></td>
+															<td>
+																<div style="display: none;" id="detail"><%=list[i].content%></div>
+																<div id="editormd-view"></div>
+															</td>
+															<td><%=list[i].add_time%></td>
+															<td>
+																<a href="/admin/detail/delete?id=<%=list[i]._id%>" class="btn btn-danger btn-color">删除</a>
+															</td>
+														</tr>
+													<%}%>
+												<%}%>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- state end-->
+					</div>
+				</main>
+				<!--main contents end-->
+			</div>
+			<!-- Content_right_End -->
+			<!-- Footer -->
+			<%include ../public/footer.html%>
+			<!-- Footer_End -->
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="/public/admin/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/admin/js/popper.min.js"></script>
+	<script type="text/javascript" src="/public/admin/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/public/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="/public/admin/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="/public/admin/js/custom.js" type="text/javascript"></script>
+	<script src="/public/admin/lib/marked.min.js"></script>
+	<script src="/public/admin/lib/prettify.min.js"></script>
+	<script src="/public/admin/lib/raphael.min.js"></script>
+	<script src="/public/admin/lib/underscore.min.js"></script>
+	<script src="/public/admin/lib/sequence-diagram.min.js"></script>
+	<script src="/public/admin/lib/flowchart.min.js"></script>
+	<script src="/public/admin/lib/jquery.flowchart.min.js"></script>
+	<script src="/public/admin/js/editormd.js"></script>
+	<script type="text/javascript">
+		$(function() {
+		  let markdown = $('#detail').text().trim();
+		  editormd.markdownToHTML('editormd-view', {
+			markdown: markdown, //+ "\r\n" + $("#append-test").text(),
+			htmlDecode: 'style,script,iframe', // you can filter tags decode
+			tocm: true, // Using [TOCM]
+			emoji: false,
+			taskList: true,
+			tex: true, // 默认不解析
+			flowChart: true, // 默认不解析
+			sequenceDiagram: true // 默认不解析
+		  })
+		})
+	</script>
+
+</html>

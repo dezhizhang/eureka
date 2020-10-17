@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>贵彩办公</title>
+    <link rel="shortcut icon" href="/public/default/images/favicon.ico">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <link href="/public/back/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/public/back/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/public/back/css/ionicons.css" rel="stylesheet" type="text/css">
+		<link href="/public/back/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+		<link href="/public/back/css/themify-icons.css" rel="stylesheet" type="text/css">
+    <link href="/public/back/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="/public/back/css/style.css" rel="stylesheet">
+		<link href="/public/back/css/header.css" rel="stylesheet">
+		<link href="/public/back/css/menu.css" rel="stylesheet">
+		<link href="/public/back/css/index.css" rel="stylesheet">
+    <link href="/public/back/css/responsive.css" rel="stylesheet">
+</head>
+
+<body class="bg_darck">
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="logo">
+                    <a href="#">
+                        <strong class="logo_icon">
+                            <img alt="" src="/public/back/images/small-logo.png">
+                        </strong>
+                        <span class="logo-default">
+                            <img alt="" src="/public/back/images/white-logo.png">
+                        </span>
+                    </a>
+                </div>
+                <div class="login-form">
+                    <form method="POST" action="/admin/doLogin">
+                        <h1 class="text-center">贵彩办公</h1>
+                        <div class="form-group">
+                            <label>邮箱</label>
+                            <input type="email" name="email" class="form-control" placeholder="请输入邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input name="password" type="password" class="form-control fa-twitter" placeholder="请输入密码">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 60px;">
+                            <label>验证码</label>
+                            <div style="display: flex;">
+                                <input name="code" style="flex: 1; max-width: 300;" type="text" class="form-control fa-twitter" placeholder="请输入验证码">
+                                <img id="verify_img" src="/admin/verify" title="看不清？点击刷新" onclick="javascript:this.src='/admin/verify?mt='+Math.random()">
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">登  录</button> 
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+    <script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/public/back/js/custom.js" type="text/javascript"></script>
+</body>
+
+</html>

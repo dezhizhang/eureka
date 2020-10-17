@@ -1,0 +1,536 @@
+
+<%include ../public/header.html%>
+<!-- Content_right -->
+<%include ../public/sidebar.html%>
+
+				<div class="content_wrapper">
+					<div class="container-fluid">
+						<!-- breadcrumb -->
+						<div class="page-heading">
+							<div class="row d-flex align-items-center">
+								<div class="col-md-6">
+									<div class="page-breadcrumb">
+										<h1>Dashboard</h1>
+									</div>
+								</div>
+								<div class="col-md-6 justify-content-md-end d-md-flex">
+									<div class="breadcrumb_nav">
+										<ol class="breadcrumb">
+											<li>
+												<i class="fa fa-home"></i>
+												<a class="parent-item" href="index.html">Home</a>
+												<i class="fa fa-angle-right"></i>
+											</li>
+											<li class="active">
+												Dashboard
+											</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- breadcrumb_End -->
+
+						<!-- Section -->
+						<section class="chart_section">
+
+
+							<div class="row">
+
+								<div class="col-lg-6 mb-4">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-12">
+												<h2 class="mb-1">Overall statistics</h2>
+												<p class="mb-4">Daily information about statistics in system</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4 mb-xs-30">
+												<div class="ep_1 " data-percent="48">
+												<span>48</span>%
+											</div>
+														<div class="user_data">
+															<span class="fw-bold mt-3 mb-0">New Users</span>
+														</div>
+											</div>
+
+
+											<div class="col-sm-4 mb-xs-30">
+												<div class="ep_1 " data-percent="48">
+												<span>19</span>%
+											</div>
+														<div class="user_data">
+															<span class="fw-bold mt-3 mb-0">Sales</span>
+														</div>
+											</div>
+
+
+											<div class="col-sm-4">
+												<div class="ep_1" data-percent="48">
+												<span>27</span>%
+											</div>
+														<div class="user_data">
+															<span class="fw-bold mt-3 mb-0">Subscribers</span>
+														</div>
+											</div>
+
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col-lg-6 mb-4">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-12">
+												<h2 class="mb-4">Total income & spend statistics</h2>
+											</div>
+										</div>
+
+
+										<div class="row py-3">
+										<div class="col-xl-4 col-md-6 d-flex flex-column justify-content-around">
+											<div>
+												<h6 class="fw-bold text-uppercase text-success op-8 mt-0">Total Income</h6>
+												<h3 class="fw-bold mb-4">$9.782</h3>
+											</div>
+											<div>
+												<h6 class="fw-bold text-uppercase text-danger op-8 mt-0">Total Spend</h6>
+												<h3 class="fw-bold mb-2">$1,248</h3>
+											</div>
+										</div>
+										<div class="col-xl-8 col-md-6">
+										<div class="px-4">
+										<canvas id="myChart3-light" class="height_box"></canvas>
+									</div>
+
+										</div>
+									</div>
+
+
+									</div>
+								</div>
+							</div>
+
+
+
+							</div>
+
+
+							<div class="row">
+
+								<div class="col-lg-8">
+								<div class="card card-shadow mb-4">
+									<div class="card-header">
+										<div class="card-title">User Statistics</div>
+
+									</div>
+									<div class="card-body">
+										<div id="b-area" class="height_statistics"></div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col-lg-4">
+								<div class="row">
+	<div class="col-lg-12 col-md-6">
+		<div class="card card-shadow card-inverse card-blue mb-4">
+			<div class="card-body pb-0">
+				<h4 class="mb-0 text-light">896</h4>
+				<p class="text-light">
+					Total Comment
+				</p>
+			</div>
+			<div class="px-">
+				<canvas id="myChart" height="height_box"></canvas>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="col-lg-12 col-md-6">
+		<div class="card card-shadow card-inverse card-success mb-4">
+			<div class="card-body pb-0">
+				<h4 class="mb-0 text-light">4000</h4>
+				<p class="text-light">
+					Total Sales
+				</p>
+			</div>
+			<div class="px-">
+				<canvas id="myChart2" height="height_box"></canvas>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+
+							</div>
+
+
+
+							</div>
+
+
+							<div class="row">
+
+								<div class="col-lg-12 mb-4">
+									<div class="card card-shadow">
+										<div class="card-header">
+											<div class="card-title">
+												Top Selling Country
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xl-8 col-lg-7 col-md-8">
+
+												<div class="card-body">
+													<div class="vmap-wrap" id="world-map"></div>
+												</div>
+											</div>
+
+											<div class="col-xl-4 col-lg-5 col-md-4">
+												<div class="card-body">
+													<div class="text_country">
+														<h2 class="mt-0"><img src="/public/admin/images/flag1.png" alt="" /> Russia <span>65%</span></h2>
+														<div class="progress mb-4" style="height: 5px;">
+															<div class="progress-bar bg-primary" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+
+													<div class="text_country">
+
+														<h2 class="mt-0"><img src="/public/admin/images/flag2.png" alt="" /> Spain <span>35%</span></h2>
+														<div class="progress mb-4" style="height: 5px;">
+															<div class="progress-bar bg-warning" role="progressbar" style="width:35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+
+													<div class="text_country">
+
+														<h2 class="mt-0"><img src="/public/admin/images/flag4.png" alt="" /> Ukraine <span>75%</span></h2>
+														<div class="progress mb-4" style="height: 5px;">
+															<div class="progress-bar bg-success" role="progressbar" style="width:75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+
+													<div class="text_country">
+
+														<h2 class="mt-0"><img src="/public/admin/images/flag5.png" alt="" /> Ghana <span>67%</span></h2>
+														<div class="progress mb-4" style="height: 5px;">
+															<div class="progress-bar bg-info" role="progressbar" style="width:67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+
+
+							</div>
+
+
+								<div class="row">
+
+									<div class="col-lg-4 d-flex align-items-stretch">
+							<div class="user_area card card-shadow mb-4">
+								<div class="profile_wid_user">
+									<div class="profile-widget-head">
+										<h3>James Vince</h3>
+										<i>Creative Designer</i>
+										<span><img src="/public/admin/images/about-1.jpg" alt=""></span>
+									</div>
+									<h4>@IndCricketTweet</h4>
+									<span class="blue"><i class="fa fa-map-marker"></i>Washington, USA</span>
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+									<a href="#" title="">http://themeforest.net</a>
+									<ul class="social-btns">
+										<li><a title="" href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a title="" href="#"><i class="fa fa-google-plus"></i></a></li>
+										<li><a title="" href="#"><i class="fa fa-twitter"></i></a></li>
+									</ul>
+								</div><!-- My Profile Widget -->
+							</div>
+						</div>
+
+									<div class="col-lg-4 d-flex align-items-stretch">
+									<div class="card card-shadow mb-4">
+										<div class="card-header">
+											<div class="card-title">
+												Recent Product
+											</div>
+										</div>
+										<div class="card-body">
+											<div class="media mb-4">
+												<img class="align-self-center mr-3 rounded-circle" src="/public/admin/images/watch-img.jpg" alt=" " style="width: 50px; height: 50px;">
+												<div class="media-body">
+													<p class="mb-0">
+														<strong class="">Smart Watch</strong>
+													</p>
+													<span>Man collection</span>
+												</div>
+												<div class="float-right text-info">
+													<span>$498</span>
+												</div>
+											</div>
+											<div class="media mb-4">
+												<img class="align-self-center mr-3 rounded-circle" src="/public/admin/images/bag-img.jpg" alt=" " style="width: 50px; height: 50px;">
+												<div class="media-body">
+													<p class="mb-0">
+														<strong class="">Leather Bags</strong>
+													</p>
+													<span>Women collection</span>
+												</div>
+												<div class="float-right text-info">
+													<span>$498</span>
+												</div>
+											</div>
+											<div class="media mb-4">
+												<img class="align-self-center mr-3 rounded-circle" src="/public/admin/images/stud-img.jpg" alt=" " style="width: 50px; height: 50px;">
+												<div class="media-body">
+													<p class="mb-0">
+														<strong class="">Student Bag</strong>
+													</p>
+													<span>Study Bag</span>
+												</div>
+												<div class="float-right text-info">
+													<span>$498</span>
+												</div>
+											</div>
+											<div class="media mb-4">
+												<img class="align-self-center mr-3 rounded-circle" src="/public/admin/images/headphone.jpg" alt=" " style="width: 50px; height: 50px;">
+												<div class="media-body">
+													<p class="mb-0">
+														<strong class="">Headphone</strong>
+													</p>
+													<span>Man collection</span>
+												</div>
+												<div class="float-right text-info">
+													<span>$498</span>
+												</div>
+											</div>
+
+											<div class="media mb-4">
+												<img class="align-self-center mr-3 rounded-circle" src="/public/admin/images/watch-img.jpg" alt=" " style="width: 50px; height: 50px;">
+												<div class="media-body">
+													<p class="mb-0">
+														<strong class="">Smart Watch</strong>
+													</p>
+													<span>Man collection</span>
+												</div>
+												<div class="float-right text-info">
+													<span>$498</span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+									<div class="col-lg-4 d-flex align-items-stretch">
+
+									<div class="homehei list_space card card-shadow mb-4">
+										<div class="card-header">
+											<div class="card-title">
+												To Do List
+											</div>
+										</div>
+										<div class="todo--panel">
+											<form action="#">
+												<div class="scroll_auto hero-height">
+													<ul class="list-group ps" data-trigger="scrollbar">
+														<li class="list-group-item">
+															<label class="todo--label">
+																<input type="checkbox" name="checkbox" value="1" class="todo--input" checked="">
+																<span class="todo--text">Schedule Meeting</span> </label>
+															<a href="#" class="todo--remove">&times;</a>
+														</li>
+														<li class="list-group-item">
+															<label class="todo--label">
+																<input type="checkbox" name="checkbox" value="2" class="todo--input">
+																<span class="todo--text">Call Clients To Follow-Up</span> </label>
+															<a href="#" class="todo--remove">&times;</a>
+														</li>
+														<li class="list-group-item">
+															<label class="todo--label">
+																<input type="checkbox" name="checkbox" value="3" class="todo--input" checked="">
+																<span class="todo--text">Book Flight For Holiday</span> </label>
+															<a href="#" class="todo--remove">&times;</a>
+														</li>
+														<li class="list-group-item">
+															<label class="todo--label">
+																<input type="checkbox" name="checkbox" value="4" class="todo--input">
+																<span class="todo--text">Forward Important Tasks</span> </label>
+															<a href="#" class="todo--remove">&times;</a>
+														</li>
+														<li class="list-group-item">
+															<label class="todo--label">
+																<input type="checkbox" name="checkbox" value="1" class="todo--input" checked="">
+																<span class="todo--text">Schedule Meeting</span> </label>
+															<a href="#" class="todo--remove">&times;</a>
+														</li>
+														<li class="list-group-item">
+															<label class="todo--label">
+																<input type="checkbox" name="checkbox" value="2" class="todo--input">
+																<span class="todo--text">Call Clients To Follow-Up</span> </label>
+															<a href="#" class="todo--remove">&times;</a>
+														</li>
+
+													</ul>
+												</div>
+												<div class="input-group">
+													<input type="text" name="todo" placeholder="Add New Task" class="form-control" autocomplete="off" required="">
+													<div class="input-group-btn">
+														<button type="submit" class="btn-link">
+															+
+														</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+
+								</div>
+
+
+
+								</div>
+
+					<div class="row">
+						<div class="col-lg-7">
+								<div class="card card-shadow mb-4">
+									<div class="card-header">
+										<div class="card-title">
+											Recent Activities
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="baseline home_space baseline-border">
+											<div class="baseline-list">
+												<div class="baseline-info">
+													<div>
+														<a href="#" class="default-color"> <strong>John Tasi</strong> </a> Prepare for the Meeting <span class="badge badge-pill badge-success">status</span>
+													</div>
+													<span class="text-muted">10:00 PM Sat, 10 Jan 2018</span>
+												</div>
+											</div>
+											<div class="baseline-list baseline-border baseline-primary">
+												<div class="baseline-info">
+													<div>
+														Video conference to client
+													</div>
+													<span class="text-muted">05:00 PM Sun, 02 Feb 2018</span>
+												</div>
+											</div>
+											<div class="baseline-list  baseline-border baseline-success">
+												<div class="baseline-info">
+													<div>
+														<a href="#" class="default-color"> <strong>Tnisha</strong> </a> Submit a blog post <a href="#" class="">best admin template in 2018.</a>
+													</div>
+													<span class="text-muted">10:00 PM Sat, 10 Jan 2018</span>
+												</div>
+											</div>
+											<div class="baseline-list  baseline-border baseline-warning">
+												<div class="baseline-info">
+													<div>
+														<a href="#" class="default-color"> <strong>New Request</strong> </a> 10 user request to approve or remove
+													</div>
+													<span class="text-muted">10:00 PM Sat, 10 Jan 2018</span>
+												</div>
+											</div>
+											<div class="baseline-list  baseline-border baseline-info">
+												<div class="baseline-info">
+													<div>
+														<a href="#" class="default-color"> <strong>Mark Henry</strong> </a> added your friend list now
+													</div>
+													<span class="text-muted">10:00 PM Sat, 10 Jan 2018</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+					<div class="col-lg-5">
+								<div class="card card-shadow mb-4">
+									<div class="card-header">
+										<div class="card-title">
+											Task Progress
+										</div>
+									</div>
+									<div class="card-body">
+										<div id="sparkline_2" class="text-center bor_space"></div>
+												<div class="task_box">
+													<div class="task_num text-muted border-right f16">
+														 Urgent Tasks
+														 <h1 class="text-primary f45">08 <span class="f16 fw-500 text-muted">Tasks</span></h1>
+													</div>
+													<div class="task_num f16 text-muted">
+														 Normal Tasks
+														 <h1 class="text-primary f45">05 <span class="f16 fw-500 text-muted">Tasks</span></h1>
+													</div>
+												</div>
+
+												 <div class="task-assign f16 text-center">
+                                    Assigned To
+                                    <ul class="list-inline">
+                                        <li class="pl-0">
+                                            <img src="/public/admin/images/img1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" class="img-circle" data-original-title="Jon Holland">
+                                        </li>
+                                        <li>
+                                            <img src="/public/admin/images/img2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" class="img-circle" data-original-title="Jon Holland">
+                                        </li>
+                                        <li>
+                                            <img src="/public/admin/images/img3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" class="img-circle" data-original-title="Jon Holland">
+                                        </li>
+                                        <li class="pr-0">
+                                            <a href="javascript:void(0);" class="btn rounded-circle btn-success f16">3+</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+									</div>
+								</div>
+							</div>
+
+
+
+					</div>
+
+
+						</section>
+						<!-- Section_End -->
+
+					</div>
+				</div>
+			</div>
+			<!-- Content_right_End -->
+			<!-- Footer -->
+			<%include ../public/footer.html%>
+			<!-- Footer_End -->
+		</div>
+
+		
+
+
+	</body>
+	<script type="text/javascript" src="/public/admin/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/admin/js/popper.min.js"></script>
+	<script type="text/javascript" src="/public/admin/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/public/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="/public/admin/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="/public/admin/js/custom.js" type="text/javascript"></script>
+
+</html>
