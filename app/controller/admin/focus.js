@@ -3,23 +3,20 @@ const BaseController = require('./base');
 class FocusController extends BaseController {
     async index() {
         let result = await this.ctx.model.Focus.find();
-        await this.ctx.render('/admin/focus/index',{
+        await this.ctx.render('/back/focus/index',{
             list:result
         });
     }
     async add() {
-        await this.ctx.render('/admin/focus/add');
+        await this.ctx.render('/back/focus/add');
         
     }
     //轮播图交数据
     async doAdd() {
         let result = await this.service.upload.uploadImg(); 
-        console.log('result',result);
-        
-
-        // let focus =new this.ctx.model.Focus(result);
-        // await focus.save();
-        // await this.success('/admin/focus','增加轮播图成功');
+        let focus =new this.ctx.model.Focus(result);
+        await focus.save();
+        await this.success('/admin/focus','增加轮播图成功');
     }
     //修改
     async edit() {
