@@ -15,8 +15,8 @@ class ManagerController extends BaseController {
                 }
            }
         ]);
-        await this.ctx.render('admin/manager/index',{
-            list:result
+        await this.ctx.render('back/manager/index',{
+            list:result,
         })
     }
     //管理员

@@ -40,36 +40,46 @@
 										</div>
 									</div>
 									<div class="card-body">
-										<table class="table">
+										<table class="table table-bordered table-striped">
 											<thead>
 												<tr>
 													<th scope="col">序号</th>
-													<th scope="col">用户名</th>
+													<th scope="col">名称</th>
+													<th scope="col">电话</th>
 													<th scope="col">邮箱</th>
-													<th scope="col">头像</th>
+													<th scope="col">角色</th>
+													<th scope="col">状态</th>
 													<th scope="col">增加时间</th>
-													<th scope="col">描述</th>
-													<th scope="col">操作</th>
+													
+						           
+													<th class="text-center">操作</th>
 												</tr>
 											</thead>
 											<tbody>
 												<!--  -->
-												<%for(let i=0;i < list.length;i++){%>
+												<%for(let i=0;i<list.length;i++){%>
 													<tr>
-														<th scope="row"><%=(i + 1)%></th>
+														<td><%=(i+1)%></td>
 														<td><%=list[i].username%></td>
+														<td><%=list[i].mobile%></td>
 														<td><%=list[i].email%></td>
-														<td><img class="table-image" src="<%=list[i].photo%>"/></td>
-														<td><%=helper.formatTime(list[i].add_time)%></td>
-														<td><%=list[i].description%></td>
-														<td>
-															<a class="btn btn-info btn-color">修改</a>
-															<a href="/admin/manager/delete?id=<%=list[i]._id%>" class="btn btn-danger btn-color">删除</a>
+														<td><%=list[i].item[0].title%></td>
+														<td class="text-center">
+															<%if(list[i].status == 1){%>
+																<img src="/public/back/images/yes.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')"/>
+															<%} else{%>
+																<img src="/public/back/images/no.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')"/>
+															<%}%>
+														</td>
+														<td><%=list[i].add_time%></td>
+														<td class="text-center">
+															<a class="btn btn-info btn-color" href="/admin/manager/edit?id=<%=list[i]._id%>">修改</a> 
+															<a class="delete btn btn-danger btn-color" href="/admin/manager/delete?id=<%=list[i]._id%>&model=Admin">删除</a>
 														</td>
 													</tr>
 												<%}%>
-											
 											</tbody>
+											
 										</table>
 									</div>
 								</div>
@@ -80,18 +90,14 @@
 				</main>
 				<!--main contents end-->
 			</div>
-			<!-- Content_right_End -->
-			<!-- Footer -->
-			<%include ../public/footer.html%>
-			<!-- Footer_End -->
 		</div>
 		
 	</body>
-	<script type="text/javascript" src="/public/admin/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/public/admin/js/popper.min.js"></script>
-	<script type="text/javascript" src="/public/admin/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/public/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script type="text/javascript" src="/public/admin/js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="/public/admin/js/custom.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="/public/back/js/custom.js" type="text/javascript"></script>
 
 </html>
