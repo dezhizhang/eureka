@@ -23,7 +23,7 @@ class ManagerController extends BaseController {
     async add() {
         //获取用户角色
         let roleData = await this.ctx.model.Role.find();
-        await this.ctx.render('/admin/manager/add',{
+        await this.ctx.render('/back/manager/add',{
             list:roleData
         });
     }
