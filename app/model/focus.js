@@ -10,8 +10,9 @@ module.exports = app => {
       file_name:{ type:String }, //文件名用于删除文件 
       url: { type: String  },   
       link: { type: String  },   
-      sort: { type: Number  },   
-      status: { type: Number,default:1  },    
+      sort: { type: Number,default:100 },   
+      status: { type: Number,default:1  },
+      description:{type:String },
       add_time: {           
         type:Number,        
         default: d.getTime()    

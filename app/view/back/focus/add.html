@@ -42,27 +42,33 @@
 				<div class="card-body">
 					<form  method="POST" action="/admin/focus/doAdd"  enctype="multipart/form-data">
 						<div class="form-group">
-							<label for="exampleInputPassword1">标题</label>
-							<input name="name" type="text" class="form-control"  placeholder="请输入名称">
+							<label for="exampleFormControlSelect1">分类</label>
+							<select name="type" class="form-control" id="exampleFormControlSelect1">
+								<option value="1">网站</option>
+								<option value="2">APP</option>
+								<option value="3">小程序</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">名称</label>
+							<input name="title" type="text" class="form-control"  placeholder="请输入名称">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">链接</label>
+							<input name="link" type="text" class="form-control"  placeholder="请输入名称">
 						</div>
 						<div class="form-group">
 							<label for="exampleFormControlFile1">图片</label>
 							<input name="img" type="file" class="form-control-file" >
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">地址</label>
-							<input type="text" name="url" class="form-control"  placeholder="请输入地址">
-						</div>
-						<div class="form-group">
 							<label for="exampleFormControlTextarea1">描述</label>
-							<textarea class="form-control"  rows="3"></textarea>
+							<textarea name="description" class="form-control"  rows="3"></textarea>
 						</div>
 						<button type="submit" class="btn btn-primary">
 							确 定
 						</button>
-					
 					</form>
-				</div>
 			</div>
 	
 		</div>
