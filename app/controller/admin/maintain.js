@@ -5,14 +5,14 @@ const BaseController = require('./base');
 class MaintainController extends BaseController {
     async index() {
         let result = await this.ctx.model.Maintain.find();
-        await this.ctx.render('/admin/maintain/index',{
+        await this.ctx.render('/back/maintain/index',{
             list:result
         });
     }
     async edit() {
         let id = this.ctx.query.id;
         let result = await this.ctx.model.Maintain.find({'_id':id});
-        await this.ctx.render('/admin/maintain/edit',{
+        await this.ctx.render('/back/maintain/edit',{
             list:result[0]
         })
     }
