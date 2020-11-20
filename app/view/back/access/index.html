@@ -40,46 +40,65 @@
 										</div>
 									</div>
 									<div class="card-body">
+                                       
+                                        </table>
 										<table class="table table-bordered table-striped">
 											<thead>
 												<tr>
-													<th scope="col">序号</th>
-													<th scope="col">名称</th>
-													<th scope="col">电话</th>
-													<th scope="col">邮箱</th>
-													<th scope="col">角色</th>
-													<th scope="col">状态</th>
-													<th scope="col">增加时间</th>
-													
-						           
-													<th class="text-center">操作</th>
+                                                    <th  scope="col">模块名称</th>
+                                                    <th  scope="col">节点类型</th>
+                                                    <th  scope="col">操作名称</th>     
+                                                    <th  scope="col">操作地址</th>                        
+                                                    <th  scope="col">排序</th>
+                                                    <th>  scope="col"描述</th>                            
+                                                    <th class="text-center">操作</th>
 												</tr>
 											</thead>
-											<tbody>
-												<!--  -->
-												<%for(let i=0;i<list.length;i++){%>
-													<tr>
-														<td><%=(i+1)%></td>
-														<td><%=list[i].username%></td>
-														<td><%=list[i].mobile%></td>
-														<td><%=list[i].email%></td>
-														<td><%=list[i].item[0].title%></td>
-														<td class="text-center">
-															<%if(list[i].status == 1){%>
-																<img src="/public/back/images/yes.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')"/>
-															<%} else{%>
-																<img src="/public/back/images/no.gif" onclick="app.changeStatus(this,'Admin','status','<%=list[i]._id%>')"/>
-															<%}%>
-														</td>
-														<td><%=list[i].add_time%></td>
-														<td class="text-center">
-															<a class="btn btn-info btn-color" href="/admin/manager/edit?id=<%=list[i]._id%>">修改</a> 
-															<a class="delete btn btn-danger btn-color" href="/admin/manager/delete?id=<%=list[i]._id%>&model=Admin">删除</a>
-														</td>
-													</tr>
-												<%}%>
-											</tbody>
-											
+                                             <tbody>
+                                                <%for(var i=0;i<list.length;i++){%>
+                                                    <tr>
+                                                        <td><%=list[i].module_name%></td>
+                                                        <td>     
+                                                            <%if(list[i].type==1){%>
+                                                                模块
+                                                            <%}else if(list[i].type==2){%>
+                                                                菜单
+                                                            <%}else{%>
+                                                                操作
+                                                            <%}%>
+                                                        </td>
+                                                        <td><%=list[i].action_name%></td>
+                                                        <td><%=list[i].url%></td>
+                                                        <td><%=list[i].sort%></td>
+                                                        <td><%=list[i].description%></td>
+                                                        <td class="text-center">
+                                                            <a href="/admin/access/edit?id=<%=list[i]._id%>">修改</a>  
+                                                        </td>
+                                                    </tr>
+                                                    <%for(var j=0;j<list[i].items.length;j++){%>
+                                                    <tr>
+                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;---<%=list[i].items[j].module_name%></td>
+                                                        <td>     
+                                                            <%if(list[i].items[j].type==1){%>
+                                                                模块
+                                                            <%}else if(list[i].items[j].type==2){%>
+                                                                菜单
+                                                            <%}else{%>
+                                                                操作
+                                                            <%}%>
+                                                        </td>
+                                                        <td><%=list[i].items[j].action_name%></td>
+                                                        <td><%=list[i].items[j].url%></td>
+                                                        <td><%=list[i].items[j].sort%></td>
+                                                        <td><%=list[i].items[j].description%></td>    
+                                                        <td class="text-center">
+                                                            <a href="/admin/access/edit?id=<%=list[i].items[j]._id%>">修改</a>
+                                                            <a class="delete" href="/admin/access/delete?id=<%=list[i].items[j]._id%>&model=Access">删除</a>
+                                                        </td>
+                                                    </tr>
+                                                    <%}%>
+                                                <%}%>
+                                            </tbody>
 										</table>
 									</div>
 								</div>

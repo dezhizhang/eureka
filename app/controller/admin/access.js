@@ -19,7 +19,7 @@ class AccessController extends BaseController {
                 }
             }
         ]);
-        await this.ctx.render('/admin/access/index',{
+        await this.ctx.render('/back/access/index',{
             list:result
         })
     }
