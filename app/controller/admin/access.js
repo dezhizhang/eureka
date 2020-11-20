@@ -27,7 +27,7 @@ class AccessController extends BaseController {
     async add() {
         //获取模块列表
         let result = await this.ctx.model.Access.find({'module_id':'0'});  
-        await this.ctx.render('/admin/access/add',{
+        await this.ctx.render('/back/access/add',{
             list:result
         });
     }
