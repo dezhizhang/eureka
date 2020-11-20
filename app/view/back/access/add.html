@@ -40,34 +40,41 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<form method="POST" action="/admin/manager/doAdd"  enctype="POST" >
+					<form method="POST" action="/admin/access/doAdd"  enctype="POST" >
 						<div class="form-group">
-							<label for="exampleInputEmail1">用户名</label>
-							<input name="username" type="text" class="form-control"  placeholder="请输入用户名">
-						</div>
-						<!-- <div class="form-group">
-							<label for="exampleFormControlFile1">头像</label>
-							<input name="photo" type="file" class="form-control-file" >
-						</div> -->
-						<div class="form-group">
-							<label for="exampleInputPassword1">密码</label>
-							<input name="password" type="password" class="form-control"  placeholder="请输入密码">
-						</div>
-						<div class="form-group">
-							<label for="exampleFormControlInput1">邮箱</label>
-							<input name="email" type="email" class="form-control"  placeholder="请输入邮箱">
-						</div>
-						<div class="form-group">
-							<label for="exampleFormControlInput1">电话</label>
-							<input name="mobile" type="mobile" class="form-control"  placeholder="请输入邮箱">
-						</div>
-						<div class="form-group">
-							<label for="exampleFormControlSelect1">角色</label>
-							<select name="role_id" class="form-control" id="exampleFormControlSelect1">
-								<%for(let i=0;i<list.length;i++){%>
-									<option value="<%=list[i]._id%>"><%=list[i].title%></option>
-								<%}%>
+							<label for="exampleInputEmail1">模块名称</label>
+							<input name="module_name" type="text" class="form-control"  placeholder="请输入模块名称">
+                        </div>
+                        <div class="form-group">
+                            <!-- 1、表示模块   2、表示菜单     3、操作 -->
+							<label for="exampleFormControlSelect1">节点类型</label>
+							<select name="type" class="form-control" id="exampleFormControlSelect1">
+                                <option value="1">模块</option>
+                                <option value="2">菜单</option>
+                                <option value="3">操作</option>
 							</select>
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlFile1">操作名称</label>
+							<input name="action_name" type="text" class="form-control-file" placeholder="请输入操作名称" >
+						</div> 
+						<div class="form-group">
+							<label for="exampleInputPassword1">操作地址</label>
+							<input name="url" type="text" class="form-control"  placeholder="请输入密码">
+                        </div>
+                        <div class="form-group">
+                            <!-- 1、表示模块   2、表示菜单     3、操作 -->
+							<label for="exampleFormControlSelect1">所属模块</label>
+							<select name="module_id" class="form-control" id="exampleFormControlSelect1">
+                                <option value="0">顶级模块</option>
+                                <%for(let i=0;i<list.length;i++){%>
+                                    <option value="<%=list[i]._id%>"><%=list[i].module_name%></option>
+                                <%}%>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlInput1">排序</label>
+							<input name="sort" type="number" class="form-control"  placeholder="请输入排序">
 						</div>
 						<div class="form-group">
 							<label for="exampleFormControlTextarea1">描述</label>
