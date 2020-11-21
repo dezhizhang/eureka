@@ -5,8 +5,10 @@ const BaseController = require('./base');
 class MaintainController extends BaseController {
     async index() {
         let result = await this.ctx.model.Maintain.find();
+        let count = await this.ctx.model.Maintain.find().count()
         await this.ctx.render('/back/maintain/index',{
-            list:result
+            list:result,
+            count:count
         });
     }
     async edit() {
