@@ -1,0 +1,119 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+
+<!--main contents start-->
+<main class="content_wrapper">
+<!--page title start-->
+<div class="page-heading">
+	<div class="container-fluid">
+		<div class="row d-flex align-items-center">
+			<div class="col-md-6">
+				<div class="page-breadcrumb">
+					<h1>分类管理</h1>
+				</div>
+			</div>
+			<div class="col-md-6 justify-content-md-end d-flex">
+				<div class="breadcrumb_nav">
+					<ol class="breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a class="parent-item" href="index.html">分类管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li class="active">
+							分类列表
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--page title end-->
+<div class="container-fluid">
+	<!-- state start-->
+	<div class="row">
+		<div class=" col-sm-12">
+			<div class="card card-shadow mb-4">
+				<div class="card-header">
+					<div class="card-title">
+						分类列表
+					</div>
+				</div>
+				<div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr class="th">
+                                <th>分类名称</th>
+                                <th>分类图片</th>                                
+                                <th class="text-center">排序</th> 
+                                <th class="text-center">描述</th>
+                                <th class="text-center">状态</th>                                           
+                                <th class="text-center">操作</th>
+                            </tr>
+                            </thead>
+                        <tbody>
+                        <%for(var i=0;i<list.length;i++){%>
+                            <tr>
+                                <td><%=list[i].title%></td>          
+                                <td><img class="img" style="width: 120px;height:40px" src="<%=list[i].url%>" /></td>           
+                                <td class="text-center"><span onclick="app.editNum(this,'GoodsCate','sort','<%=list[i]._id%>')"><%=list[i].sort%></span></td>
+                                <td><%=list[i].description%></td>        
+                                <td class="text-center">
+                                    <%if(list[i].status==1){%>
+                                        <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i]._id%>')" />
+                                    <%}else{%>
+                                        <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i]._id%>')" />
+                                    <%}%>
+                                </td>                                                                    
+                                <td class="text-center">　
+                                    <a class="btn btn-sm btn-info" href="/admin/goodsCate/edit?id=<%=list[i]._id%>">修改</a>
+                                </td>
+                            </tr>
+                            <%for(var j=0;j<list[i].items.length;j++){%>
+                            <tr>
+                                <td>--<%=list[i].items[j].title%></td>                          
+                                <td><img class="pic" style="width: 120px;height:40px" src="<%=list[i].items[j].url%>" /></td>                         
+                                <td class="text-center"><span onclick="app.editNum(this,'GoodsCate','sort','<%=list[i].items[j]._id%>')"><%=list[i].items[j].sort%></span></td>
+                                <td><%=list[i].items[j].description%></td>
+                                <td class="text-center">
+                                    <%if(list[i].status==1){%>
+                                        <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i].items[j]._id%>')" />
+                                    <%}else{%>
+                                        <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'GoodsCate','status','<%=list[i].items[j]._id%>')" />
+                                    <%}%>
+                                </td>                                                                    
+                                <td class="text-center">
+                                    <a class="btn btn-sm btn-info" href="/admin/goodsCate/edit?id=<%=list[i].items[j]._id%>">修改</a>　
+                                    <a class="btn btn-sm btn-danger" href="/admin/goodsCate/delete?id=<%=list[i].items[j]._id%>">删除</a>
+                                </td>
+                            </tr>              
+                            <%}%>    
+                        <%}%>
+                        </tbody>
+                    </table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- state end-->
+</div>
+
+</main>			
+					
+<!--main contents end-->
+</div>
+<!-- Content_right_End -->
+<!-- Footer -->
+<%include ../public/footer.html%>
+<!-- Footer_End -->
+</div>
+</body>
+<script type="text/javascript" src="/public/admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/admin/js/popper.min.js"></script>
+<script type="text/javascript" src="/public/admin/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/public/admin/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/public/admin/js/custom.js" type="text/javascript"></script>
+
+</html>

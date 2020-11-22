@@ -19,7 +19,7 @@ class GoodsCateController extends BaseController {
                 }
             }
         ]);
-        await this.ctx.render('/admin/goodsCate/index',{
+        await this.ctx.render('/back/goodsCate/index',{
             list:result
         })
     }
