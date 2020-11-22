@@ -25,7 +25,7 @@ class GoodsCateController extends BaseController {
     }
     async add() {
         let result = await this.ctx.model.GoodsCate.find({'pid':'0'});
-        await this.ctx.render('/admin/goodsCate/add',{
+        await this.ctx.render('/back/goodsCate/add',{
             cateList:result
         });
     }
@@ -43,7 +43,7 @@ class GoodsCateController extends BaseController {
         let id = this.ctx.query.id;
         let cateList = await this.ctx.model.GoodsCate.find({'pid':'0'});
         let result = await this.ctx.model.GoodsCate.find({'_id':id});
-        await this.ctx.render('/admin/goodsCate/edit',{
+        await this.ctx.render('/back/goodsCate/edit',{
             list:result[0],
             cateList
         });
