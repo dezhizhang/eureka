@@ -20,7 +20,7 @@ class AdvertController extends BaseController {
         let result = await this.service.upload.uploadImg();
         let advert =new this.ctx.model.Advert(result);
         await advert.save();
-        await this.success('/back/advert','增加广告图成功');
+        await this.success('/admin/advert','增加广告图成功');
     }
     //修改
     async edit() {
