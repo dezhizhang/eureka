@@ -1,0 +1,156 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+<!--main contents start-->
+<main class="content_wrapper">
+<!--page title start-->
+<div class="page-heading">
+	<div class="container-fluid">
+		<div class="row d-flex align-items-center">
+			<div class="col-md-6">
+				<div class="page-breadcrumb">
+					<h1>分类管理</h1>
+				</div>
+			</div>
+			<div class="col-md-6 justify-content-md-end d-md-flex">
+				<div class="breadcrumb_nav">
+					<ol class="breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a class="parent-item" href="/admin/friendship/">分类管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li class="active">
+							增加分类
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>				
+<!--page title end-->
+<div class="container-fluid">
+<!-- state start-->
+	<div class="row">
+		<div class=" col-xl-12">
+			<div class="card card-shadow mb-4">
+				<div class="card-header">
+					<div class="card-title">
+						增加分类
+					</div>
+				</div>
+				<div class="card-body">
+
+
+                    <form action="/admin/goods/doAdd" method="post" class="goods_content" enctype="multipart/form-data">                 
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="general">
+                                <ul class="form_input">
+                             
+                                    <li> <span> 商品图片:</span> <input required type="file" name="img"/></li>
+                                    <li>  <span>商品价格:</span> <input required type="text" name="price"/></li>
+                                    <li>  <span>商品原价:</span>  <input required type="text" name="old_price"/></li>
+                                    <li>  <span>商品运费:</span> <input required type="text" name="freight"/></li>
+                                    <li>  <span>商品库存:</span> <input required type="text" name="inventory"/></li>
+                                    <li>  <span>商品销量:</span> <input required type="text" name="sales"/></li>
+                                    <li> <span>商品颜色:</span>
+                                        <%for(let i=0;i<goodsColor.length;i++){%>
+                                            <input type="checkbox" name="goods_color[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
+                                            <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
+                                        <%}%>
+                                    </li>
+                                    <li> 
+                                        <span>加入推荐:</span>　
+                                        <input type="radio" value="0" name="is_hot" checked/> 新品
+                                        <input type="radio" value="1" name="is_hot"/> 精品
+                                        <input type="radio" value="2" name="is_hot"/> 热销
+                                    </li>
+                                    <li> <span>商品状态:</span>　
+                                        <input type="radio" value="1" name="status" checked/> 显示                                    　
+                                        <input type="radio" value="0" name="status"/>  隐藏
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary goods_content_btn">提交</button>
+                    </form>
+                    <form action="/admin/goodsCate/doAdd" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+							<label for="exampleInputEmail1">商品标题</label>
+							<input name="title" type="text" class="form-control" required  placeholder="请输入商品标题">
+                        </div>
+                        <div class="form-group">
+							<label for="exampleInputEmail1">附属标题</label>
+							<input name="sub_title" type="text" class="form-control" required  placeholder="请输入附属标题">
+                        </div>
+                        <div class="form-group">
+							<label for="exampleInputEmail1">商品版本</label>
+							<input name="goods_version" type="text" class="form-control" required  placeholder="请输入商品版本">
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlSelect1">所属分类</label>
+                            <select name="cate_id" id="cid" class="form-control" id="exampleFormControlSelect1">
+                                <%for(let i=0;i<goodsCate.length;i++){%>
+                                   <option value="<%=goodsCate[i]._id%>"><%=goodsCate[i].title%></option>
+                                   <%for(let j=0;j<goodsCate[i].items.length;j++){%>
+                                        <option value="<%=goodsCate[i].items[j]._id%>">----<%=goodsCate[i].items[j].title%></option>
+                                   <%}%>
+                                <%}%>  
+                             </select>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">商品图片</label>
+							<input name="img" type="file" class="form-control-file" required  placeholder="请输入商品图片">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">筛选属性</label>
+							<input name="filter_attr" type="text" class="form-control" required  placeholder="请输入网站名称"/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">跳转地址</label>
+							<input name="link" type="text" class="form-control" required  placeholder="请输入网站名称"/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Seo标题</label>
+							<input name="sub_title" type="text" class="form-control" required  placeholder="请输入网站名称"/>
+						</div>
+					
+						<div class="form-group">
+							<label for="exampleInputEmail1">排序</label>
+							<input name="sort" type="text" class="form-control" required  placeholder="请输入网站名称">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">描述</label>
+							<textarea name="description" type="text" class="form-control" required  placeholder="请输入网站名称"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">
+							确 定
+						</button>
+                    </form>     
+				</div>
+			</div>
+	
+		</div>
+	</div>
+	<!-- state end-->
+</div>
+
+</main>
+<!--main contents end-->
+</div>
+<!-- Content_right_End -->
+<!-- Footer -->
+<%include ../public/footer.html%>
+<!-- Footer_End -->
+</div>
+		
+</body>
+<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/public/back/js/custom.js" type="text/javascript"></script>
+</html>

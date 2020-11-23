@@ -1,0 +1,126 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+
+<!--main contents start-->
+<main class="content_wrapper">
+<!--page title start-->
+<div class="page-heading">
+	<div class="container-fluid">
+		<div class="row d-flex align-items-center">
+			<div class="col-md-6">
+				<div class="page-breadcrumb">
+					<h1>商品管理</h1>
+				</div>
+			</div>
+			<div class="col-md-6 justify-content-md-end d-flex">
+				<div class="breadcrumb_nav">
+					<ol class="breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a class="parent-item" href="index.html">商品管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li class="active">
+							商品列表
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--page title end-->
+<div class="container-fluid">
+	<!-- state start-->
+	<div class="row">
+		<div class=" col-sm-12">
+			<div class="card card-shadow mb-4">
+				<div class="card-header">
+					<div class="card-title">
+						商品列表
+					</div>
+				</div>
+				<div class="card-body">
+					<table id="bs4-table" class="table table-bordered table-striped">
+						<thead>                                   
+                            <tr class="th">
+                                <th>商品名称</th>
+                                <th>副标题</th>
+                                <th>图片</th>
+                                <th>原价</th>
+                                <th>价格</th>  
+                                <th>上架</th>
+                                <th>运费</th>
+                                <th>库存</th>
+                                <th>销量</th>
+                                <th>推荐</th>
+                                <th>排序</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                        <tbody>
+                            <%for(let i=0;i < list.length;i++) {%>
+                                <tr>
+                                    <td><%=list[i].title%></td>
+                                    <td><%=list[i].sub_title%></td>
+                                    <td><img style="width: 120px; height: 40px;" src="<%=list[i].url%>"/></td>
+                                    <td>￥<%=list[i].old_price%></td>
+                                    <td>￥<%=list[i].price%></td>
+                                    <td class="text-center">
+                                        <%if(list[i].is_delete){%>
+                                            <img src="/public/admin/images/yes.gif" />
+                                        <%}else{%>
+                                            <img src="/public/admin/images/no.gif" />
+                                        <%}%>
+                                    </td>   
+                                    <td><%=list[i].freight%></td>
+                                    <td><%=list[i].inventory%></td>
+                                    <td><%=list[i].sales%></td>
+                                    <td><%=helper.formatStatus(list[i].is_hot)%></td>
+                                    <td><%=list[i].sort%></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary"  href="/admin/goods/photo?id=<%=list[i]._id%>">添加相册</a> 
+                                        <a class="btn btn-sm btn-info" href="/admin/goods/detail?id=<%=list[i]._id%>">添加详情</a> 
+                                        <a class="btn btn-sm btn-success" href="">修改</a> 
+                                        <a class="btn btn-sm btn-danger" href="/admin/goods/delete?id=<%=list[i]._id%>">删除</a>
+                                    </td>
+                                </tr>
+                            <%}%>
+                        </tbody>
+					</table>
+					<tfoot>
+						<nav aria-label="Page navigation example" class="pull-right">
+							<ul class="pagination">
+								<li class="page-item"><a class="page-link" href="/admin/goods?page=1">首页</a></li>
+								<%for(let i=0;i < Math.ceil(count / 10);i++){%>
+									<li class="page-item"><a class="page-link" href="/admin/goods?page=<%=(i+1)%>"><%=(i + 1)%></a></li>
+								<%}%>
+							  	<li class="page-item"><a class="page-link" href="/admin/goods?page=<%=Math.floor((count / 10)+1)%>">尾页</a></li>
+							</ul>
+						  </nav>
+					</tfoot>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- state end-->
+</div>
+
+</main>			
+					
+<!--main contents end-->
+</div>
+<!-- Content_right_End -->
+<!-- Footer -->
+<%include ../public/footer.html%>
+<!-- Footer_End -->
+</div>
+</body>
+<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/public/back/js/custom.js" type="text/javascript"></script>
+
+</html>
