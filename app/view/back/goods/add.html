@@ -8,7 +8,7 @@
 		<div class="row d-flex align-items-center">
 			<div class="col-md-6">
 				<div class="page-breadcrumb">
-					<h1>分类管理</h1>
+					<h1>商品管理</h1>
 				</div>
 			</div>
 			<div class="col-md-6 justify-content-md-end d-md-flex">
@@ -16,11 +16,11 @@
 					<ol class="breadcrumb">
 						<li>
 							<i class="fa fa-home"></i>
-							<a class="parent-item" href="/admin/friendship/">分类管理</a>
+							<a class="parent-item" href="/admin/friendship/">商品管理</a>
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li class="active">
-							增加分类
+							增加商品
 						</li>
 					</ol>
 				</div>
@@ -36,46 +36,10 @@
 			<div class="card card-shadow mb-4">
 				<div class="card-header">
 					<div class="card-title">
-						增加分类
+						增加商品
 					</div>
 				</div>
 				<div class="card-body">
-
-
-                    <form action="/admin/goods/doAdd" method="post" class="goods_content" enctype="multipart/form-data">                 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="general">
-                                <ul class="form_input">
-                             
-                                    <li> <span> 商品图片:</span> <input required type="file" name="img"/></li>
-                                    <li>  <span>商品价格:</span> <input required type="text" name="price"/></li>
-                                    <li>  <span>商品原价:</span>  <input required type="text" name="old_price"/></li>
-                                    <li>  <span>商品运费:</span> <input required type="text" name="freight"/></li>
-                                    <li>  <span>商品库存:</span> <input required type="text" name="inventory"/></li>
-                                    <li>  <span>商品销量:</span> <input required type="text" name="sales"/></li>
-                                    <li> <span>商品颜色:</span>
-                                        <%for(let i=0;i<goodsColor.length;i++){%>
-                                            <input type="checkbox" name="goods_color[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
-                                            <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
-                                        <%}%>
-                                    </li>
-                                    <li> 
-                                        <span>加入推荐:</span>　
-                                        <input type="radio" value="0" name="is_hot" checked/> 新品
-                                        <input type="radio" value="1" name="is_hot"/> 精品
-                                        <input type="radio" value="2" name="is_hot"/> 热销
-                                    </li>
-                                    <li> <span>商品状态:</span>　
-                                        <input type="radio" value="1" name="status" checked/> 显示                                    　
-                                        <input type="radio" value="0" name="status"/>  隐藏
-                                    </li>
-                                   
-                                </ul>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary goods_content_btn">提交</button>
-                    </form>
                     <form action="/admin/goodsCate/doAdd" method="post" enctype="multipart/form-data">
                         <div class="form-group">
 							<label for="exampleInputEmail1">商品标题</label>
@@ -105,21 +69,37 @@
 							<input name="img" type="file" class="form-control-file" required  placeholder="请输入商品图片">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">筛选属性</label>
-							<input name="filter_attr" type="text" class="form-control" required  placeholder="请输入网站名称"/>
+							<label for="exampleInputEmail1">商品价格</label>
+							<input name="price" type="text" class="form-control" required  placeholder="请输入商品价格"/>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">跳转地址</label>
-							<input name="link" type="text" class="form-control" required  placeholder="请输入网站名称"/>
+							<label for="exampleInputEmail1">商品原价</label>
+							<input name="old_price" type="text" class="form-control" required  placeholder="请输入商品原价"/>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Seo标题</label>
-							<input name="sub_title" type="text" class="form-control" required  placeholder="请输入网站名称"/>
+							<label for="exampleInputEmail1">商品运费</label>
+							<input name="freight" type="text" class="form-control" required  placeholder="请输入商品运费"/>
 						</div>
-					
 						<div class="form-group">
-							<label for="exampleInputEmail1">排序</label>
-							<input name="sort" type="text" class="form-control" required  placeholder="请输入网站名称">
+							<label for="exampleInputEmail1">商品库存</label>
+							<input name="inventory" type="text" class="form-control" required  placeholder="请输入商品库存">
+                        </div>
+                        <div class="form-group">
+							<label for="exampleInputEmail1">商品销量</label>
+							<input name="sales" type="text" class="form-control" required  placeholder="请输入商品销量">
+                        </div>
+                        <div class="form-group">
+							<label for="exampleInputEmail1">商品颜色</label><br/>
+							<%for(let i=0;i<goodsColor.length;i++){%>
+                                <input class="form-control-radio" type="checkbox" name="goods_color[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
+                                <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
+                            <%}%>
+                        </div>
+                        <div class="form-group">
+							<label for="exampleInputEmail1">加入推荐</label><br/>
+							<input type="radio" value="0" name="is_hot" checked/> 新品
+                            <input type="radio" value="1" name="is_hot"/> 精品
+                            <input type="radio" value="2" name="is_hot"/> 热销
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">描述</label>
