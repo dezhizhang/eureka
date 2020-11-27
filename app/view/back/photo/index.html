@@ -1,0 +1,92 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+				<!--main contents start-->
+				<main class="content_wrapper">
+					<!--page title start-->
+					<div class="page-heading">
+						<div class="container-fluid">
+							<div class="row d-flex align-items-center">
+								<div class="col-md-6">
+									<div class="page-breadcrumb">
+										<h1>相册管理</h1>
+									</div>
+								</div>
+								<div class="col-md-6 justify-content-md-end d-flex">
+									<div class="breadcrumb_nav">
+										<ol class="breadcrumb">
+											<li>
+												<i class="fa fa-home"></i>
+												<a class="parent-item" href="/admin/manager">相册管理</a>
+												<i class="fa fa-angle-right"></i>
+											</li>
+											<li class="active">
+												相册列表
+											</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--page title end-->
+					<div class="container-fluid">
+						<!-- state start-->
+						<div class="row">
+							<div class=" col-xl-12">
+								<div class="card card-shadow mb-4">
+									<div class="card-header">
+										<div class="card-title">
+											<%if(list.length <= 0) {%>
+                                                <a href="/admin/goods/photo/add?goods_id=<%=goods_id%>" class="btn btn-primary">添加相册</a>
+                                            <%}%>
+										</div>
+									</div>
+									<div class="card-body">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th scope="col">图片</th>
+													<th scope="col">添加时间</th>
+													<th class="text-center">操作</th>
+												</tr>
+											</thead>
+											<tbody>
+                                                <tbody>
+                                                    <%for(let i=0;i < list.length;i++) {%>
+                                                      <tr>
+                                                         <td>
+                                                             <%for(let j=0;j < list[i].goods_image.length;j++) {%>
+                                                                 <img style="width: 120px; height: 60px;" src="<%=list[i].goods_image[j]%>"/>
+                                                             <%}%>
+                                                         </td>
+                                                         <td><%=list[i].add_time%></td>
+                                                         <td>
+                                                             <a class="btn btn-sm btn-info">修改</a>
+                                                             <a class="btn btn-sm btn-danger" href="/admin/goods/photo/delete?id=<%=list[i]._id%>&goods_id=<%=goods_id%>">删除</a>
+                                                         </td>
+                                                      </tr>
+                                                    <%}%>
+                                                 </tbody>
+											</tbody>
+											
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- state end-->
+					</div>
+				</main>
+				<!--main contents end-->
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="/public/back/js/custom.js" type="text/javascript"></script>
+
+</html>
