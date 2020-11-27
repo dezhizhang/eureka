@@ -1,5 +1,9 @@
 <%include ../public/header.html%>
 <%include ../public/sidebar.html%>
+<link rel="stylesheet" href="/public/admin/edit/css/froala_editor.pkgd.min.css">
+<link rel="stylesheet" href="/public/admin/edit/css/froala_style.min.css">
+<link ref="stylesheet" href="/public/admin/webloader/css/diyUpload.css">
+<link ref="stylesheet" href="/public/admin/webloader/css/webuploader.css">
 <!--main contents start-->
 <main class="content_wrapper">
 <!--page title start-->
@@ -40,16 +44,19 @@
 					</div>
 				</div>
 				<div class="card-body">
-                    <form method="POST" action="/admin/detail/doAdd">
-                        <input type="hidden" name="article_id" value="<%=article_id%>"/>
-                        <input type="hidden" name="name" value="<%=name%>"/>
-						<textarea id="editormd" name="content"></textarea>
-					
-						<button type="submit" class="btn btn-primary">
-							确 定
-						</button>
-					
-					</form>
+                    <form action="/admin/goods/detail/doAdd" method="post">
+                        <ul>
+                            <input type="hidden" name="goods_id" value="<%=goods_id%>"/>
+                            <div role="tabpanel" class="tab-pane" id="photo">
+                                <div id="detailLib" class="photoLib"></div>
+                                <div id="detailList"></div>
+                            </div>
+                            <li>
+                                <br/>
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </li>
+                        </ul>
+                    </form>
 				</div>
 			</div>
 	
@@ -68,71 +75,33 @@
 </div>
 		
 </body>
-<script type="text/javascript" src="/public/admin/js/jquery.min.js"></script>
-<script type="text/javascript" src="/public/admin/js/editormd.js"></script>
-<script type="text/javascript" src="/public/admin/js/popper.min.js"></script>
-<script type="text/javascript" src="/public/admin/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/public/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="/public/admin/js/jquery.dcjqaccordion.2.7.js"></script>
-<script type="text/javascript" src="/public/admin/js/custom.js" ></script>
+<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/back/js/editormd.js"></script>
+<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+<script type="text/javascript" src="/public/back/js/custom.js" ></script>
+<script type="text/javascript" src="/public/admin/edit/js/froala_editor.pkgd.min.js"></script>
+<script type="text/javascript" src="/public/admin/edit/js/languages/zh_cn.js"></script>
+<script type="text/javascript" src="/public/admin/webloader/js/diyUpload.js"></script>
+<script type="text/javascript" src="/public/admin/webloader/js/webuploader.html5only.min.js"></script>
 
 
 <script type="text/javascript">
-
- let testEditor = editormd('editormd', {
-                width: '100%',
-                height: 600,
-                path: '/public/admin/lib/', // 根据你的 editormd 实际目录位置修改
-                // markdown: md,
-                codeFold: false,
-                //syncScrolling : false,
-                saveHTMLToTextarea: true, // 保存 HTML 到 Textarea
-                searchReplace: true,
-                //watch : false,                // 关闭实时预览
-                htmlDecode: 'style,script,iframe|on*', // 开启 HTML 标签解析，为了安全性，默认不开启
-                toolbar  : false,             //关闭工具栏
-                previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
-				// emoji: true,
-				theme : "dark",
-                previewTheme : "dark",
-                editorTheme : "pastel-on-dark",
-                taskList: true,
-                tocm: true, // Using [TOCM]
-                tex: true, // 开启科学公式TeX语言支持，默认关闭
-                flowChart: true, // 开启流程图支持，默认关闭
-                sequenceDiagram: true, // 开启时序/序列图支持，默认关闭,
-                //dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为true
-                //dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为true
-                //dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为true
-                //dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为0.1
-                dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
-                imageUpload: true, // 是否允许上传图片
-                imageFormats: ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'], // 允许上传的图片格式
-                imageUploadURL: '/admin/detail/upload' // 图片上传请求接口
-                // 图片上传接口必须返回以下格式
-                /*  后端需返回：   {
-                    success : 0 | 1, //0表示上传失败;1表示上传成功
-                    message : "提示的信息",
-                    url     : "图片地址" //上传成功时才返回
-                }*/
-                // onload: function() {
-                //   console.log('onload', this)
-                //   //this.fullscreen();
-                //   //this.unwatch();
-                //   //this.watch().fullscreen();
-                //   //this.setMarkdown("#PHP");
-                //   //this.width("100%");
-                //   //this.height(480);
-                //   //this.resize("100%", 640);
-                // }
-            })
-
-
-
-
-
-
-
+    $(function() {
+       $('#detailLib').diyUpload({
+           url:'/admin/goods/goodsUploadPhoto',                    
+           success:function( response ) {
+               photoStr='<input type="hidden" name="detail_img[]" value='+response.link+' />';
+               $('#detailList').append(photoStr);
+           },
+           error:function( err ) {
+               console.info( err );	
+           }
+       });
+    })
+  
 </script>
 
 </html>
