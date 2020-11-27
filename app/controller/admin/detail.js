@@ -12,14 +12,14 @@ class MainController extends BaseController {
         let { id } = this.ctx.query;
         let list = await this.ctx.model.Detail.find({"goods_id":id});
         console.log("list",list);
-        await this.ctx.render('/admin/detail/index',{
+        await this.ctx.render('/back/detail/index',{
             list,
             goods_id:id
         });
     }
     async add() {
         let { goods_id } = this.ctx.query;
-        await this.ctx.render("/admin/detail/add",{
+        await this.ctx.render("/back/detail/add",{
             goods_id,
         });
     }

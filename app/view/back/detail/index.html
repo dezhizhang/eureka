@@ -8,7 +8,7 @@
 							<div class="row d-flex align-items-center">
 								<div class="col-md-6">
 									<div class="page-breadcrumb">
-										<h1>文章管理</h1>
+										<h1>商品详情管理</h1>
 									</div>
 								</div>
 								<div class="col-md-6 justify-content-md-end d-flex">
@@ -16,11 +16,11 @@
 										<ol class="breadcrumb">
 											<li>
 												<i class="fa fa-home"></i>
-												<a class="parent-item" href="/admin/manager">文章管理</a>
+												<a class="parent-item" href="/admin/goods/detail">商品详情管理</a>
 												<i class="fa fa-angle-right"></i>
 											</li>
 											<li class="active">
-												文章详情
+												商品详情
 											</li>
 										</ol>
 									</div>
@@ -36,7 +36,9 @@
 								<div class="card card-shadow mb-4">
 									<div class="card-header">
 										<div class="card-title">
-                                            <a href="/admin/detail/add?article_id=<%=article_id%>&name=<%=name%>" class="btn btn-info">增加详情</a>
+											<%if(list.length <=0) {%>
+												<a class="btn btn-primary" href="/admin/goods/detail/add?goods_id=<%=goods_id%>">增加商品详情</a>
+											<%}%>
 											
 										</div>
 									</div>
@@ -44,28 +46,29 @@
 										<table id="bs4-table" class="table table-bordered table-striped">
 											<thead>
 												<tr>
-													<th>标题</th>
-													<th>内容</th>
+													<th>图片</th>
+													<th>排序</th>
 													<th>增加时间</th>
-													<th>操作</th>
+													<th class="text-center">操作</th>
 												</tr>
 											</thead>
 											<tbody>
-												<%if(list.length > 0){%>
-													<%for(let i=0;i < list.length;i++) {%>
-														<tr>
-															<td><%=list[i].name%></td>
-															<td>
-																<div style="display: none;" id="detail"><%=list[i].content%></div>
-																<div id="editormd-view"></div>
-															</td>
-															<td><%=list[i].add_time%></td>
-															<td>
-																<a href="/admin/detail/delete?id=<%=list[i]._id%>" class="btn btn-danger btn-color">删除</a>
-															</td>
-														</tr>
-													<%}%>
-												<%}%>
+												<%for(let i=0;i < list.length;i++) {%>
+													<tr>
+														<td>
+															<%for(let j=0;j < list[i].detail_img.length;j++) {%>
+																<img width="120px" height="80px" src="<%=list[i].detail_img[j]%>"/>
+															<%}%>
+														</td>
+														<td><%=list[i].sort%></td>
+														<td><%=helper.formatTime(list[i].add_time)%></td>
+														<td class="text-center">
+															<a href="">修改</a>
+															<a class="delete" href="/admin/goods/detail/delete?id=<%=list[i]._id%>&goods_id=<%=goods_id%>">删除</a>
+														</td>
+													  
+													</tr>
+												  <%}%>
 											</tbody>
 										</table>
 									</div>
