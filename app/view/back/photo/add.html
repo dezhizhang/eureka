@@ -1,0 +1,98 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+<!--main contents start-->
+<main class="content_wrapper">
+<!--page title start-->
+<div class="page-heading">
+	<div class="container-fluid">
+		<div class="row d-flex align-items-center">
+			<div class="col-md-6">
+				<div class="page-breadcrumb">
+					<h1>相册管理</h1>
+				</div>
+			</div>
+			<div class="col-md-6 justify-content-md-end d-md-flex">
+				<div class="breadcrumb_nav">
+					<ol class="breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a class="parent-item" href="/admin/photo">相册管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li class="active">
+							增加相册
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>				
+<!--page title end-->
+<div class="container-fluid">
+<!-- state start-->
+	<div class="row">
+		<div class=" col-xl-12">
+			<div class="card card-shadow mb-4">
+				<div class="card-header">
+					<div class="card-title">
+						增加相册
+					</div>
+				</div>
+				<div class="card-body">
+                    <form action="/admin/goods/photo/doAdd%>" method="post" class="goods_content" > 
+                        <input type="hidden" name="goods_id" value="<%=goods_id%>"/>
+                        <div role="tabpanel" class="tab-pane" id="photo">
+                            <div id="photoLib" class="photoLib"></div>
+                            <div id="photoList"></div>
+                        </div> 
+                        <button type="submit" class="btn btn-primary goods_content_btn">提交</button>
+                    </form>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+	<!-- state end-->
+</div>
+
+</main>
+<!--main contents end-->
+</div>
+<!-- Content_right_End -->
+<!-- Footer -->
+<%include ../public/footer.html%>
+<!-- Footer_End -->
+</div>
+		
+</body>
+<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/public/back/js/custom.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function(){
+        //富文本
+        new  FroalaEditor('#content',{
+            height: 300,    //给编辑器设置默认的高度
+            language: 'zh_cn',   
+            imageUploadURL: '/admin/goods/goodsUploadImage',
+        });
+        let photoStr='';                
+        $('#photoLib').diyUpload({
+            url:'/admin/goods/goodsUploadPhoto',                    
+            success:function( response ) {
+                
+                photoStr='<input type="hidden" name="goods_image[]" value='+response.link+' />';
+                $('#photoList').append(photoStr);
+            },
+            error:function( err ) {
+                console.info( err );	
+            }
+        });
+
+    })
+</script>
+</html>
