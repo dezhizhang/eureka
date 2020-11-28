@@ -81,11 +81,11 @@
 					<tfoot>
 						<nav aria-label="Page navigation example" class="pull-right">
 							<ul class="pagination">
-								<li class="page-item"><a class="page-link" href="/admin/friendship?page=1">首页</a></li>
+								<li class="page-item"><a class="page-link" href="/admin/maintain?page=1">首页</a></li>
 								<%for(let i=0;i < Math.ceil(count / 10);i++){%>
-									<li class="page-item"><a class="page-link" href="/admin/friendship?page=<%=(i+1)%>"><%=(i + 1)%></a></li>
+									<li class="page-item"><a class="page-link" href="/admin/maintain?page=<%=(i+1)%>"><%=(i + 1)%></a></li>
 								<%}%>
-							  	<li class="page-item"><a class="page-link" href="/admin/friendship?page=<%=Math.floor((count / 10)+1)%>">尾页</a></li>
+							  	<li class="page-item"><a class="page-link" href="/admin/maintain?page=<%=Math.floor((count / 10)+1)%>">尾页</a></li>
 							</ul>
 						  </nav>
 					</tfoot>
@@ -106,11 +106,11 @@
 <!-- Footer_End -->
 </div>
 </body>
-<script type="text/javascript" src="/public/admin/js/jquery.min.js"></script>
-<script type="text/javascript" src="/public/admin/js/popper.min.js"></script>
-<script type="text/javascript" src="/public/admin/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/public/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="/public/admin/js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="/public/admin/js/custom.js" type="text/javascript"></script>
+<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/public/back/js/custom.js" type="text/javascript"></script>
 
 </html>

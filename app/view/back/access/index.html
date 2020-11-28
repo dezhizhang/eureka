@@ -50,7 +50,7 @@
                                                     <th  scope="col">操作名称</th>     
                                                     <th  scope="col">操作地址</th>                        
                                                     <th  scope="col">排序</th>
-                                                    <th>  scope="col"描述</th>                            
+                                                    <th  scope="col">描述</th>                            
                                                     <th class="text-center">操作</th>
 												</tr>
 											</thead>
@@ -72,7 +72,7 @@
                                                         <td><%=list[i].sort%></td>
                                                         <td><%=list[i].description%></td>
                                                         <td class="text-center">
-                                                            <a href="/admin/access/edit?id=<%=list[i]._id%>">修改</a>  
+                                                            <a class="btn btn-sm btn-info" href="/admin/access/edit?id=<%=list[i]._id%>">修改</a>  
                                                         </td>
                                                     </tr>
                                                     <%for(var j=0;j<list[i].items.length;j++){%>
@@ -92,8 +92,8 @@
                                                         <td><%=list[i].items[j].sort%></td>
                                                         <td><%=list[i].items[j].description%></td>    
                                                         <td class="text-center">
-                                                            <a href="/admin/access/edit?id=<%=list[i].items[j]._id%>">修改</a>
-                                                            <a class="delete" href="/admin/access/delete?id=<%=list[i].items[j]._id%>&model=Access">删除</a>
+                                                            <a class="btn btn-sm btn-info" href="/admin/access/edit?id=<%=list[i].items[j]._id%>">修改</a>
+                                                            <a class=" btn btn-sm btn-danger delete" href="/admin/access/delete?id=<%=list[i].items[j]._id%>&model=Access">删除</a>
                                                         </td>
                                                     </tr>
                                                     <%}%>

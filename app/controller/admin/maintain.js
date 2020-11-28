@@ -4,7 +4,9 @@ const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class MaintainController extends BaseController {
     async index() {
-        let result = await this.ctx.model.Maintain.find();
+        let page = this.ctx.query.page || 1;
+        let pageSize = 10;
+        let result = await this.ctx.model.Maintain.find().limit(pageSize).skip((page - 1) * pageSize);
         let count = await this.ctx.model.Maintain.find().count()
         await this.ctx.render('/back/maintain/index',{
             list:result,
