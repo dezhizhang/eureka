@@ -31,7 +31,7 @@ class MaintainController extends Controller {
                     value: result.address
                   },
                   thing3: {
-                    value: '预约成功我们会快的联系你，请耐心的等待'
+                    value: '我们会尽快给您安排上门，请您耐心等待！'
                   },
                   thing4:{
                     value:"办公维修预约"
