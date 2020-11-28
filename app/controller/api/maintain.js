@@ -16,26 +16,28 @@ class MaintainController extends Controller {
         const secret = '27d67b7aa84d8c3c768b4a53fcfb8732';
         const result = await this.service.upload.uploadImg();
         const data = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`);
-
         const json =JSON.parse(data.data.toString());
-
+        let date = this.ctx.helper.formatTime(Date.now());
         const params = {
             'access_token':json.access_token,
             'touser':result.openid,
             'template_id':'0XK1EO7jvqJtHbt_wVfRF9f050sAe4LAo021WqG0_Ds',
             "lang":"zh_CN",
-            'data':{
-                "thing4": {
-                    "value": result.description,
-                },
-                
-                "thing1": {
-                    "value": result.address,
-                } ,
-                "date2": {
-                    "value": Date.now()
-                }
-            }
+            data:{
+                  date2: {
+                    value: date,
+                  },
+                  thing1: {
+                    value: result.address
+                  },
+                  thing3: {
+                    value: '预约成功我们会快的联系你，请耐心的等待'
+                  },
+                  thing4:{
+                    value:"办公维修预约"
+                  }
+            },
+            
         } 
         const sned = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=${json.access_token}`,{
             method:'POST',
