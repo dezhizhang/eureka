@@ -14,6 +14,10 @@ module.exports = app => {
   //改变数量
   router.get('/admin/editNumber',controller.admin.base.editNumber);
 
+
+  //首页统计
+  router.get("/admin/home",controller.admin.home.index);
+
   //管理员
   router.get('/admin/manager',controller.admin.manager.index);
   router.get('/admin/manager/add',controller.admin.manager.add);
