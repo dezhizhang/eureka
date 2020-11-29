@@ -18,6 +18,7 @@ class MaintainController extends Controller {
         const data = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`);
         const json =JSON.parse(data.data.toString());
         let date = this.ctx.helper.formatTime(Date.now());
+        
         const params = {
             'access_token':json.access_token,
             'touser':result.openid,
@@ -34,7 +35,7 @@ class MaintainController extends Controller {
                     value: '我们会尽快给您安排上门，请您耐心等待！'
                   },
                   thing4:{
-                    value:"办公维修预约"
+                    value:result.description
                   }
             },
             
