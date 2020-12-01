@@ -41,6 +41,7 @@
 				</div>
 				<div class="card-body">
                     <form action="/admin/goodsCate/doEdit" method="post" enctype="multipart/form-data">
+                        <input type="hidden" value="<%=list.id%>" name="id"/>
                         <div class="form-group">
 							<label for="exampleInputEmail1">分类名称</label>
 							<input name="title" type="text" value="<%=list.title%>" class="form-control" required  placeholder="请输入网站名称">
@@ -56,7 +57,7 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">分类图片</label>
-                            <input name="img" value="<%=list.url%>" type="file" required class="form-control-file" placeholder="请输入网站名称">
+                            <input name="img" value="<%=list.url%>" type="file"  class="form-control-file" placeholder="请输入网站名称">
                             <img src="<%=list.url%>" style="width: 140px;height:70px;"/>
 						</div>
 						<div class="form-group">
