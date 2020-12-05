@@ -65,9 +65,9 @@
                                 <td><%=helper.formatTime(list[i].add_time)%></td>
                                 <td class="text-center">
                                     <%if(list[i].status == 1){%>
-                                        <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Maintain','status','<%=list[i]._id%>')"/>
+                                        <img style="cursor: pointer;" src="/public/back/images/yes.gif" onclick="app.changeStatus(this,'Maintain','status','<%=list[i]._id%>')"/>
                                     <%} else{%>
-                                        <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Maintain','status','<%=list[i]._id%>')"/>
+                                        <img style="cursor: pointer;" src="/public/back/images/no.gif" onclick="app.changeStatus(this,'Maintain','status','<%=list[i]._id%>')"/>
                                     <%}%>
                                 </td>    
                                 <td>
