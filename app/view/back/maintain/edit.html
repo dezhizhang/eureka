@@ -1,0 +1,96 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+<!--main contents start-->
+<main class="content_wrapper">
+<!--page title start-->
+<div class="page-heading">
+	<div class="container-fluid">
+		<div class="row d-flex align-items-center">
+			<div class="col-md-6">
+				<div class="page-breadcrumb">
+					<h1>管理员管理</h1>
+				</div>
+			</div>
+			<div class="col-md-6 justify-content-md-end d-md-flex">
+				<div class="breadcrumb_nav">
+					<ol class="breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a class="parent-item" href="/admin/manager">管理员管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li class="active">
+							增加管理员
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>				
+<!--page title end-->
+<div class="container-fluid">
+<!-- state start-->
+	<div class="row">
+		<div class=" col-xl-12">
+			<div class="card card-shadow mb-4">
+				<div class="card-header">
+					<div class="card-title">
+						增加管理员
+					</div>
+				</div>
+				<div class="card-body">
+                    <form action="/admin/advert/doAdd" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+							<label for="exampleInputEmail1">名称</label>
+							<input name="name" type="text" class="form-control"  placeholder="请输入名称">
+                        </div>
+                        <div class="form-group">
+							<label for="exampleFormControlSelect1">分类</label>
+							<select name="type" class="form-control" id="exampleFormControlSelect1">
+                                <option value="1">网站</option>
+                                <option value="2">APP</option>
+                                <option value="3">小程序</option>
+							</select>
+                        </div>
+                        <div class="form-group">
+							<label for="exampleFormControlFile1">跳转地址</label>
+							<input name="link" type="text" class="form-control" placeholder="请输入跳转地址" >
+                        </div>
+                        <div class="form-group">
+							<label for="exampleFormControlFile1">广告图</label>
+							<input name="img" type="file" class="form-control-file" placeholder="请输入跳转地址" >
+                        </div>
+                        <div class="form-group">
+							<label for="exampleFormControlFile1">排序</label>
+							<input name="img" type="text" class="form-control" placeholder="请输入排序" >
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+							确 定
+						</button>
+                    </form>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+	<!-- state end-->
+</div>
+
+</main>
+<!--main contents end-->
+</div>
+<!-- Content_right_End -->
+<!-- Footer -->
+<%include ../public/footer.html%>
+<!-- Footer_End -->
+</div>
+		
+</body>
+<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/public/back/js/custom.js" type="text/javascript"></script>
+</html>

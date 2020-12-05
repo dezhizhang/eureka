@@ -129,7 +129,6 @@ class ToolsService extends Service {
         let signValue = md5(stringSignTemp).toUpperCase();
         return signValue;
     }
-
     // //微信支付二次签名
     // async paySignTwo: function (appId, nonceStr, package, signType, timestamp, mchkey) {
     //     var ret = {
