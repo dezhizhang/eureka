@@ -75,6 +75,27 @@ class MaintainController extends Controller {
             data:list
         }
     }
+    //确认签收
+    async sign() {
+        let { status,id } = this.ctx.query;
+        let json = {};
+        json.status = status;
+        if(!status && !id) {
+            this.ctx.body = {
+                code:404,
+                msg:'传入的参数有误',
+                data:null
+            }
+            return
+        }
+        await this.ctx.model.Maintain.updateOne({"_id":id},json);
+        this.ctx.body = {
+            code:200,
+            msg:'签约成功',
+            success:true,
+            data:null
+        }
+    }
     //删除预约
     async delete() {
         let { openid,id } = this.ctx.query;

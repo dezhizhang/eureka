@@ -197,6 +197,8 @@ module.exports = app => {
   router.post('/api/maintain/upload',controller.api.maintain.upload);
   //获取预约数据
   router.get('/api/maintain/list',controller.api.maintain.list);
+  //确认签收
+  router.get("/api/maintain/sign",controller.api.maintain.sign);
   //删除预约数据
   router.get('/api/maintain/delete',controller.api.maintain.delete);
   //热门产品
