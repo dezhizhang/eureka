@@ -64,11 +64,13 @@
                                 <td><img style="width: 140px;height:60px" src="<%=list[i].url%>"/></td>
                                 <td><%=helper.formatTime(list[i].add_time)%></td>
                                 <td class="text-center">
-                                    <%if(list[i].status == 1){%>
-                                        <img style="cursor: pointer;" src="/public/back/images/yes.gif" onclick="app.changeStatus(this,'Maintain','status','<%=list[i]._id%>')"/>
-                                    <%} else{%>
-                                        <img style="cursor: pointer;" src="/public/back/images/no.gif" onclick="app.changeStatus(this,'Maintain','status','<%=list[i]._id%>')"/>
-                                    <%}%>
+                                    <%if(list[i].status == 2){%>
+                                        <img class="status" _id="<%=list[i]._id%>" value="<%=list[i].status%>" style="cursor: pointer;" src="/public/back/images/yes.gif"/>
+                                    <%} else if(list[i].status == 3){%>
+                                        <img  class="status" _id="<%=list[i]._id%>" value="<%=list[i].status%>" style="cursor: pointer;" src="/public/back/images/no.gif"/>
+                                    <%} else {%>
+										<img class="status" _id="<%=list[i]._id%>" value="<%=list[i].status%>" style="cursor: pointer;" src="/public/back/images/no.gif"/>
+									<%}%>
                                 </td>    
                                 <td>
                                     <a class="btn btn-sm btn-info" href="/admin/maintain/edit?id=<%=list[i]._id%>">修改</a> 　
@@ -112,5 +114,27 @@
 <script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="/public/back/js/custom.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		let imageNode = document.getElementsByClassName("status");
+		for(let i=0;i < imageNode.length;i++) {
+			imageNode[i].onclick = function() {
+				let status = this.getAttribute('value');
+				let id = this.getAttribute("_id");
+				console.log("id",id);
+				if(status == 2) {
+					console.log("hello")
+					$.get("/admin/modal/change-status",{'status':status,'id':id,model:"Maintain"},(res) => {
+						if(res.code == 200) {
+							window.location.reload();
+						}
+					})
+				}
+
+				
+			}
+		}
+	})
+</script>
 
 </html>

@@ -39,44 +39,22 @@ class BaseController extends Controller {
     //改变状态的方法
     async changeStatus() {
         let json = {};
-        let data = this.ctx.request.query;
-        let id = data.id;
-        let attr = data.attr;
-        let model = data.model;
-        let result = await this.ctx.model[model].find({'_id':id});
-        if(result.length > 0) {
-            if(result[0][attr] == 1) {
-                json = {
-                    [attr]:0
-                }
-            } else {
-                json = {
-                    [attr]:1
-                }
-            }
-
-            let updateResult = await this.ctx.model[model].updateOne({'_id':id},json);
-            if(updateResult) {
-                 this.ctx.body = {
-                    code:200,
-                    msg:'更改状态成功',
-                    success:true
-
-                 }
-            }else {
-                this.ctx.body = {
-                    code:404,
-                    msg:'更新状态失败',
-                    success:false
-                }
-            }
-
-        } else {
+        let data = this.ctx.query;
+        let { id,status,model } = data;
+        if(!id && !model) {
             this.ctx.body = {
                 code:404,
-                msg:'参数有误',
+                message:"传入的参数有误",
                 success:false
             }
+            return;
+        }
+        json.status = status;
+        let update = await this.ctx.model[model].updateOne({"_id":id},json);
+        this.ctx.body = {
+            code:200,
+            message:'更新状态成功',
+            success:true
         }
     }
     //改变数量
