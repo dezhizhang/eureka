@@ -121,10 +121,8 @@
 			imageNode[i].onclick = function() {
 				let status = this.getAttribute('value');
 				let id = this.getAttribute("_id");
-				console.log("id",id);
 				if(status == 2) {
-					console.log("hello")
-					$.get("/admin/modal/change-status",{'status':status,'id':id,model:"Maintain"},(res) => {
+					$.get("/admin/modal/change-status",{'status':3,'id':id,model:"Maintain"},(res) => {
 						if(res.code == 200) {
 							window.location.reload();
 						}
