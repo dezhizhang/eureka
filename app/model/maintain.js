@@ -9,7 +9,7 @@ module.exports = app => {
         mobile:{ type:String },
         address:{ type:String },
         description:{ type:String },
-        status:{ type:Number,default:1 },//1新建预约,2待处理,3已完成,4待评价
+        status:{ type:Number,default:2 },//1新建预约,2待处理,3已完成,4待评价
         url:{ type:String },
         add_time:{
            type:Number,

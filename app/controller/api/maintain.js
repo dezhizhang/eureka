@@ -18,6 +18,9 @@ class MaintainController extends Controller {
         const data = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`);
         const json =JSON.parse(data.data.toString());
         let date = this.ctx.helper.formatTime(Date.now());
+
+        console.log("result",result);
+
         
         const params = {
             'access_token':json.access_token,
