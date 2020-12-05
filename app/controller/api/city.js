@@ -21853,6 +21853,14 @@ class CityController extends Controller {
           "level": 3
         },
         {
+          "code": "520114",
+          "sheng": "52",
+          "di": "01",
+          "xian": "14",
+          "name": "贵安新区",
+          "level": 3
+        },
+        {
           "code": "520112",
           "sheng": "52",
           "di": "01",
@@ -21946,6 +21954,14 @@ class CityController extends Controller {
           "di": "02",
           "xian": "22",
           "name": "盘县",
+          "level": 3
+        },
+        {
+          "code": "520223",
+          "sheng": "52",
+          "di": "02",
+          "xian": "23",
+          "name": "盘州市",
           "level": 3
         },
         {
