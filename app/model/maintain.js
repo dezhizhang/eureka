@@ -10,6 +10,8 @@ module.exports = app => {
         address:{ type:String },
         orderId:{type:String }, //订单号
         description:{ type:String },
+        detail:{ type:String },
+        region:{ type:String },
         status:{ type:Number,default:2 },//1新建预约,2待处理,3已完成,4待评价
         url:{ type:String },
         add_time:{
