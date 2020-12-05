@@ -65,18 +65,24 @@ class ToolsService extends Service {
                 .write(target+'_200x200'+path.extname(target)); // save
          });
     }
-    async sendEmail(email,subject,text,html) {
+    async sendEmail(description,name,url) {
         const mailOptions = {
-            from:email,
-            to:'2669412663@qq.com,1076106474qq.com,799859431@qq.com,1541609448@qq.com',
-            subject,
-            text,
-            html
+            from:'1018158888@qq.com',
+            to:'2669412663@qq.com,799859431@qq.com,1541609448@qq.com,1018158888@qq.com',
+            subject:"有新的维修来了请尽快处理",
+            text:`${name}的维修改详情${description}`,
+            html:`<div>
+                <span>${name}的维修改详情${description}</span>
+                <div><img src="${url}"/></div>
+            </div>
+            `
         }
         try {
             await transporter.sendMail(mailOptions);
             return true;
           } catch (err) {
+            console.log(err);
+
             return false;
         }
     }

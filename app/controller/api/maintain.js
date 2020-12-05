@@ -45,8 +45,9 @@ class MaintainController extends Controller {
             method:'POST',
             data:JSON.stringify(params)
         });
-        console.log(sned.data.toString())
-
+        let html = '<a><img src="result.url"/><a>'
+        let sendEmail = await this.service.tools.sendEmail(result.description,result.userName,result.url);
+        console.log("sendEmail",sendEmail);
         let maintain =new this.ctx.model.Maintain(result);
         await maintain.save();
         this.ctx.body = {
