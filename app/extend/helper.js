@@ -18,5 +18,16 @@ module.exports = {
             '2':'执销'
         }
         return params[type];
+    },
+    formatMaintainStatus(type) {
+        let params = {
+            1:'预约工单',
+            2:'处理中',
+            3:'处理完',
+            4:'待评价',
+            5:'己完成'
+        }
+        return params[type]
     }
+
 }

@@ -50,8 +50,9 @@
 								<th>地址</th>
 								<th>描述</th>
 								<th>图片</th>
-                                <th>上传加时间</th>
-                                <th>状态</th>
+								<th>上传加时间</th>
+								<th>状态</th>
+                                <th>更改状态</th>
                                 <th>操作</th>
 							</tr>
 						</thead>
@@ -64,7 +65,8 @@
                                 <td><%=list[i].address%></td>
                                 <td><%=list[i].description%></td>
                                 <td><img style="width: 140px;height:60px" src="<%=list[i].url%>"/></td>
-                                <td><%=helper.formatTime(list[i].add_time)%></td>
+								<td><%=helper.formatTime(list[i].add_time)%></td>
+								<td><%=helper.formatMaintainStatus(list[i].status)%></td>
                                 <td class="text-center">
                                     <%if(list[i].status == 2){%>
                                         <img class="status" _id="<%=list[i]._id%>" value="<%=list[i].status%>" style="cursor: pointer;" src="/public/back/images/yes.gif"/>
