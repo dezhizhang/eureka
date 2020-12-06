@@ -51,7 +51,14 @@
 							</tr>
 						</thead>
                         <tbody>
-                           
+                           <%for(let i=0;i < list.length;i++) {%>
+								<tr>
+									<td><%=list[i].userName%></td>
+									<td><%=list[i].mobile%></td>
+									<td><%=list[i].description%></td>
+									<td><%=helper.formatTime(list[i].add_time)%></td>
+								</tr>
+						   <%}%>
                         </tbody>
 					</table>
 				

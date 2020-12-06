@@ -9,7 +9,8 @@ const BaseController = require('./base');
 class MainController extends BaseController {
     async index() {
         let { id } = this.ctx.query;
-        let list = await this.ctx.model.Detail.find({"goods_id":id});
+        let list = await this.ctx.model.Evaluation.find({"maintainId":id});
+        console.log("list",list);
         await this.ctx.render('/back/evaluation/index',{
             list,
         });

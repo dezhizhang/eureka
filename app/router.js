@@ -263,12 +263,6 @@ module.exports = app => {
   //上传维修评价
   router.post('/api/maintain/evaluation',controller.api.evaluation.upload);
 
- 
-
-
-  
-  
-
 
 };
 
