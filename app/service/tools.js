@@ -68,11 +68,11 @@ class ToolsService extends Service {
     async sendEmail(description,name,url) {
         const mailOptions = {
             from:'1018158888@qq.com',
-            to:'2669412663@qq.com,799859431@qq.com,1541609448@qq.com,1018158888@qq.com',
-            subject:"有新的维修来了请尽快处理",
-            text:`${name}的维修改详情${description}`,
+            to:'2669412663@qq.com,799859431@qq.com,1541609448@qq.com,811452602@qq.com,1018158888@qq.com',
+            subject:"有新的工单请尽快处理",
+            text:`${name}的维修工单描述：${description}`,
             html:`<div>
-                <span>${name}的维修改详情${description}</span>
+                <span>${name}的维修工单描述：${description}</span>
                 <div><img src="${url}"/></div>
             </div>
             `

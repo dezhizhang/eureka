@@ -14,7 +14,7 @@
     "egg-scripts": "^2.5.0",
     "egg-view-ejs": "^2.0.0",
     "fs-extra": "^9.0.1",
-    "jimp": "^0.8.4",
+    "jimp": "^0.16.1",
     "koa-jsonp": "^2.0.2",
     "md5": "^2.2.1",
     "mz-modules": "^2.1.0",
