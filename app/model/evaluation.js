@@ -4,6 +4,7 @@ module.exports = app => {
     const Schema = mongoose.Schema;
     const d = new Date();
     const EvaluationSchema = Schema({
+        maintainId:{type:String },
         openid:{ type:String },
         userName:{ type:String },
         mobile:{ type:String },

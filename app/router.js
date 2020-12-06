@@ -260,6 +260,8 @@ module.exports = app => {
   router.post('/api/userInfo/save',controller.api.user.save);
   //获取用户信息
   router.get('/api/user/info',controller.api.user.info);
+  //上传维修评价
+  router.post('/api/maintain/evaluation',controller.api.evaluation.upload);
 
  
 
