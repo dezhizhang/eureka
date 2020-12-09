@@ -65,14 +65,16 @@ class ToolsService extends Service {
                 .write(target+'_200x200'+path.extname(target)); // save
          });
     }
-    async sendEmail(description,name,url) {
+    async sendEmail(description,name,url,address,mobile) {
         const mailOptions = {
             from:'1018158888@qq.com',
             to:'2669412663@qq.com,799859431@qq.com,1541609448@qq.com,811452602@qq.com,1018158888@qq.com',
             subject:"有新的工单请尽快处理",
             text:`${name}的维修工单描述：${description}`,
             html:`<div>
-                <span>${name}的维修工单描述：${description}</span>
+                <span>${name}的维修工单描述：${description}</span><br/>
+                <span>地址：${address}</span><br/>
+                <span>电话：${mobile}</span><br/>
                 <div><img src="${url}"/></div>
             </div>
             `
