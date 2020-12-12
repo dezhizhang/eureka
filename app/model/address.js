@@ -15,6 +15,8 @@ module.exports = app => {
         openid:{ type:String }, //用于小程序端登录
         userName:{ type:String },
         address:{ type:String },
+        cityInfo:{ type:String }, //城市地址
+        detail:{ type:String }, //详细地址
         checked:{ type:Boolean,default:false},//用户会员类型
         status:{
             type:Number,

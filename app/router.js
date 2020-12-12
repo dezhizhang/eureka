@@ -268,6 +268,10 @@ module.exports = app => {
   router.get('/api/address/list',controller.api.address.list);
   //删除地址
   router.get('/api/address/delete',controller.api.address.delete);
+  //获取单条地址
+  router.get('/api/address/info',controller.api.address.info);
+  //更新地址
+  router.post('/api/address/update',controller.api.address.update);
 
 
 };
