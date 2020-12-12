@@ -15,7 +15,7 @@ module.exports = app => {
         openid:{ type:String }, //用于小程序端登录
         userName:{ type:String },
         address:{ type:String },
-        isDefault:{ type:Number,default:0},//用户会员类型
+        checked:{ type:Boolean,default:false},//用户会员类型
         status:{
             type:Number,
             default:1 //用户当前状态

@@ -262,6 +262,10 @@ module.exports = app => {
   router.get('/api/user/info',controller.api.user.info);
   //上传维修评价
   router.post('/api/maintain/evaluation',controller.api.evaluation.upload);
+  //新增地址
+  router.post('/api/address/add',controller.api.address.add);
+  //获取地址
+  router.get('/api/address/list',controller.api.address.list);
 
 
 };
