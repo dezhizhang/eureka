@@ -5,6 +5,11 @@ class AddressController extends Controller {
     //新增地址
     async add() {
         let result = this.ctx.request.body;
+        let { openid } = result;
+        let list = await this.ctx.model.Address.find({'openid':openid,"checked":true});
+        for(let i=0;i < list.length;i++) {//如果有默认地址先更新false
+            await this.ctx.model.Address.update({"openid":openid,"_id":list[i]._id},{checked:false});
+        }
         let address = new this.ctx.model.Address(result);
         await address.save();
         this.ctx.body = {
@@ -17,7 +22,7 @@ class AddressController extends Controller {
     //保存地址
     async list() {
         let { openid } = this.ctx.query;
-        let list = await this.ctx.model.Address.find({'openid':openid});
+        let list = await this.ctx.model.Address.find({'openid':openid}).sort({'checked':-1});
         this.ctx.body = {
             code:200,
             msg:"获取地址成功",
