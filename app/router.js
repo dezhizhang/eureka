@@ -266,6 +266,8 @@ module.exports = app => {
   router.post('/api/address/add',controller.api.address.add);
   //获取地址
   router.get('/api/address/list',controller.api.address.list);
+  //删除地址
+  router.get('/api/address/delete',controller.api.address.delete);
 
 
 };

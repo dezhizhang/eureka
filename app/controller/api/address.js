@@ -30,40 +30,18 @@ class AddressController extends Controller {
             success:true
         }
     }
-    //用户保存信息
-    async save() {
-        const result = this.ctx.request.body;
-        const { openid, } = result;
-        const data = await this.ctx.model.User.find({'openid':openid});
-        if(data.length > 0) { //如果当前存在更新
-            await this.ctx.model.User.update({'openid':openid},result);
-            this.ctx.body = {
-                code:200,
-                msg:'更新数据成功',
-                success:true,
-                data:null
-            }
-            return
-        }
-        let user = new this.ctx.model.User(result);
-        await user.save();
+    //删除地址
+    async delete() {
+        let { openid,id } = this.ctx.query;
+        let result = await this.ctx.model.Address.deleteOne({'openid':openid,"_id":id});
         this.ctx.body = {
             code:200,
-            msg:'添加成功',
-            data:null
-        }
-    }
-    //获取用户信息
-    async info() {
-        const { openid } = this.ctx.query;
-        const data = await this.ctx.model.User.find({'openid':openid});
-        this.ctx.body = {
-            code:200,
-            msg:"获取用户成功",
-            data:data[0],
+            msg:'删除成功',
+            data:null,
             success:true
         }
     }
+
 }
 
 module.exports = AddressController;
