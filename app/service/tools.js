@@ -72,10 +72,11 @@ class ToolsService extends Service {
             subject:"有新的工单请尽快处理",
             text:`客户：${name}电话：${mobile}地址：${address}描述：${description}`,
             html:`<div>
-                <div><span>客户：${name}</span></div>
-                <div><span>电话：${mobile}</span></div>
-                <div><span>地址：${address}</span></div>
-                <div><span>描述：${description}</span></div>
+                <span>客户：${name}<span><br/>
+                <span>电话：${mobile}</span><br/>
+                <span>工单描述：</span><span style="color:red"><b>${description}</b></span><br/>
+                <span>地址：${address}</span><br/>
+                <a href="https://www.guicaioa.com/admin/login">管理后台</a>
                 <div><img src="${url}"/></div>
             </div>
             `
