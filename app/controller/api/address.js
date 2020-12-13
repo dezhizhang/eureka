@@ -1,3 +1,11 @@
+/*
+ * @Author: dezhizhang
+ * @Date: 2020-12-12 17:59:46
+ * @LastEditTime: 2020-12-13 16:07:26
+ * @LastEditors: Please set LastEditors
+ * @Description: 地址列表
+ * @FilePath: /eureka/app/controller/api/address.js
+ */
 'use strict';
 const xml2js = require('xml2js');
 const Controller = require('egg').Controller;
@@ -62,6 +70,27 @@ class AddressController extends Controller {
             msg:'获取成功',
             data:data[0],
             success:true
+        }
+    }
+    //获取用户地址
+    async default() {
+        let { openid,} = this.ctx.query;
+        let data = await this.ctx.model.Address.find({'openid':openid,checked:true});
+        if(data.length > 0) {
+            this.ctx.body = {
+                code:200,
+                msg:"获取成功",
+                data:data[0],
+                success:true,
+            }
+        } else {
+            let result = await this.ctx.model.Address.find({'openid':openid});
+            this.ctx.body = {
+                code:200,
+                msg:"获取成功",
+                data:result[0],
+                success:true,
+            }
         }
     }
 }
