@@ -43,15 +43,15 @@
                     <form action="/admin/goodsCate/doAdd" method="post" enctype="multipart/form-data">
                         <div class="form-group">
 							<label for="exampleInputEmail1">商品标题</label>
-							<input name="title" type="text" class="form-control" required  placeholder="请输入商品标题">
+							<input name="title" value="<%=list.title%>" type="text" class="form-control" required  placeholder="请输入商品标题">
                         </div>
                         <div class="form-group">
 							<label for="exampleInputEmail1">附属标题</label>
-							<input name="sub_title" type="text" class="form-control" required  placeholder="请输入附属标题">
+							<input name="sub_title" value="<%=list.sub_title%>" type="text" class="form-control" required  placeholder="请输入附属标题">
                         </div>
                         <div class="form-group">
 							<label for="exampleInputEmail1">商品版本</label>
-							<input name="goods_version" type="text" class="form-control" required  placeholder="请输入商品版本">
+							<input name="goods_version" value="<%=list.goods_version%>" type="text" class="form-control" required  placeholder="请输入商品版本">
 						</div>
 						<div class="form-group">
 							<label for="exampleFormControlSelect1">所属分类</label>
@@ -59,27 +59,28 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">商品图片</label>
-							<input name="img" type="file" class="form-control-file" required  placeholder="请输入商品图片">
+                            <input name="img" type="file" class="form-control-file" required  placeholder="请输入商品图片">
+                            <img src="<%=list.url%>" style="width: 120px;height: 60px;"/>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">商品价格</label>
-							<input name="price" type="text" class="form-control" required  placeholder="请输入商品价格"/>
+							<input name="price" value="<%=list.price%>" type="text" class="form-control" required  placeholder="请输入商品价格"/>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">商品原价</label>
-							<input name="old_price" type="text" class="form-control" required  placeholder="请输入商品原价"/>
+							<input name="old_price" value="<%=list.old_price%>" type="text" class="form-control" required  placeholder="请输入商品原价"/>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">商品运费</label>
-							<input name="freight" type="text" class="form-control" required  placeholder="请输入商品运费"/>
+							<input name="freight" type="text" value="<%=list.freight%>" class="form-control" required  placeholder="请输入商品运费"/>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">商品库存</label>
-							<input name="inventory" type="text" class="form-control" required  placeholder="请输入商品库存">
+							<input name="inventory" type="text" value="<%=list.inventory%>" class="form-control" required  placeholder="请输入商品库存">
                         </div>
                         <div class="form-group">
 							<label for="exampleInputEmail1">商品销量</label>
-							<input name="sales" type="text" class="form-control" required  placeholder="请输入商品销量">
+							<input name="sales" type="text" value="<%=list.sales%>" class="form-control" required  placeholder="请输入商品销量">
                         </div>
                         <div class="form-group">
 							<label for="exampleInputEmail1">商品颜色</label><br/>
@@ -93,7 +94,7 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">描述</label>
-							<textarea name="description" type="text" class="form-control" required  placeholder="请输入网站名称"></textarea>
+							<textarea name="description" type="text" class="form-control" required  placeholder="请输入描述"><%=list.description%></textarea>
 						</div>
 						<button type="submit" class="btn btn-primary">
 							确 定
