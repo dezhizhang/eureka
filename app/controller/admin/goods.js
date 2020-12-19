@@ -11,7 +11,7 @@ class MainController extends BaseController {
         let pageSize = 10;
         let list = await this.ctx.model.Goods.find().limit(pageSize).skip((page - 1) * pageSize);
         let count = await this.ctx.model.Goods.find().count();
-        await this.ctx.render('/admin/goods/index',{
+        await this.ctx.render('/back/goods/index',{
             list,
             count
         })
@@ -34,7 +34,7 @@ class MainController extends BaseController {
         ]);
         let goodsColor = await this.ctx.model.GoodsColor.find({});
         let goodsType = await this.ctx.model.GoodsType.find({});
-        await this.ctx.render('/admin/goods/add',{
+        await this.ctx.render('/back/goods/add',{
             goodsCate,
             goodsColor,
             goodsType
@@ -92,7 +92,7 @@ class MainController extends BaseController {
     //相册
     async photo() {
         let { id } = this.ctx.query;
-        await this.ctx.render("/admin/goods/photo",{
+        await this.ctx.render("/back/goods/photo",{
             goods_id:id
         });
     }

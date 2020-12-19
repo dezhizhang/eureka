@@ -9,14 +9,14 @@ class MainController extends BaseController {
     async index() {
         let { id } = this.ctx.query;
         let list = await this.ctx.model.Photo.find({"goods_id":id});
-        await this.ctx.render('/admin/photo/index',{
+        await this.ctx.render('/back/photo/index',{
             list,
             goods_id:id
         });
     }
     async add() {
        let { goods_id } = this.ctx.query;
-       await this.ctx.render('/admin/photo/add',{
+       await this.ctx.render('/back/photo/add',{
         goods_id
        })
     }
@@ -51,7 +51,7 @@ class MainController extends BaseController {
     //相册
     async photo() {
         let { id } = this.ctx.query;
-        await this.ctx.render("/admin/goods/photo",{
+        await this.ctx.render("/back/goods/photo",{
             goods_id:id
         });
     }
