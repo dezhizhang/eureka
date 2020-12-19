@@ -111,7 +111,22 @@ class MainController extends BaseController {
         });
     }
     async doEdit() {
-
+        let parts = this.ctx.multipart({ autoFields: true });
+        let fields = await parts();
+        let { id,file_name } =  parts.field;
+        if(fields.filename) {//当前有图片上传先删除再上传
+            let result = await this.service.upload.updateImg(fields);
+            let params = {
+                ...parts.field,
+                ...result
+            }
+            await this.ctx.model.Goods.updateOne({"_id":id},params);
+            await this.success('/admin/goods','修改商品成功');
+            await this.service.upload.deleteImg(file_name); //删除线上图片
+        } else { //没有图片上传 
+            await this.ctx.model.Goods.updateOne({"_id":id},parts.field);
+            await this.success('/admin/goods','修改商品成功'); 
+        }
     }
     //相册
     async photo() {
