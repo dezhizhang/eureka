@@ -85,10 +85,29 @@ class MainController extends BaseController {
     }
     async edit() {
         let { id } = this.ctx.query;
+        let goodsCate = await this.ctx.model.GoodsCate.aggregate([
+            {
+                $lookup:{
+                    from:'goods_cate',
+                    localField:'_id',
+                    foreignField:'pid',
+                    as:'items'
+                }
+            },
+            {
+                $match:{
+                    'pid':'0'
+                }
+            }
+        ]);
+        let goodsColor = await this.ctx.model.GoodsColor.find({});
+        let goodsType = await this.ctx.model.GoodsType.find({});
         let result = await this.ctx.model.Goods.find({"_id":id});
-        console.log("result",result);
         await this.ctx.render("/back/goods/edit",{
-            list:result[0]
+            list:result[0],
+            goodsColor,
+            goodsCate,
+            goodsType,
         });
     }
     async doEdit() {

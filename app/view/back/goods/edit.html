@@ -55,7 +55,14 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleFormControlSelect1">所属分类</label>
-                           
+                            <select name="cate_id" id="cid" class="form-control" id="exampleFormControlSelect1">
+                                <%for(let i=0;i<goodsCate.length;i++){%>
+                                   <option value="<%=goodsCate[i]._id%>"><%=goodsCate[i].title%></option>
+                                   <%for(let j=0;j<goodsCate[i].items.length;j++){%>
+                                        <option value="<%=goodsCate[i].items[j]._id%>">----<%=goodsCate[i].items[j].title%></option>
+                                   <%}%>
+                                <%}%>  
+                             </select>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">商品图片</label>
@@ -84,7 +91,10 @@
                         </div>
                         <div class="form-group">
 							<label for="exampleInputEmail1">商品颜色</label><br/>
-						
+                            <%for(let i=0;i<goodsColor.length;i++){%>
+                                <input class="form-control-radio" type="checkbox" name="goods_color[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
+                                <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
+                            <%}%>
                         </div>
                         <div class="form-group">
 							<label for="exampleInputEmail1">加入推荐</label><br/>

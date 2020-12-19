@@ -39,7 +39,6 @@ module.exports = app => {
             type:Boolean,
             default:true
         },
-       
         goods_type_id:{
             type:Schema.Types.ObjectId
         },
