@@ -104,6 +104,7 @@ class MainController extends BaseController {
         let goodsType = await this.ctx.model.GoodsType.find({});
         let result = await this.ctx.model.Goods.find({"_id":id});
         await this.ctx.render("/back/goods/edit",{
+            id,
             list:result[0],
             goodsColor,
             goodsCate,

@@ -40,7 +40,8 @@
 					</div>
 				</div>
 				<div class="card-body">
-                    <form action="/admin/goods/doEdit" method="post" enctype="multipart/form-data">
+					<form action="/admin/goods/doEdit" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="id" value="<%=id%>"/>
                         <div class="form-group">
 							<label for="exampleInputEmail1">商品标题</label>
 							<input name="title" value="<%=list.title%>" type="text" class="form-control" required  placeholder="请输入商品标题">
