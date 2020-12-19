@@ -84,7 +84,11 @@ class MainController extends BaseController {
         await this.success('/admin/goods','增加商品成功'); 
     }
     async edit() {
-
+        let { id } = this.ctx.query;
+        let result = await this.ctx.model.Goods.find({"_id":id});
+        await this.ctx.render("/back/goods/edit",{
+            list:result[0]
+        });
     }
     async doEdit() {
 
