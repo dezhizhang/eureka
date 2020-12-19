@@ -115,7 +115,8 @@ class MainController extends BaseController {
         let parts = this.ctx.multipart({ autoFields: true });
         let fields = await parts();
         let { id,file_name } =  parts.field;
-        if(fields.filename) {//当前有图片上传先删除再上传
+        console.log('file_name',parts);
+        if(file_name) {//当前有图片上传先删除再上传
             let result = await this.service.upload.updateImg(fields);
             let params = {
                 ...parts.field,
