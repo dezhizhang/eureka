@@ -53,7 +53,12 @@ class AddressController extends Controller {
     async update() {
         let result = this.ctx.request.body;
         let { openid,id  } = result;
-        let data = await this.ctx.model.Address.updateOne({"openid":openid,"_id":id},result);
+        //修复编
+        let list = await this.ctx.model.Address.find({"openid":openid,"checked":true});
+        for(let i=0;i < list.length;i++) {
+            await this.ctx.model.Address.update({"openid":openid,"_id":list[i]._id},{checked:false});
+        }
+        await this.ctx.model.Address.updateOne({"openid":openid,"_id":id},result);
         this.ctx.body = {
             code:200,
             msg:"更新地址成功",
