@@ -9,14 +9,14 @@ const Controller = require('egg').Controller;
 class BaseController extends Controller {
     //成功
     async success(redirectURL,message) {
-        await this.ctx.render('admin/public/success',{
+        await this.ctx.render('back/public/success',{
             redirectURL:redirectURL,
             message:message || '操作成功'
         })
     }
     //失败
     async error(redirectURL,message) {
-        await this.ctx.render('admin/public/error',{
+        await this.ctx.render('back/public/error',{
             redirectURL:redirectURL,
             message:message || '操作失败'
         })
