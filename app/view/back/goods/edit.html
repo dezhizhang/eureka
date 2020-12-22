@@ -83,13 +83,18 @@
 							<input name="freight" type="text" value="<%=list.freight%>" class="form-control" required  placeholder="请输入商品运费"/>
 						</div>
 						<div class="form-group">
+							<label for="exampleInputEmail1">加入推荐</label><br/>
+							<select name="is_hot" class="form-control" id="exampleFormControlSelect1">
+								<option value="0"  <%if(list.is_hot == 0){%>selected<%}%>>新品</option>
+								<option value="1"  <%if(list.is_hot == 1){%>selected<%}%>>精品</option>
+								<option value="2"  <%if(list.is_hot == 2){%>selected<%}%>>热销</option>
+                            </select>
+						</div>
+						<div class="form-group">
 							<label for="exampleInputEmail1">商品库存</label>
 							<input name="inventory" type="text" value="<%=list.inventory%>" class="form-control" required  placeholder="请输入商品库存">
                         </div>
-                        <div class="form-group">
-							<label for="exampleInputEmail1">商品销量</label>
-							<input name="sales" type="text" value="<%=list.sales%>" class="form-control" required  placeholder="请输入商品销量">
-                        </div>
+                       
                         <div class="form-group">
 							<label for="exampleInputEmail1">商品颜色</label><br/>
                             <%for(let i=0;i<goodsColor.length;i++){%>
@@ -97,12 +102,7 @@
                                 <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
                             <%}%>
                         </div>
-                        <div class="form-group">
-							<label for="exampleInputEmail1">加入推荐</label><br/>
-							<input type="radio" value="0" name="is_hot" checked/> 新品
-                            <input type="radio" value="1" name="is_hot"/> 精品
-                            <input type="radio" value="2" name="is_hot"/> 热销
-						</div>
+                       
 						<div class="form-group">
 							<label for="exampleInputEmail1">描述</label>
 							<textarea name="description" type="text" class="form-control" placeholder="请输入描述"><%=list.description%></textarea>
