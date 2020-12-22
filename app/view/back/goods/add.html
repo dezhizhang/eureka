@@ -77,6 +77,14 @@
 							<input name="old_price" type="text" class="form-control" required  placeholder="请输入商品原价"/>
 						</div>
 						<div class="form-group">
+							<label for="exampleInputEmail1">加入推荐</label><br/>
+							<select name="is_hot" class="form-control" id="exampleFormControlSelect1">
+								<option value="0">新品</option>
+								<option value="1">精品</option>
+								<option value="2">热销</option>
+                             </select>
+						</div>
+						<div class="form-group">
 							<label for="exampleInputEmail1">商品运费</label>
 							<input name="freight" type="text" class="form-control" required  placeholder="请输入商品运费"/>
 						</div>
@@ -85,25 +93,16 @@
 							<input name="inventory" type="text" class="form-control" required  placeholder="请输入商品库存">
                         </div>
                         <div class="form-group">
-							<label for="exampleInputEmail1">商品销量</label>
-							<input name="sales" type="text" class="form-control" required  placeholder="请输入商品销量">
-                        </div>
-                        <div class="form-group">
 							<label for="exampleInputEmail1">商品颜色</label><br/>
 							<%for(let i=0;i<goodsColor.length;i++){%>
                                 <input class="form-control-radio" type="checkbox" name="goods_color[]" value="<%=goodsColor[i]._id%>" id="color_goodsColor[i]._id"/>
                                 <label for="color_goodsColor[i]._id"><%=goodsColor[i].color_name%></label>
                             <%}%>
                         </div>
-                        <div class="form-group">
-							<label for="exampleInputEmail1">加入推荐</label><br/>
-							<input type="radio" value="0" name="is_hot" checked/> 新品
-                            <input type="radio" value="1" name="is_hot"/> 精品
-                            <input type="radio" value="2" name="is_hot"/> 热销
-						</div>
+                      
 						<div class="form-group">
 							<label for="exampleInputEmail1">描述</label>
-							<textarea name="description" type="text" class="form-control" required  placeholder="请输入网站名称"></textarea>
+							<textarea name="description" type="text" class="form-control" placeholder="请输入网站名称"></textarea>
 						</div>
 						<button type="submit" class="btn btn-primary">
 							确 定

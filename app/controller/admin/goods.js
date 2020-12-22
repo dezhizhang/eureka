@@ -76,12 +76,17 @@ class MainController extends BaseController {
     }
     //增加商品
     async doAdd() {
-        let result = await this.service.upload.uploadImg(); 
-        let goods_id = await this.service.tools.number();
-        result.goods_id = goods_id;
-        let goods =new this.ctx.model.Goods(result);
-        await goods.save();
-        await this.success('/admin/goods','增加商品成功'); 
+        try{
+            let result = await this.service.upload.uploadImg(); 
+            let goods_id = await this.service.tools.number();
+            result.goods_id = goods_id;
+            let goods =new this.ctx.model.Goods(result);
+            await goods.save();
+            await this.success('/admin/goods','增加商品成功'); 
+        }catch(err){
+            console.log(err);
+        }
+       
     }
     async edit() {
         let { id } = this.ctx.query;

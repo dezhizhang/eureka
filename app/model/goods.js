@@ -34,6 +34,7 @@ module.exports = app => {
         },
         is_hot:{ //
             type:String, //0新品1精品2执销
+            default:"0"
         },
         is_delete:{
             type:Boolean,

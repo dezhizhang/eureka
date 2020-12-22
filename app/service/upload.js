@@ -31,6 +31,7 @@ class UploadService extends Service {
             fields = stream.fields;
             fields.url= result.url;
             fields.file_name = fileName;
+            console.log("fields",fields);
             fs.unlink(target,(err) => {
                console.log("删除文件城功");
             })
