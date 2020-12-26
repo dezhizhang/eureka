@@ -12,7 +12,7 @@ class MaintainController extends Controller {
         }
     }
     async upload() {
-        const appid = 'wx2198b51c8406aed0';
+        const appid = 'wx33e7ec4a857e6f99';
         const secret = '27d67b7aa84d8c3c768b4a53fcfb8732';
         const result = await this.service.upload.uploadImg();
         result.orderId = await this.service.tools.number();
