@@ -4,7 +4,8 @@ const Controller = require('egg').Controller;
 class LoginController extends Controller {
     async index() {
         let { code,appid } = this.ctx.query;
-        let data = await this.ctx.curl(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=27d67b7aa84d8c3c768b4a53fcfb8732&js_code=${code}&grant_type=authorization_code`);
+        console.log("")
+        let data = await this.ctx.curl(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=23f72edf09d48ce7d3e1e5b3f619bb5a&js_code=${code}&grant_type=authorization_code`);
         let json =JSON.parse(data.data.toString()); 
         this.ctx.body = {
             code:200,
@@ -18,7 +19,7 @@ class LoginController extends Controller {
         let { title,total,number,color,size,out_trade_no} = result;
         let detail = `你购买的商品总价量${total},数量${number}颜色${color}尺码${size}`
         //获取openid
-        const data = await this.ctx.curl(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=27d67b7aa84d8c3c768b4a53fcfb8732&js_code=${code}&grant_type=authorization_code`);
+        const data = await this.ctx.curl(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=23f72edf09d48ce7d3e1e5b3f619bb5a&js_code=${code}&grant_type=authorization_code`);
         //将微信返回的参数转换成json
         const json =JSON.parse(data.data.toString());
         //获取opid
