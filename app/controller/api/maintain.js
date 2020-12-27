@@ -13,7 +13,7 @@ class MaintainController extends Controller {
     }
     async upload() {
         const appid = 'wx33e7ec4a857e6f99';
-        const secret = '27d67b7aa84d8c3c768b4a53fcfb8732';
+        const secret = '23f72edf09d48ce7d3e1e5b3f619bb5a';
         const result = await this.service.upload.uploadImg();
         result.orderId = await this.service.tools.number();
         const data = await this.ctx.curl(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`);
