@@ -146,6 +146,12 @@ module.exports = app => {
   router.post('/admin/classifyDetail/doEdit',controller.admin.classifyDetail.doEdit);
   router.get('/admin/classifyDetail/delete',controller.admin.base.delete);
 
+  //消息通知
+  router.get('/admin/message',controller.admin.message.index);
+  router.get('/admin/message/add',controller.admin.message.add);
+  router.post('/admin/message/doAdd',controller.admin.message.doAdd);
+  router.get('/admin/message/delete',controller.admin.message.delete);
+
   //评价管理
   router.get('/admin/evaluation',controller.admin.evaluation.index);
 
