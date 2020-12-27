@@ -16,15 +16,11 @@ class ManagerController extends BaseController {
         
     }
     async doAdd() {
-        try{
-            let result = await this.service.upload.uploadImg(); 
-            console.log("result",result);
-            let message =new this.ctx.model.Message(result);
-            await message.save();
-            await this.success('/admin/message','增加消息成功'); 
-        }catch(err){
-            console.log(err);
-        }
+        let result = await this.service.upload.uploadImg(); 
+        console.log("result",result);
+        let message =new this.ctx.model.Message(result);
+        await message.save();
+        await this.success('/admin/message','增加消息成功'); 
     }
     //修改
     async edit() {
