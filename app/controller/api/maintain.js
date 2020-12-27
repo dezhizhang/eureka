@@ -23,7 +23,7 @@ class MaintainController extends Controller {
         const params = {
             'access_token':json.access_token,
             'touser':result.openid,
-            'template_id':'0XK1EO7jvqJtHbt_wVfRF9f050sAe4LAo021WqG0_Ds',
+            'template_id':'3CIh5QngLZbRONl61ssE56l-GHm6ZZldKYG1IG1EArI',
             "lang":"zh_CN",
             data:{
                   date2: {
