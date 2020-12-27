@@ -282,6 +282,8 @@ module.exports = app => {
   router.post('/api/address/update',controller.api.address.update);
   //获取用用户默认地址
   router.get('/api/address/default',controller.api.address.default);
+  //获取用户信息
+  router.get('/api/user/message',controller.api.message.index);
 
 
 
