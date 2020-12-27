@@ -38,7 +38,7 @@ class ManagerController extends BaseController {
             let fields = await parts();
             console.log("fields",fields);
             let { id,file_name } =  parts.field;
-            if(fields.filename) {//当前有图片上传先删除再上传
+            if(fields && fields.filename) {//当前有图片上传先删除再上传
                 let result = await this.service.upload.updateImg(fields);
                 let params = {
                     ...parts.field,
