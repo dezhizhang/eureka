@@ -18,6 +18,7 @@ class ManagerController extends BaseController {
     async doAdd() {
         try{
             let result = await this.service.upload.uploadImg(); 
+            console.log("result",result);
             let message =new this.ctx.model.Message(result);
             await message.save();
             await this.success('/admin/message','增加消息成功'); 
@@ -27,38 +28,43 @@ class ManagerController extends BaseController {
     }
     //修改
     async edit() {
-        // let id = this.ctx.query.id;
-        // let roleData = await this.ctx.model.Role.find();
-        // let result = await this.ctx.model.Admin.find({'_id':id});
-        // await this.ctx.render('/back/manager/edit',{
-        //     list:result[0],
-        //     roleList:roleData
-        // })
+        let id = this.ctx.query.id;
+        let list = await this.ctx.model.Message.find({"_id":id});
+        await this.ctx.render('/back/message/edit',{
+            list:list[0]
+        })
+        
     }
     //修改管理员
     async doEdit() {
-        // let data = this.ctx.request.body;
-        // let id = data.id;
-        // let password = data.password;
-        // data.password = await this.service.tools.md5(password);
-        // if(password) { //修改密码
-        //     await this.ctx.model.Admin.updateOne({'_id':id},data);
-        // } else {
-        //     await this.ctx.model.Admin.updateOne({'_id':id},{
-        //         email:data.email,
-        //         role_id:data.role_id,
-        //         mobile:data.mobile
-        //     })
-        // }
-        // await this.success('/admin/manager','修改管理员成功');
+        try {
+            let parts = this.ctx.multipart({ autoFields: true });
+            let fields = await parts();
+            console.log("fields",fields);
+            let { id,file_name } =  parts.field;
+            if(fields.filename) {//当前有图片上传先删除再上传
+                let result = await this.service.upload.updateImg(fields);
+                let params = {
+                    ...parts.field,
+                    ...result
+                }
+                await this.ctx.model.Message.updateOne({"_id":id},params);
+                await this.success('/admin/message','修改消息成功');
+                await this.service.upload.deleteImg(file_name); //删除线上图片
+            } else { //没有图片上传 
+                await this.ctx.model.Message.updateOne({"_id":id},parts.field);
+                await this.success('/admin/message','修改消息成功'); 
+            }
+        } catch(err) {
+            console.log(err);
+        }
+        
     }
     //删除消息
     async delete() {
         let { id } = this.ctx.query;
         await this.ctx.model.Message.deleteOne({"_id":id});
         await this.success('/admin/message','删除成功'); 
-
-
     }
 
     

@@ -41,25 +41,27 @@
 				</div>
 				<div class="card-body">
                     <form action="/admin/message/doEdit" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<%=list._id%>"/>
 						<div class="form-group">
 							<label for="exampleFormControlSelect1">终端分类</label>
 							<select name="pid" class="form-control" id="exampleFormControlSelect1">
-								<option value="1">网站</option>
-                                <option value="2">APP</option>
-                                <option value="3">小程序</option>
+                                <option <%if(list.type == 1){%>selected<%}%>  value="1">网站</option>
+                                <option <%if(list.type == 2){%>selected<%}%>  value="2">APP</option>
+                                <option <%if(list.type == 3){%>selected<%}%>  value="3">小程序</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">消息图片</label>
-							<input name="img" type="file" class="form-control-file" required  placeholder="请输入网站名称">
+                            <input name="img" type="file" class="form-control-file"  placeholder="请输入网站名称">
+                            <img style="width: 200px;height: 100px;" src="<%=list.url%>"/>
                         </div>
                         <div class="form-group">
 							<label for="exampleInputEmail1">跳转地址</label>
-							<input name="link" type="text" class="form-control" required  placeholder="请输入跳转地址"/>
+							<input name="link" value="<%=list.link%>" type="text" class="form-control" required  placeholder="请输入跳转地址"/>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">描述</label>
-							<textarea name="description" type="text" class="form-control" required  placeholder="请输入描述"></textarea>
+							<textarea name="description"  type="text" class="form-control" required  placeholder="请输入描述"><%=list.description%></textarea>
 						</div>
 						<button type="submit" class="btn btn-primary">
 							确 定

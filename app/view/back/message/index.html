@@ -45,6 +45,7 @@
 												<tr>
 													<th scope="col">序号</th>
 													<th scope="col">类型</th>
+													<th scope="col">图片</th>
 													<th scope="col">链接</th>
 													<th scope="col">描述</th>
 													<th scope="col">状态</th>
@@ -57,6 +58,7 @@
 													<tr>
 														<td><%=(i+1)%></td>
 														<td><%=helper.formatType(list[i].type)%></td>
+														<td><img class="table-image"  src="<%=list[i].url%>"/></td>
 														<td><%=list[i].link%></td>
 														<td><%=list[i].description%></td>
 														<td><%=list[i].add_time%></td>
@@ -68,7 +70,7 @@
 															<%}%>
 														</td>   
 														<td class="text-center">
-															<a class="btn btn-sm btn-info" href="/admin/advert/edit?id=<%=list[i]._id%>">修改</a>
+															<a class="btn btn-sm btn-info" href="/admin/message/edit?id=<%=list[i]._id%>">修改</a>
 															<a class="btn btn-sm btn-danger" href="/admin/message/delete?id=<%=list[i]._id%>">删除</a>
 														</td>
 													</tr>

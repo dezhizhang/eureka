@@ -151,6 +151,8 @@ module.exports = app => {
   router.get('/admin/message/add',controller.admin.message.add);
   router.post('/admin/message/doAdd',controller.admin.message.doAdd);
   router.get('/admin/message/delete',controller.admin.message.delete);
+  router.get('/admin/message/edit',controller.admin.message.edit);
+  router.post('/admin/message/doEdit',controller.admin.message.doEdit);
 
   //评价管理
   router.get('/admin/evaluation',controller.admin.evaluation.index);
