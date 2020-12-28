@@ -20,6 +20,7 @@ module.exports = app => {
         userName:{ type:String },
         compamyName:{type:String},
         address:{ type:String },
+        source:{ type:String }, //1表示pc,2表示小程序,3表示app
         userType:{ type:String,default:'普通会员' },//用户会员类型
         status:{
             type:Number,

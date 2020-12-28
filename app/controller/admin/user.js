@@ -4,12 +4,12 @@ class UserController extends BaseController {
     async index() {
         let list = await this.ctx.model.User.find();
         console.log('list',list)
-        await this.ctx.render('/admin/user/index',{
+        await this.ctx.render('/back/user/index',{
             list
         });
     }
     async add() {
-        await this.ctx.render('/admin/user/add');
+        await this.ctx.render('/back/user/add');
         
     }
     //轮播图交数据
