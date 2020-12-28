@@ -47,12 +47,15 @@ class UserController extends BaseController {
         }
     }
     async delete() {
-        let { id } = this.ctx.query;
-        let focus = await this.ctx.model.Focus.find({"_id":id});
-        let file_name = focus[0].file_name;
-        await this.service.upload.deleteImg(file_name); //删除线上图片
-        await this.ctx.model.Focus.deleteOne({"_id":id});
-        await this.success("/admin/focus","删除成功");   
+        let id = this.ctx.query.id;
+        let user = await this.ctx.model.User.deleteOne({"_id":id});
+        await this.success("/admin/user","删除用户成功")
+        // let { id } = this.ctx.query;
+        // let focus = await this.ctx.model.Focus.find({"_id":id});
+        // let file_name = focus[0].file_name;
+        // await this.service.upload.deleteImg(file_name); //删除线上图片
+        // await this.ctx.model.Focus.deleteOne({"_id":id});
+        // await this.success("/admin/focus","删除成功");   
     }
 }
 
