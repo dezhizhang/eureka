@@ -160,6 +160,7 @@ module.exports = app => {
   //用户管理
   router.get('/admin/user',controller.admin.user.index);
   router.get('/admin/user/delete',controller.admin.user.delete);
+  router.get('/admin/user/edit',controller.admin.user.edit);
 
   //更改状态的方法
   router.get('/admin/modal/change-status',controller.admin.base.changeStatus);
