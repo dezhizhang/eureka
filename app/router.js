@@ -163,7 +163,9 @@ module.exports = app => {
   router.get('/admin/user/edit',controller.admin.user.edit);
 
   //优惠券管理
-  // router.get('/admin/coupons/add')
+  router.get('/admin/coupons',controller.admin.coupons.index);
+  router.get('/admin/coupons/add',controller.admin.coupons.add);
+  router.post('/admin/coupons/doAdd',controller.admin.coupons.doAdd);
 
   //更改状态的方法
   router.get('/admin/modal/change-status',controller.admin.base.changeStatus);

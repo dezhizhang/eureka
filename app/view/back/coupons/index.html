@@ -1,0 +1,100 @@
+<%include ../public/header.html%>
+<%include ../public/sidebar.html%>
+
+				<!--main contents start-->
+				<main class="content_wrapper">
+					<!--page title start-->
+					<div class="page-heading">
+						<div class="container-fluid">
+							<div class="row d-flex align-items-center">
+								<div class="col-md-6">
+									<div class="page-breadcrumb">
+										<h1>优惠券管理</h1>
+									</div>
+								</div>
+								<div class="col-md-6 justify-content-md-end d-flex">
+									<div class="breadcrumb_nav">
+										<ol class="breadcrumb">
+											<li>
+												<i class="fa fa-home"></i>
+												<a class="parent-item" href="index.html">优惠券管理</a>
+												<i class="fa fa-angle-right"></i>
+											</li>
+											<li class="active">
+												优惠券列表
+											</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--page title end-->
+					<div class="container-fluid">
+						<!-- state start-->
+						<div class="row">
+							<div class=" col-sm-12">
+								<div class="card card-shadow mb-4">
+									<div class="card-header">
+										<div class="card-title">
+											优惠券列表
+										</div>
+									</div>
+									<div class="card-body">
+										<table id="bs4-table" class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th>序号</th>
+													<th>金额</th>
+                                                    <th>标题</th>
+                                                    <th>状态</th>
+                                                    <th>描述</th>
+													<th>开始时间</th>
+													<th>结束时间</th>
+                                                    <th>操作</th>
+												</tr>
+											</thead>
+											
+											<tbody>
+                                                <%for(let i=0;i < list.length;i++){%>
+                                                    <tr>
+                                                        <td><%=(i+1)%></td>
+                                                        <td><%=list[i].amount%></td>
+                                                        <td><%=list[i].title%></td>
+                                                        <td><%=list[i].status%></td>
+                                                        <td><%=list[i].description%></td>
+                                                        <td><%=list[i].sartTime%></td>
+                                                        <td><%=list[i].endTime%></td>
+                                                        <td class="text-center">
+                                                            <a class="btn btn-sm btn-info" href="/admin/access/edit?id=%>">修改</a>
+                                                            <a class=" btn btn-sm btn-danger delete" href="/admin/access/delete?">删除</a>
+                                                        </td>
+                                                    </tr>
+                                                <%}%>
+											</tfoot>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- state end-->
+					</div>
+
+				</main>
+				<!--main contents end-->
+			</div>
+
+			<!-- Content_right_End -->
+			<!-- Footer -->
+			<%include ../public/footer.html%>
+			<!-- Footer_End -->
+		</div>
+		
+    </body>
+	<script type="text/javascript" src="/public/back/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/popper.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="/public/back/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="/public/back/js/custom.js" type="text/javascript"></script>
+</html>
