@@ -162,6 +162,9 @@ module.exports = app => {
   router.get('/admin/user/delete',controller.admin.user.delete);
   router.get('/admin/user/edit',controller.admin.user.edit);
 
+  //优惠券管理
+  // router.get('/admin/coupons/add')
+
   //更改状态的方法
   router.get('/admin/modal/change-status',controller.admin.base.changeStatus);
 
