@@ -34,6 +34,12 @@ class CouponsController extends BaseController {
         await this.success('/admin/contact','修改联系人成功');
 
     }
+    async delete() {
+        let { id } = this.ctx.query;
+        await this.ctx.model.Coupons.deleteOne({"_id":id});
+        await this.success('/admin/coupons','删除优惠券成功');
+
+    }
     
 }
 

@@ -166,6 +166,7 @@ module.exports = app => {
   router.get('/admin/coupons',controller.admin.coupons.index);
   router.get('/admin/coupons/add',controller.admin.coupons.add);
   router.post('/admin/coupons/doAdd',controller.admin.coupons.doAdd);
+  router.get('/admin/coupons/delete',controller.admin.coupons.delete);
 
   //更改状态的方法
   router.get('/admin/modal/change-status',controller.admin.base.changeStatus);
