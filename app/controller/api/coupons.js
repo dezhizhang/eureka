@@ -1,7 +1,7 @@
 /**
- * @author:zhangdezhi
- * @date:2020-07-18
- * @desc:用户消息
+ * @author:dezhi
+ * @date:2020-12-30
+ * @desc:用户优惠券
 */
 'use strict';
 
@@ -17,7 +17,7 @@ class CouponsController extends Controller {
             }
             return;
         }
-        let list = await this.ctx.model.Message.find();
+        let list = await this.ctx.model.Coupons.find({'openid':openid});
         this.ctx.body = {
             code:200,
             msg:'请求成功',
