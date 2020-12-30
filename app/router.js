@@ -292,6 +292,8 @@ module.exports = app => {
   router.get('/api/address/default',controller.api.address.default);
   //获取用户信息
   router.get('/api/user/message',controller.api.message.index);
+  //获取优惠券
+  router.get('/api/coupons/list',controller.api.coupons.list);
 
 
 
